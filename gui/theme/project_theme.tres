@@ -1,0 +1,22 @@
+[gd_resource type="Theme" format=3 uid="uid://bpwfhtd227bkw"]
+
+[resource]
+HBoxContainer/constants/separation = 8
+KnobGrid/base_type = &"GridContainer"
+KnobGrid/constants/h_separation = 24
+KnobGrid/constants/v_separation = 16
+KnobHBox/base_type = &"HBoxContainer"
+KnobHBox/constants/separation = 24
+KnobsContainer/base_type = &"VBoxContainer"
+KnobsContainer/constants/separation = 12
+PreviewPanel/base_type = &"MarginContainer"
+PreviewPanel/constants/margin_bottom = 8
+PreviewPanel/constants/margin_left = 8
+PreviewPanel/constants/margin_right = 8
+PreviewPanel/constants/margin_top = 8
+VBoxContainer/constants/separation = 8
+VoicePanel/base_type = &"MarginContainer"
+VoicePanel/constants/margin_bottom = 8
+VoicePanel/constants/margin_left = 8
+VoicePanel/constants/margin_right = 8
+VoicePanel/constants/margin_top = 8

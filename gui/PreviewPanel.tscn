@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://8xc2djp24y40"]
+
+[ext_resource type="Script" path="res://gui/PreviewPanel.gd" id="1_iu5lk"]
+[ext_resource type="Script" path="res://gui/PreviewArea.gd" id="2_mpak3"]
+
+[node name="PreviewPanel" type="MarginContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 240.0
+grow_horizontal = 2
+theme_type_variation = &"PreviewPanel"
+script = ExtResource("1_iu5lk")
+
+[node name="Layout" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PreviewArea" type="Control" parent="Layout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 240)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+script = ExtResource("2_mpak3")
+
+[node name="PreviewButton" type="Button" parent="Layout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "CRASH!"

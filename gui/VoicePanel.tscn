@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://byabb6ha5p7xn"]
+
+[ext_resource type="Script" path="res://gui/VoicePanel.gd" id="1_dvwof"]
+
+[node name="VoicePanel" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"VoicePanel"
+script = ExtResource("1_dvwof")
+
+[node name="Layout" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RandomizeButton" type="Button" parent="Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "RANDOMIZE"
+
+[node name="KnobsContainer" type="VBoxContainer" parent="Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"KnobsContainer"

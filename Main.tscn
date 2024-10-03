@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://csvlj30uivol0"]
+
+[ext_resource type="PackedScene" uid="uid://8xc2djp24y40" path="res://gui/PreviewPanel.tscn" id="1_rm57h"]
+[ext_resource type="PackedScene" uid="uid://byabb6ha5p7xn" path="res://gui/VoicePanel.tscn" id="2_tet0f"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PreviewPanel" parent="Layout" instance=ExtResource("1_rm57h")]
+layout_mode = 2
+
+[node name="VoicePanel" parent="Layout" instance=ExtResource("2_tet0f")]
+layout_mode = 2

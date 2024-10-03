@@ -1,0 +1,15 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://b2ssqfkyf0hkl"]
+
+[sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_8drch"]
+resource_name = "SpectrumAnalyzer"
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_oif3u"]
+resource_name = "Compressor"
+threshold = -5.0
+ratio = 16.0
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectSpectrumAnalyzer_8drch")
+bus/0/effect/0/enabled = true
+bus/0/effect/1/effect = SubResource("AudioEffectCompressor_oif3u")
+bus/0/effect/1/enabled = true
