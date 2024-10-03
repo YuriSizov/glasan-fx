@@ -11,6 +11,7 @@ const KNOB_SCENE := preload("res://gui/components/KnobControl.tscn")
 var _voices: Array[Voice] = []
 var _current_voice: Voice = null
 
+@onready var _operator_button: Button = %OperatorButton
 @onready var _randomize_button: Button = %RandomizeButton
 @onready var _knobs_container: VBoxContainer = %KnobsContainer
 
@@ -23,6 +24,12 @@ var _current_voice: Voice = null
 
 
 func _ready() -> void:
+	_operator_button.pressed.connect(func() -> void:
+		if _current_voice:
+			_current_voice.add_operator()
+			_update_knobs()
+	)
+
 	_randomize_button.pressed.connect(func() -> void:
 		if _current_voice:
 			_current_voice.randomize_data()
