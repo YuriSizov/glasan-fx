@@ -42,12 +42,12 @@ func _ready() -> void:
 func _initialize_voice_types() -> void:
 	_voices.resize(6)
 
-	_voices[SiONDriver.CHIP_SIOPM] = Voice.create_siopm_voice()
-	_voices[SiONDriver.CHIP_OPL] = Voice.create_opl_voice()
-	_voices[SiONDriver.CHIP_OPM] = Voice.create_opm_voice()
-	_voices[SiONDriver.CHIP_OPN] = Voice.create_opn_voice()
-	_voices[SiONDriver.CHIP_OPX] = Voice.create_opx_voice()
-	_voices[SiONDriver.CHIP_MA3] = Voice.create_ma3_voice()
+	_voices[SiONDriver.CHIP_SIOPM] = SiOPMVoice.new()
+	_voices[SiONDriver.CHIP_OPL] = OPLVoice.new()
+	_voices[SiONDriver.CHIP_OPM] = OPMVoice.new()
+	_voices[SiONDriver.CHIP_OPN] = OPNVoice.new()
+	_voices[SiONDriver.CHIP_OPX] = OPXVoice.new()
+	_voices[SiONDriver.CHIP_MA3] = MA3Voice.new()
 
 	for voice in _voices:
 		voice.randomize_data()
