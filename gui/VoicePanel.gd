@@ -8,10 +8,18 @@ class_name VoicePanel extends MarginContainer
 
 const KNOB_SCENE := preload("res://gui/components/KnobControl.tscn")
 
+var _voices: Array[Voice] = []
 var _current_voice: Voice = null
 
 @onready var _randomize_button: Button = %RandomizeButton
 @onready var _knobs_container: VBoxContainer = %KnobsContainer
+
+@onready var _siopm_button: Button = %SiOPMButton
+@onready var _opl_button: Button = %OPLButton
+@onready var _opm_button: Button = %OPMButton
+@onready var _opn_button: Button = %OPNButton
+@onready var _opx_button: Button = %OPXButton
+@onready var _ma3_button: Button = %MA3Button
 
 
 func _ready() -> void:
@@ -21,14 +29,42 @@ func _ready() -> void:
 			_update_knobs()
 	)
 
-	_initialize_siopm_voice()
+	_siopm_button.pressed.connect(_switch_voice_type.bind(SiONDriver.CHIP_SIOPM))
+	_opl_button.pressed.connect(_switch_voice_type.bind(SiONDriver.CHIP_OPL))
+	_opm_button.pressed.connect(_switch_voice_type.bind(SiONDriver.CHIP_OPM))
+	_opn_button.pressed.connect(_switch_voice_type.bind(SiONDriver.CHIP_OPN))
+	_opx_button.pressed.connect(_switch_voice_type.bind(SiONDriver.CHIP_OPX))
+	_ma3_button.pressed.connect(_switch_voice_type.bind(SiONDriver.CHIP_MA3))
+
+	_initialize_voice_types()
 
 
-func _initialize_siopm_voice() -> void:
-	_current_voice = Voice.create_siopm_voice(1)
+func _initialize_voice_types() -> void:
+	_voices.resize(6)
+
+	_voices[SiONDriver.CHIP_SIOPM] = Voice.create_siopm_voice()
+	_voices[SiONDriver.CHIP_OPL] = Voice.create_opl_voice()
+	_voices[SiONDriver.CHIP_OPM] = Voice.create_opm_voice()
+	_voices[SiONDriver.CHIP_OPN] = Voice.create_opn_voice()
+	_voices[SiONDriver.CHIP_OPX] = Voice.create_opx_voice()
+	_voices[SiONDriver.CHIP_MA3] = Voice.create_ma3_voice()
+
+	for voice in _voices:
+		voice.randomize_data()
+
+	_current_voice = _voices[0]
 	Controller.voice_manager.set_voice(_current_voice)
 
-	_current_voice.randomize_data()
+	_update_knobs()
+
+
+func _switch_voice_type(type: int) -> void:
+	if type < 0 || type >= _voices.size():
+		return
+
+	_current_voice = _voices[type]
+	Controller.voice_manager.set_voice(_current_voice)
+
 	_update_knobs()
 
 

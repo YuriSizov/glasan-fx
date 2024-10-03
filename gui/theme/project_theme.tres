@@ -20,3 +20,4 @@ VoicePanel/constants/margin_bottom = 8
 VoicePanel/constants/margin_left = 8
 VoicePanel/constants/margin_right = 8
 VoicePanel/constants/margin_top = 8
+VoiceTypeButton/base_type = &"Button"

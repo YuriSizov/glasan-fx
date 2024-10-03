@@ -21,8 +21,52 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "RANDOMIZE"
 
-[node name="KnobsContainer" type="VBoxContainer" parent="Layout"]
-unique_name_in_owner = true
+[node name="VoiceDeck" type="HBoxContainer" parent="Layout"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="KnobsContainer" type="VBoxContainer" parent="Layout/VoiceDeck"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_type_variation = &"KnobsContainer"
+
+[node name="TypesContainer" type="VBoxContainer" parent="Layout/VoiceDeck"]
+layout_mode = 2
+
+[node name="SiOPMButton" type="Button" parent="Layout/VoiceDeck/TypesContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"VoiceTypeButton"
+text = "SIOPM"
+
+[node name="OPLButton" type="Button" parent="Layout/VoiceDeck/TypesContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"VoiceTypeButton"
+text = "OPL"
+
+[node name="OPMButton" type="Button" parent="Layout/VoiceDeck/TypesContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"VoiceTypeButton"
+text = "OPM"
+
+[node name="OPNButton" type="Button" parent="Layout/VoiceDeck/TypesContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"VoiceTypeButton"
+text = "OPN"
+
+[node name="OPXButton" type="Button" parent="Layout/VoiceDeck/TypesContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"VoiceTypeButton"
+text = "OPX"
+
+[node name="MA3Button" type="Button" parent="Layout/VoiceDeck/TypesContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"VoiceTypeButton"
+text = "MA3"
