@@ -12,6 +12,7 @@ const MAX_OPERATORS := 4
 var voice: SiONVoice = SiONVoice.new()
 var data: Array[VoiceKnob] = []:
 	set = set_data
+var volume: VoiceKnob = null
 
 var _channel_param_count: int = 0
 var _operator_param_count: int = 0
@@ -19,14 +20,22 @@ var _update_suspended: bool = false
 
 
 func _init(_op_count: int = 1) -> void:
-	voice.update_volumes = true
-	voice.velocity = int(MAX_VOLUME * 0.75)
+	volume = VoiceKnob.new("VOL", 0, 100)
+	volume.value = 75
+	volume.value_changed.connect(_update_voice_volume)
+	_update_voice_volume()
 
 	var channel := voice.get_channel_params()
 	channel.operator_count = 0
 
 
 # Data management.
+
+func _connect_voice_data() -> void:
+	for knob in data:
+		if not knob.value_changed.is_connected(_update_voice_data):
+			knob.value_changed.connect(_update_voice_data)
+
 
 func _update_voice_data() -> void:
 	if _update_suspended:
@@ -73,6 +82,13 @@ func set_data(value: Array[VoiceKnob]) -> void:
 	_update_voice_data()
 
 
+func _update_voice_volume() -> void:
+	var value := int(MAX_VOLUME * (volume.value / 100.0))
+
+	voice.update_volumes = true
+	voice.velocity = value
+
+
 # Virtual. Must be implemented by extending classes.
 func _add_operator() -> void:
 	pass
@@ -80,6 +96,8 @@ func _add_operator() -> void:
 
 func add_operator() -> void:
 	_add_operator()
+
+	_connect_voice_data()
 	_update_voice_data()
 
 

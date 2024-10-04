@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://8xc2djp24y40"]
+[gd_scene load_steps=4 format=3 uid="uid://8xc2djp24y40"]
 
 [ext_resource type="Script" path="res://gui/PreviewPanel.gd" id="1_iu5lk"]
 [ext_resource type="Script" path="res://gui/PreviewArea.gd" id="2_mpak3"]
+[ext_resource type="PackedScene" uid="uid://kvxy6miofpxj" path="res://gui/components/KnobControl.tscn" id="3_1mn17"]
 
 [node name="PreviewPanel" type="MarginContainer"]
 anchors_preset = 10
@@ -22,10 +23,21 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 script = ExtResource("2_mpak3")
 
-[node name="PreviewButton" type="Button" parent="Layout"]
+[node name="Controls" type="VBoxContainer" parent="Layout"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PreviewButton" type="Button" parent="Layout/Controls"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 36)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
 text = "CRASH!"
+
+[node name="LengthKnob" parent="Layout/Controls" instance=ExtResource("3_1mn17")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="NoteKnob" parent="Layout/Controls" instance=ExtResource("3_1mn17")]
+unique_name_in_owner = true
+layout_mode = 2

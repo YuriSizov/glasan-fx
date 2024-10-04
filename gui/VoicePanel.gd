@@ -8,7 +8,6 @@ class_name VoicePanel extends MarginContainer
 
 const KNOB_SCENE := preload("res://gui/components/KnobControl.tscn")
 
-var _voices: Array[Voice] = []
 var _current_voice: Voice = null
 
 @onready var _operator_button: Button = %OperatorButton
@@ -36,42 +35,19 @@ func _ready() -> void:
 			_update_knobs()
 	)
 
-	_siopm_button.pressed.connect(_switch_voice_type.bind(SiONDriver.CHIP_SIOPM))
-	_opl_button.pressed.connect(_switch_voice_type.bind(SiONDriver.CHIP_OPL))
-	_opm_button.pressed.connect(_switch_voice_type.bind(SiONDriver.CHIP_OPM))
-	_opn_button.pressed.connect(_switch_voice_type.bind(SiONDriver.CHIP_OPN))
-	_opx_button.pressed.connect(_switch_voice_type.bind(SiONDriver.CHIP_OPX))
-	_ma3_button.pressed.connect(_switch_voice_type.bind(SiONDriver.CHIP_MA3))
+	_siopm_button.pressed.connect(Controller.voice_manager.change_voice_type.bind(SiONDriver.CHIP_SIOPM))
+	_opl_button.pressed.connect(Controller.voice_manager.change_voice_type.bind(SiONDriver.CHIP_OPL))
+	_opm_button.pressed.connect(Controller.voice_manager.change_voice_type.bind(SiONDriver.CHIP_OPM))
+	_opn_button.pressed.connect(Controller.voice_manager.change_voice_type.bind(SiONDriver.CHIP_OPN))
+	_opx_button.pressed.connect(Controller.voice_manager.change_voice_type.bind(SiONDriver.CHIP_OPX))
+	_ma3_button.pressed.connect(Controller.voice_manager.change_voice_type.bind(SiONDriver.CHIP_MA3))
 
-	_initialize_voice_types()
-
-
-func _initialize_voice_types() -> void:
-	_voices.resize(6)
-
-	_voices[SiONDriver.CHIP_SIOPM] = SiOPMVoice.new()
-	_voices[SiONDriver.CHIP_OPL] = OPLVoice.new()
-	_voices[SiONDriver.CHIP_OPM] = OPMVoice.new()
-	_voices[SiONDriver.CHIP_OPN] = OPNVoice.new()
-	_voices[SiONDriver.CHIP_OPX] = OPXVoice.new()
-	_voices[SiONDriver.CHIP_MA3] = MA3Voice.new()
-
-	for voice in _voices:
-		voice.randomize_data()
-
-	_current_voice = _voices[0]
-	Controller.voice_manager.set_voice(_current_voice)
-
-	_update_knobs()
+	_edit_current_voice()
+	Controller.voice_manager.voice_changed.connect(_edit_current_voice)
 
 
-func _switch_voice_type(type: int) -> void:
-	if type < 0 || type >= _voices.size():
-		return
-
-	_current_voice = _voices[type]
-	Controller.voice_manager.set_voice(_current_voice)
-
+func _edit_current_voice() -> void:
+	_current_voice = Controller.voice_manager.get_voice_params()
 	_update_knobs()
 
 
@@ -82,6 +58,11 @@ func _update_knobs() -> void:
 	for child_node in _knobs_container.get_children():
 		_knobs_container.remove_child(child_node)
 		child_node.queue_free()
+
+	# Create voice knobs.
+
+	var volume_knob := _create_knob(_current_voice.volume)
+	_knobs_container.add_child(volume_knob)
 
 	# Create channel knobs.
 

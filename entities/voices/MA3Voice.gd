@@ -30,6 +30,9 @@ func _init(op_count: int = 1) -> void:
 	for i in op_count:
 		_add_operator()
 
+	_connect_voice_data()
+	_update_voice_data()
+
 
 func _add_operator() -> void:
 	var operator_index := get_operator_count()

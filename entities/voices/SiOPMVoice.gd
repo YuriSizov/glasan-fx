@@ -31,6 +31,9 @@ func _init(op_count: int = 1) -> void:
 	for i in op_count:
 		_add_operator()
 
+	_connect_voice_data()
+	_update_voice_data()
+
 
 func _add_operator() -> void:
 	var operator_index := get_operator_count()
@@ -78,4 +81,3 @@ func _randomize_data() -> void:
 		op_data[9].randomize_value() # ML
 		op_data[10].randomize_value() # D1
 		op_data[11].randomize_value() # D2
-		op_data[14].randomize_value() # FN

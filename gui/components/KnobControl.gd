@@ -27,9 +27,11 @@ func _update_controls() -> void:
 	_name_label.text = knob_data.label
 	_value_label.text = "%d" % [ knob_data.value ]
 
+	_value_slider.set_block_signals(true)
 	_value_slider.min_value = knob_data.min_value
 	_value_slider.max_value = knob_data.max_value
 	_value_slider.value = knob_data.value
+	_value_slider.set_block_signals(false)
 
 
 func set_knob_data(value: VoiceKnob) -> void:
