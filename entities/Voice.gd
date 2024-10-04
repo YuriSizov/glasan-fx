@@ -114,6 +114,10 @@ func randomize_data() -> void:
 	_update_voice_data()
 
 
+func get_channel_param_count() -> int:
+	return _channel_param_count
+
+
 func get_channel_data() -> Array[VoiceKnob]:
 	var ch_data: Array[VoiceKnob] = []
 
@@ -121,6 +125,10 @@ func get_channel_data() -> Array[VoiceKnob]:
 		ch_data.push_back(data[i])
 
 	return ch_data
+
+
+func get_operator_param_count() -> int:
+	return _operator_param_count
 
 
 func get_operator_count() -> int:

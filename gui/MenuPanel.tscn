@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw6imoh8k58m1"]
+
+[ext_resource type="Script" path="res://gui/MenuPanel.gd" id="1_tuea8"]
+
+[node name="MenuPanel" type="MarginContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_tuea8")
+
+[node name="Layout" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="SaveButton" type="Button" parent="Layout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="Layout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Load"
+
+[node name="ExportButton" type="Button" parent="Layout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Export"
+
+[node name="Filler" type="Control" parent="Layout"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0

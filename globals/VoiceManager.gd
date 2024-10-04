@@ -16,7 +16,7 @@ const MAX_NOTE_VALUE := 127
 const DEFAULT_NOTE_VALUE := 42
 
 ## SiON tool with a bunch of pre-configured voices.
-var _preset_util: SiONVoicePresetUtil = SiONVoicePresetUtil.new()
+var _preset_util: SiONVoicePresetUtil = null
 
 var _driver: SiONDriver = null
 var _voices: Array[Voice] = []
@@ -39,7 +39,8 @@ func _init(controller: Node) -> void:
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_PREDELETE:
-		_preset_util.free()
+		if is_instance_valid(_preset_util):
+			_preset_util.free()
 
 
 func _initialize_driver() -> void:
