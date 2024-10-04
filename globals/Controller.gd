@@ -65,15 +65,15 @@ func _finalize_file_dialog() -> void:
 # IO management.
 
 func save_to_file() -> void:
-	var save_dialog := Controller.get_file_dialog()
+	var save_dialog := get_file_dialog()
 	save_dialog.file_mode = FileDialog.FILE_MODE_SAVE_FILE
-	save_dialog.title = "Save Effect Configuration"
-	save_dialog.add_filter("*.glas", "Glasan Effect File")
+	save_dialog.title = "Save SFX Configuration"
+	save_dialog.add_filter("*.glas", "Glasan SFX File")
 	save_dialog.add_filter("*.sivoice", "GDSiON Voice Preset")
 	save_dialog.current_file = ""
 	save_dialog.file_selected.connect(_save_to_file_confirmed, CONNECT_ONE_SHOT)
 
-	Controller.show_file_dialog(save_dialog)
+	show_file_dialog(save_dialog)
 
 
 func _save_to_file_confirmed(path: String) -> void:
@@ -93,35 +93,65 @@ func _save_to_file_confirmed(path: String) -> void:
 			printerr("Controller: Unsupported file extension '.%s'" % [ extension ])
 
 	if not success:
-		printerr("Controller: Failed to save the effect to file.")
+		printerr("Controller: Failed to save the SFX to a file.")
 
 
 func load_from_file() -> void:
-	var load_dialog := Controller.get_file_dialog()
+	var load_dialog := get_file_dialog()
 	load_dialog.file_mode = FileDialog.FILE_MODE_OPEN_FILE
-	load_dialog.title = "Load Effect Configuration"
-	load_dialog.add_filter("*.glas", "Glasan Effect File")
+	load_dialog.title = "Load SFX Configuration"
+	load_dialog.add_filter("*.glas", "Glasan SFX File")
 	load_dialog.add_filter("*.sivoice", "GDSiON Voice Preset")
 	load_dialog.current_file = ""
 	load_dialog.file_selected.connect(_load_from_file_confirmed, CONNECT_ONE_SHOT)
 
-	Controller.show_file_dialog(load_dialog)
+	show_file_dialog(load_dialog)
 
 
 func _load_from_file_confirmed(path: String) -> void:
-	pass
+	if path.is_empty():
+		return
+
+	var extension := path.get_extension()
+	var success := false
+
+	match extension:
+		GlasSaver.FILE_EXTENSION:
+			success = GlasLoader.load(path)
+		SiVoiceSaver.FILE_EXTENSION:
+			success = SiVoiceLoader.load(path)
+
+		_:
+			printerr("Controller: Unsupported file extension '.%s'" % [ extension ])
+
+	if not success:
+		printerr("Controller: Failed to load the SFX from a file.")
 
 
 func export_sample() -> void:
-	var export_dialog := Controller.get_file_dialog()
+	var export_dialog := get_file_dialog()
 	export_dialog.file_mode = FileDialog.FILE_MODE_SAVE_FILE
-	export_dialog.title = "Export Effect"
+	export_dialog.title = "Export SFX"
 	export_dialog.add_filter("*.wav", "Waveform Audio File")
 	export_dialog.current_file = ""
 	export_dialog.file_selected.connect(_export_sample_confirmed, CONNECT_ONE_SHOT)
 
-	Controller.show_file_dialog(export_dialog)
+	show_file_dialog(export_dialog)
 
 
 func _export_sample_confirmed(path: String) -> void:
 	pass
+
+
+# Edited data management.
+
+func edit_sfx(sample: Sample, voice: Voice) -> void:
+	if not sample && (not voice || not voice.voice):
+		return
+
+	if sample:
+		voice_manager.set_sample_params(sample)
+
+	if voice:
+		voice_manager.replace_voice_params(voice)
+		voice_manager.change_voice_type(voice.voice.get_chip_type())

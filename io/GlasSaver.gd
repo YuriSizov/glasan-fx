@@ -9,13 +9,16 @@ class_name GlasSaver extends RefCounted
 const FILE_EXTENSION := "glas"
 
 const FORMAT_HINT := "GLAS" # Hopefully nobody uses this :)
-const FORMAT_VERSION_MAJOR := 1
-const FORMAT_VERSION_MINOR := 1
+const SECTION_SAMPLE_HINT := "smpl"
+const SECTION_VOICE_HINT := "voic"
+
+const FORMAT_VERSION_MAJOR := 1 # Changes when forward compatibility breaks.
+const FORMAT_VERSION_MINOR := 1 # Changes when new data is added without breaking forward compatibility.
 
 
 static func save(path: String) -> bool:
 	if path.get_extension() != FILE_EXTENSION:
-		printerr("GlasSaver: The effect file must have a .%s extension." % [ FILE_EXTENSION ])
+		printerr("GlasSaver: The SFX file must have a .%s extension." % [ FILE_EXTENSION ])
 		return false
 
 	var file := FileAccess.open(path, FileAccess.WRITE)
@@ -57,7 +60,7 @@ static func _write_file() -> PackedByteArray:
 
 	# Sample params section.
 
-	ByteArrayUtil.write_string(buffer, "smpl")
+	ByteArrayUtil.write_string(buffer, SECTION_SAMPLE_HINT)
 
 	var sample_section := _write_sample_section(sample_params)
 	ByteArrayUtil.write_uint16(buffer, sample_section.size())
@@ -65,7 +68,7 @@ static func _write_file() -> PackedByteArray:
 
 	# Voice params section.
 
-	ByteArrayUtil.write_string(buffer, "voic")
+	ByteArrayUtil.write_string(buffer, SECTION_VOICE_HINT)
 
 	var voice_section := _write_voice_section(voice_params)
 	ByteArrayUtil.write_uint16(buffer, voice_section.size())

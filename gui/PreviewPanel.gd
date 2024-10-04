@@ -17,6 +17,7 @@ func _ready() -> void:
 	_preview_button.pressed.connect(_play_sample)
 
 	_edit_current_sample()
+	Controller.voice_manager.sample_changed.connect(_edit_current_sample)
 
 
 func _edit_current_sample() -> void:

@@ -7,6 +7,7 @@
 class_name VoiceManager extends RefCounted
 
 signal voice_changed()
+signal sample_changed()
 
 const MIN_NOTE_LENGTH := 2
 const MAX_NOTE_LENGTH := 16
@@ -88,6 +89,17 @@ func set_voice_params(voice: Voice) -> void:
 	voice_changed.emit()
 
 
+func replace_voice_params(voice: Voice) -> void:
+	if not voice || not voice.voice:
+		return
+
+	var type := voice.voice.get_chip_type()
+	if type < 0 || type >= _voices.size():
+		return
+
+	_voices[type] = voice
+
+
 func change_voice_type(type: int) -> void:
 	if type < 0 || type >= _voices.size():
 		return
@@ -100,6 +112,11 @@ func change_voice_type(type: int) -> void:
 
 func get_sample_params() -> Sample:
 	return _current_sample
+
+
+func set_sample_params(sample: Sample) -> void:
+	_current_sample = sample
+	sample_changed.emit()
 
 
 func play_sample() -> void:
