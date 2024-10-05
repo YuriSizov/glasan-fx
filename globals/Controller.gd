@@ -140,7 +140,22 @@ func export_sample() -> void:
 
 
 func _export_sample_confirmed(path: String) -> void:
-	pass
+	if path.is_empty():
+		return
+
+	var extension := path.get_extension()
+	var success := false
+
+	match extension:
+		WavExporter.FILE_EXTENSION:
+			success = WavExporter.export(path)
+
+		_:
+			printerr("Controller: Unsupported file extension '.%s'" % [ extension ])
+
+	if not success:
+		printerr("Controller: Failed to export the SFX.")
+
 
 
 # Edited data management.
