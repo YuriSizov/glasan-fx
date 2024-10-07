@@ -15,53 +15,53 @@ content_margin_right = 8.0
 content_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixie7"]
-content_margin_left = 12.0
+content_margin_left = 16.0
 content_margin_top = 6.0
-content_margin_right = 12.0
+content_margin_right = 16.0
 content_margin_bottom = 6.0
 bg_color = Color(0.400693, 0.417399, 0.452956, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+border_width_left = 12
+border_width_top = 4
+border_width_right = 12
+border_width_bottom = 4
 border_color = Color(0.260702, 0.274404, 0.296201, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fxpf7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10qux"]
-content_margin_left = 12.0
+content_margin_left = 16.0
 content_margin_top = 6.0
-content_margin_right = 12.0
+content_margin_right = 16.0
 content_margin_bottom = 6.0
 bg_color = Color(0.221686, 0.232897, 0.256783, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+border_width_left = 12
+border_width_top = 4
+border_width_right = 12
+border_width_bottom = 4
 border_color = Color(0.608388, 0.627438, 0.657743, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ume67"]
-content_margin_left = 12.0
+content_margin_left = 16.0
 content_margin_top = 6.0
-content_margin_right = 12.0
+content_margin_right = 16.0
 content_margin_bottom = 6.0
 bg_color = Color(0.146858, 0.155182, 0.172919, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+border_width_left = 12
+border_width_top = 4
+border_width_right = 12
+border_width_bottom = 4
 border_color = Color(0.517507, 0.537297, 0.568779, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3cfq"]
-content_margin_left = 12.0
+content_margin_left = 16.0
 content_margin_top = 6.0
-content_margin_right = 12.0
+content_margin_right = 16.0
 content_margin_bottom = 6.0
 bg_color = Color(0.0932941, 0.0994575, 0.112592, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+border_width_left = 12
+border_width_top = 4
+border_width_right = 12
+border_width_bottom = 4
 border_color = Color(0.517507, 0.537297, 0.568779, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_psxw5"]

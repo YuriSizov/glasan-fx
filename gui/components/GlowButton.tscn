@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://gprht0fu6hyh"]
+
+[ext_resource type="Script" path="res://gui/components/GlowButton.gd" id="1_4l6pn"]
+[ext_resource type="Shader" path="res://gui/components/GlowButton.gdshader" id="1_31jaw"]
+[ext_resource type="Shader" path="res://gui/components/GlowLabel.gdshader" id="3_7caes"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vlcl6"]
+resource_local_to_scene = true
+shader = ExtResource("1_31jaw")
+shader_parameter/main_color = Color(0.232731, 0.00671653, 0.00556408, 1)
+shader_parameter/back_color = Color(0, 0, 0, 1)
+shader_parameter/light_color = Color(1, 1, 1, 0.160784)
+shader_parameter/global_shine = 0.642
+shader_parameter/side_edge_shine = 1.743
+shader_parameter/rim_factor = 0.8
+shader_parameter/rim_thickness = 0.076
+shader_parameter/rim_smoothness = 1.018
+shader_parameter/vignette_center = 40.554
+shader_parameter/vignette_rim = 0.667
+shader_parameter/vignette_intensity = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30d8b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_evuh8"]
+resource_local_to_scene = true
+shader = ExtResource("3_7caes")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/intensity = 0.0
+
+[node name="GlowButton" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 81.0
+offset_bottom = 32.0
+toggle_mode = true
+text = "TEXT"
+script = ExtResource("1_4l6pn")
+
+[node name="Panel" type="Panel" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_vlcl6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_30d8b")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_evuh8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.625597, 0.625597, 0.625597, 1)
+text = "TEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
