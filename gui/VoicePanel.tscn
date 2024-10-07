@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://gui/VoicePanel.gd" id="1_dvwof"]
 
-[node name="VoicePanel" type="MarginContainer"]
+[node name="VoicePanel" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -18,46 +18,52 @@ size_flags_vertical = 3
 [node name="VoiceDeck" type="HBoxContainer" parent="Layout"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 0
 
 [node name="DeckContainer" type="PanelContainer" parent="Layout/VoiceDeck"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"VoiceDeckContainer"
 
-[node name="TypesContainer" type="VBoxContainer" parent="Layout/VoiceDeck"]
+[node name="TypesContainer" type="PanelContainer" parent="Layout/VoiceDeck"]
+layout_mode = 2
+theme_type_variation = &"VoiceTypesContainer"
+
+[node name="Layout" type="VBoxContainer" parent="Layout/VoiceDeck/TypesContainer"]
 layout_mode = 2
 
-[node name="SiOPMButton" type="Button" parent="Layout/VoiceDeck/TypesContainer"]
+[node name="SiOPMButton" type="Button" parent="Layout/VoiceDeck/TypesContainer/Layout"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"VoiceTypeButton"
 text = "SIOPM"
 
-[node name="OPLButton" type="Button" parent="Layout/VoiceDeck/TypesContainer"]
+[node name="OPLButton" type="Button" parent="Layout/VoiceDeck/TypesContainer/Layout"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"VoiceTypeButton"
 text = "OPL"
 
-[node name="OPMButton" type="Button" parent="Layout/VoiceDeck/TypesContainer"]
+[node name="OPMButton" type="Button" parent="Layout/VoiceDeck/TypesContainer/Layout"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"VoiceTypeButton"
 text = "OPM"
 
-[node name="OPNButton" type="Button" parent="Layout/VoiceDeck/TypesContainer"]
+[node name="OPNButton" type="Button" parent="Layout/VoiceDeck/TypesContainer/Layout"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"VoiceTypeButton"
 text = "OPN"
 
-[node name="OPXButton" type="Button" parent="Layout/VoiceDeck/TypesContainer"]
+[node name="OPXButton" type="Button" parent="Layout/VoiceDeck/TypesContainer/Layout"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"VoiceTypeButton"
 text = "OPX"
 
-[node name="MA3Button" type="Button" parent="Layout/VoiceDeck/TypesContainer"]
+[node name="MA3Button" type="Button" parent="Layout/VoiceDeck/TypesContainer/Layout"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"VoiceTypeButton"

@@ -4,7 +4,7 @@
 # Provided under MIT                              #
 ###################################################
 
-class_name PreviewPanel extends MarginContainer
+class_name PreviewPanel extends PanelContainer
 
 var _current_sample: Sample = null
 

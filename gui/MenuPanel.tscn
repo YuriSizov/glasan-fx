@@ -2,37 +2,43 @@
 
 [ext_resource type="Script" path="res://gui/MenuPanel.gd" id="1_tuea8"]
 
-[node name="MenuPanel" type="MarginContainer"]
+[node name="MenuPanel" type="PanelContainer"]
 anchors_preset = 10
 anchor_right = 1.0
+offset_bottom = 32.0
 grow_horizontal = 2
+theme_type_variation = &"MenuPanel"
 script = ExtResource("1_tuea8")
 
 [node name="Layout" type="HBoxContainer" parent="."]
 layout_mode = 2
+alignment = 2
+
+[node name="Filler" type="Control" parent="Layout"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
 
 [node name="SaveButton" type="Button" parent="Layout"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Save"
+theme_type_variation = &"MenuPanelButton"
+text = "SAVE"
 
 [node name="LoadButton" type="Button" parent="Layout"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Load"
+theme_type_variation = &"MenuPanelButton"
+text = "LOAD"
 
 [node name="ExportButton" type="Button" parent="Layout"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Export"
-
-[node name="Filler" type="Control" parent="Layout"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
+theme_type_variation = &"MenuPanelButton"
+text = "EXPORT"

@@ -4,7 +4,7 @@
 # Provided under MIT                              #
 ###################################################
 
-class_name VoicePanel extends MarginContainer
+class_name VoicePanel extends PanelContainer
 
 const GENERIC_DECK_SCENE := preload("res://gui/voices/GenericVoiceDeck.tscn")
 

@@ -13,7 +13,10 @@ var voice: Voice = null:
 
 @onready var _operator_button: Button = %OperatorButton
 @onready var _randomize_button: Button = %RandomizeButton
-@onready var _knobs_container: VBoxContainer = %Knobs
+
+@onready var _volume_knob_control: KnobControl = %VolumeKnob
+@onready var _channel_knobs_container: VBoxContainer = %ChannelKnobs
+@onready var _operator_knobs_container: VBoxContainer = %OperatorKnobs
 
 
 func _ready() -> void:
@@ -49,17 +52,18 @@ func _update_knobs() -> void:
 	if not is_inside_tree():
 		return
 
+	_volume_knob_control.knob_data = voice.volume
+
 	# Remove all existing knobs.
 	# FIXME: This is pretty unnecessary, unless the voice itself changes. Should be just an update.
 
-	for child_node in _knobs_container.get_children():
-		_knobs_container.remove_child(child_node)
+	for child_node in _channel_knobs_container.get_children():
+		_channel_knobs_container.remove_child(child_node)
 		child_node.queue_free()
 
-	# Create voice knobs.
-
-	var volume_knob := _create_knob(voice.volume)
-	_knobs_container.add_child(volume_knob)
+	for child_node in _operator_knobs_container.get_children():
+		_operator_knobs_container.remove_child(child_node)
+		child_node.queue_free()
 
 	# Create channel knobs.
 
@@ -67,11 +71,11 @@ func _update_knobs() -> void:
 
 	var channel_label := Label.new()
 	channel_label.text = "CHANNEL KNOBS"
-	_knobs_container.add_child(channel_label)
+	_channel_knobs_container.add_child(channel_label)
 
 	var channel_box := HBoxContainer.new()
 	channel_box.theme_type_variation = "KnobHBox"
-	_knobs_container.add_child(channel_box)
+	_channel_knobs_container.add_child(channel_box)
 
 	for i in channel_data.size():
 		var knob_data := channel_data[i]
@@ -85,12 +89,12 @@ func _update_knobs() -> void:
 
 		var operator_label := Label.new()
 		operator_label.text = "OPERATOR #%d KNOBS" % [ i + 1 ]
-		_knobs_container.add_child(operator_label)
+		_operator_knobs_container.add_child(operator_label)
 
 		var operator_box := GridContainer.new()
 		operator_box.columns = 3
 		operator_box.theme_type_variation = "KnobGrid"
-		_knobs_container.add_child(operator_box)
+		_operator_knobs_container.add_child(operator_box)
 
 		for j in operator_data.size():
 			var knob_data := operator_data[j]

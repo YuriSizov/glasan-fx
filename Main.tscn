@@ -1,24 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://csvlj30uivol0"]
+[gd_scene load_steps=6 format=3 uid="uid://csvlj30uivol0"]
 
+[ext_resource type="PackedScene" uid="uid://dytaho2ekhxdh" path="res://gui/BrandingPanel.tscn" id="1_c3g5b"]
+[ext_resource type="Script" path="res://Main.gd" id="1_lckxc"]
 [ext_resource type="PackedScene" uid="uid://8xc2djp24y40" path="res://gui/PreviewPanel.tscn" id="1_rm57h"]
 [ext_resource type="PackedScene" uid="uid://dw6imoh8k58m1" path="res://gui/MenuPanel.tscn" id="1_vjtat"]
 [ext_resource type="PackedScene" uid="uid://byabb6ha5p7xn" path="res://gui/VoicePanel.tscn" id="2_tet0f"]
 
-[node name="Main" type="Control"]
-layout_mode = 3
+[node name="Main" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_lckxc")
 
 [node name="Layout" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+
+[node name="BrandingPanel" parent="Layout" instance=ExtResource("1_c3g5b")]
+layout_mode = 2
 
 [node name="MenuPanel" parent="Layout" instance=ExtResource("1_vjtat")]
 layout_mode = 2
@@ -28,3 +32,4 @@ layout_mode = 2
 
 [node name="VoicePanel" parent="Layout" instance=ExtResource("2_tet0f")]
 layout_mode = 2
+size_flags_vertical = 3

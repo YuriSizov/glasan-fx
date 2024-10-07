@@ -4,14 +4,15 @@
 # Provided under MIT                              #
 ###################################################
 
+@tool
 extends Control
 
 const VU_COUNT := 24
 const FREQ_MAX := 11050.0
 const MIN_DB := 60
 
-const RENDER_SCALE := 0.75
-const SPACE_WIDTH := 8
+const RENDER_SCALE := 0.95
+const SPACE_WIDTH := 4
 const LOW_COLOR := Color.SEA_GREEN
 const HIGH_COLOR := Color.ORANGE_RED
 const RENDER_LERP := 0.2
@@ -37,6 +38,9 @@ func _process(_delta: float) -> void:
 
 
 func _draw() -> void:
+	var background_panel := get_theme_stylebox("panel")
+	draw_style_box(background_panel, Rect2(Vector2.ZERO, size))
+
 	if not _audio_spectrum:
 		return
 

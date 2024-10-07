@@ -4,7 +4,7 @@
 # Provided under MIT                              #
 ###################################################
 
-class_name MenuPanel extends MarginContainer
+class_name MenuPanel extends PanelContainer
 
 @onready var _save_button: Button = %SaveButton
 @onready var _load_button: Button = %LoadButton

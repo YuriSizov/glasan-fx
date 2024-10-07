@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dytaho2ekhxdh"]
+
+[node name="BrandingPanel" type="HBoxContainer"]
+theme_override_constants/separation = 0
+
+[node name="DashesLabel" type="Label" parent="."]
+layout_mode = 2
+theme_type_variation = &"BrandingLabel"
+theme_override_colors/font_color = Color(0.971665, 0.949936, 0.896125, 1)
+text = "|||"
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 2
+theme_type_variation = &"BrandingLabel"
+theme_override_colors/font_color = Color(0.91321, 0.372197, 0.302039, 1)
+text = "GLASAN"
+
+[node name="SubtitleLabel" type="Label" parent="."]
+layout_mode = 2
+theme_type_variation = &"BrandingLabel"
+theme_override_colors/font_color = Color(0.273091, 0.271626, 0.28358, 1)
+text = "FX"

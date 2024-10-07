@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dv608rynpxip0"]
+[gd_scene load_steps=3 format=3 uid="uid://dv608rynpxip0"]
 
 [ext_resource type="Script" path="res://gui/voices/GenericVoiceDeck.gd" id="1_de763"]
+[ext_resource type="PackedScene" uid="uid://kvxy6miofpxj" path="res://gui/components/KnobControl.tscn" id="2_6j5ow"]
 
 [node name="GenericVoiceDeck" type="PanelContainer"]
 anchors_preset = 15
@@ -8,27 +9,56 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_type_variation = &"GenericVoiceDeck"
 script = ExtResource("1_de763")
 
 [node name="Layout" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="Buttons" type="HBoxContainer" parent="Layout"]
+[node name="VoiceControls" type="HBoxContainer" parent="Layout"]
 layout_mode = 2
 alignment = 1
 
-[node name="OperatorButton" type="Button" parent="Layout/Buttons"]
+[node name="VolumeKnob" parent="Layout/VoiceControls" instance=ExtResource("2_6j5ow")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+
+[node name="Filler" type="Control" parent="Layout/VoiceControls"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RandomizeButton" type="Button" parent="Layout/VoiceControls"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "RANDOMIZE"
+
+[node name="ChannelKnobs" type="VBoxContainer" parent="Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Layout"]
+custom_minimum_size = Vector2(0, 320)
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Layout/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 12
+
+[node name="OperatorKnobs" type="VBoxContainer" parent="Layout/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="OperatorButton" type="Button" parent="Layout"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "ADD OPERATOR"
-
-[node name="RandomizeButton" type="Button" parent="Layout/Buttons"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-text = "RANDOMIZE"
-
-[node name="Knobs" type="VBoxContainer" parent="Layout"]
-unique_name_in_owner = true
-layout_mode = 2
