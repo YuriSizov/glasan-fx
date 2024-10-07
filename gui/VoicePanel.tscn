@@ -15,32 +15,14 @@ script = ExtResource("1_dvwof")
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Buttons" type="HBoxContainer" parent="Layout"]
-layout_mode = 2
-alignment = 1
-
-[node name="OperatorButton" type="Button" parent="Layout/Buttons"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-text = "ADD OPERATOR"
-
-[node name="RandomizeButton" type="Button" parent="Layout/Buttons"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-text = "RANDOMIZE"
-
 [node name="VoiceDeck" type="HBoxContainer" parent="Layout"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="KnobsContainer" type="VBoxContainer" parent="Layout/VoiceDeck"]
+[node name="DeckContainer" type="PanelContainer" parent="Layout/VoiceDeck"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_type_variation = &"KnobsContainer"
 
 [node name="TypesContainer" type="VBoxContainer" parent="Layout/VoiceDeck"]
 layout_mode = 2
