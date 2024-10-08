@@ -20,10 +20,10 @@ content_margin_top = 6.0
 content_margin_right = 16.0
 content_margin_bottom = 6.0
 bg_color = Color(0.400693, 0.417399, 0.452956, 1)
-border_width_left = 12
-border_width_top = 4
-border_width_right = 12
-border_width_bottom = 4
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color(0.260702, 0.274404, 0.296201, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fxpf7"]
@@ -34,10 +34,10 @@ content_margin_top = 6.0
 content_margin_right = 16.0
 content_margin_bottom = 6.0
 bg_color = Color(0.221686, 0.232897, 0.256783, 1)
-border_width_left = 12
-border_width_top = 4
-border_width_right = 12
-border_width_bottom = 4
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color(0.608388, 0.627438, 0.657743, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ume67"]
@@ -46,10 +46,10 @@ content_margin_top = 6.0
 content_margin_right = 16.0
 content_margin_bottom = 6.0
 bg_color = Color(0.146858, 0.155182, 0.172919, 1)
-border_width_left = 12
-border_width_top = 4
-border_width_right = 12
-border_width_bottom = 4
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color(0.517507, 0.537297, 0.568779, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3cfq"]
@@ -58,10 +58,10 @@ content_margin_top = 6.0
 content_margin_right = 16.0
 content_margin_bottom = 6.0
 bg_color = Color(0.0932941, 0.0994575, 0.112592, 1)
-border_width_left = 12
-border_width_top = 4
-border_width_right = 12
-border_width_bottom = 4
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color(0.517507, 0.537297, 0.568779, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_psxw5"]
@@ -233,6 +233,11 @@ Button/styles/normal = SubResource("StyleBoxFlat_ume67")
 Button/styles/pressed = SubResource("StyleBoxFlat_e3cfq")
 GenericVoiceDeck/base_type = &"PanelContainer"
 GenericVoiceDeck/styles/panel = SubResource("StyleBoxEmpty_psxw5")
+GlowButton/base_type = &"Button"
+GlowButton/colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
+GlowButton/colors/font_pressed_color = Color(1, 1, 1, 1)
+GlowButton/colors/off_back_color = Color(0, 0, 0, 1)
+GlowButton/constants/on_label_intensity = 65
 HBoxContainer/constants/separation = 8
 HSlider/icons/grabber = SubResource("Texture2D_dd775")
 HSlider/icons/grabber_disabled = SubResource("Texture2D_i7hji")

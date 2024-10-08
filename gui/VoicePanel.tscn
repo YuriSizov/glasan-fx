@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://byabb6ha5p7xn"]
+[gd_scene load_steps=4 format=3 uid="uid://byabb6ha5p7xn"]
 
 [ext_resource type="Script" path="res://gui/VoicePanel.gd" id="1_dvwof"]
+[ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="2_xo0yg"]
+[ext_resource type="ButtonGroup" uid="uid://o0n7hp4kf7hg" path="res://gui/voice_type_buttons.tres" id="3_s2xi8"]
 
 [node name="VoicePanel" type="PanelContainer"]
 anchors_preset = 15
@@ -33,38 +35,39 @@ theme_type_variation = &"VoiceTypesContainer"
 [node name="Layout" type="VBoxContainer" parent="Layout/VoiceDeck/TypesContainer"]
 layout_mode = 2
 
-[node name="SiOPMButton" type="Button" parent="Layout/VoiceDeck/TypesContainer/Layout"]
+[node name="SiOPMButton" parent="Layout/VoiceDeck/TypesContainer/Layout" instance=ExtResource("2_xo0yg")]
 unique_name_in_owner = true
 layout_mode = 2
-theme_type_variation = &"VoiceTypeButton"
+button_pressed = true
+button_group = ExtResource("3_s2xi8")
 text = "SIOPM"
 
-[node name="OPLButton" type="Button" parent="Layout/VoiceDeck/TypesContainer/Layout"]
+[node name="OPLButton" parent="Layout/VoiceDeck/TypesContainer/Layout" instance=ExtResource("2_xo0yg")]
 unique_name_in_owner = true
 layout_mode = 2
-theme_type_variation = &"VoiceTypeButton"
+button_group = ExtResource("3_s2xi8")
 text = "OPL"
 
-[node name="OPMButton" type="Button" parent="Layout/VoiceDeck/TypesContainer/Layout"]
+[node name="OPMButton" parent="Layout/VoiceDeck/TypesContainer/Layout" instance=ExtResource("2_xo0yg")]
 unique_name_in_owner = true
 layout_mode = 2
-theme_type_variation = &"VoiceTypeButton"
+button_group = ExtResource("3_s2xi8")
 text = "OPM"
 
-[node name="OPNButton" type="Button" parent="Layout/VoiceDeck/TypesContainer/Layout"]
+[node name="OPNButton" parent="Layout/VoiceDeck/TypesContainer/Layout" instance=ExtResource("2_xo0yg")]
 unique_name_in_owner = true
 layout_mode = 2
-theme_type_variation = &"VoiceTypeButton"
+button_group = ExtResource("3_s2xi8")
 text = "OPN"
 
-[node name="OPXButton" type="Button" parent="Layout/VoiceDeck/TypesContainer/Layout"]
+[node name="OPXButton" parent="Layout/VoiceDeck/TypesContainer/Layout" instance=ExtResource("2_xo0yg")]
 unique_name_in_owner = true
 layout_mode = 2
-theme_type_variation = &"VoiceTypeButton"
+button_group = ExtResource("3_s2xi8")
 text = "OPX"
 
-[node name="MA3Button" type="Button" parent="Layout/VoiceDeck/TypesContainer/Layout"]
+[node name="MA3Button" parent="Layout/VoiceDeck/TypesContainer/Layout" instance=ExtResource("2_xo0yg")]
 unique_name_in_owner = true
 layout_mode = 2
-theme_type_variation = &"VoiceTypeButton"
+button_group = ExtResource("3_s2xi8")
 text = "MA3"
