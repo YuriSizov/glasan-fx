@@ -27,15 +27,15 @@ void fragment() {
 	float aspect_ratio = button_size.x / button_size.y;
 	aspect_ratio /= horizontal_incline;
 	vec2 uv = (UV - 0.5);
-	
+
 	vec2 square_uv = vec2(
 		sign(uv.x) * clamp(abs(uv.x) * aspect_ratio - 0.5 * (aspect_ratio - 1.0), 0.0, 0.5),
 		uv.y
 	);
-	
+
 	// First we build a color mask (a grayscale value defining areas for colorization later).
 	float color_mask = 0.0;
-	
+
 	// Add an edge shine for sides.
 	float side_edge = min(abs(square_uv.x), abs(square_uv.y));
 	// Adjust the cone of the edge shine.
@@ -46,26 +46,26 @@ void fragment() {
 	side_edge = colorize_mask(side_shadow, 0.0, side_edge);
 	//
 	color_mask += side_edge;
-	
+
 	// Calculate the rough top side mask.
 	float square_mask = 0.55 - max(abs(square_uv.x), abs(square_uv.y));
 	square_mask = smoothstep(0.0, base_incline, square_mask);
 	// Add the rough top side mask for extra shine.
 	color_mask += square_mask * top_shine;
-	
+
 	// Adjust the intensity.
 	color_mask = smoothstep(0.0, 1.0 / global_shine, color_mask);
-	
+
 	// Add a main color layer to the top side.
 	float top_mask = smoothstep(0.96, 1.0, square_mask);
 	color_mask = colorize_mask(top_mask, 1.0, color_mask);
-	
+
 	// Normalize the color mask.
 	color_mask = clamp(color_mask, 0.0, 1.0);
-	
+
 	// Use the color mask to generate the base output color.
 	vec3 output_color = main_color * color_mask + back_color * (1.0 - color_mask);
-	
+
 	// Prepare the light/shade mask.
 	float light_mask = smoothstep(0.0, side_edge_smoothness, square_uv.y + square_uv.x + side_edge_smoothness / 2.0);
 	light_mask = colorize_mask(top_mask, 0.0, 1.0 - light_mask);

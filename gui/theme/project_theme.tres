@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=32 format=3 uid="uid://bpwfhtd227bkw"]
+[gd_resource type="Theme" load_steps=33 format=3 uid="uid://bpwfhtd227bkw"]
 
 [ext_resource type="FontFile" uid="uid://cjwuh3bvsqt57" path="res://assets/fonts/fff-aquarius-bold-condensed.msdf.ttf" id="1_67pkc"]
 [ext_resource type="Script" path="res://gui/theme/StyleTexture.gd" id="1_fj6h5"]
@@ -169,6 +169,8 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.305054, 0.377116, 0.394177, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2hmum"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfoxt"]
 bg_color = Color(0.455957, 0.471997, 0.516594, 1)
 
@@ -263,6 +265,8 @@ PreviewPanel/constants/margin_left = 8
 PreviewPanel/constants/margin_right = 8
 PreviewPanel/constants/margin_top = 8
 PreviewPanel/styles/panel = SubResource("StyleBoxFlat_tibav")
+RollerKnob/base_type = &"PanelContainer"
+RollerKnob/styles/panel = SubResource("StyleBoxEmpty_2hmum")
 VBoxContainer/constants/separation = 8
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_xfoxt")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_sntoc")
