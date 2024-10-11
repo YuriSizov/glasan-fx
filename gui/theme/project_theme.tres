@@ -169,7 +169,21 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.305054, 0.377116, 0.394177, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2hmum"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jo2q"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.143257, 0.114981, 0.079571, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.242927, 0.235975, 0.269976, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfoxt"]
 bg_color = Color(0.455957, 0.471997, 0.516594, 1)
@@ -266,7 +280,11 @@ PreviewPanel/constants/margin_right = 8
 PreviewPanel/constants/margin_top = 8
 PreviewPanel/styles/panel = SubResource("StyleBoxFlat_tibav")
 RollerKnob/base_type = &"PanelContainer"
-RollerKnob/styles/panel = SubResource("StyleBoxEmpty_2hmum")
+RollerKnob/colors/label_color = Color(0.804876, 0.808981, 0.820208, 1)
+RollerKnob/colors/unsafe_margin_color = Color(0.410206, 0.109915, 0.0680521, 1)
+RollerKnob/colors/value_color = Color(0.831535, 0.772145, 0.613004, 1)
+RollerKnob/font_sizes/value_size = 12
+RollerKnob/styles/panel = SubResource("StyleBoxFlat_5jo2q")
 VBoxContainer/constants/separation = 8
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_xfoxt")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_sntoc")

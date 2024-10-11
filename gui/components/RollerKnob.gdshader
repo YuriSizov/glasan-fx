@@ -5,25 +5,31 @@ shader_type canvas_item;
 uniform float scroll: hint_range(-2.0, 2.0) = 0.0;
 uniform vec3 base_color: source_color = vec3(1.0);
 
+group_uniforms markings;
 uniform float markings_frequency: hint_range(0.0, 50.0) = 10.0;
 uniform float markings_spread: hint_range(0.0, 1.0) = 0.5;
+uniform float markings_offset: hint_range(-2.0, 2.0) = 0.0;
 uniform float markings_band: hint_range(0.0, 100.0) = 1.0;
+uniform float markings_band_offset: hint_range(-1.0, 1.0) = 0.0;
+uniform float markings_main_band: hint_range(0.0, 100.0) = 1.0;
+uniform float markings_main_band_offset: hint_range(-1.0, 1.0) = 0.0;
 uniform vec2 markings_band_sharpness = vec2(0.01, 0.02);
 uniform vec3 markings_color: source_color = vec3(1.0);
 uniform vec3 markings_main_color: source_color = vec3(1.0);
 
+group_uniforms notches;
 uniform float notches_frequency: hint_range(0.0, 30.0) = 10.0;
 uniform float notches_scale: hint_range(0.1, 20.0) = 1.0;
 uniform float notches_shine: hint_range(0.0, 4.0) = 0.2;
 uniform float notches_brightness: hint_range(0.0, 4.0) = 1.0;
 uniform float notches_band: hint_range(0.0, 100.0) = 1.0;
 uniform vec2 notches_band_sharpness = vec2(0.01, 0.02);
-uniform vec3 notches_color: source_color = vec3(1.0);
-
 uniform vec2 notches_limits_sharpness = vec2(0.1, 0.2);
 uniform vec2 notches_shadow_sharpness = vec2(0.01, 0.1);
-uniform vec3 notches_shadow_color: source_color = vec3(0.0);
+uniform vec3 notches_color: source_color = vec3(1.0);
 
+group_uniforms wheel;
+uniform float wheel_height: hint_range(-4.0, 4.0) = 0.0;
 uniform float wheel_depth: hint_range(0.0, 1.0) = 0.1;
 uniform vec2 wheel_depth_sharpness = vec2(0.2, 0.22);
 uniform vec2 wheel_limits_sharpness = vec2(0.1, 0.12);
@@ -60,11 +66,12 @@ void fragment() {
 	
 	// Draw the markings.
 	
+	vec2 markings_uv = uv + vec2(markings_offset, 0.0);
 	// Create the base markings mask.
-	float markings_mask = abs(scrolled_uv.x) * markings_frequency + 1.55;
+	float markings_mask = abs(markings_uv.x) * markings_frequency + 1.55;
 	markings_mask = step(markings_spread, sin(markings_mask));
 	// Create a band mask for the markings.
-	float band_mask = band(scrolled_uv - 0.02, -1, markings_band, markings_band_sharpness);
+	float band_mask = band(markings_uv + markings_band_offset, -1, markings_band, markings_band_sharpness);
 	markings_mask *= band_mask;
 	
 	// Add the markings to the output color.
@@ -72,9 +79,9 @@ void fragment() {
 	output_alpha += markings_mask;
 
 	// Create the main marking mask.
-	float markings_main_mask = 1.0 - step(markings_spread / markings_frequency, abs(scrolled_uv.x));
+	float markings_main_mask = 1.0 - step(markings_spread / markings_frequency, abs(markings_uv.x));
 	// Create a band mask for the main marking. It's the same as above, but a bit longer.
-	float band_main_mask = band(scrolled_uv, -1, markings_band / 2.0, markings_band_sharpness);
+	float band_main_mask = band(markings_uv + markings_main_band_offset, -1, markings_main_band, markings_band_sharpness);
 	markings_main_mask = clamp(markings_main_mask * band_main_mask, 0.0, 1.0);
 	
 	// Add the main marking to the output color.
@@ -84,7 +91,7 @@ void fragment() {
 	// Draw the wheel with notches.
 	
 	// Create the back side of the wheel.
-	float wheel_back_mask = band(uv, 1, notches_band - 1.0, notches_band_sharpness);
+	float wheel_back_mask = band(uv + 0.05 + wheel_height, 1, notches_band - 1.0, notches_band_sharpness);
 	float wheel_back_limits = smoothstep(wheel_limits_sharpness.x, wheel_limits_sharpness.y, 1.0 - abs(uv.x) * 2.0);
 	wheel_back_mask = clamp(wheel_back_limits * wheel_back_mask, 0.0, 1.0);
 	// Add the back side to the output color.
@@ -93,7 +100,7 @@ void fragment() {
 	
 	// Create a uv for the wheel warp/bend.
 	vec2 wheel_uv = uv;
-	wheel_uv.y += pow(abs(uv.x), wheel_warp_power) * wheel_warp_factor - 0.05;
+	wheel_uv.y += pow(abs(uv.x), wheel_warp_power) * wheel_warp_factor + wheel_height;
 
 	// Create the top side of the wheel.
 	float wheel_top_mask = clamp(2.0 * uv.y, 0.0, 1.0);

@@ -1,17 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgr0kta03k8ic"]
+[gd_scene load_steps=8 format=3 uid="uid://dgr0kta03k8ic"]
 
 [ext_resource type="Script" path="res://gui/components/RollerKnob.gd" id="1_0fm8q"]
 [ext_resource type="Shader" path="res://gui/components/RollerKnob.gdshader" id="1_ud2w6"]
+[ext_resource type="Shader" path="res://gui/components/RollerValueBar.gdshader" id="2_g5ifw"]
+[ext_resource type="Shader" path="res://gui/components/GlowLabel.gdshader" id="2_qp70s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_akebc"]
+resource_local_to_scene = true
+shader = ExtResource("2_qp70s")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/intensity = 0.775
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s0mqp"]
+resource_local_to_scene = true
+shader = ExtResource("2_g5ifw")
+shader_parameter/glass_shine_offset = -0.147
+shader_parameter/glass_shine_sharpness = 0.03
+shader_parameter/glass_shine_opaqueness = 0.321
+shader_parameter/vignette_center = 14.793
+shader_parameter/vignette_rim = 0.59
+shader_parameter/vignette_intensity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ure2p"]
+resource_local_to_scene = true
 shader = ExtResource("1_ud2w6")
 shader_parameter/scroll = 0.0
 shader_parameter/base_color = Color(0.149114, 0.149114, 0.149114, 1)
-shader_parameter/markings_frequency = 30.0
+shader_parameter/markings_frequency = 46.0
 shader_parameter/markings_spread = 0.8
-shader_parameter/markings_band = 3.4
-shader_parameter/markings_band_sharpness = Vector2(0.03, 0.045)
-shader_parameter/markings_color = Color(1, 1, 1, 1)
+shader_parameter/markings_offset = -0.119
+shader_parameter/markings_band = 23.266
+shader_parameter/markings_band_offset = -0.134
+shader_parameter/markings_main_band = 2.678
+shader_parameter/markings_main_band_offset = -0.051
+shader_parameter/markings_band_sharpness = Vector2(0.01, 0.035)
+shader_parameter/markings_color = Color(0.843184, 0.843184, 0.843184, 1)
 shader_parameter/markings_main_color = Color(0.923899, 0.653429, 0.516652, 1)
 shader_parameter/notches_frequency = 3.494
 shader_parameter/notches_scale = 0.281
@@ -19,11 +42,11 @@ shader_parameter/notches_shine = 0.348
 shader_parameter/notches_brightness = 1.867
 shader_parameter/notches_band = 5.217
 shader_parameter/notches_band_sharpness = Vector2(0.03, 0.045)
-shader_parameter/notches_color = Color(0.596801, 0.60802, 0.650343, 1)
 shader_parameter/notches_limits_sharpness = Vector2(0.06, 0.26)
 shader_parameter/notches_shadow_sharpness = Vector2(0.01, 0.14)
-shader_parameter/notches_shadow_color = Color(0, 0, 0, 1)
-shader_parameter/wheel_depth = 0.195
+shader_parameter/notches_color = Color(0.596801, 0.60802, 0.650343, 1)
+shader_parameter/wheel_height = 0.0
+shader_parameter/wheel_depth = 0.095
 shader_parameter/wheel_depth_sharpness = Vector2(0.08, 0.33)
 shader_parameter/wheel_limits_sharpness = Vector2(0.06, 0.07)
 shader_parameter/wheel_warp_power = 2.0
@@ -31,8 +54,8 @@ shader_parameter/wheel_warp_factor = 0.3
 shader_parameter/wheel_color = Color(0.0182191, 0.0194593, 0.0278257, 1)
 
 [node name="RollerKnob" type="PanelContainer"]
-offset_right = 128.0
-offset_bottom = 92.0
+offset_right = 150.0
+offset_bottom = 98.0
 theme_type_variation = &"RollerKnob"
 script = ExtResource("1_0fm8q")
 
@@ -40,14 +63,45 @@ script = ExtResource("1_0fm8q")
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="Layout"]
+[node name="ValueBox" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="Layout/ValueBox"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
-text = "999"
+text = "XX"
+
+[node name="Value" type="Control" parent="Layout/ValueBox"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ValueBar" type="Control" parent="Layout/ValueBox/Value"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_akebc")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ValueOverlay" type="Control" parent="Layout/ValueBox/Value"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_s0mqp")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Roller" type="Control" parent="Layout"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_ure2p")
-custom_minimum_size = Vector2(128, 64)
+custom_minimum_size = Vector2(130, 56)
 layout_mode = 2
+size_flags_horizontal = 4

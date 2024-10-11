@@ -10,5 +10,5 @@ void fragment() {
 	vec4 base_color = COLOR;
 	float blurred_color = blur_alpha(TEXTURE, UV, direction, intensity);
 
-	COLOR = base_color + vec4(blurred_color);
+	COLOR.a = base_color.a + blurred_color;
 }
