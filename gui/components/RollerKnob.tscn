@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgr0kta03k8ic"]
+[gd_scene load_steps=10 format=3 uid="uid://dgr0kta03k8ic"]
 
 [ext_resource type="Script" path="res://gui/components/RollerKnob.gd" id="1_0fm8q"]
+[ext_resource type="Shader" path="res://gui/components/RollerPanel.gdshader" id="1_5488n"]
 [ext_resource type="Shader" path="res://gui/components/RollerKnob.gdshader" id="1_ud2w6"]
 [ext_resource type="Shader" path="res://gui/components/RollerValueBar.gdshader" id="2_g5ifw"]
 [ext_resource type="Shader" path="res://gui/components/GlowLabel.gdshader" id="2_qp70s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8a7lm"]
+resource_local_to_scene = true
+shader = ExtResource("1_5488n")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_akebc"]
 resource_local_to_scene = true
@@ -17,8 +22,8 @@ shader = ExtResource("2_g5ifw")
 shader_parameter/glass_shine_offset = -0.147
 shader_parameter/glass_shine_sharpness = 0.03
 shader_parameter/glass_shine_opaqueness = 0.321
-shader_parameter/vignette_center = 14.793
-shader_parameter/vignette_rim = 0.59
+shader_parameter/vignette_center = 16.245
+shader_parameter/vignette_rim = 0.678
 shader_parameter/vignette_intensity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ure2p"]
@@ -54,6 +59,7 @@ shader_parameter/wheel_warp_factor = 0.3
 shader_parameter/wheel_color = Color(0.0182191, 0.0194593, 0.0278257, 1)
 
 [node name="RollerKnob" type="PanelContainer"]
+material = SubResource("ShaderMaterial_8a7lm")
 offset_right = 150.0
 offset_bottom = 98.0
 theme_type_variation = &"RollerKnob"
