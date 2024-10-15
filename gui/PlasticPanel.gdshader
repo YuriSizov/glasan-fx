@@ -17,6 +17,9 @@ uniform float bolt_size: hint_range(0.0, 1.0) = 0.45;
 uniform float bolt_smoothness: hint_range(0.0, 0.5) = 0.07;
 uniform float bolt_thickness: hint_range(0.0, 1.0) = 0.2;
 uniform float bolt_visibility: hint_range(0.0, 1.0) = 0.8;
+uniform float bolt_shine_offset = 21.0;
+uniform float bolt_shine_strength: hint_range(0.0, 20.0) = 8.0;
+uniform float bolt_shine_reduction: hint_range(0.0, 20.0) = 4.0;
 
 
 void fragment() {
@@ -54,9 +57,15 @@ void fragment() {
 	float bolt_ring_1 = 1.0 - smoothstep(bolt_size - bolt_smoothness, bolt_size + bolt_smoothness, bolt_mask);
 	float bolt_ring_2 = 1.0 - smoothstep(bolt_size - bolt_thickness - bolt_smoothness, bolt_size - bolt_thickness + bolt_smoothness, bolt_mask);
 	bolt_mask = clamp(bolt_ring_1 - 0.8 * bolt_ring_2, 0.0, 1.0);
+	// Create a shine layer for the bolts.
+	vec2 bolt_shine_point = size * (0.5 - abs(uv - 0.5));
+	bolt_shine_point = smoothstep(vec2(0.0), vec2(bolt_shine_offset), bolt_shine_point);
+	bolt_shine_point = bolt_shine_point * uv + (1.0 - bolt_shine_point) * (1.0 - uv);
+	float bolt_shine = bolt_shine_point.x + bolt_shine_point.y;
+	bolt_shine = clamp(pow(bolt_shine, bolt_shine_strength), 0.0, 1.0) / bolt_shine_reduction;
 	
 	// Add bolts to the output color.
-	output_color = overlay(output_color, vec3(0.98), bolt_visibility, bolt_mask);
+	output_color = overlay(output_color, vec3(bolt_shine), bolt_visibility, bolt_mask);
 	
 	// Output.
 	COLOR = vec4(output_color, output_alpha);

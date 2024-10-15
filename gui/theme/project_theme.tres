@@ -19,9 +19,9 @@ content_margin_bottom = 4.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_37eta"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp102"]
-content_margin_left = 12.0
+content_margin_left = 16.0
 content_margin_top = 2.0
-content_margin_right = 20.0
+content_margin_right = 24.0
 content_margin_bottom = 2.0
 bg_color = Color(0.565872, 0.595897, 0.611168, 1)
 
@@ -213,9 +213,9 @@ bg_color = Color(0.131287, 0.158949, 0.121237, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v1lpm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfclo"]
-content_margin_left = 8.0
+content_margin_left = 12.0
 content_margin_top = 22.0
-content_margin_right = 8.0
+content_margin_right = 12.0
 content_margin_bottom = 22.0
 bg_color = Color(0.0925821, 0.0889362, 0.0520946, 1)
 

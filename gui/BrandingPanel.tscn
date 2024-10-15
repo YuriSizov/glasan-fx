@@ -6,18 +6,21 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t4i82"]
 resource_local_to_scene = true
 shader = ExtResource("1_xepf3")
-shader_parameter/size = Vector2(285, 43)
+shader_parameter/size = Vector2(293, 43)
 shader_parameter/light_intensity = 0.0
 shader_parameter/light_smoothness = 0.003
 shader_parameter/light_inverted = 0
 shader_parameter/border_width = 0
 shader_parameter/border_smoothness = 0.05
-shader_parameter/bolt_offset = Vector2(11, 21.4)
+shader_parameter/bolt_offset = Vector2(12, 21.5)
 shader_parameter/bolt_scale = 10.0
-shader_parameter/bolt_size = 0.45
+shader_parameter/bolt_size = 0.6
 shader_parameter/bolt_smoothness = 0.07
-shader_parameter/bolt_thickness = 0.2
-shader_parameter/bolt_visibility = 0.3
+shader_parameter/bolt_thickness = 0.27
+shader_parameter/bolt_visibility = 0.56
+shader_parameter/bolt_shine_offset = 24.3
+shader_parameter/bolt_shine_strength = 3.2
+shader_parameter/bolt_shine_reduction = 3.5
 
 [node name="BrandingPanel" type="PanelContainer"]
 offset_right = 253.0
