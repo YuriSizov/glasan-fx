@@ -4,42 +4,41 @@
 # Provided under MIT                              #
 ###################################################
 
-class_name VoicePanel extends PanelContainer
+@tool
+class_name VoicePanel extends ContentPanel
 
-const GENERIC_DECK_SCENE := preload("res://gui/voices/GenericVoiceDeck.tscn")
+const FALLBACK_DECK_SCENE := preload("res://gui/voices/FallbackVoiceDeck.tscn")
+const DECK_SCENES: Array[PackedScene] = []
 
-@onready var _deck_container: PanelContainer = %DeckContainer
-
-@onready var _siopm_button: Button = %SiOPMButton
-@onready var _opl_button: Button = %OPLButton
-@onready var _opm_button: Button = %OPMButton
-@onready var _opn_button: Button = %OPNButton
-@onready var _opx_button: Button = %OPXButton
-@onready var _ma3_button: Button = %MA3Button
-
-var _current_deck: GenericVoiceDeck = null
+var _current_deck: BaseVoiceDeck = null
 
 
 func _ready() -> void:
-	_siopm_button.pressed.connect(Controller.voice_manager.change_voice_type.bind(SiONDriver.CHIP_SIOPM))
-	_opl_button.pressed.connect(Controller.voice_manager.change_voice_type.bind(SiONDriver.CHIP_OPL))
-	_opm_button.pressed.connect(Controller.voice_manager.change_voice_type.bind(SiONDriver.CHIP_OPM))
-	_opn_button.pressed.connect(Controller.voice_manager.change_voice_type.bind(SiONDriver.CHIP_OPN))
-	_opx_button.pressed.connect(Controller.voice_manager.change_voice_type.bind(SiONDriver.CHIP_OPX))
-	_ma3_button.pressed.connect(Controller.voice_manager.change_voice_type.bind(SiONDriver.CHIP_MA3))
-
+	super()
 	_edit_current_voice()
-	Controller.voice_manager.voice_changed.connect(_edit_current_voice)
 
+	if not Engine.is_editor_hint():
+		Controller.voice_manager.voice_changed.connect(_edit_current_voice)
+
+
+# Voice management.
 
 func _edit_current_voice() -> void:
+	if Engine.is_editor_hint():
+		return
+
 	if is_instance_valid(_current_deck):
-		_deck_container.remove_child(_current_deck)
+		_content.remove_child(_current_deck)
 		_current_deck.queue_free()
 		_current_deck = null
 
-	# TODO: Add custom decks for every voice type.
+	var voice := Controller.voice_manager.get_voice_params()
+	var voice_type := voice.voice.get_chip_type()
 
-	_current_deck = GENERIC_DECK_SCENE.instantiate()
-	_current_deck.voice = Controller.voice_manager.get_voice_params()
-	_deck_container.add_child(_current_deck)
+	if voice_type >= 0 && voice_type < DECK_SCENES.size() && DECK_SCENES[voice_type]:
+		_current_deck = DECK_SCENES[voice_type].instantiate()
+	else:
+		_current_deck = FALLBACK_DECK_SCENE.instantiate()
+
+	_current_deck.voice = voice
+	_content.add_child(_current_deck)

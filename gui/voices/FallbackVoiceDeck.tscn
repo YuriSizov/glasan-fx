@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://dv608rynpxip0"]
 
-[ext_resource type="Script" path="res://gui/voices/GenericVoiceDeck.gd" id="1_de763"]
-[ext_resource type="PackedScene" uid="uid://kvxy6miofpxj" path="res://gui/components/KnobControl.tscn" id="2_6j5ow"]
+[ext_resource type="Script" path="res://gui/voices/FallbackVoiceDeck.gd" id="1_jbit7"]
+[ext_resource type="PackedScene" uid="uid://kvxy6miofpxj" path="res://gui/components/KnobControl.tscn" id="2_tnnyd"]
 
-[node name="GenericVoiceDeck" type="PanelContainer"]
+[node name="FallbackVoiceDeck" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_type_variation = &"GenericVoiceDeck"
-script = ExtResource("1_de763")
+theme_type_variation = &"FallbackVoiceDeck"
+script = ExtResource("1_jbit7")
 
 [node name="Layout" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -19,7 +19,7 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="VolumeKnob" parent="Layout/VoiceControls" instance=ExtResource("2_6j5ow")]
+[node name="VolumeKnob" parent="Layout/VoiceControls" instance=ExtResource("2_tnnyd")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2

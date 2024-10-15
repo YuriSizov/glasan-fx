@@ -1,21 +1,56 @@
-[gd_scene format=3 uid="uid://dytaho2ekhxdh"]
+[gd_scene load_steps=4 format=3 uid="uid://dytaho2ekhxdh"]
 
-[node name="BrandingPanel" type="HBoxContainer"]
+[ext_resource type="Shader" path="res://gui/PlasticPanel.gdshader" id="1_xepf3"]
+[ext_resource type="Script" path="res://gui/BrandingPanel.gd" id="1_xoupl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t4i82"]
+resource_local_to_scene = true
+shader = ExtResource("1_xepf3")
+shader_parameter/size = Vector2(285, 43)
+shader_parameter/light_intensity = 0.0
+shader_parameter/light_smoothness = 0.003
+shader_parameter/light_inverted = 0
+shader_parameter/border_width = 0
+shader_parameter/border_smoothness = 0.05
+shader_parameter/bolt_offset = Vector2(11, 21.4)
+shader_parameter/bolt_scale = 10.0
+shader_parameter/bolt_size = 0.45
+shader_parameter/bolt_smoothness = 0.07
+shader_parameter/bolt_thickness = 0.2
+shader_parameter/bolt_visibility = 0.3
+
+[node name="BrandingPanel" type="PanelContainer"]
+offset_right = 253.0
+offset_bottom = 39.0
+theme_type_variation = &"BrandingPanel"
+script = ExtResource("1_xoupl")
+
+[node name="Background" type="Panel" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_t4i82")
+layout_mode = 2
+
+[node name="Content" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Layout" type="HBoxContainer" parent="Content"]
+layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="DashesLabel" type="Label" parent="."]
+[node name="DashesLabel" type="Label" parent="Content/Layout"]
 layout_mode = 2
 theme_type_variation = &"BrandingLabel"
 theme_override_colors/font_color = Color(0.971665, 0.949936, 0.896125, 1)
 text = "|||"
 
-[node name="TitleLabel" type="Label" parent="."]
+[node name="TitleLabel" type="Label" parent="Content/Layout"]
 layout_mode = 2
 theme_type_variation = &"BrandingLabel"
 theme_override_colors/font_color = Color(0.91321, 0.372197, 0.302039, 1)
 text = "GLASAN"
 
-[node name="SubtitleLabel" type="Label" parent="."]
+[node name="SubtitleLabel" type="Label" parent="Content/Layout"]
 layout_mode = 2
 theme_type_variation = &"BrandingLabel"
 theme_override_colors/font_color = Color(0.273091, 0.271626, 0.28358, 1)

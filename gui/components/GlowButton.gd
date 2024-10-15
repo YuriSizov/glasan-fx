@@ -10,8 +10,10 @@ class_name GlowButton extends Button
 const VIGNETTE_FADE_DURATION := 0.05
 const TOGGLE_FADE_DURATION := 0.15
 
-@export var off_color: Color = Color("3b0201")
-@export var on_color: Color = Color("b93026")
+@export var off_color: Color = Color("3b0201"):
+	set = set_off_color
+@export var on_color: Color = Color("b93026"):
+	set = set_on_color
 
 # Animated properties.
 
@@ -29,6 +31,7 @@ var _toggle_tweener: Tween = null
 
 func _ready() -> void:
 	_update_text()
+	_update_label_color()
 	_setup_animated_properties()
 
 	button_down.connect(_animate_button_held.bind(true))
@@ -38,7 +41,12 @@ func _ready() -> void:
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_THEME_CHANGED:
+		_update_label_color()
 		_update_all_shaders()
+	elif what == NOTIFICATION_EDITOR_PRE_SAVE:
+		_clear_label_color()
+	elif what == NOTIFICATION_EDITOR_POST_SAVE:
+		_update_label_color()
 
 
 func _process(_delta: float) -> void:
@@ -50,18 +58,45 @@ func _toggled(_toggled_on: bool) -> void:
 	_animate_button_toggled()
 
 
+# Properties.
+
+func set_off_color(value: Color) -> void:
+	if off_color == value:
+		return
+
+	off_color = value
+	_setup_panel_colors()
+	_update_panel_main_color(_panel_main_color)
+	_update_panel_back_color(_panel_back_color)
+
+
+func set_on_color(value: Color) -> void:
+	if on_color == value:
+		return
+
+	on_color = value
+	_setup_panel_colors()
+	_update_panel_main_color(_panel_main_color)
+	_update_panel_back_color(_panel_back_color)
+
+
 # Animation.
 
 func _setup_animated_properties() -> void:
-	var off_back_color := get_theme_color("off_back_color")
 	var on_label_intensity := get_theme_constant("on_label_intensity") / 100.0
 
 	_vignette_intensity = 0.0 # Always 0 by default because it's only visible when the button is held down.
 	_label_intensity = on_label_intensity if button_pressed else 0.0
+
+	_setup_panel_colors()
+	_update_all_shaders()
+
+
+func _setup_panel_colors() -> void:
+	var off_back_color := get_theme_color("off_back_color")
+
 	_panel_main_color = on_color if button_pressed else off_color
 	_panel_back_color = off_color if button_pressed else off_back_color
-
-	_update_all_shaders()
 
 
 func _animate_button_held(is_down: bool) -> void:
@@ -151,11 +186,25 @@ func _update_all_shaders() -> void:
 # Label properties.
 
 func _update_label_color() -> void:
+	if not is_node_ready():
+		return
+
+	var default_font_color := get_theme_color("font_normal_color")
 	var on_font_color := get_theme_color("font_pressed_color")
 	var off_font_color := get_theme_color("font_color")
 
-	var label_color := on_font_color if button_pressed else off_font_color
+	var label_color := default_font_color
+	if toggle_mode:
+		label_color = on_font_color if button_pressed else off_font_color
+
 	_label.add_theme_color_override("font_color", label_color)
+
+
+func _clear_label_color() -> void:
+	if not is_node_ready():
+		return
+
+	_label.remove_theme_color_override("font_color")
 
 
 func _update_text() -> void:

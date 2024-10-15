@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dw6imoh8k58m1"]
+[gd_scene load_steps=5 format=3 uid="uid://dw6imoh8k58m1"]
 
 [ext_resource type="Script" path="res://gui/MenuPanel.gd" id="1_tuea8"]
+[ext_resource type="Shader" path="res://gui/PlasticPanel.gdshader" id="2_xtruc"]
+[ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="3_mvq1g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h57gu"]
+resource_local_to_scene = true
+shader = ExtResource("2_xtruc")
+shader_parameter/size = Vector2(768, 40)
+shader_parameter/light_intensity = 0.0
+shader_parameter/light_smoothness = 0.003
+shader_parameter/light_inverted = 1
+shader_parameter/border_width = 0
+shader_parameter/border_smoothness = 0.05
 
 [node name="MenuPanel" type="PanelContainer"]
 anchors_preset = 10
@@ -10,35 +22,44 @@ grow_horizontal = 2
 theme_type_variation = &"MenuPanel"
 script = ExtResource("1_tuea8")
 
-[node name="Layout" type="HBoxContainer" parent="."]
+[node name="Background" type="Panel" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_h57gu")
+layout_mode = 2
+
+[node name="Content" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Layout" type="HBoxContainer" parent="Content"]
 layout_mode = 2
 alignment = 2
 
-[node name="Filler" type="Control" parent="Layout"]
+[node name="Filler" type="Control" parent="Content/Layout"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="SaveButton" type="Button" parent="Layout"]
+[node name="SaveButton" parent="Content/Layout" instance=ExtResource("3_mvq1g")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(120, 32)
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"MenuPanelButton"
+toggle_mode = false
 text = "SAVE"
+off_color = Color(0.0800239, 0.0854298, 0.112988, 1)
 
-[node name="LoadButton" type="Button" parent="Layout"]
+[node name="LoadButton" parent="Content/Layout" instance=ExtResource("3_mvq1g")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(120, 32)
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"MenuPanelButton"
+toggle_mode = false
 text = "LOAD"
+off_color = Color(0.0800239, 0.0854298, 0.112988, 1)
 
-[node name="ExportButton" type="Button" parent="Layout"]
+[node name="ExportButton" parent="Content/Layout" instance=ExtResource("3_mvq1g")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(120, 32)
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"MenuPanelButton"
+toggle_mode = false
 text = "EXPORT"
+off_color = Color(0.0800239, 0.0854298, 0.112988, 1)

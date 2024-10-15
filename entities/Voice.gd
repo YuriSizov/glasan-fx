@@ -6,6 +6,10 @@
 
 class_name Voice extends RefCounted
 
+signal operator_added()
+signal operator_removed()
+signal data_changed()
+
 const MAX_VOLUME := 256
 const MAX_OPERATORS := 4
 
@@ -80,6 +84,7 @@ func set_data(value: Array[VoiceKnob]) -> void:
 		knob.value_changed.connect(_update_voice_data)
 
 	_update_voice_data()
+	data_changed.emit()
 
 
 func _update_voice_volume() -> void:
@@ -99,6 +104,22 @@ func add_operator() -> void:
 
 	_connect_voice_data()
 	_update_voice_data()
+	operator_added.emit()
+	data_changed.emit()
+
+
+# Virtual. Must be implemented by extending classes.
+func _remove_operator() -> void:
+	# TODO: Implement the removal in sub-classes.
+	pass
+
+
+func remove_operator() -> void:
+	_remove_operator()
+
+	_update_voice_data()
+	operator_removed.emit()
+	data_changed.emit()
 
 
 # Virtual. Must be implemented by extending classes.
@@ -112,6 +133,7 @@ func randomize_data() -> void:
 	_update_suspended = false
 
 	_update_voice_data()
+	data_changed.emit()
 
 
 func get_channel_param_count() -> int:

@@ -1,8 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://byabb6ha5p7xn"]
 
 [ext_resource type="Script" path="res://gui/VoicePanel.gd" id="1_dvwof"]
-[ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="2_xo0yg"]
-[ext_resource type="ButtonGroup" uid="uid://o0n7hp4kf7hg" path="res://gui/voice_type_buttons.tres" id="3_s2xi8"]
+[ext_resource type="Shader" path="res://gui/PlasticPanel.gdshader" id="2_d4vur"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_18dkq"]
+resource_local_to_scene = true
+shader = ExtResource("2_d4vur")
+shader_parameter/size = Vector2(768, 1024)
+shader_parameter/light_intensity = 0.0
+shader_parameter/light_smoothness = 0.003
+shader_parameter/light_inverted = 0
+shader_parameter/border_width = 0
+shader_parameter/border_smoothness = 0.05
+shader_parameter/bolt_offset = Vector2(11, 11)
+shader_parameter/bolt_scale = 10.0
+shader_parameter/bolt_size = 0.45
+shader_parameter/bolt_smoothness = 0.07
+shader_parameter/bolt_thickness = 0.2
+shader_parameter/bolt_visibility = 0.25
 
 [node name="VoicePanel" type="PanelContainer"]
 anchors_preset = 15
@@ -13,61 +28,11 @@ grow_vertical = 2
 theme_type_variation = &"VoicePanel"
 script = ExtResource("1_dvwof")
 
-[node name="Layout" type="VBoxContainer" parent="."]
+[node name="Background" type="Panel" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_18dkq")
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="VoiceDeck" type="HBoxContainer" parent="Layout"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 0
-
-[node name="DeckContainer" type="PanelContainer" parent="Layout/VoiceDeck"]
+[node name="Content" type="MarginContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"VoiceDeckContainer"
-
-[node name="TypesContainer" type="PanelContainer" parent="Layout/VoiceDeck"]
-layout_mode = 2
-theme_type_variation = &"VoiceTypesContainer"
-
-[node name="Layout" type="VBoxContainer" parent="Layout/VoiceDeck/TypesContainer"]
-layout_mode = 2
-
-[node name="SiOPMButton" parent="Layout/VoiceDeck/TypesContainer/Layout" instance=ExtResource("2_xo0yg")]
-unique_name_in_owner = true
-layout_mode = 2
-button_pressed = true
-button_group = ExtResource("3_s2xi8")
-text = "SIOPM"
-
-[node name="OPLButton" parent="Layout/VoiceDeck/TypesContainer/Layout" instance=ExtResource("2_xo0yg")]
-unique_name_in_owner = true
-layout_mode = 2
-button_group = ExtResource("3_s2xi8")
-text = "OPL"
-
-[node name="OPMButton" parent="Layout/VoiceDeck/TypesContainer/Layout" instance=ExtResource("2_xo0yg")]
-unique_name_in_owner = true
-layout_mode = 2
-button_group = ExtResource("3_s2xi8")
-text = "OPM"
-
-[node name="OPNButton" parent="Layout/VoiceDeck/TypesContainer/Layout" instance=ExtResource("2_xo0yg")]
-unique_name_in_owner = true
-layout_mode = 2
-button_group = ExtResource("3_s2xi8")
-text = "OPN"
-
-[node name="OPXButton" parent="Layout/VoiceDeck/TypesContainer/Layout" instance=ExtResource("2_xo0yg")]
-unique_name_in_owner = true
-layout_mode = 2
-button_group = ExtResource("3_s2xi8")
-text = "OPX"
-
-[node name="MA3Button" parent="Layout/VoiceDeck/TypesContainer/Layout" instance=ExtResource("2_xo0yg")]
-unique_name_in_owner = true
-layout_mode = 2
-button_group = ExtResource("3_s2xi8")
-text = "MA3"

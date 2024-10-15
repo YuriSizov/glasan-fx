@@ -4,7 +4,8 @@
 # Provided under MIT                              #
 ###################################################
 
-class_name PreviewPanel extends PanelContainer
+@tool
+class_name PreviewPanel extends ContentPanel
 
 var _current_sample: Sample = null
 
@@ -14,13 +15,20 @@ var _current_sample: Sample = null
 
 
 func _ready() -> void:
-	_preview_button.pressed.connect(_play_sample)
-
+	super()
 	_edit_current_sample()
-	Controller.voice_manager.sample_changed.connect(_edit_current_sample)
 
+	if not Engine.is_editor_hint():
+		_preview_button.pressed.connect(_play_sample)
+		Controller.voice_manager.sample_changed.connect(_edit_current_sample)
+
+
+# Sample management.
 
 func _edit_current_sample() -> void:
+	if Engine.is_editor_hint():
+		return
+
 	_current_sample = Controller.voice_manager.get_sample_params()
 
 	_length_knob_control.knob_data = _current_sample.length

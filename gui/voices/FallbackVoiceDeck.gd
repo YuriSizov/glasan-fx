@@ -4,12 +4,9 @@
 # Provided under MIT                              #
 ###################################################
 
-class_name GenericVoiceDeck extends PanelContainer
+class_name FallbackVoiceDeck extends BaseVoiceDeck
 
 const KNOB_SCENE := preload("res://gui/components/KnobControl.tscn")
-
-var voice: Voice = null:
-	set = set_voice
 
 @onready var _operator_button: Button = %OperatorButton
 @onready var _randomize_button: Button = %RandomizeButton
@@ -21,32 +18,19 @@ var voice: Voice = null:
 
 func _ready() -> void:
 	_update_knobs()
+	voice_changed.connect(_update_knobs)
 
 	_operator_button.pressed.connect(func() -> void:
 		if voice:
 			voice.add_operator()
-			_update_knobs()
 	)
-
 	_randomize_button.pressed.connect(func() -> void:
 		if voice:
 			voice.randomize_data()
-			_update_knobs()
 	)
 
 
-# Voice management.
-
-func set_voice(value: Voice) -> void:
-	if voice == value:
-		return
-
-	voice = value
-	_update_knobs()
-
-
-# Widgets.
-
+# Implementation.
 
 func _update_knobs() -> void:
 	if not is_inside_tree():

@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://coofo7rkc326b"]
+
+[ext_resource type="Script" path="res://gui/VoiceTypesPanel.gd" id="1_lc5s2"]
+[ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="1_ndnrx"]
+[ext_resource type="ButtonGroup" uid="uid://o0n7hp4kf7hg" path="res://gui/voice_type_buttons.tres" id="2_e366j"]
+[ext_resource type="Shader" path="res://gui/PlasticPanel.gdshader" id="2_ygno6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_spujn"]
+resource_local_to_scene = true
+shader = ExtResource("2_ygno6")
+shader_parameter/size = Vector2(101, 276)
+shader_parameter/light_intensity = 0.0
+shader_parameter/light_smoothness = 0.003
+shader_parameter/light_inverted = 1
+shader_parameter/border_width = 0
+shader_parameter/border_smoothness = 0.05
+shader_parameter/bolt_offset = Vector2(11, 11)
+shader_parameter/bolt_scale = 10.0
+shader_parameter/bolt_size = 0.45
+shader_parameter/bolt_smoothness = 0.07
+shader_parameter/bolt_thickness = 0.2
+shader_parameter/bolt_visibility = 0.25
+
+[node name="VoiceTypesPanel" type="PanelContainer"]
+theme_type_variation = &"VoiceTypesPanel"
+script = ExtResource("1_lc5s2")
+
+[node name="Background" type="Panel" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_spujn")
+layout_mode = 2
+
+[node name="Content" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Layout" type="VBoxContainer" parent="Content"]
+layout_mode = 2
+
+[node name="SiOPMButton" parent="Content/Layout" instance=ExtResource("1_ndnrx")]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+button_group = ExtResource("2_e366j")
+text = "SIOPM"
+
+[node name="OPLButton" parent="Content/Layout" instance=ExtResource("1_ndnrx")]
+unique_name_in_owner = true
+layout_mode = 2
+button_group = ExtResource("2_e366j")
+text = "OPL"
+
+[node name="OPMButton" parent="Content/Layout" instance=ExtResource("1_ndnrx")]
+unique_name_in_owner = true
+layout_mode = 2
+button_group = ExtResource("2_e366j")
+text = "OPM"
+
+[node name="OPNButton" parent="Content/Layout" instance=ExtResource("1_ndnrx")]
+unique_name_in_owner = true
+layout_mode = 2
+button_group = ExtResource("2_e366j")
+text = "OPN"
+
+[node name="OPXButton" parent="Content/Layout" instance=ExtResource("1_ndnrx")]
+unique_name_in_owner = true
+layout_mode = 2
+button_group = ExtResource("2_e366j")
+text = "OPX"
+
+[node name="MA3Button" parent="Content/Layout" instance=ExtResource("1_ndnrx")]
+unique_name_in_owner = true
+layout_mode = 2
+button_group = ExtResource("2_e366j")
+text = "MA3"

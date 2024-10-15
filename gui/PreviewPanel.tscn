@@ -1,8 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://8xc2djp24y40"]
+[gd_scene load_steps=6 format=3 uid="uid://8xc2djp24y40"]
 
 [ext_resource type="Script" path="res://gui/PreviewPanel.gd" id="1_iu5lk"]
 [ext_resource type="Script" path="res://gui/PreviewArea.gd" id="2_mpak3"]
+[ext_resource type="Shader" path="res://gui/PlasticPanel.gdshader" id="2_mypj1"]
 [ext_resource type="PackedScene" uid="uid://kvxy6miofpxj" path="res://gui/components/KnobControl.tscn" id="3_1mn17"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i1p27"]
+resource_local_to_scene = true
+shader = ExtResource("2_mypj1")
+shader_parameter/size = Vector2(768, 192)
+shader_parameter/light_intensity = 0.0
+shader_parameter/light_smoothness = 0.003
+shader_parameter/light_inverted = 0
+shader_parameter/border_width = 0
+shader_parameter/border_smoothness = 0.05
+shader_parameter/bolt_offset = Vector2(11, 11)
+shader_parameter/bolt_scale = 10.0
+shader_parameter/bolt_size = 0.45
+shader_parameter/bolt_smoothness = 0.07
+shader_parameter/bolt_thickness = 0.2
+shader_parameter/bolt_visibility = 0.25
 
 [node name="PreviewPanel" type="PanelContainer"]
 anchors_preset = 10
@@ -12,10 +29,19 @@ grow_horizontal = 2
 theme_type_variation = &"PreviewPanel"
 script = ExtResource("1_iu5lk")
 
-[node name="Layout" type="HBoxContainer" parent="."]
+[node name="Background" type="Panel" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_i1p27")
 layout_mode = 2
 
-[node name="PreviewArea" type="Control" parent="Layout"]
+[node name="Content" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Layout" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+
+[node name="PreviewArea" type="Control" parent="Content/Layout"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(280, 160)
 layout_mode = 2
@@ -24,22 +50,22 @@ size_flags_stretch_ratio = 2.0
 theme_type_variation = &"PreviewArea"
 script = ExtResource("2_mpak3")
 
-[node name="Controls" type="VBoxContainer" parent="Layout"]
+[node name="Controls" type="VBoxContainer" parent="Content/Layout"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 alignment = 1
 
-[node name="PreviewButton" type="Button" parent="Layout/Controls"]
+[node name="PreviewButton" type="Button" parent="Content/Layout/Controls"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 36)
 layout_mode = 2
 text = "CRASH!"
 
-[node name="LengthKnob" parent="Layout/Controls" instance=ExtResource("3_1mn17")]
+[node name="LengthKnob" parent="Content/Layout/Controls" instance=ExtResource("3_1mn17")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="NoteKnob" parent="Layout/Controls" instance=ExtResource("3_1mn17")]
+[node name="NoteKnob" parent="Content/Layout/Controls" instance=ExtResource("3_1mn17")]
 unique_name_in_owner = true
 layout_mode = 2

@@ -1,7 +1,9 @@
-[gd_resource type="Theme" load_steps=33 format=3 uid="uid://bpwfhtd227bkw"]
+[gd_resource type="Theme" load_steps=38 format=3 uid="uid://bpwfhtd227bkw"]
 
 [ext_resource type="FontFile" uid="uid://cjwuh3bvsqt57" path="res://assets/fonts/fff-aquarius-bold-condensed.msdf.ttf" id="1_67pkc"]
 [ext_resource type="Script" path="res://gui/theme/StyleTexture.gd" id="1_fj6h5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_llkav"]
 
 [sub_resource type="FontVariation" id="FontVariation_k7evk"]
 base_font = ExtResource("1_67pkc")
@@ -13,6 +15,15 @@ content_margin_left = 8.0
 content_margin_top = 4.0
 content_margin_right = 8.0
 content_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_37eta"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp102"]
+content_margin_left = 12.0
+content_margin_top = 2.0
+content_margin_right = 20.0
+content_margin_bottom = 2.0
+bg_color = Color(0.565872, 0.595897, 0.611168, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixie7"]
 content_margin_left = 16.0
@@ -63,8 +74,6 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.517507, 0.537297, 0.568779, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_psxw5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujh8a"]
 bg_color = Color(0.815815, 0.815816, 0.815815, 1)
@@ -142,12 +151,13 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.345766, 0.30243, 0.178509, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkhox"]
-content_margin_left = 3.0
-content_margin_top = 3.0
-content_margin_right = 3.0
-content_margin_bottom = 3.0
-bg_color = Color(0.0912349, 0.0701728, 0.0509847, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_djm75"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rvmxa"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fi7ih"]
 bg_color = Color(0.0460842, 0.0451539, 0.0656941, 1)
@@ -157,17 +167,14 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.166061, 0.164074, 0.208367, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k0nv5"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tibav"]
-content_margin_left = 16.0
+content_margin_left = 22.0
 content_margin_top = 16.0
-content_margin_right = 16.0
+content_margin_right = 22.0
 content_margin_bottom = 16.0
 bg_color = Color(0.0987804, 0.144839, 0.172585, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.305054, 0.377116, 0.394177, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jo2q"]
 content_margin_left = 10.0
@@ -194,30 +201,23 @@ bg_color = Color(0.125626, 0.127832, 0.143547, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7tfm6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1hsc"]
-content_margin_left = 16.0
-content_margin_top = 16.0
-content_margin_right = 16.0
-content_margin_bottom = 16.0
-bg_color = Color(0.131287, 0.158949, 0.121237, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.356725, 0.422972, 0.357313, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xn5gi"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r2vcf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwe1w"]
+content_margin_left = 16.0
+content_margin_top = 22.0
+content_margin_right = 16.0
+content_margin_bottom = 22.0
+bg_color = Color(0.131287, 0.158949, 0.121237, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v1lpm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfclo"]
 content_margin_left = 8.0
-content_margin_top = 8.0
+content_margin_top = 22.0
 content_margin_right = 8.0
-content_margin_bottom = 8.0
+content_margin_bottom = 22.0
 bg_color = Color(0.0925821, 0.0889362, 0.0520946, 1)
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.256207, 0.248185, 0.167688, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_btycs"]
 base_font = ExtResource("1_67pkc")
@@ -226,6 +226,8 @@ spacing_glyph = 1
 [resource]
 default_font = SubResource("FontVariation_btycs")
 default_font_size = 14
+BaseVoiceDeck/base_type = &"PanelContainer"
+BaseVoiceDeck/styles/panel = SubResource("StyleBoxEmpty_llkav")
 BrandingLabel/base_type = &"Label"
 BrandingLabel/colors/font_shadow_color = Color(0.0941176, 0.0941176, 0.0941176, 0.243137)
 BrandingLabel/constants/shadow_offset_x = 2
@@ -233,15 +235,21 @@ BrandingLabel/constants/shadow_offset_y = 2
 BrandingLabel/font_sizes/font_size = 22
 BrandingLabel/fonts/font = SubResource("FontVariation_k7evk")
 BrandingLabel/styles/normal = SubResource("StyleBoxEmpty_5m7pm")
+BrandingPanel/base_type = &"ContentPanel"
+BrandingPanel/styles/panel = SubResource("StyleBoxEmpty_37eta")
+BrandingPanel/styles/panel_background = SubResource("StyleBoxFlat_dp102")
 Button/styles/disabled = SubResource("StyleBoxFlat_ixie7")
 Button/styles/focus = SubResource("StyleBoxEmpty_fxpf7")
 Button/styles/hover = SubResource("StyleBoxFlat_10qux")
 Button/styles/normal = SubResource("StyleBoxFlat_ume67")
 Button/styles/pressed = SubResource("StyleBoxFlat_e3cfq")
-GenericVoiceDeck/base_type = &"PanelContainer"
-GenericVoiceDeck/styles/panel = SubResource("StyleBoxEmpty_psxw5")
+ContentPanel/base_type = &"PanelContainer"
+ContentPanel/constants/border_width = 3
+ContentPanel/constants/light_intensity = 160
+FallbackVoiceDeck/base_type = &"BaseVoiceDeck"
 GlowButton/base_type = &"Button"
 GlowButton/colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
+GlowButton/colors/font_normal_color = Color(0.795394, 0.795394, 0.795394, 1)
 GlowButton/colors/font_pressed_color = Color(1, 1, 1, 1)
 GlowButton/colors/off_back_color = Color(0, 0, 0, 1)
 GlowButton/constants/on_label_intensity = 65
@@ -259,37 +267,39 @@ KnobHBox/base_type = &"HBoxContainer"
 KnobHBox/constants/separation = 24
 KnobsContainer/base_type = &"VBoxContainer"
 KnobsContainer/constants/separation = 12
-MenuPanel/base_type = &"PanelContainer"
-MenuPanel/styles/panel = SubResource("StyleBoxFlat_wkhox")
+MenuPanel/base_type = &"ContentPanel"
+MenuPanel/styles/panel = SubResource("StyleBoxEmpty_djm75")
+MenuPanel/styles/panel_background = SubResource("StyleBoxEmpty_rvmxa")
 MenuPanelButton/base_type = &"Button"
 PreviewArea/base_type = &"Control"
 PreviewArea/styles/panel = SubResource("StyleBoxFlat_fi7ih")
-PreviewPanel/base_type = &"PanelContainer"
+PreviewPanel/base_type = &"ContentPanel"
 PreviewPanel/constants/margin_bottom = 8
 PreviewPanel/constants/margin_left = 8
 PreviewPanel/constants/margin_right = 8
 PreviewPanel/constants/margin_top = 8
-PreviewPanel/styles/panel = SubResource("StyleBoxFlat_tibav")
+PreviewPanel/styles/panel = SubResource("StyleBoxEmpty_k0nv5")
+PreviewPanel/styles/panel_background = SubResource("StyleBoxFlat_tibav")
 RollerKnob/base_type = &"PanelContainer"
 RollerKnob/colors/label_color = Color(0.804876, 0.808981, 0.820208, 1)
 RollerKnob/colors/unsafe_margin_color = Color(0.410206, 0.109915, 0.0680521, 1)
 RollerKnob/colors/value_color = Color(0.831535, 0.772145, 0.613004, 1)
 RollerKnob/font_sizes/value_size = 12
 RollerKnob/styles/panel = SubResource("StyleBoxFlat_5jo2q")
+SiOPMVoiceDeck/base_type = &"BaseVoiceDeck"
 VBoxContainer/constants/separation = 8
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_xfoxt")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_sntoc")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_y8tbu")
 VScrollBar/styles/scroll = SubResource("StyleBoxFlat_h7q87")
 VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_7tfm6")
-VoiceDeckContainer/base_type = &"PanelContainer"
-VoiceDeckContainer/styles/panel = SubResource("StyleBoxFlat_n1hsc")
-VoicePanel/base_type = &"PanelContainer"
+VoicePanel/base_type = &"ContentPanel"
 VoicePanel/constants/margin_bottom = 8
 VoicePanel/constants/margin_left = 8
 VoicePanel/constants/margin_right = 8
 VoicePanel/constants/margin_top = 8
-VoicePanel/styles/panel = SubResource("StyleBoxEmpty_r2vcf")
-VoiceTypeButton/base_type = &"Button"
-VoiceTypesContainer/base_type = &"PanelContainer"
-VoiceTypesContainer/styles/panel = SubResource("StyleBoxFlat_lfclo")
+VoicePanel/styles/panel = SubResource("StyleBoxEmpty_xn5gi")
+VoicePanel/styles/panel_background = SubResource("StyleBoxFlat_wwe1w")
+VoiceTypesPanel/base_type = &"ContentPanel"
+VoiceTypesPanel/styles/panel = SubResource("StyleBoxEmpty_v1lpm")
+VoiceTypesPanel/styles/panel_background = SubResource("StyleBoxFlat_lfclo")
