@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://8xc2djp24y40"]
+[gd_scene load_steps=7 format=3 uid="uid://8xc2djp24y40"]
 
 [ext_resource type="Script" path="res://gui/PreviewPanel.gd" id="1_iu5lk"]
 [ext_resource type="Script" path="res://gui/PreviewArea.gd" id="2_mpak3"]
 [ext_resource type="Shader" path="res://gui/PlasticPanel.gdshader" id="2_mypj1"]
 [ext_resource type="PackedScene" uid="uid://kvxy6miofpxj" path="res://gui/components/KnobControl.tscn" id="3_1mn17"]
+[ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="4_6wcbg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i1p27"]
 resource_local_to_scene = true
 shader = ExtResource("2_mypj1")
-shader_parameter/size = Vector2(768, 192)
+shader_parameter/size = Vector2(768, 202)
 shader_parameter/light_intensity = 0.0
 shader_parameter/light_smoothness = 0.003
 shader_parameter/light_inverted = 0
@@ -59,11 +60,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 alignment = 1
 
-[node name="PreviewButton" type="Button" parent="Content/Layout/Controls"]
+[node name="PreviewButton" parent="Content/Layout/Controls" instance=ExtResource("4_6wcbg")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(180, 36)
+custom_minimum_size = Vector2(0, 54)
 layout_mode = 2
+toggle_mode = false
 text = "CRASH!"
+off_color = Color(0.762522, 0.52293, 0.122911, 1)
+force_glow = true
 
 [node name="LengthKnob" parent="Content/Layout/Controls" instance=ExtResource("3_1mn17")]
 unique_name_in_owner = true

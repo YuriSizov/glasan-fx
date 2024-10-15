@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=38 format=3 uid="uid://bpwfhtd227bkw"]
+[gd_resource type="Theme" load_steps=45 format=3 uid="uid://bpwfhtd227bkw"]
 
 [ext_resource type="FontFile" uid="uid://cjwuh3bvsqt57" path="res://assets/fonts/fff-aquarius-bold-condensed.msdf.ttf" id="1_67pkc"]
 [ext_resource type="Script" path="res://gui/theme/StyleTexture.gd" id="1_fj6h5"]
@@ -74,6 +74,10 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.517507, 0.537297, 0.568779, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ucorg"]
+color = Color(0.867261, 0.867261, 0.86726, 0.63)
+thickness = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujh8a"]
 bg_color = Color(0.815815, 0.815816, 0.815815, 1)
@@ -174,7 +178,7 @@ content_margin_left = 22.0
 content_margin_top = 16.0
 content_margin_right = 22.0
 content_margin_bottom = 16.0
-bg_color = Color(0.0987804, 0.144839, 0.172585, 1)
+bg_color = Color(0.161078, 0.19102, 0.216014, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jo2q"]
 content_margin_left = 10.0
@@ -182,6 +186,56 @@ content_margin_top = 8.0
 content_margin_right = 10.0
 content_margin_bottom = 8.0
 bg_color = Color(0.13965, 0.112365, 0.114531, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rc1oq"]
+bg_color = Color(0.071, 0.058, 0.059, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.596367, 0.596367, 0.596367, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ffw6q"]
+content_margin_left = 18.0
+content_margin_top = 6.0
+content_margin_right = 18.0
+content_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f3m6w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_akwfw"]
+content_margin_left = 18.0
+content_margin_top = 8.0
+content_margin_right = 18.0
+content_margin_bottom = 8.0
+bg_color = Color(0.88281, 0.833512, 0.79745, 0.287)
+border_width_left = 2
+border_width_right = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iq38b"]
+content_margin_left = 18.0
+content_margin_top = 8.0
+content_margin_right = 18.0
+content_margin_bottom = 8.0
+bg_color = Color(0.462218, 0.305492, 0.21195, 0.75)
+border_width_left = 2
+border_width_right = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rrtt"]
+content_margin_left = 18.0
+content_margin_top = 8.0
+content_margin_right = 18.0
+content_margin_bottom = 8.0
+bg_color = Color(0.877878, 0.853598, 0.821194, 0.287)
+border_width_left = 2
+border_width_right = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfoxt"]
 bg_color = Color(0.455957, 0.471997, 0.516594, 1)
@@ -208,7 +262,7 @@ content_margin_left = 16.0
 content_margin_top = 22.0
 content_margin_right = 16.0
 content_margin_bottom = 22.0
-bg_color = Color(0.131287, 0.158949, 0.121237, 1)
+bg_color = Color(0.159848, 0.178305, 0.159854, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v1lpm"]
 
@@ -217,7 +271,7 @@ content_margin_left = 12.0
 content_margin_top = 22.0
 content_margin_right = 12.0
 content_margin_bottom = 22.0
-bg_color = Color(0.0925821, 0.0889362, 0.0520946, 1)
+bg_color = Color(0.0658186, 0.0700564, 0.0586766, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_btycs"]
 base_font = ExtResource("1_67pkc")
@@ -254,6 +308,7 @@ GlowButton/colors/font_pressed_color = Color(1, 1, 1, 1)
 GlowButton/colors/off_back_color = Color(0, 0, 0, 1)
 GlowButton/constants/on_label_intensity = 65
 HBoxContainer/constants/separation = 8
+HSeparator/styles/separator = SubResource("StyleBoxLine_ucorg")
 HSlider/icons/grabber = SubResource("Texture2D_dd775")
 HSlider/icons/grabber_disabled = SubResource("Texture2D_i7hji")
 HSlider/icons/grabber_highlight = SubResource("Texture2D_n2gro")
@@ -271,6 +326,16 @@ MenuPanel/base_type = &"ContentPanel"
 MenuPanel/styles/panel = SubResource("StyleBoxEmpty_djm75")
 MenuPanel/styles/panel_background = SubResource("StyleBoxEmpty_rvmxa")
 MenuPanelButton/base_type = &"Button"
+OperatorDeck/base_type = &"MarginContainer"
+OperatorDeck/constants/margin_bottom = 12
+OperatorDeck/constants/margin_left = 8
+OperatorDeck/constants/margin_right = 8
+OperatorDeck/constants/margin_top = 12
+OperatorIndicator/base_type = &"HBoxContainer"
+OperatorIndicator/colors/font_active_color = Color(0.910244, 0.403015, 0.264407, 1)
+OperatorIndicator/colors/font_inactive_color = Color(0.265174, 0.143202, 0.136196, 1)
+OperatorIndicator/constants/label_intensity = 85
+OperatorIndicator/font_sizes/font_size = 16
 PreviewArea/base_type = &"Control"
 PreviewArea/styles/panel = SubResource("StyleBoxFlat_fi7ih")
 PreviewPanel/base_type = &"ContentPanel"
@@ -287,6 +352,17 @@ RollerKnob/colors/value_color = Color(0.831535, 0.772145, 0.613004, 1)
 RollerKnob/font_sizes/value_size = 12
 RollerKnob/styles/panel = SubResource("StyleBoxFlat_5jo2q")
 SiOPMVoiceDeck/base_type = &"BaseVoiceDeck"
+TabContainer/colors/font_hovered_color = Color(0.847059, 0.847059, 0.847059, 1)
+TabContainer/colors/font_selected_color = Color(0.95, 0.95, 0.95, 1)
+TabContainer/colors/font_unselected_color = Color(0.846616, 0.846616, 0.846616, 1)
+TabContainer/constants/side_margin = 16
+TabContainer/font_sizes/font_size = 16
+TabContainer/styles/panel = SubResource("StyleBoxFlat_rc1oq")
+TabContainer/styles/tab_disabled = SubResource("StyleBoxEmpty_ffw6q")
+TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_f3m6w")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_akwfw")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_iq38b")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_7rrtt")
 VBoxContainer/constants/separation = 8
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_xfoxt")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_sntoc")

@@ -25,5 +25,9 @@ void fragment() {
 	// Add a tiny bit of rounding for corners using vignetting. Values are hand-picked.
 	output_alpha = vignette(vec3(1.0), vec3(0.0), 10000.0, 0.08, 20.0, UV).r;
 	
+	// FIXME: Temporary override.
+	output_color = vec3(0.0);
+	output_alpha = 0.0;
+	
 	COLOR = vec4(output_color, output_alpha);
 }

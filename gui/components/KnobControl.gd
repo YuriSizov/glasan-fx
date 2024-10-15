@@ -42,6 +42,10 @@ func set_knob_data(value: VoiceKnob) -> void:
 	_update_controls()
 
 
+func force_update() -> void:
+	_update_controls()
+
+
 func _update_knob_value(new_value: float) -> void:
 	if not knob_data:
 		return

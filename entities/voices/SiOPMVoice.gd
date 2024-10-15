@@ -9,6 +9,13 @@ class_name SiOPMVoice extends Voice
 const SIOPM_CH_PARAMS := 3
 const SIOPM_OP_PARAMS := 15
 
+enum ChannelParams {
+	AL, FB, FC
+}
+enum OperatorParams {
+	WS, AR, DR, SR, RR, SL, TL, KR, KL, ML, D1, D2, AM, PH, FN
+}
+
 
 func _init(op_count: int = 1) -> void:
 	super(op_count)
@@ -22,6 +29,7 @@ func _init(op_count: int = 1) -> void:
 
 	# Channel params.
 
+	# Subindices follow the ChannelParams enum.
 	data[0] = VoiceKnob.new("AL", 0, 15)
 	data[1] = VoiceKnob.new("FB", 0, 7)
 	data[2] = VoiceKnob.new("FC", 0, 3)
@@ -43,6 +51,7 @@ func _add_operator() -> void:
 	var data_index := SIOPM_CH_PARAMS + SIOPM_OP_PARAMS * operator_index
 	data.resize(SIOPM_CH_PARAMS + SIOPM_OP_PARAMS * (operator_index + 1))
 
+	# Subindices follow the OperatorParams enum.
 	data[data_index + 0]  = VoiceKnob.new("WS", 0, 255) # Out of 511 valid total.
 	data[data_index + 0].set_safe_range(0, 31) # There are some gaps which don't have wave shapes.
 
@@ -69,15 +78,23 @@ func _add_operator() -> void:
 	data[data_index + 14] = VoiceKnob.new("FN", 0, 127)
 
 
+func _remove_operator() -> void:
+	var operator_index := get_operator_count()
+	if operator_index == 1:
+		return
+
+	data.resize(SIOPM_CH_PARAMS + SIOPM_OP_PARAMS * (operator_index - 1))
+
+
 func _randomize_data() -> void:
 	var ch_data := get_channel_data()
-	ch_data[1].randomize_value() # FB
+	ch_data[ChannelParams.FB].randomize_value()
 
 	for i in get_operator_count():
 		var op_data := get_operator_data(i)
 
-		op_data[0].randomize_value() # WS
-		op_data[7].randomize_value() # KR
-		op_data[9].randomize_value() # ML
-		op_data[10].randomize_value() # D1
-		op_data[11].randomize_value() # D2
+		op_data[OperatorParams.WS].randomize_value()
+		op_data[OperatorParams.KR].randomize_value()
+		op_data[OperatorParams.ML].randomize_value()
+		op_data[OperatorParams.D1].randomize_value()
+		op_data[OperatorParams.D2].randomize_value()

@@ -8,21 +8,28 @@ class_name FallbackVoiceDeck extends BaseVoiceDeck
 
 const KNOB_SCENE := preload("res://gui/components/KnobControl.tscn")
 
-@onready var _operator_button: Button = %OperatorButton
 @onready var _randomize_button: Button = %RandomizeButton
+
+@onready var _add_operator_button: Button = %AddOperatorButton
+@onready var _remove_operator_button: Button = %RemOperatorButton
+@onready var _operator_indicator: OperatorIndicator = %OperatorIndicator
 
 @onready var _volume_knob_control: KnobControl = %VolumeKnob
 @onready var _channel_knobs_container: VBoxContainer = %ChannelKnobs
-@onready var _operator_knobs_container: VBoxContainer = %OperatorKnobs
+@onready var _operator_knobs_container: TabContainer = %OperatorKnobs
 
 
 func _ready() -> void:
 	_update_knobs()
 	voice_changed.connect(_update_knobs)
 
-	_operator_button.pressed.connect(func() -> void:
+	_add_operator_button.pressed.connect(func() -> void:
 		if voice:
 			voice.add_operator()
+	)
+	_remove_operator_button.pressed.connect(func() -> void:
+		if voice:
+			voice.remove_operator()
 	)
 	_randomize_button.pressed.connect(func() -> void:
 		if voice:
@@ -30,7 +37,7 @@ func _ready() -> void:
 	)
 
 
-# Implementation.
+# Knob management.
 
 func _update_knobs() -> void:
 	if not is_inside_tree():
@@ -53,10 +60,6 @@ func _update_knobs() -> void:
 
 	var channel_data := voice.get_channel_data()
 
-	var channel_label := Label.new()
-	channel_label.text = "CHANNEL KNOBS"
-	_channel_knobs_container.add_child(channel_label)
-
 	var channel_box := HBoxContainer.new()
 	channel_box.theme_type_variation = "KnobHBox"
 	_channel_knobs_container.add_child(channel_box)
@@ -68,17 +71,29 @@ func _update_knobs() -> void:
 
 	# Create operator knobs for each operator.
 
+	_operator_indicator.operator_count = voice.get_operator_count()
+
 	for i in voice.get_operator_count():
 		var operator_data := voice.get_operator_data(i)
 
+		var operator_container := MarginContainer.new()
+		operator_container.name = [ "A", "B", "C", "D" ][i]
+		operator_container.add_theme_constant_override("margin_left", 8)
+		operator_container.add_theme_constant_override("margin_top", 8)
+		operator_container.add_theme_constant_override("margin_right", 8)
+		operator_container.add_theme_constant_override("margin_bottom", 8)
+		_operator_knobs_container.add_child(operator_container)
+		var operator_layout := VBoxContainer.new()
+		operator_container.add_child(operator_layout)
+
 		var operator_label := Label.new()
 		operator_label.text = "OPERATOR #%d KNOBS" % [ i + 1 ]
-		_operator_knobs_container.add_child(operator_label)
+		operator_layout.add_child(operator_label)
 
 		var operator_box := GridContainer.new()
 		operator_box.columns = 3
 		operator_box.theme_type_variation = "KnobGrid"
-		_operator_knobs_container.add_child(operator_box)
+		operator_layout.add_child(operator_box)
 
 		for j in operator_data.size():
 			var knob_data := operator_data[j]

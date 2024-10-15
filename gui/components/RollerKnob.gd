@@ -7,6 +7,8 @@
 @tool
 class_name RollerKnob extends PanelContainer
 
+signal value_changed()
+
 const ROLLER_SCROLL_FACTOR := 0.01
 const VALUE_SCROLL_FACTOR := 1.0
 
@@ -212,6 +214,7 @@ func _update_value_on_click() -> void:
 
 func _update_value(value: int) -> void:
 	knob_value = clampi(value, min_value, max_value)
+	value_changed.emit()
 
 
 func _animate_scroll_to_zero() -> void:

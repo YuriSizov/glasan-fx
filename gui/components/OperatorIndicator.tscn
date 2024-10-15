@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://61k8mkj3i0d3"]
+
+[ext_resource type="Shader" path="res://gui/components/GlowLabel.gdshader" id="1_kt6il"]
+[ext_resource type="Script" path="res://gui/components/OperatorIndicator.gd" id="1_mbdna"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4wj0h"]
+shader = ExtResource("1_kt6il")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/intensity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bsksv"]
+shader = ExtResource("1_kt6il")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/intensity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_57bjm"]
+shader = ExtResource("1_kt6il")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/intensity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ins2n"]
+shader = ExtResource("1_kt6il")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/intensity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xjfq6"]
+shader = ExtResource("1_kt6il")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/intensity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qh3qa"]
+shader = ExtResource("1_kt6il")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/intensity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fqwrp"]
+shader = ExtResource("1_kt6il")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/intensity = 0.0
+
+[node name="OperatorIndicator" type="HBoxContainer"]
+theme_type_variation = &"OperatorIndicator"
+script = ExtResource("1_mbdna")
+
+[node name="ALabel" type="Label" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_4wj0h")
+layout_mode = 2
+text = "A"
+
+[node name="A2BLabel" type="Label" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_bsksv")
+layout_mode = 2
+text = ">"
+
+[node name="BLabel" type="Label" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_57bjm")
+layout_mode = 2
+text = "B"
+
+[node name="B2CLabel" type="Label" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_ins2n")
+layout_mode = 2
+text = ">"
+
+[node name="CLabel" type="Label" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_xjfq6")
+layout_mode = 2
+text = "C"
+
+[node name="C2DLabel" type="Label" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_qh3qa")
+layout_mode = 2
+text = ">"
+
+[node name="DLabel" type="Label" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_fqwrp")
+layout_mode = 2
+text = "D"

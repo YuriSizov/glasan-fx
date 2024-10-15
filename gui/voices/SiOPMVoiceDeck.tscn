@@ -1,4 +1,20 @@
-[gd_scene format=3 uid="uid://b0l6ei5ndoyaa"]
+[gd_scene load_steps=10 format=3 uid="uid://b0l6ei5ndoyaa"]
+
+[ext_resource type="Script" path="res://gui/voices/SiOPMVoiceDeck.gd" id="1_wt3dc"]
+[ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/RollerKnob.tscn" id="2_e6f5v"]
+[ext_resource type="Shader" path="res://gui/components/RollerPanel.gdshader" id="3_lcelt"]
+[ext_resource type="PackedScene" uid="uid://kvxy6miofpxj" path="res://gui/components/KnobControl.tscn" id="4_sx30e"]
+[ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="5_cpycw"]
+[ext_resource type="PackedScene" uid="uid://61k8mkj3i0d3" path="res://gui/components/OperatorIndicator.tscn" id="6_vjoiq"]
+[ext_resource type="PackedScene" uid="uid://y6raidijduyh" path="res://gui/voices/operators/SiOPMOperatorDeck.tscn" id="7_frxll"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hbpl3"]
+resource_local_to_scene = true
+shader = ExtResource("3_lcelt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3vtae"]
+resource_local_to_scene = true
+shader = ExtResource("3_lcelt")
 
 [node name="SiOPMVoiceDeck" type="PanelContainer"]
 anchors_preset = 15
@@ -7,3 +23,132 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"SiOPMVoiceDeck"
+script = ExtResource("1_wt3dc")
+
+[node name="Layout" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="GeneralKnobs" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="VolumeKnob" parent="Layout/GeneralKnobs" instance=ExtResource("2_e6f5v")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_hbpl3")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "VOL"
+knob_value = 75
+max_value = 100
+safe_max_value = 100
+
+[node name="FeedbackKnob" parent="Layout/GeneralKnobs" instance=ExtResource("2_e6f5v")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_3vtae")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FBACK"
+
+[node name="SubLayout" type="HBoxContainer" parent="Layout/GeneralKnobs"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Filler" type="Control" parent="Layout/GeneralKnobs/SubLayout"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RandomizeButton" parent="Layout/GeneralKnobs/SubLayout" instance=ExtResource("5_cpycw")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+toggle_mode = false
+text = "RAND"
+off_color = Color(0.0784314, 0.0862745, 0.113725, 1)
+
+[node name="AdvancedChannel" type="VBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="ChannelSeparator" type="HSeparator" parent="Layout/AdvancedChannel"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Layout/AdvancedChannel"]
+layout_mode = 2
+text = "CHANNEL"
+
+[node name="ChannelKnobs" type="HBoxContainer" parent="Layout/AdvancedChannel"]
+layout_mode = 2
+
+[node name="ConnectionsKnob" parent="Layout/AdvancedChannel/ChannelKnobs" instance=ExtResource("4_sx30e")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="AlgorithmKnob" parent="Layout/AdvancedChannel/ChannelKnobs" instance=ExtResource("4_sx30e")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="OperatorSeparator" type="HSeparator" parent="Layout"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="OperatorControls" type="MarginContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="Layout" type="HBoxContainer" parent="Layout/OperatorControls"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Layout/OperatorControls/Layout"]
+layout_mode = 2
+text = "OPERATORS"
+
+[node name="Filler" type="Control" parent="Layout/OperatorControls/Layout"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OperatorIndicator" parent="Layout/OperatorControls/Layout" instance=ExtResource("6_vjoiq")]
+unique_name_in_owner = true
+layout_mode = 2
+operator_count = 1
+
+[node name="AddOperatorButton" parent="Layout/OperatorControls/Layout" instance=ExtResource("5_cpycw")]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = false
+text = "ADD"
+off_color = Color(0.0784314, 0.0862745, 0.113725, 1)
+
+[node name="RemOperatorButton" parent="Layout/OperatorControls/Layout" instance=ExtResource("5_cpycw")]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = false
+text = "REM"
+off_color = Color(0.0784314, 0.0862745, 0.113725, 1)
+
+[node name="Operators" type="TabContainer" parent="Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="A" parent="Layout/Operators" instance=ExtResource("7_frxll")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="B" parent="Layout/Operators" instance=ExtResource("7_frxll")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="C" parent="Layout/Operators" instance=ExtResource("7_frxll")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="D" parent="Layout/Operators" instance=ExtResource("7_frxll")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3

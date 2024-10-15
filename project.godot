@@ -37,4 +37,4 @@ theme/custom="res://gui/theme/project_theme.tres"
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.521664, 0.535174, 0.505471, 1)
+environment/defaults/default_clear_color=Color(0.542672, 0.541507, 0.50588, 1)

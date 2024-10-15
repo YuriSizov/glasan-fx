@@ -14,6 +14,8 @@ const TOGGLE_FADE_DURATION := 0.15
 	set = set_off_color
 @export var on_color: Color = Color("b93026"):
 	set = set_on_color
+@export var force_glow: bool = false:
+	set = set_force_glow
 
 # Animated properties.
 
@@ -80,16 +82,31 @@ func set_on_color(value: Color) -> void:
 	_update_panel_back_color(_panel_back_color)
 
 
+func set_force_glow(value: bool) -> void:
+	if force_glow == value:
+		return
+
+	force_glow = value
+	_setup_label_intensity()
+	_update_label_intensity(_label_intensity)
+	_update_label_color()
+
+
 # Animation.
 
 func _setup_animated_properties() -> void:
-	var on_label_intensity := get_theme_constant("on_label_intensity") / 100.0
-
 	_vignette_intensity = 0.0 # Always 0 by default because it's only visible when the button is held down.
-	_label_intensity = on_label_intensity if button_pressed else 0.0
 
+	_setup_label_intensity()
 	_setup_panel_colors()
 	_update_all_shaders()
+
+
+func _setup_label_intensity() -> void:
+	var on_label_intensity := get_theme_constant("on_label_intensity") / 100.0
+	_label_intensity = on_label_intensity if button_pressed else 0.0
+	if force_glow:
+		_label_intensity = on_label_intensity
 
 
 func _setup_panel_colors() -> void:
@@ -196,6 +213,8 @@ func _update_label_color() -> void:
 	var label_color := default_font_color
 	if toggle_mode:
 		label_color = on_font_color if button_pressed else off_font_color
+	elif force_glow:
+		label_color = on_font_color
 
 	_label.add_theme_color_override("font_color", label_color)
 

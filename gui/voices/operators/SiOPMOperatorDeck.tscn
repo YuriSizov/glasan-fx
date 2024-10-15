@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://y6raidijduyh"]
+
+[ext_resource type="Script" path="res://gui/voices/operators/SiOPMOperatorDeck.gd" id="1_t5m5s"]
+[ext_resource type="PackedScene" uid="uid://kvxy6miofpxj" path="res://gui/components/KnobControl.tscn" id="2_b8kmf"]
+[ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/RollerKnob.tscn" id="3_fp7fs"]
+[ext_resource type="Shader" path="res://gui/components/RollerPanel.gdshader" id="4_ao5p7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7wdfr"]
+resource_local_to_scene = true
+shader = ExtResource("4_ao5p7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lnbte"]
+resource_local_to_scene = true
+shader = ExtResource("4_ao5p7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qqnui"]
+resource_local_to_scene = true
+shader = ExtResource("4_ao5p7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_66uhm"]
+resource_local_to_scene = true
+shader = ExtResource("4_ao5p7")
+
+[node name="SiOPMOperatorDeck" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"OperatorDeck"
+script = ExtResource("1_t5m5s")
+
+[node name="Layout" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ShapeBox" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+alignment = 1
+
+[node name="ShapeKnob" parent="Layout/ShapeBox" instance=ExtResource("2_b8kmf")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="RatesBox" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="AttackKnob" parent="Layout/RatesBox" instance=ExtResource("3_fp7fs")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_7wdfr")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AR"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="DecayKnob" parent="Layout/RatesBox" instance=ExtResource("3_fp7fs")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_lnbte")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DR"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="SustainKnob" parent="Layout/RatesBox" instance=ExtResource("3_fp7fs")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_qqnui")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SR"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="ReleaseKnob" parent="Layout/RatesBox" instance=ExtResource("3_fp7fs")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_66uhm")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "RR"
+knob_value = 32
+max_value = 63
+safe_max_value = 63

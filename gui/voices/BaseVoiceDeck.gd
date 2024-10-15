@@ -27,3 +27,29 @@ func set_voice(value: Voice) -> void:
 		voice.data_changed.connect(voice_changed.emit)
 
 	voice_changed.emit()
+
+
+# Helpers.
+
+static func setup_roller_knob(knob: RollerKnob, data: VoiceKnob) -> void:
+	# Clear previous connections, if any.
+	var connections := knob.value_changed.get_connections()
+	for connection : Dictionary in connections:
+		knob.value_changed.disconnect(connection["callable"])
+
+	# Set up properties.
+	knob.min_value = data.min_value
+	knob.max_value = data.max_value
+	knob.safe_min_value = data.min_safe
+	knob.safe_max_value = data.max_safe
+	knob.knob_value = data.value
+
+	# Connect to changes.
+	knob.value_changed.connect(func() -> void:
+		data.value = knob.knob_value
+	)
+
+
+static func setup_knob_control(knob: KnobControl, data: VoiceKnob) -> void:
+	knob.knob_data = data
+	knob.force_update()

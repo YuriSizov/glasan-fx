@@ -61,6 +61,14 @@ func _add_operator() -> void:
 	data[data_index + 10] = VoiceKnob.new("AM", 0, 3)
 
 
+func _remove_operator() -> void:
+	var operator_index := get_operator_count()
+	if operator_index == 1:
+		return
+
+	data.resize(OPL_CH_PARAMS + OPL_OP_PARAMS * (operator_index - 1))
+
+
 func _randomize_data() -> void:
 	var ch_data := get_channel_data()
 	ch_data[1].randomize_value() # FB

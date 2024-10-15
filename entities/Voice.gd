@@ -41,6 +41,12 @@ func _connect_voice_data() -> void:
 			knob.value_changed.connect(_update_voice_data)
 
 
+func _disconnect_voice_data() -> void:
+	for knob in data:
+		if knob.value_changed.is_connected(_update_voice_data):
+			knob.value_changed.disconnect(_update_voice_data)
+
+
 func _update_voice_data() -> void:
 	if _update_suspended:
 		return
@@ -110,13 +116,14 @@ func add_operator() -> void:
 
 # Virtual. Must be implemented by extending classes.
 func _remove_operator() -> void:
-	# TODO: Implement the removal in sub-classes.
 	pass
 
 
 func remove_operator() -> void:
+	_disconnect_voice_data()
 	_remove_operator()
 
+	_connect_voice_data()
 	_update_voice_data()
 	operator_removed.emit()
 	data_changed.emit()
