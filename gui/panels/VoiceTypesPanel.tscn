@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://coofo7rkc326b"]
 
-[ext_resource type="Script" path="res://gui/VoiceTypesPanel.gd" id="1_lc5s2"]
+[ext_resource type="Script" path="res://gui/panels/VoiceTypesPanel.gd" id="1_lc5s2"]
 [ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="1_ndnrx"]
-[ext_resource type="ButtonGroup" uid="uid://o0n7hp4kf7hg" path="res://gui/voice_type_buttons.tres" id="2_e366j"]
-[ext_resource type="Shader" path="res://gui/PlasticPanel.gdshader" id="2_ygno6"]
+[ext_resource type="ButtonGroup" uid="uid://o0n7hp4kf7hg" path="res://gui/panels/voice_type_buttons.tres" id="2_e366j"]
+[ext_resource type="Shader" path="res://gui/panels/PlasticPanel.gdshader" id="2_ygno6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_spujn"]
 resource_local_to_scene = true

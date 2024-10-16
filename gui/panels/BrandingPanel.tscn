@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dytaho2ekhxdh"]
 
-[ext_resource type="Shader" path="res://gui/PlasticPanel.gdshader" id="1_xepf3"]
-[ext_resource type="Script" path="res://gui/BrandingPanel.gd" id="1_xoupl"]
+[ext_resource type="Shader" path="res://gui/panels/PlasticPanel.gdshader" id="1_xepf3"]
+[ext_resource type="Script" path="res://gui/panels/BrandingPanel.gd" id="1_xoupl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t4i82"]
 resource_local_to_scene = true

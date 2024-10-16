@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dw6imoh8k58m1"]
 
-[ext_resource type="Script" path="res://gui/MenuPanel.gd" id="1_tuea8"]
-[ext_resource type="Shader" path="res://gui/PlasticPanel.gdshader" id="2_xtruc"]
+[ext_resource type="Script" path="res://gui/panels/MenuPanel.gd" id="1_tuea8"]
+[ext_resource type="Shader" path="res://gui/panels/PlasticPanel.gdshader" id="2_xtruc"]
 [ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="3_mvq1g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h57gu"]

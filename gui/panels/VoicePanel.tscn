@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://byabb6ha5p7xn"]
 
-[ext_resource type="Script" path="res://gui/VoicePanel.gd" id="1_dvwof"]
-[ext_resource type="Shader" path="res://gui/PlasticPanel.gdshader" id="2_d4vur"]
+[ext_resource type="Script" path="res://gui/panels/VoicePanel.gd" id="1_dvwof"]
+[ext_resource type="Shader" path="res://gui/panels/PlasticPanel.gdshader" id="2_d4vur"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_18dkq"]
 resource_local_to_scene = true
