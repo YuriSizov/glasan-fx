@@ -1,0 +1,322 @@
+[gd_scene load_steps=18 format=3 uid="uid://c8ld4mgspflab"]
+
+[ext_resource type="Script" path="res://gui/components/PianoRoll.gd" id="1_nfgs2"]
+[ext_resource type="Script" path="res://gui/components/PianoContainer.gd" id="2_kmleb"]
+[ext_resource type="PackedScene" uid="uid://dt8h6osxvf3im" path="res://gui/components/PianoKey.tscn" id="3_5hvlp"]
+[ext_resource type="Script" path="res://gui/components/PianoKey.gd" id="3_xhw4f"]
+[ext_resource type="Shader" path="res://gui/components/PianoKey.gdshader" id="4_6grup"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o3n68"]
+resource_local_to_scene = true
+shader = ExtResource("4_6grup")
+shader_parameter/state_pressed = 0.0
+shader_parameter/inset_left = false
+shader_parameter/inset_right = true
+shader_parameter/shadow_position = 0.212
+shader_parameter/shadow_size = 0.08
+shader_parameter/shadow_compensation = 0.0
+shader_parameter/inset_height = 0.382
+shader_parameter/inset_smoothness = 0.024
+shader_parameter/inset_shadow_position = 0.019
+shader_parameter/inset_shadow_size = 0.022
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oly6h"]
+resource_local_to_scene = true
+shader = ExtResource("4_6grup")
+shader_parameter/state_pressed = 0.0
+shader_parameter/inset_left = false
+shader_parameter/inset_right = false
+shader_parameter/shadow_position = 0.212
+shader_parameter/shadow_size = 0.08
+shader_parameter/shadow_compensation = 0.05
+shader_parameter/inset_height = 0.382
+shader_parameter/inset_smoothness = 0.024
+shader_parameter/inset_shadow_position = 0.019
+shader_parameter/inset_shadow_size = 0.022
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6qhju"]
+resource_local_to_scene = true
+shader = ExtResource("4_6grup")
+shader_parameter/state_pressed = 0.0
+shader_parameter/inset_left = true
+shader_parameter/inset_right = true
+shader_parameter/shadow_position = 0.212
+shader_parameter/shadow_size = 0.08
+shader_parameter/shadow_compensation = 0.0
+shader_parameter/inset_height = 0.382
+shader_parameter/inset_smoothness = 0.024
+shader_parameter/inset_shadow_position = 0.019
+shader_parameter/inset_shadow_size = 0.022
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bk3a2"]
+resource_local_to_scene = true
+shader = ExtResource("4_6grup")
+shader_parameter/state_pressed = 0.0
+shader_parameter/inset_left = false
+shader_parameter/inset_right = false
+shader_parameter/shadow_position = 0.212
+shader_parameter/shadow_size = 0.08
+shader_parameter/shadow_compensation = 0.05
+shader_parameter/inset_height = 0.382
+shader_parameter/inset_smoothness = 0.024
+shader_parameter/inset_shadow_position = 0.019
+shader_parameter/inset_shadow_size = 0.022
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1op70"]
+resource_local_to_scene = true
+shader = ExtResource("4_6grup")
+shader_parameter/state_pressed = 0.0
+shader_parameter/inset_left = true
+shader_parameter/inset_right = false
+shader_parameter/shadow_position = 0.212
+shader_parameter/shadow_size = 0.08
+shader_parameter/shadow_compensation = 0.0
+shader_parameter/inset_height = 0.382
+shader_parameter/inset_smoothness = 0.024
+shader_parameter/inset_shadow_position = 0.019
+shader_parameter/inset_shadow_size = 0.022
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_853ji"]
+resource_local_to_scene = true
+shader = ExtResource("4_6grup")
+shader_parameter/state_pressed = 0.0
+shader_parameter/inset_left = false
+shader_parameter/inset_right = true
+shader_parameter/shadow_position = 0.212
+shader_parameter/shadow_size = 0.08
+shader_parameter/shadow_compensation = 0.0
+shader_parameter/inset_height = 0.382
+shader_parameter/inset_smoothness = 0.024
+shader_parameter/inset_shadow_position = 0.019
+shader_parameter/inset_shadow_size = 0.022
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6tgsp"]
+resource_local_to_scene = true
+shader = ExtResource("4_6grup")
+shader_parameter/state_pressed = 0.0
+shader_parameter/inset_left = false
+shader_parameter/inset_right = false
+shader_parameter/shadow_position = 0.212
+shader_parameter/shadow_size = 0.08
+shader_parameter/shadow_compensation = 0.05
+shader_parameter/inset_height = 0.382
+shader_parameter/inset_smoothness = 0.024
+shader_parameter/inset_shadow_position = 0.019
+shader_parameter/inset_shadow_size = 0.022
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mlvxl"]
+resource_local_to_scene = true
+shader = ExtResource("4_6grup")
+shader_parameter/state_pressed = 0.0
+shader_parameter/inset_left = true
+shader_parameter/inset_right = true
+shader_parameter/shadow_position = 0.212
+shader_parameter/shadow_size = 0.08
+shader_parameter/shadow_compensation = 0.0
+shader_parameter/inset_height = 0.382
+shader_parameter/inset_smoothness = 0.024
+shader_parameter/inset_shadow_position = 0.019
+shader_parameter/inset_shadow_size = 0.022
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_63k38"]
+resource_local_to_scene = true
+shader = ExtResource("4_6grup")
+shader_parameter/state_pressed = 0.0
+shader_parameter/inset_left = false
+shader_parameter/inset_right = false
+shader_parameter/shadow_position = 0.212
+shader_parameter/shadow_size = 0.08
+shader_parameter/shadow_compensation = 0.05
+shader_parameter/inset_height = 0.382
+shader_parameter/inset_smoothness = 0.024
+shader_parameter/inset_shadow_position = 0.019
+shader_parameter/inset_shadow_size = 0.022
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5g0vb"]
+resource_local_to_scene = true
+shader = ExtResource("4_6grup")
+shader_parameter/state_pressed = 0.0
+shader_parameter/inset_left = true
+shader_parameter/inset_right = true
+shader_parameter/shadow_position = 0.212
+shader_parameter/shadow_size = 0.08
+shader_parameter/shadow_compensation = 0.0
+shader_parameter/inset_height = 0.382
+shader_parameter/inset_smoothness = 0.024
+shader_parameter/inset_shadow_position = 0.019
+shader_parameter/inset_shadow_size = 0.022
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rab8g"]
+resource_local_to_scene = true
+shader = ExtResource("4_6grup")
+shader_parameter/state_pressed = 0.0
+shader_parameter/inset_left = false
+shader_parameter/inset_right = false
+shader_parameter/shadow_position = 0.212
+shader_parameter/shadow_size = 0.08
+shader_parameter/shadow_compensation = 0.05
+shader_parameter/inset_height = 0.382
+shader_parameter/inset_smoothness = 0.024
+shader_parameter/inset_shadow_position = 0.019
+shader_parameter/inset_shadow_size = 0.022
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ydqud"]
+resource_local_to_scene = true
+shader = ExtResource("4_6grup")
+shader_parameter/state_pressed = 0.0
+shader_parameter/inset_left = true
+shader_parameter/inset_right = false
+shader_parameter/shadow_position = 0.212
+shader_parameter/shadow_size = 0.08
+shader_parameter/shadow_compensation = 0.0
+shader_parameter/inset_height = 0.382
+shader_parameter/inset_smoothness = 0.024
+shader_parameter/inset_shadow_position = 0.019
+shader_parameter/inset_shadow_size = 0.022
+
+[node name="PianoRoll" type="MarginContainer"]
+offset_right = 252.0
+offset_bottom = 100.0
+script = ExtResource("1_nfgs2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.116668, 0.109648, 0.106619, 1)
+
+[node name="Keys" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 12
+
+[node name="Background" type="ColorRect" parent="Keys"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Keys"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 0
+
+[node name="PianoContainer" type="Container" parent="Keys/MarginContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+mouse_filter = 0
+script = ExtResource("2_kmleb")
+reset_keys = null
+
+[node name="Key0" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_o3n68")
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0.98, 0.95, 1)
+script = ExtResource("3_xhw4f")
+inset_right = true
+
+[node name="Key1" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+material = SubResource("ShaderMaterial_oly6h")
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.35, 0.36, 0.38, 1)
+script = ExtResource("3_xhw4f")
+
+[node name="Key2" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_6qhju")
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0.98, 0.95, 1)
+script = ExtResource("3_xhw4f")
+inset_left = true
+inset_right = true
+
+[node name="Key3" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+material = SubResource("ShaderMaterial_bk3a2")
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.35, 0.36, 0.38, 1)
+script = ExtResource("3_xhw4f")
+
+[node name="Key4" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_1op70")
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0.98, 0.95, 1)
+script = ExtResource("3_xhw4f")
+inset_left = true
+
+[node name="Key5" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_853ji")
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0.98, 0.95, 1)
+script = ExtResource("3_xhw4f")
+inset_right = true
+
+[node name="Key6" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+material = SubResource("ShaderMaterial_6tgsp")
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.35, 0.36, 0.38, 1)
+script = ExtResource("3_xhw4f")
+
+[node name="Key7" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_mlvxl")
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0.98, 0.95, 1)
+script = ExtResource("3_xhw4f")
+inset_left = true
+inset_right = true
+
+[node name="Key8" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+material = SubResource("ShaderMaterial_63k38")
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.35, 0.36, 0.38, 1)
+script = ExtResource("3_xhw4f")
+
+[node name="Key9" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_5g0vb")
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0.98, 0.95, 1)
+script = ExtResource("3_xhw4f")
+inset_left = true
+inset_right = true
+
+[node name="Key10" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+material = SubResource("ShaderMaterial_rab8g")
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.35, 0.36, 0.38, 1)
+script = ExtResource("3_xhw4f")
+
+[node name="Key11" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_ydqud")
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0.98, 0.95, 1)
+script = ExtResource("3_xhw4f")
+inset_left = true

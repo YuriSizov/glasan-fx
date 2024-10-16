@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt8h6osxvf3im"]
+
+[ext_resource type="Shader" path="res://gui/components/PianoKey.gdshader" id="1_m1m7q"]
+[ext_resource type="Script" path="res://gui/components/PianoKey.gd" id="1_udkbi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yrepw"]
+resource_local_to_scene = true
+shader = ExtResource("1_m1m7q")
+shader_parameter/state_pressed = 0.0
+shader_parameter/inset_left = false
+shader_parameter/inset_right = false
+shader_parameter/shadow_position = 0.212
+shader_parameter/shadow_size = 0.08
+shader_parameter/shadow_compensation = 0.0
+shader_parameter/inset_height = 0.382
+shader_parameter/inset_smoothness = 0.024
+shader_parameter/inset_shadow_position = 0.019
+shader_parameter/inset_shadow_size = 0.022
+
+[node name="PianoKey" type="ColorRect"]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_yrepw")
+custom_minimum_size = Vector2(0, 48)
+offset_right = 36.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(1, 0.98, 0.95, 1)
+script = ExtResource("1_udkbi")
+inset_left = null
+inset_right = null

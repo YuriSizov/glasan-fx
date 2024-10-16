@@ -49,3 +49,8 @@ static func get_note_mml(note: int) -> String:
 static func get_note_octave(note: int) -> int:
 	@warning_ignore("integer_division")
 	return note / MAX # SiON octave numbers are 0-based.
+
+
+static func is_note_sharp(note: int) -> bool:
+	var normalized := note % MAX
+	return normalized in [ 1, 3, 6, 8, 10 ]

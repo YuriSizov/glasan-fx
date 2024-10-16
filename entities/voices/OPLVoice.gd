@@ -22,7 +22,7 @@ func _init(op_count: int = 1) -> void:
 
 	# Channel params.
 
-	data[0] = VoiceKnob.new("AL", 0, 5)
+	data[0] = VoiceKnob.new("AL", 0, 3)
 	data[1] = VoiceKnob.new("FB", 0, 7)
 
 	# Operator params.
