@@ -46,33 +46,45 @@ layout_mode = 2
 button_pressed = true
 button_group = ExtResource("2_e366j")
 text = "SIOPM"
+off_color = Color(0.231373, 0.00784314, 0.00392157, 1)
+on_color = Color(0.72549, 0.188235, 0.14902, 1)
 
 [node name="OPLButton" parent="Content/Layout" instance=ExtResource("1_ndnrx")]
 unique_name_in_owner = true
 layout_mode = 2
 button_group = ExtResource("2_e366j")
 text = "OPL"
+off_color = Color(0.231373, 0.00784314, 0.00392157, 1)
+on_color = Color(0.72549, 0.188235, 0.14902, 1)
 
 [node name="OPMButton" parent="Content/Layout" instance=ExtResource("1_ndnrx")]
 unique_name_in_owner = true
 layout_mode = 2
 button_group = ExtResource("2_e366j")
 text = "OPM"
+off_color = Color(0.231373, 0.00784314, 0.00392157, 1)
+on_color = Color(0.72549, 0.188235, 0.14902, 1)
 
 [node name="OPNButton" parent="Content/Layout" instance=ExtResource("1_ndnrx")]
 unique_name_in_owner = true
 layout_mode = 2
 button_group = ExtResource("2_e366j")
 text = "OPN"
+off_color = Color(0.231373, 0.00784314, 0.00392157, 1)
+on_color = Color(0.72549, 0.188235, 0.14902, 1)
 
 [node name="OPXButton" parent="Content/Layout" instance=ExtResource("1_ndnrx")]
 unique_name_in_owner = true
 layout_mode = 2
 button_group = ExtResource("2_e366j")
 text = "OPX"
+off_color = Color(0.231373, 0.00784314, 0.00392157, 1)
+on_color = Color(0.72549, 0.188235, 0.14902, 1)
 
 [node name="MA3Button" parent="Content/Layout" instance=ExtResource("1_ndnrx")]
 unique_name_in_owner = true
 layout_mode = 2
 button_group = ExtResource("2_e366j")
 text = "MA3"
+off_color = Color(0.231373, 0.00784314, 0.00392157, 1)
+on_color = Color(0.72549, 0.188235, 0.14902, 1)

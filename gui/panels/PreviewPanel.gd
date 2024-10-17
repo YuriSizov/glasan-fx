@@ -9,7 +9,11 @@ class_name PreviewPanel extends ContentPanel
 
 var _current_sample: Sample = null
 
-@onready var _preview_button: Button = %PreviewButton
+@onready var _preview_area: PreviewArea = %PreviewArea
+@onready var _preview_button: GlowButton = %PreviewButton
+@onready var _spectrum_mode_button: GlowButton = %SpectrumButton
+@onready var _wave_mode_button: GlowButton = %WaveButton
+
 @onready var _length_knob_control: KnobControl = %LengthKnob
 @onready var _piano_roll: PianoRoll = %PianoRoll
 
@@ -20,6 +24,8 @@ func _ready() -> void:
 
 	if not Engine.is_editor_hint():
 		_preview_button.pressed.connect(_play_sample)
+		_spectrum_mode_button.pressed.connect(_preview_area.change_preview_style.bind(PreviewArea.PreviewStyle.PREVIEW_SPECTRUM))
+		_wave_mode_button.pressed.connect(_preview_area.change_preview_style.bind(PreviewArea.PreviewStyle.PREVIEW_WAVE))
 		_piano_roll.note_changed.connect(_change_note)
 
 		Controller.voice_manager.sample_changed.connect(_edit_current_sample)

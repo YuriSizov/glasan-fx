@@ -10,9 +10,9 @@ class_name GlowButton extends Button
 const VIGNETTE_FADE_DURATION := 0.05
 const TOGGLE_FADE_DURATION := 0.15
 
-@export var off_color: Color = Color("3b0201"):
+@export var off_color: Color = Color(0.2, 0.2, 0.2):
 	set = set_off_color
-@export var on_color: Color = Color("b93026"):
+@export var on_color: Color = Color(0.6, 0.6, 0.6):
 	set = set_on_color
 @export var force_glow: bool = false:
 	set = set_force_glow
@@ -44,7 +44,7 @@ func _ready() -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_THEME_CHANGED:
 		_update_label_color()
-		_update_all_shaders()
+		_setup_animated_properties()
 	elif what == NOTIFICATION_EDITOR_PRE_SAVE:
 		_clear_label_color()
 	elif what == NOTIFICATION_EDITOR_POST_SAVE:
@@ -134,6 +134,9 @@ func _animate_button_held(is_down: bool) -> void:
 
 
 func _animate_button_toggled() -> void:
+	if not is_inside_tree():
+		return
+
 	if is_instance_valid(_toggle_tweener):
 		_toggle_tweener.kill()
 

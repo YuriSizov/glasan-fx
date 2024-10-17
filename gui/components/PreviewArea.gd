@@ -79,6 +79,11 @@ func _update_render_size() -> void:
 	_render_size = size * RENDER_SCALE
 
 
+func change_preview_style(style: PreviewStyle) -> void:
+	_preview_style = style
+	queue_redraw()
+
+
 # Spectrum previews.
 
 func _draw_spectrum() -> void:
