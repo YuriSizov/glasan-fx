@@ -48,3 +48,25 @@ float blur_alpha(sampler2D source, vec2 uv, vec2 direction, float intensity) {
 
 	return blurred;
 }
+
+vec3 blur_color(sampler2D source, vec2 uv, vec2 direction, float intensity) {
+	vec2 s = intensity * direction / vec2(textureSize(source, 0));
+
+	vec3 blurred =
+		0.011194727 * texture(source, uv - 10.000000000 * s).rgb +
+		0.039368696 * texture(source, uv - 8.415809477 * s).rgb +
+		0.071308558 * texture(source, uv - 6.435363708 * s).rgb +
+		0.110237219 * texture(source, uv - 4.455121108 * s).rgb +
+		0.145451038 * texture(source, uv - 2.475020813 * s).rgb +
+		0.163798995 * texture(source, uv - 0.495000167 * s).rgb +
+		0.157439298 * texture(source, uv + 1.485004498 * s).rgb +
+		0.129158204 * texture(source, uv + 3.465057055 * s).rgb +
+		0.090434685 * texture(source, uv + 5.445220765 * s).rgb +
+		0.054043977 * texture(source, uv + 7.425557483 * s).rgb +
+		0.027564604 * texture(source, uv + 9.406126897 * s).rgb;
+
+	// Allows to disable the effect completely at the cost of being applied twice.
+	blurred *= intensity;
+
+	return blurred;
+}

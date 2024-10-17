@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://8xc2djp24y40"]
 
 [ext_resource type="Script" path="res://gui/panels/PreviewPanel.gd" id="1_iu5lk"]
-[ext_resource type="Script" path="res://gui/panels/PreviewArea.gd" id="2_mpak3"]
 [ext_resource type="Shader" path="res://gui/panels/PlasticPanel.gdshader" id="2_mypj1"]
 [ext_resource type="PackedScene" uid="uid://kvxy6miofpxj" path="res://gui/components/KnobControl.tscn" id="3_1mn17"]
+[ext_resource type="PackedScene" uid="uid://diuy5hd43hen1" path="res://gui/components/PreviewArea.tscn" id="3_80051"]
 [ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="4_6wcbg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i1p27"]
@@ -45,19 +45,16 @@ layout_mode = 2
 [node name="Layout" type="HBoxContainer" parent="Content"]
 layout_mode = 2
 
-[node name="PreviewArea" type="Control" parent="Content/Layout"]
+[node name="PreviewArea" parent="Content/Layout" instance=ExtResource("3_80051")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(280, 160)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-theme_type_variation = &"PreviewArea"
-script = ExtResource("2_mpak3")
+size_flags_stretch_ratio = 3.0
 
 [node name="Controls" type="VBoxContainer" parent="Content/Layout"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
 alignment = 1
 
 [node name="PreviewButton" parent="Content/Layout/Controls" instance=ExtResource("4_6wcbg")]

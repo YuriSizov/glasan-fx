@@ -26,5 +26,3 @@ offset_bottom = 48.0
 mouse_filter = 2
 color = Color(1, 0.98, 0.95, 1)
 script = ExtResource("1_udkbi")
-inset_left = null
-inset_right = null

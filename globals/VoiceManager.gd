@@ -9,6 +9,9 @@ class_name VoiceManager extends RefCounted
 signal voice_changed()
 signal sample_changed()
 
+signal sample_started()
+signal sample_stopped()
+
 const MIN_NOTE_LENGTH := 1
 const MAX_NOTE_LENGTH := 20
 const DEFAULT_NOTE_LENGTH := 4
@@ -26,6 +29,8 @@ var _current_voice: Voice = null
 var _current_sample: Sample = null
 
 var _off_timer: int = -1
+
+var _sample_data: PackedFloat64Array = PackedFloat64Array()
 
 
 func _init(controller: Node) -> void:
@@ -49,6 +54,7 @@ func _initialize_driver() -> void:
 	_driver.set_bpm(Controller.bpm)
 	_driver.set_timer_interval(1)
 	_driver.timer_interval.connect(_update_off_timer)
+	_driver.streaming.connect(_collect_sample_data)
 
 	_driver.play()
 
@@ -119,11 +125,18 @@ func play_sample() -> void:
 	_off_timer = _current_sample.length.value
 
 	cutoff_sample() # Prevent overlaps.
+	_sample_data.clear()
+	_driver.set_stream_event_enabled(true)
+
+	sample_started.emit()
 	_driver.note_on(_current_sample.note.value, _current_voice.voice)
 
 
 func cutoff_sample() -> void:
 	_driver.note_off(-1, 0, 0, 0, true)
+	_driver.set_stream_event_enabled(false)
+
+	sample_stopped.emit()
 
 
 func _update_off_timer() -> void:
@@ -155,3 +168,14 @@ func render_sample(mml: String, length_16th: int) -> PackedFloat64Array:
 	_driver.play()
 
 	return buffer
+
+
+func _collect_sample_data(event: SiONEvent) -> void:
+	var data := event.get_stream_buffer()
+	# The data is in stereo, but there is no panning, so we can use any single channel instead.
+	for sample in data:
+		_sample_data.push_back(sample.x)
+
+
+func get_sample_data() -> PackedFloat64Array:
+	return _sample_data

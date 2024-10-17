@@ -163,13 +163,12 @@ content_margin_top = 4.0
 content_margin_right = 8.0
 content_margin_bottom = 4.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fi7ih"]
-bg_color = Color(0.0460842, 0.0451539, 0.0656941, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.166061, 0.164074, 0.208367, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtn45"]
+bg_color = Color(0.0348444, 0.034844, 0.0519441, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k0nv5"]
 
@@ -336,8 +335,8 @@ OperatorIndicator/colors/font_active_color = Color(0.910244, 0.403015, 0.264407,
 OperatorIndicator/colors/font_inactive_color = Color(0.265174, 0.143202, 0.136196, 1)
 OperatorIndicator/constants/label_intensity = 85
 OperatorIndicator/font_sizes/font_size = 16
-PreviewArea/base_type = &"Control"
-PreviewArea/styles/panel = SubResource("StyleBoxFlat_fi7ih")
+PreviewArea/base_type = &"PanelContainer"
+PreviewArea/styles/panel = SubResource("StyleBoxFlat_qtn45")
 PreviewPanel/base_type = &"ContentPanel"
 PreviewPanel/constants/margin_bottom = 8
 PreviewPanel/constants/margin_left = 8
