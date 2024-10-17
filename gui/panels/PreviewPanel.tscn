@@ -1,15 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://8xc2djp24y40"]
+[gd_scene load_steps=8 format=3 uid="uid://8xc2djp24y40"]
 
 [ext_resource type="Script" path="res://gui/panels/PreviewPanel.gd" id="1_iu5lk"]
 [ext_resource type="Shader" path="res://gui/panels/PlasticPanel.gdshader" id="2_mypj1"]
 [ext_resource type="PackedScene" uid="uid://kvxy6miofpxj" path="res://gui/components/KnobControl.tscn" id="3_1mn17"]
 [ext_resource type="PackedScene" uid="uid://diuy5hd43hen1" path="res://gui/components/PreviewArea.tscn" id="3_80051"]
 [ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="4_6wcbg"]
+[ext_resource type="PackedScene" uid="uid://c8ld4mgspflab" path="res://gui/components/PianoRoll.tscn" id="6_n0eq7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i1p27"]
 resource_local_to_scene = true
 shader = ExtResource("2_mypj1")
-shader_parameter/size = Vector2(768, 202)
+shader_parameter/size = Vector2(768, 261)
 shader_parameter/light_intensity = 0.0
 shader_parameter/light_smoothness = 0.003
 shader_parameter/light_inverted = 0
@@ -48,13 +49,10 @@ layout_mode = 2
 [node name="PreviewArea" parent="Content/Layout" instance=ExtResource("3_80051")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_stretch_ratio = 3.0
 
 [node name="Controls" type="VBoxContainer" parent="Content/Layout"]
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 4
-size_flags_stretch_ratio = 2.0
 alignment = 1
 
 [node name="PreviewButton" parent="Content/Layout/Controls" instance=ExtResource("4_6wcbg")]
@@ -62,14 +60,15 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 54)
 layout_mode = 2
 toggle_mode = false
-text = "CRASH!"
-off_color = Color(0.762522, 0.52293, 0.122911, 1)
+text = "BLAM!"
+off_color = Color(0.136711, 0.0804561, 0.00542678, 1)
+on_color = Color(0.760784, 0.521569, 0.121569, 1)
 force_glow = true
 
 [node name="LengthKnob" parent="Content/Layout/Controls" instance=ExtResource("3_1mn17")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="NoteKnob" parent="Content/Layout/Controls" instance=ExtResource("3_1mn17")]
+[node name="PianoRoll" parent="Content/Layout/Controls" instance=ExtResource("6_n0eq7")]
 unique_name_in_owner = true
 layout_mode = 2

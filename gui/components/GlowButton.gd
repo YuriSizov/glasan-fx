@@ -90,6 +90,9 @@ func set_force_glow(value: bool) -> void:
 	_setup_label_intensity()
 	_update_label_intensity(_label_intensity)
 	_update_label_color()
+	_setup_panel_colors()
+	_update_panel_main_color(_panel_main_color)
+	_update_panel_back_color(_panel_back_color)
 
 
 # Animation.
@@ -104,6 +107,7 @@ func _setup_animated_properties() -> void:
 
 func _setup_label_intensity() -> void:
 	var on_label_intensity := get_theme_constant("on_label_intensity") / 100.0
+
 	_label_intensity = on_label_intensity if button_pressed else 0.0
 	if force_glow:
 		_label_intensity = on_label_intensity
@@ -114,6 +118,9 @@ func _setup_panel_colors() -> void:
 
 	_panel_main_color = on_color if button_pressed else off_color
 	_panel_back_color = off_color if button_pressed else off_back_color
+	if force_glow:
+		_panel_main_color = on_color
+		_panel_back_color = off_color
 
 
 func _animate_button_held(is_down: bool) -> void:
@@ -217,6 +224,7 @@ func _update_label_color() -> void:
 		label_color = on_font_color
 
 	_label.add_theme_color_override("font_color", label_color)
+	_label.add_theme_font_size_override("font_size", get_theme_font_size("font_size"))
 
 
 func _clear_label_color() -> void:
@@ -224,6 +232,7 @@ func _clear_label_color() -> void:
 		return
 
 	_label.remove_theme_color_override("font_color")
+	_label.remove_theme_font_size_override("font_size")
 
 
 func _update_text() -> void:

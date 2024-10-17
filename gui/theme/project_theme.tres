@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=45 format=3 uid="uid://bpwfhtd227bkw"]
+[gd_resource type="Theme" load_steps=46 format=3 uid="uid://bpwfhtd227bkw"]
 
 [ext_resource type="FontFile" uid="uid://cjwuh3bvsqt57" path="res://assets/fonts/fff-aquarius-bold-condensed.msdf.ttf" id="1_67pkc"]
 [ext_resource type="Script" path="res://gui/theme/StyleTexture.gd" id="1_fj6h5"]
@@ -162,6 +162,13 @@ content_margin_left = 8.0
 content_margin_top = 4.0
 content_margin_right = 8.0
 content_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_px4j7"]
+content_margin_left = 8.0
+content_margin_top = 1.0
+content_margin_right = 8.0
+content_margin_bottom = 1.0
+bg_color = Color(0.00351917, 0.00351917, 0.00351916, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtn45"]
 bg_color = Color(0.0348444, 0.034844, 0.0519441, 1)
@@ -335,6 +342,10 @@ OperatorIndicator/colors/font_active_color = Color(0.910244, 0.403015, 0.264407,
 OperatorIndicator/colors/font_inactive_color = Color(0.265174, 0.143202, 0.136196, 1)
 OperatorIndicator/constants/label_intensity = 85
 OperatorIndicator/font_sizes/font_size = 16
+PianoOctaveLabel/base_type = &"Label"
+PianoOctaveLabel/colors/font_color = Color(0.874525, 0.881914, 0.855576, 1)
+PianoOctaveLabel/font_sizes/font_size = 12
+PianoOctaveLabel/styles/normal = SubResource("StyleBoxFlat_px4j7")
 PreviewArea/base_type = &"PanelContainer"
 PreviewArea/styles/panel = SubResource("StyleBoxFlat_qtn45")
 PreviewPanel/base_type = &"ContentPanel"

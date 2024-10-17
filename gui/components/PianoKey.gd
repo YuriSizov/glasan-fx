@@ -7,16 +7,19 @@
 @tool
 class_name PianoKey extends ColorRect
 
+signal key_pressed()
+
 const PRESSED_DURATION := 0.1
+const LIGHT_COLOR := Color(1.0, 0.98, 0.95)
+const DARK_COLOR := Color(0.35, 0.36, 0.38)
 
 @export var base_width: float = 24.0
 @export var inset_left: bool = false:
 	set = set_inset_left
 @export var inset_right: bool = false:
 	set = set_inset_right
-
-const LIGHT_COLOR := Color(1.0, 0.98, 0.95)
-const DARK_COLOR := Color(0.35, 0.36, 0.38)
+@export var selected: bool = false:
+	set = set_selected
 
 var _pressed: bool = false
 
@@ -65,12 +68,21 @@ func set_inset_left(value: bool) -> void:
 	inset_left = value
 	_update_insets()
 
+
 func set_inset_right(value: bool) -> void:
 	if inset_right == value:
 		return
 
 	inset_right = value
 	_update_insets()
+
+
+func set_selected(value: bool) -> void:
+	if selected == value:
+		return
+
+	selected = value
+	_update_selected()
 
 
 func _update_color() -> void:
@@ -88,6 +100,10 @@ func _update_insets() -> void:
 	(material as ShaderMaterial).set_shader_parameter("inset_right", inset_right)
 
 
+func _update_selected() -> void:
+	(material as ShaderMaterial).set_shader_parameter("state_selected", selected)
+
+
 # State management.
 
 func _set_pressed(value: bool) -> void:
@@ -96,6 +112,8 @@ func _set_pressed(value: bool) -> void:
 
 	_pressed = value
 	_animate_pressed()
+	if _pressed:
+		key_pressed.emit()
 
 
 func _animate_pressed() -> void:

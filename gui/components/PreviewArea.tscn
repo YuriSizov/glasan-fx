@@ -19,7 +19,6 @@ custom_minimum_size = Vector2(280, 160)
 offset_right = 280.0
 offset_bottom = 160.0
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
 theme_type_variation = &"PreviewArea"
 script = ExtResource("2_ienxl")
 

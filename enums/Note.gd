@@ -20,6 +20,9 @@ const NOTE_AS := 10
 const NOTE_B  := 11
 const MAX     := 12
 
+const MAX_NOTES := 128
+const MAX_OCTAVES := ceili(MAX_NOTES / float(MAX))
+
 const _note_name_map := {
 	NOTE_C:  "C",
 	NOTE_CS: "C#",

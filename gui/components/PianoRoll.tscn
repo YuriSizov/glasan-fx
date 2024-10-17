@@ -1,14 +1,19 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8ld4mgspflab"]
+[gd_scene load_steps=23 format=3 uid="uid://c8ld4mgspflab"]
 
 [ext_resource type="Script" path="res://gui/components/PianoRoll.gd" id="1_nfgs2"]
 [ext_resource type="Script" path="res://gui/components/PianoContainer.gd" id="2_kmleb"]
 [ext_resource type="PackedScene" uid="uid://dt8h6osxvf3im" path="res://gui/components/PianoKey.tscn" id="3_5hvlp"]
 [ext_resource type="Shader" path="res://gui/components/PianoKey.gdshader" id="4_6grup"]
+[ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="5_cudr8"]
+[ext_resource type="Script" path="res://gui/components/PianoKey.gd" id="5_dblre"]
+[ext_resource type="Shader" path="res://gui/components/RollerValueBar.gdshader" id="6_76x3k"]
+[ext_resource type="Shader" path="res://gui/components/GlowLabel.gdshader" id="6_l44rt"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nbgeu"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_36g26"]
 resource_local_to_scene = true
 shader = ExtResource("4_6grup")
 shader_parameter/state_pressed = 0.0
+shader_parameter/state_selected = false
 shader_parameter/inset_left = false
 shader_parameter/inset_right = true
 shader_parameter/shadow_position = 0.212
@@ -18,11 +23,17 @@ shader_parameter/inset_height = 0.382
 shader_parameter/inset_smoothness = 0.024
 shader_parameter/inset_shadow_position = 0.019
 shader_parameter/inset_shadow_size = 0.022
+shader_parameter/selection_x_factor = 2.6
+shader_parameter/selection_offset = 0.8
+shader_parameter/selection_size = 0.066
+shader_parameter/selection_smoothness = 0.006
+shader_parameter/selection_color = Color(0.710837, 0.283876, 0.25255, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vhfpo"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k8tkt"]
 resource_local_to_scene = true
 shader = ExtResource("4_6grup")
 shader_parameter/state_pressed = 0.0
+shader_parameter/state_selected = false
 shader_parameter/inset_left = false
 shader_parameter/inset_right = false
 shader_parameter/shadow_position = 0.212
@@ -32,11 +43,17 @@ shader_parameter/inset_height = 0.382
 shader_parameter/inset_smoothness = 0.024
 shader_parameter/inset_shadow_position = 0.019
 shader_parameter/inset_shadow_size = 0.022
+shader_parameter/selection_x_factor = 2.6
+shader_parameter/selection_offset = 0.8
+shader_parameter/selection_size = 0.066
+shader_parameter/selection_smoothness = 0.006
+shader_parameter/selection_color = Color(0.710837, 0.283876, 0.25255, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_43qo1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vfrc8"]
 resource_local_to_scene = true
 shader = ExtResource("4_6grup")
 shader_parameter/state_pressed = 0.0
+shader_parameter/state_selected = false
 shader_parameter/inset_left = true
 shader_parameter/inset_right = true
 shader_parameter/shadow_position = 0.212
@@ -46,11 +63,17 @@ shader_parameter/inset_height = 0.382
 shader_parameter/inset_smoothness = 0.024
 shader_parameter/inset_shadow_position = 0.019
 shader_parameter/inset_shadow_size = 0.022
+shader_parameter/selection_x_factor = 2.6
+shader_parameter/selection_offset = 0.8
+shader_parameter/selection_size = 0.066
+shader_parameter/selection_smoothness = 0.006
+shader_parameter/selection_color = Color(0.710837, 0.283876, 0.25255, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7bbt0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_311y6"]
 resource_local_to_scene = true
 shader = ExtResource("4_6grup")
 shader_parameter/state_pressed = 0.0
+shader_parameter/state_selected = false
 shader_parameter/inset_left = false
 shader_parameter/inset_right = false
 shader_parameter/shadow_position = 0.212
@@ -60,11 +83,17 @@ shader_parameter/inset_height = 0.382
 shader_parameter/inset_smoothness = 0.024
 shader_parameter/inset_shadow_position = 0.019
 shader_parameter/inset_shadow_size = 0.022
+shader_parameter/selection_x_factor = 2.6
+shader_parameter/selection_offset = 0.8
+shader_parameter/selection_size = 0.066
+shader_parameter/selection_smoothness = 0.006
+shader_parameter/selection_color = Color(0.710837, 0.283876, 0.25255, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u43c7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wdfbl"]
 resource_local_to_scene = true
 shader = ExtResource("4_6grup")
 shader_parameter/state_pressed = 0.0
+shader_parameter/state_selected = false
 shader_parameter/inset_left = true
 shader_parameter/inset_right = false
 shader_parameter/shadow_position = 0.212
@@ -74,11 +103,17 @@ shader_parameter/inset_height = 0.382
 shader_parameter/inset_smoothness = 0.024
 shader_parameter/inset_shadow_position = 0.019
 shader_parameter/inset_shadow_size = 0.022
+shader_parameter/selection_x_factor = 2.6
+shader_parameter/selection_offset = 0.8
+shader_parameter/selection_size = 0.066
+shader_parameter/selection_smoothness = 0.006
+shader_parameter/selection_color = Color(0.710837, 0.283876, 0.25255, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wby01"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cddi8"]
 resource_local_to_scene = true
 shader = ExtResource("4_6grup")
 shader_parameter/state_pressed = 0.0
+shader_parameter/state_selected = false
 shader_parameter/inset_left = false
 shader_parameter/inset_right = true
 shader_parameter/shadow_position = 0.212
@@ -88,11 +123,17 @@ shader_parameter/inset_height = 0.382
 shader_parameter/inset_smoothness = 0.024
 shader_parameter/inset_shadow_position = 0.019
 shader_parameter/inset_shadow_size = 0.022
+shader_parameter/selection_x_factor = 2.6
+shader_parameter/selection_offset = 0.8
+shader_parameter/selection_size = 0.066
+shader_parameter/selection_smoothness = 0.006
+shader_parameter/selection_color = Color(0.710837, 0.283876, 0.25255, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nm3ra"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hyj56"]
 resource_local_to_scene = true
 shader = ExtResource("4_6grup")
 shader_parameter/state_pressed = 0.0
+shader_parameter/state_selected = false
 shader_parameter/inset_left = false
 shader_parameter/inset_right = false
 shader_parameter/shadow_position = 0.212
@@ -102,11 +143,17 @@ shader_parameter/inset_height = 0.382
 shader_parameter/inset_smoothness = 0.024
 shader_parameter/inset_shadow_position = 0.019
 shader_parameter/inset_shadow_size = 0.022
+shader_parameter/selection_x_factor = 2.6
+shader_parameter/selection_offset = 0.8
+shader_parameter/selection_size = 0.066
+shader_parameter/selection_smoothness = 0.006
+shader_parameter/selection_color = Color(0.710837, 0.283876, 0.25255, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n827b"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0hgrt"]
 resource_local_to_scene = true
 shader = ExtResource("4_6grup")
 shader_parameter/state_pressed = 0.0
+shader_parameter/state_selected = false
 shader_parameter/inset_left = true
 shader_parameter/inset_right = true
 shader_parameter/shadow_position = 0.212
@@ -116,11 +163,17 @@ shader_parameter/inset_height = 0.382
 shader_parameter/inset_smoothness = 0.024
 shader_parameter/inset_shadow_position = 0.019
 shader_parameter/inset_shadow_size = 0.022
+shader_parameter/selection_x_factor = 2.6
+shader_parameter/selection_offset = 0.8
+shader_parameter/selection_size = 0.066
+shader_parameter/selection_smoothness = 0.006
+shader_parameter/selection_color = Color(0.710837, 0.283876, 0.25255, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_r0h4s"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y3j7m"]
 resource_local_to_scene = true
 shader = ExtResource("4_6grup")
 shader_parameter/state_pressed = 0.0
+shader_parameter/state_selected = false
 shader_parameter/inset_left = false
 shader_parameter/inset_right = false
 shader_parameter/shadow_position = 0.212
@@ -130,11 +183,17 @@ shader_parameter/inset_height = 0.382
 shader_parameter/inset_smoothness = 0.024
 shader_parameter/inset_shadow_position = 0.019
 shader_parameter/inset_shadow_size = 0.022
+shader_parameter/selection_x_factor = 2.6
+shader_parameter/selection_offset = 0.8
+shader_parameter/selection_size = 0.066
+shader_parameter/selection_smoothness = 0.006
+shader_parameter/selection_color = Color(0.710837, 0.283876, 0.25255, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3jdf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qftt6"]
 resource_local_to_scene = true
 shader = ExtResource("4_6grup")
 shader_parameter/state_pressed = 0.0
+shader_parameter/state_selected = false
 shader_parameter/inset_left = true
 shader_parameter/inset_right = true
 shader_parameter/shadow_position = 0.212
@@ -144,11 +203,17 @@ shader_parameter/inset_height = 0.382
 shader_parameter/inset_smoothness = 0.024
 shader_parameter/inset_shadow_position = 0.019
 shader_parameter/inset_shadow_size = 0.022
+shader_parameter/selection_x_factor = 2.6
+shader_parameter/selection_offset = 0.8
+shader_parameter/selection_size = 0.066
+shader_parameter/selection_smoothness = 0.006
+shader_parameter/selection_color = Color(0.710837, 0.283876, 0.25255, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ab7sk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ltvl0"]
 resource_local_to_scene = true
 shader = ExtResource("4_6grup")
 shader_parameter/state_pressed = 0.0
+shader_parameter/state_selected = false
 shader_parameter/inset_left = false
 shader_parameter/inset_right = false
 shader_parameter/shadow_position = 0.212
@@ -158,11 +223,17 @@ shader_parameter/inset_height = 0.382
 shader_parameter/inset_smoothness = 0.024
 shader_parameter/inset_shadow_position = 0.019
 shader_parameter/inset_shadow_size = 0.022
+shader_parameter/selection_x_factor = 2.6
+shader_parameter/selection_offset = 0.8
+shader_parameter/selection_size = 0.066
+shader_parameter/selection_smoothness = 0.006
+shader_parameter/selection_color = Color(0.710837, 0.283876, 0.25255, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xfw64"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uegwx"]
 resource_local_to_scene = true
 shader = ExtResource("4_6grup")
 shader_parameter/state_pressed = 0.0
+shader_parameter/state_selected = false
 shader_parameter/inset_left = true
 shader_parameter/inset_right = false
 shader_parameter/shadow_position = 0.212
@@ -172,6 +243,27 @@ shader_parameter/inset_height = 0.382
 shader_parameter/inset_smoothness = 0.024
 shader_parameter/inset_shadow_position = 0.019
 shader_parameter/inset_shadow_size = 0.022
+shader_parameter/selection_x_factor = 2.6
+shader_parameter/selection_offset = 0.8
+shader_parameter/selection_size = 0.066
+shader_parameter/selection_smoothness = 0.006
+shader_parameter/selection_color = Color(0.710837, 0.283876, 0.25255, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vresl"]
+resource_local_to_scene = true
+shader = ExtResource("6_l44rt")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/intensity = 0.82
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f6fma"]
+resource_local_to_scene = true
+shader = ExtResource("6_76x3k")
+shader_parameter/glass_shine_offset = -0.251
+shader_parameter/glass_shine_sharpness = 0.094
+shader_parameter/glass_shine_opaqueness = 0.313
+shader_parameter/vignette_center = 18.002
+shader_parameter/vignette_rim = 0.455
+shader_parameter/vignette_intensity = 1.0
 
 [node name="PianoRoll" type="MarginContainer"]
 offset_right = 252.0
@@ -179,15 +271,16 @@ offset_bottom = 100.0
 script = ExtResource("1_nfgs2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 2
 color = Color(0.116668, 0.109648, 0.106619, 1)
 
 [node name="Keys" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 12
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 4
 
 [node name="Background" type="ColorRect" parent="Keys"]
 layout_mode = 2
@@ -201,75 +294,170 @@ theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 0
 
 [node name="PianoContainer" type="Container" parent="Keys/MarginContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 mouse_filter = 0
 script = ExtResource("2_kmleb")
 
-[node name="Key0" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
-material = SubResource("ShaderMaterial_nbgeu")
+[node name="Key0" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_36g26")
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0.98, 0.95, 1)
+script = ExtResource("5_dblre")
 inset_right = true
 
-[node name="Key1" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
-show_behind_parent = false
-material = SubResource("ShaderMaterial_vhfpo")
+[node name="Key1" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+material = SubResource("ShaderMaterial_k8tkt")
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+mouse_filter = 2
 color = Color(0.35, 0.36, 0.38, 1)
+script = ExtResource("5_dblre")
 
-[node name="Key2" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
-material = SubResource("ShaderMaterial_43qo1")
+[node name="Key2" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_vfrc8")
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0.98, 0.95, 1)
+script = ExtResource("5_dblre")
 inset_left = true
 inset_right = true
 
-[node name="Key3" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
-show_behind_parent = false
-material = SubResource("ShaderMaterial_7bbt0")
+[node name="Key3" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+material = SubResource("ShaderMaterial_311y6")
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+mouse_filter = 2
 color = Color(0.35, 0.36, 0.38, 1)
+script = ExtResource("5_dblre")
 
-[node name="Key4" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
-material = SubResource("ShaderMaterial_u43c7")
+[node name="Key4" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_wdfbl")
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0.98, 0.95, 1)
+script = ExtResource("5_dblre")
 inset_left = true
 
-[node name="Key5" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
-material = SubResource("ShaderMaterial_wby01")
+[node name="Key5" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_cddi8")
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0.98, 0.95, 1)
+script = ExtResource("5_dblre")
 inset_right = true
 
-[node name="Key6" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
-show_behind_parent = false
-material = SubResource("ShaderMaterial_nm3ra")
+[node name="Key6" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+material = SubResource("ShaderMaterial_hyj56")
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+mouse_filter = 2
 color = Color(0.35, 0.36, 0.38, 1)
+script = ExtResource("5_dblre")
 
-[node name="Key7" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
-material = SubResource("ShaderMaterial_n827b")
+[node name="Key7" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_0hgrt")
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0.98, 0.95, 1)
+script = ExtResource("5_dblre")
 inset_left = true
 inset_right = true
 
-[node name="Key8" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
-show_behind_parent = false
-material = SubResource("ShaderMaterial_r0h4s")
+[node name="Key8" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+material = SubResource("ShaderMaterial_y3j7m")
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+mouse_filter = 2
 color = Color(0.35, 0.36, 0.38, 1)
+script = ExtResource("5_dblre")
 
-[node name="Key9" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
-material = SubResource("ShaderMaterial_v3jdf")
+[node name="Key9" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_qftt6")
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0.98, 0.95, 1)
+script = ExtResource("5_dblre")
 inset_left = true
 inset_right = true
 
-[node name="Key10" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
-show_behind_parent = false
-material = SubResource("ShaderMaterial_ab7sk")
+[node name="Key10" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+material = SubResource("ShaderMaterial_ltvl0")
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+mouse_filter = 2
 color = Color(0.35, 0.36, 0.38, 1)
+script = ExtResource("5_dblre")
 
-[node name="Key11" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
-material = SubResource("ShaderMaterial_xfw64")
+[node name="Key11" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_uegwx")
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0.98, 0.95, 1)
+script = ExtResource("5_dblre")
 inset_left = true
+
+[node name="Octave" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="UpOctaveButton" parent="Octave" instance=ExtResource("5_cudr8")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+toggle_mode = false
+text = "+"
+off_color = Color(0.0097838, 0.00860826, 0.0129871, 1)
+on_color = Color(0.161746, 0.144835, 0.197189, 1)
+force_glow = true
+
+[node name="OctaveLabel" type="Label" parent="Octave"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_vresl")
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"PianoOctaveLabel"
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OctaveOverlay" type="ColorRect" parent="Octave/OctaveLabel"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_f6fma")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DownOctaveButton" parent="Octave" instance=ExtResource("5_cudr8")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+toggle_mode = false
+text = "-"
+off_color = Color(0.0097838, 0.00860826, 0.0129871, 1)
+on_color = Color(0.161746, 0.144835, 0.197189, 1)
+force_glow = true

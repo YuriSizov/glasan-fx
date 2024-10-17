@@ -7,10 +7,14 @@
 @tool
 class_name PianoContainer extends Container
 
+signal key_pressed(key_index: int)
+
 const KEY_SCENE := preload("res://gui/components/PianoKey.tscn")
 
 @export_range(0, 12, 1, "or_greater") var number_of_keys: int = 12:
 	set = set_number_of_keys
+@export_range(-1, 12, 1, "or_greater") var selected_key: int = -1:
+	set = set_selected_key
 @export var reset_keys: bool:
 	set = set_reset_keys
 
@@ -23,6 +27,7 @@ var _hovered_child: Control = null
 
 func _ready() -> void:
 	_update_keys()
+	_update_selected_key()
 
 
 func _notification(what: int) -> void:
@@ -160,6 +165,14 @@ func set_number_of_keys(value: int) -> void:
 	_update_keys()
 
 
+func set_selected_key(value: int) -> void:
+	if selected_key == value:
+		return
+
+	selected_key = value
+	_update_selected_key()
+
+
 func set_reset_keys(_value: bool) -> void:
 	while get_child_count() > 0:
 		var child_node := get_child(0)
@@ -189,3 +202,21 @@ func _update_keys() -> void:
 		child_node.name = "Key%d" % [ get_child_count() ]
 		add_child(child_node)
 		child_node.owner = owner
+
+	for child_node in get_children():
+		var key := child_node as PianoKey
+
+		if not key.key_pressed.is_connected(_select_pressed_key.bind(key)):
+			key.key_pressed.connect(_select_pressed_key.bind(key))
+
+
+func _update_selected_key() -> void:
+	if not is_node_ready():
+		return
+
+	for child_node in get_children():
+		(child_node as PianoKey).selected = (selected_key == child_node.get_index())
+
+
+func _select_pressed_key(key: PianoKey) -> void:
+	key_pressed.emit(key.get_index())

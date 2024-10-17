@@ -7,6 +7,7 @@
 resource_local_to_scene = true
 shader = ExtResource("1_m1m7q")
 shader_parameter/state_pressed = 0.0
+shader_parameter/state_selected = false
 shader_parameter/inset_left = false
 shader_parameter/inset_right = false
 shader_parameter/shadow_position = 0.212
@@ -16,6 +17,11 @@ shader_parameter/inset_height = 0.382
 shader_parameter/inset_smoothness = 0.024
 shader_parameter/inset_shadow_position = 0.019
 shader_parameter/inset_shadow_size = 0.022
+shader_parameter/selection_x_factor = 2.6
+shader_parameter/selection_offset = 0.8
+shader_parameter/selection_size = 0.066
+shader_parameter/selection_smoothness = 0.006
+shader_parameter/selection_color = Color(0.710837, 0.283876, 0.25255, 1)
 
 [node name="PianoKey" type="ColorRect"]
 show_behind_parent = true
