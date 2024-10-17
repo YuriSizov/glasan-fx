@@ -37,7 +37,7 @@ func _init(op_count: int = 1) -> void:
 	# Operator params.
 
 	for i in op_count:
-		_add_operator()
+		add_operator()
 
 	_connect_voice_data()
 	_update_voice_data()
