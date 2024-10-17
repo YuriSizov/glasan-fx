@@ -1,13 +1,14 @@
-[gd_scene load_steps=23 format=3 uid="uid://c8ld4mgspflab"]
+[gd_scene load_steps=24 format=3 uid="uid://c8ld4mgspflab"]
 
 [ext_resource type="Script" path="res://gui/components/PianoRoll.gd" id="1_nfgs2"]
 [ext_resource type="Script" path="res://gui/components/PianoContainer.gd" id="2_kmleb"]
 [ext_resource type="PackedScene" uid="uid://dt8h6osxvf3im" path="res://gui/components/PianoKey.tscn" id="3_5hvlp"]
 [ext_resource type="Shader" path="res://gui/components/PianoKey.gdshader" id="4_6grup"]
 [ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="5_cudr8"]
-[ext_resource type="Script" path="res://gui/components/PianoKey.gd" id="5_dblre"]
 [ext_resource type="Shader" path="res://gui/components/RollerValueBar.gdshader" id="6_76x3k"]
 [ext_resource type="Shader" path="res://gui/components/GlowLabel.gdshader" id="6_l44rt"]
+[ext_resource type="Texture2D" uid="uid://dpqpjg2tljk2q" path="res://assets/icons/arrow_up.png" id="6_r4x0v"]
+[ext_resource type="Texture2D" uid="uid://bs4nps2xcum7l" path="res://assets/icons/arrow_down.png" id="9_50rvi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_36g26"]
 resource_local_to_scene = true
@@ -300,117 +301,72 @@ layout_mode = 2
 mouse_filter = 0
 script = ExtResource("2_kmleb")
 
-[node name="Key0" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
-show_behind_parent = true
+[node name="Key0" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
 material = SubResource("ShaderMaterial_36g26")
-custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-mouse_filter = 2
-color = Color(1, 0.98, 0.95, 1)
-script = ExtResource("5_dblre")
 inset_right = true
 
-[node name="Key1" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+[node name="Key1" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+show_behind_parent = false
 material = SubResource("ShaderMaterial_k8tkt")
-custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-mouse_filter = 2
 color = Color(0.35, 0.36, 0.38, 1)
-script = ExtResource("5_dblre")
 
-[node name="Key2" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
-show_behind_parent = true
+[node name="Key2" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
 material = SubResource("ShaderMaterial_vfrc8")
-custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-mouse_filter = 2
-color = Color(1, 0.98, 0.95, 1)
-script = ExtResource("5_dblre")
 inset_left = true
 inset_right = true
 
-[node name="Key3" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+[node name="Key3" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+show_behind_parent = false
 material = SubResource("ShaderMaterial_311y6")
-custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-mouse_filter = 2
 color = Color(0.35, 0.36, 0.38, 1)
-script = ExtResource("5_dblre")
 
-[node name="Key4" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
-show_behind_parent = true
+[node name="Key4" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
 material = SubResource("ShaderMaterial_wdfbl")
-custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-mouse_filter = 2
-color = Color(1, 0.98, 0.95, 1)
-script = ExtResource("5_dblre")
 inset_left = true
 
-[node name="Key5" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
-show_behind_parent = true
+[node name="Key5" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
 material = SubResource("ShaderMaterial_cddi8")
-custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-mouse_filter = 2
-color = Color(1, 0.98, 0.95, 1)
-script = ExtResource("5_dblre")
 inset_right = true
 
-[node name="Key6" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+[node name="Key6" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+show_behind_parent = false
 material = SubResource("ShaderMaterial_hyj56")
-custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-mouse_filter = 2
 color = Color(0.35, 0.36, 0.38, 1)
-script = ExtResource("5_dblre")
 
-[node name="Key7" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
-show_behind_parent = true
+[node name="Key7" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
 material = SubResource("ShaderMaterial_0hgrt")
-custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-mouse_filter = 2
-color = Color(1, 0.98, 0.95, 1)
-script = ExtResource("5_dblre")
 inset_left = true
 inset_right = true
 
-[node name="Key8" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+[node name="Key8" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+show_behind_parent = false
 material = SubResource("ShaderMaterial_y3j7m")
-custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-mouse_filter = 2
 color = Color(0.35, 0.36, 0.38, 1)
-script = ExtResource("5_dblre")
 
-[node name="Key9" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
-show_behind_parent = true
+[node name="Key9" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
 material = SubResource("ShaderMaterial_qftt6")
-custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-mouse_filter = 2
-color = Color(1, 0.98, 0.95, 1)
-script = ExtResource("5_dblre")
 inset_left = true
 inset_right = true
 
-[node name="Key10" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+[node name="Key10" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+show_behind_parent = false
 material = SubResource("ShaderMaterial_ltvl0")
-custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-mouse_filter = 2
 color = Color(0.35, 0.36, 0.38, 1)
-script = ExtResource("5_dblre")
 
-[node name="Key11" type="ColorRect" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
-show_behind_parent = true
+[node name="Key11" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
 material = SubResource("ShaderMaterial_uegwx")
-custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-mouse_filter = 2
-color = Color(1, 0.98, 0.95, 1)
-script = ExtResource("5_dblre")
 inset_left = true
 
 [node name="Octave" type="VBoxContainer" parent="."]
@@ -421,14 +377,15 @@ alignment = 1
 
 [node name="UpOctaveButton" parent="Octave" instance=ExtResource("5_cudr8")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 28)
+custom_minimum_size = Vector2(34, 28)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 7
 toggle_mode = false
-text = "+"
-off_color = Color(0.0097838, 0.00860826, 0.0129871, 1)
+text = ""
+icon = ExtResource("6_r4x0v")
+off_color = Color(0.150309, 0.13979, 0.175719, 1)
 on_color = Color(0.161746, 0.144835, 0.197189, 1)
-force_glow = true
 
 [node name="OctaveLabel" type="Label" parent="Octave"]
 unique_name_in_owner = true
@@ -453,11 +410,12 @@ grow_vertical = 2
 
 [node name="DownOctaveButton" parent="Octave" instance=ExtResource("5_cudr8")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 28)
+custom_minimum_size = Vector2(34, 28)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 8
 toggle_mode = false
-text = "-"
-off_color = Color(0.0097838, 0.00860826, 0.0129871, 1)
+text = ""
+icon = ExtResource("9_50rvi")
+off_color = Color(0.150309, 0.13979, 0.175719, 1)
 on_color = Color(0.161746, 0.144835, 0.197189, 1)
-force_glow = true

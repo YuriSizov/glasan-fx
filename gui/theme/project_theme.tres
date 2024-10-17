@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=46 format=3 uid="uid://bpwfhtd227bkw"]
+[gd_resource type="Theme" load_steps=51 format=3 uid="uid://bpwfhtd227bkw"]
 
 [ext_resource type="FontFile" uid="uid://cjwuh3bvsqt57" path="res://assets/fonts/fff-aquarius-bold-condensed.msdf.ttf" id="1_67pkc"]
 [ext_resource type="Script" path="res://gui/theme/StyleTexture.gd" id="1_fj6h5"]
@@ -74,6 +74,36 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.517507, 0.537297, 0.568779, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w3wix"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mb7o6"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xu2n5"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eplmh"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3mafp"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_ucorg"]
 color = Color(0.867261, 0.867261, 0.86726, 0.63)
@@ -313,6 +343,11 @@ GlowButton/colors/font_normal_color = Color(0.795394, 0.795394, 0.795394, 1)
 GlowButton/colors/font_pressed_color = Color(1, 1, 1, 1)
 GlowButton/colors/off_back_color = Color(0, 0, 0, 1)
 GlowButton/constants/on_label_intensity = 65
+GlowButton/styles/disabled = SubResource("StyleBoxEmpty_w3wix")
+GlowButton/styles/focus = SubResource("StyleBoxEmpty_mb7o6")
+GlowButton/styles/hover = SubResource("StyleBoxEmpty_xu2n5")
+GlowButton/styles/normal = SubResource("StyleBoxEmpty_eplmh")
+GlowButton/styles/pressed = SubResource("StyleBoxEmpty_3mafp")
 HBoxContainer/constants/separation = 8
 HSeparator/styles/separator = SubResource("StyleBoxLine_ucorg")
 HSlider/icons/grabber = SubResource("Texture2D_dd775")

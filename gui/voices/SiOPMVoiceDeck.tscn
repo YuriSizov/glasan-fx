@@ -59,6 +59,7 @@ size_flags_horizontal = 3
 
 [node name="RandomizeButton" parent="Layout/GeneralKnobs/SubLayout" instance=ExtResource("5_cpycw")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 36)
 layout_mode = 2
 size_flags_vertical = 0
 toggle_mode = false
@@ -116,6 +117,7 @@ operator_count = 1
 
 [node name="AddOperatorButton" parent="Layout/OperatorControls/Layout" instance=ExtResource("5_cpycw")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(68, 30)
 layout_mode = 2
 toggle_mode = false
 text = "ADD"
@@ -123,6 +125,7 @@ off_color = Color(0.0784314, 0.0862745, 0.113725, 1)
 
 [node name="RemOperatorButton" parent="Layout/OperatorControls/Layout" instance=ExtResource("5_cpycw")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(68, 30)
 layout_mode = 2
 toggle_mode = false
 text = "REM"

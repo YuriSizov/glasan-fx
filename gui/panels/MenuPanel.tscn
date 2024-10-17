@@ -19,6 +19,7 @@ shader_parameter/bolt_size = 0.45
 shader_parameter/bolt_smoothness = 0.07
 shader_parameter/bolt_thickness = 0.2
 shader_parameter/bolt_visibility = 0.8
+shader_parameter/bolt_shine_offset = 21.0
 shader_parameter/bolt_shine_strength = 7.0
 shader_parameter/bolt_shine_reduction = 2.5
 
@@ -50,7 +51,7 @@ size_flags_stretch_ratio = 2.0
 
 [node name="SaveButton" parent="Content/Layout" instance=ExtResource("3_mvq1g")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(120, 0)
+custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 toggle_mode = false
 text = "SAVE"
@@ -58,7 +59,7 @@ off_color = Color(0.0800239, 0.0854298, 0.112988, 1)
 
 [node name="LoadButton" parent="Content/Layout" instance=ExtResource("3_mvq1g")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(120, 0)
+custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 toggle_mode = false
 text = "LOAD"
@@ -66,7 +67,7 @@ off_color = Color(0.0800239, 0.0854298, 0.112988, 1)
 
 [node name="ExportButton" parent="Content/Layout" instance=ExtResource("3_mvq1g")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(120, 0)
+custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 toggle_mode = false
 text = "EXPORT"
