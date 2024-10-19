@@ -33,7 +33,7 @@ func _ready() -> void:
 	)
 	_randomize_button.pressed.connect(func() -> void:
 		if voice:
-			voice.randomize_data()
+			voice.randomize_voice()
 	)
 
 

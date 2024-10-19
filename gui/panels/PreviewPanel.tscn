@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://8xc2djp24y40"]
+[gd_scene load_steps=13 format=3 uid="uid://8xc2djp24y40"]
 
 [ext_resource type="Script" path="res://gui/panels/PreviewPanel.gd" id="1_iu5lk"]
 [ext_resource type="Shader" path="res://gui/panels/PlasticPanel.gdshader" id="2_mypj1"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c8ld4mgspflab" path="res://gui/components/PianoRoll.tscn" id="6_n0eq7"]
 [ext_resource type="Texture2D" uid="uid://b2hw84cycw44p" path="res://assets/icons/preview_spectrum.png" id="6_v5jen"]
 [ext_resource type="Texture2D" uid="uid://pgrn4gxrbv6f" path="res://assets/icons/preview_wave.png" id="7_3qq8q"]
+[ext_resource type="FontFile" uid="uid://cjwuh3bvsqt57" path="res://assets/fonts/fff-aquarius-bold-condensed.msdf.ttf" id="9_vlyin"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i1p27"]
 resource_local_to_scene = true
@@ -28,6 +29,10 @@ shader_parameter/bolt_visibility = 0.25
 shader_parameter/bolt_shine_offset = 21.0
 shader_parameter/bolt_shine_strength = 7.0
 shader_parameter/bolt_shine_reduction = 2.5
+
+[sub_resource type="FontVariation" id="FontVariation_po6ik"]
+base_font = ExtResource("9_vlyin")
+spacing_glyph = 4
 
 [node name="PreviewPanel" type="PanelContainer"]
 anchors_preset = 10
@@ -104,6 +109,8 @@ alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 54)
 layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_po6ik")
+theme_override_font_sizes/font_size = 22
 toggle_mode = false
 text = "BLAM!"
 off_color = Color(0.136711, 0.0804561, 0.00542678, 1)

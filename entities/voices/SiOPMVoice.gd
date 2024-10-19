@@ -86,15 +86,16 @@ func _remove_operator() -> void:
 	data.resize(SIOPM_CH_PARAMS + SIOPM_OP_PARAMS * (operator_index - 1))
 
 
-func _randomize_data() -> void:
+func _randomize_channel() -> void:
 	var ch_data := get_channel_data()
 	ch_data[ChannelParams.FB].randomize_value()
 
-	for i in get_operator_count():
-		var op_data := get_operator_data(i)
 
-		op_data[OperatorParams.WS].randomize_value()
-		op_data[OperatorParams.KR].randomize_value()
-		op_data[OperatorParams.ML].randomize_value()
-		op_data[OperatorParams.D1].randomize_value()
-		op_data[OperatorParams.D2].randomize_value()
+func _randomize_operator(index: int) -> void:
+	var op_data := get_operator_data(index)
+
+	op_data[OperatorParams.WS].randomize_value()
+	op_data[OperatorParams.KR].randomize_value()
+	op_data[OperatorParams.ML].randomize_value()
+	op_data[OperatorParams.D1].randomize_value()
+	op_data[OperatorParams.D2].randomize_value()

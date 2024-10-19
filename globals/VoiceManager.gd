@@ -72,7 +72,7 @@ func _initialize_voices() -> void:
 	_voices[SiONDriver.CHIP_MA3] = MA3Voice.new()
 
 	for voice in _voices:
-		voice.randomize_data()
+		voice.randomize_voice()
 
 	_current_voice = _voices[0]
 

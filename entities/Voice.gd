@@ -37,18 +37,18 @@ func _init(_op_count: int = 1) -> void:
 
 func _connect_voice_data() -> void:
 	for knob in data:
-		if not knob.value_changed.is_connected(_update_voice_data):
-			knob.value_changed.connect(_update_voice_data)
+		if not knob.value_changed.is_connected(_update_voice_data.bind(false)):
+			knob.value_changed.connect(_update_voice_data.bind(false))
 
 
 func _disconnect_voice_data() -> void:
 	for knob in data:
-		if knob.value_changed.is_connected(_update_voice_data):
-			knob.value_changed.disconnect(_update_voice_data)
+		if knob.value_changed.is_connected(_update_voice_data.bind(false)):
+			knob.value_changed.disconnect(_update_voice_data.bind(false))
 
 
-func _update_voice_data() -> void:
-	if _update_suspended:
+func _update_voice_data(force: bool = false) -> void:
+	if _update_suspended && not force:
 		return
 
 	var params: Array[int] = []
@@ -82,12 +82,12 @@ func _update_voice_data() -> void:
 
 func set_data(value: Array[VoiceKnob]) -> void:
 	for knob in data:
-		knob.value_changed.disconnect(_update_voice_data)
+		knob.value_changed.disconnect(_update_voice_data.bind(false))
 
 	data = value
 
 	for knob in data:
-		knob.value_changed.connect(_update_voice_data)
+		knob.value_changed.connect(_update_voice_data.bind(false))
 
 	_update_voice_data()
 	data_changed.emit()
@@ -109,7 +109,7 @@ func add_operator() -> void:
 	_add_operator()
 
 	_connect_voice_data()
-	_update_voice_data()
+	_update_voice_data(true) # Force update to sync the operator count.
 	operator_added.emit()
 	data_changed.emit()
 
@@ -124,19 +124,51 @@ func remove_operator() -> void:
 	_remove_operator()
 
 	_connect_voice_data()
-	_update_voice_data()
+	_update_voice_data(true) # Force update to sync the operator count.
 	operator_removed.emit()
 	data_changed.emit()
 
 
+# Default randomization logic. Can be overridden by extending classes.
+func _randomize_voice() -> void:
+	_randomize_channel()
+
+	var op_count := randi_range(1, 4)
+	var current_count := get_operator_count()
+
+	while current_count > op_count:
+		remove_operator()
+		current_count -= 1
+	while current_count < op_count:
+		add_operator()
+		current_count += 1
+
+	for i in get_operator_count():
+		_randomize_operator(i)
+
+
 # Virtual. Must be implemented by extending classes.
-func _randomize_data() -> void:
+func _randomize_channel() -> void:
 	pass
 
 
-func randomize_data() -> void:
+# Virtual. Must be implemented by extending classes.
+func _randomize_operator(_index: int) -> void:
+	pass
+
+
+func randomize_voice() -> void:
 	_update_suspended = true
-	_randomize_data()
+	_randomize_voice()
+	_update_suspended = false
+
+	_update_voice_data()
+	data_changed.emit()
+
+
+func randomize_operator(index: int) -> void:
+	_update_suspended = true
+	_randomize_operator(index)
 	_update_suspended = false
 
 	_update_voice_data()

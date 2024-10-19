@@ -9,6 +9,13 @@ class_name OPMVoice extends Voice
 const OPM_CH_PARAMS := 2
 const OPM_OP_PARAMS := 11
 
+enum ChannelParams {
+	AL, FB
+}
+enum OperatorParams {
+
+}
+
 
 func _init(op_count: int = 1) -> void:
 	super(op_count)
@@ -69,14 +76,15 @@ func _remove_operator() -> void:
 	data.resize(OPM_CH_PARAMS + OPM_OP_PARAMS * (operator_index - 1))
 
 
-func _randomize_data() -> void:
+func _randomize_channel() -> void:
 	var ch_data := get_channel_data()
 	ch_data[1].randomize_value() # FB
 
-	for i in get_operator_count():
-		var op_data := get_operator_data(i)
 
-		op_data[6].randomize_value() # KR
-		op_data[7].randomize_value() # ML
-		op_data[8].randomize_value() # D1
-		op_data[9].randomize_value() # D2
+func _randomize_operator(index: int) -> void:
+	var op_data := get_operator_data(index)
+
+	op_data[6].randomize_value() # KR
+	op_data[7].randomize_value() # ML
+	op_data[8].randomize_value() # D1
+	op_data[9].randomize_value() # D2

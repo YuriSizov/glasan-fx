@@ -239,6 +239,7 @@ func _update_label_color() -> void:
 		label_color = on_font_color
 
 	_label.add_theme_color_override("font_color", label_color)
+	_label.add_theme_font_override("font", get_theme_font("font"))
 	_label.add_theme_font_size_override("font_size", get_theme_font_size("font_size"))
 
 
@@ -247,6 +248,7 @@ func _clear_label_color() -> void:
 		return
 
 	_label.remove_theme_color_override("font_color")
+	_label.remove_theme_font_override("font")
 	_label.remove_theme_font_size_override("font_size")
 
 
