@@ -65,7 +65,7 @@ void fragment() {
 
 	// Create the shadow mask.
 	float shadow_mask = max(shadow_uv.x, shadow_uv.y);
-	shadow_mask = pow(shadow_mask, 1.3);
+	shadow_mask = pow(shadow_mask, 1.5);
 	// Add the shadow mask to the output color.
 	output_color = overlay(output_color, vec3(0.0), shadow_mask, shadow_mask);
 

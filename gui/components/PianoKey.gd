@@ -9,7 +9,8 @@ class_name PianoKey extends ColorRect
 
 signal key_pressed()
 
-const PRESSED_DURATION := 0.1
+const PRESSED_DURATION := 0.03
+const UNPRESSED_DURATION := 0.08
 const LIGHT_COLOR := Color(1.0, 0.98, 0.95)
 const DARK_COLOR := Color(0.35, 0.36, 0.38)
 
@@ -121,7 +122,12 @@ func _animate_pressed() -> void:
 		_pressed_tweener.kill()
 
 	_pressed_tweener = create_tween()
-	_pressed_tweener.tween_method(_tween_pressed, _pressed_value, float(_pressed), PRESSED_DURATION)
+
+	var pressed_target := float(_pressed)
+	if _pressed_value < pressed_target:
+		_pressed_tweener.tween_method(_tween_pressed, _pressed_value, pressed_target, PRESSED_DURATION)
+	else:
+		_pressed_tweener.tween_method(_tween_pressed, _pressed_value, pressed_target, UNPRESSED_DURATION)
 
 
 func _tween_pressed(value: float) -> void:
