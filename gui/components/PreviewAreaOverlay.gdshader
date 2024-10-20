@@ -38,9 +38,9 @@ void fragment() {
 	
 	// Create a vignette/shadow overlay.
 	vec2 vignette_uv = UV * (1.0 - UV.yx);
-	float value = clamp(pow(vignette_uv.x * vignette_uv.y * vignette_center, vignette_rim), 0.0, 1.0);
+	float vignette_value = clamp(pow(vignette_uv.x * vignette_uv.y * vignette_center, vignette_rim), 0.0, 1.0);
 	// Add the vignette overlay to the output color.
-	output_color = overlay(output_color, vec3(0.075), (1.0 - value), vignette_intensity);
+	output_color = overlay(output_color, vec3(0.075), (1.0 - vignette_value), vignette_intensity);
 
 	// Add a tiny bit of rounding for corners using vignetting. Values are hand-picked.
 	output_alpha = vignette(vec3(1.0), vec3(0.0), 100000.0, 0.04, 40.0, UV).r;

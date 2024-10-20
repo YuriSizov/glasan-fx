@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://xob01bdx0r2f"]
+
+[ext_resource type="Shader" path="res://gui/components/RollerValueBar.gdshader" id="1_25mp6"]
+[ext_resource type="Script" path="res://gui/components/OptionFlipper.gd" id="1_ysxsp"]
+[ext_resource type="Shader" path="res://gui/components/OptionFlipperButton.gdshader" id="2_sxap4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c63p2"]
+shader = ExtResource("2_sxap4")
+shader_parameter/base_color = Color(0.142975, 0.16256, 0.189762, 1)
+shader_parameter/switch_position = 0.0
+shader_parameter/switch_position_safezone = 0.25
+shader_parameter/switch_color = Color(0.565633, 0.588431, 0.628528, 1)
+shader_parameter/width_factor = 5.0
+shader_parameter/width_reducer = 0.72
+shader_parameter/thickness_base = 0.816
+shader_parameter/thickness_smoothness = 0.175
+shader_parameter/vignette_center = 110.594
+shader_parameter/vignette_rim = 0.797
+shader_parameter/vignette_intensity = 0.932
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k7wry"]
+resource_local_to_scene = true
+shader = ExtResource("1_25mp6")
+shader_parameter/glass_shine_offset = -0.251
+shader_parameter/glass_shine_sharpness = 0.094
+shader_parameter/glass_shine_opaqueness = 0.313
+shader_parameter/vignette_center = 18.002
+shader_parameter/vignette_rim = 0.455
+shader_parameter/vignette_intensity = 1.0
+
+[node name="OptionFlipper" type="MarginContainer"]
+theme_type_variation = &"OptionFlipper"
+script = ExtResource("1_ysxsp")
+
+[node name="Layout" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="FlipButton" type="Button" parent="Layout"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_c63p2")
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_vertical = 4
+flat = true
+
+[node name="Display" type="Control" parent="Layout"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(60, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Overlay" type="ColorRect" parent="Layout/Display"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_k7wry")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

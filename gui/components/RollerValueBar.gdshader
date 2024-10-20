@@ -30,10 +30,10 @@ void fragment() {
 	
 	// Create a vignette/shadow overlay.
 	vec2 vignette_uv = UV * (1.0 - UV.yx);
-	float value = clamp(pow(vignette_uv.x * vignette_uv.y * vignette_center, vignette_rim), 0.0, 1.0);
+	float vignette_value = clamp(pow(vignette_uv.x * vignette_uv.y * vignette_center, vignette_rim), 0.0, 1.0);
 	// Add the vignette overlay to the output color.
-	output_color = overlay(output_color, vec3(0.075), (1.0 - value), vignette_intensity);
-	output_alpha += (1.0 - value);
+	output_color = overlay(output_color, vec3(0.075), (1.0 - vignette_value), vignette_intensity);
+	output_alpha += (1.0 - vignette_value);
 	
 	// Output.
 	COLOR = vec4(output_color, output_alpha);
