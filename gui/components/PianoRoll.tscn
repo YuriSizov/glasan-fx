@@ -1,13 +1,13 @@
-[gd_scene load_steps=24 format=3 uid="uid://c8ld4mgspflab"]
+[gd_scene load_steps=23 format=3 uid="uid://c8ld4mgspflab"]
 
 [ext_resource type="Script" path="res://gui/components/PianoRoll.gd" id="1_nfgs2"]
 [ext_resource type="Script" path="res://gui/components/PianoContainer.gd" id="2_kmleb"]
 [ext_resource type="PackedScene" uid="uid://dt8h6osxvf3im" path="res://gui/components/PianoKey.tscn" id="3_5hvlp"]
 [ext_resource type="Shader" path="res://gui/components/PianoKey.gdshader" id="4_6grup"]
 [ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="5_cudr8"]
-[ext_resource type="Shader" path="res://gui/components/RollerValueBar.gdshader" id="6_76x3k"]
 [ext_resource type="Shader" path="res://gui/components/GlowLabel.gdshader" id="6_l44rt"]
 [ext_resource type="Texture2D" uid="uid://dpqpjg2tljk2q" path="res://assets/icons/arrow_up.png" id="6_r4x0v"]
+[ext_resource type="PackedScene" uid="uid://chq8boo5j014r" path="res://gui/components/ElectronicLabel.tscn" id="7_g2f1f"]
 [ext_resource type="Texture2D" uid="uid://bs4nps2xcum7l" path="res://assets/icons/arrow_down.png" id="9_50rvi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_36g26"]
@@ -250,21 +250,11 @@ shader_parameter/selection_size = 0.066
 shader_parameter/selection_smoothness = 0.006
 shader_parameter/selection_color = Color(0.710837, 0.283876, 0.25255, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vresl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qqjxx"]
 resource_local_to_scene = true
 shader = ExtResource("6_l44rt")
 shader_parameter/direction = Vector2(1, 0)
 shader_parameter/intensity = 0.82
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f6fma"]
-resource_local_to_scene = true
-shader = ExtResource("6_76x3k")
-shader_parameter/glass_shine_offset = -0.251
-shader_parameter/glass_shine_sharpness = 0.094
-shader_parameter/glass_shine_opaqueness = 0.313
-shader_parameter/vignette_center = 18.002
-shader_parameter/vignette_rim = 0.455
-shader_parameter/vignette_intensity = 1.0
 
 [node name="PianoRoll" type="MarginContainer"]
 offset_right = 252.0
@@ -387,26 +377,12 @@ icon = ExtResource("6_r4x0v")
 off_color = Color(0.150309, 0.13979, 0.175719, 1)
 on_color = Color(0.161746, 0.144835, 0.197189, 1)
 
-[node name="OctaveLabel" type="Label" parent="Octave"]
+[node name="OctaveLabel" parent="Octave" instance=ExtResource("7_g2f1f")]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_vresl")
+material = SubResource("ShaderMaterial_qqjxx")
 custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
-size_flags_horizontal = 4
-theme_type_variation = &"PianoOctaveLabel"
-text = "00"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="OctaveOverlay" type="ColorRect" parent="Octave/OctaveLabel"]
-unique_name_in_owner = true
-material = SubResource("ShaderMaterial_f6fma")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+text = "01"
 
 [node name="DownOctaveButton" parent="Octave" instance=ExtResource("5_cudr8")]
 unique_name_in_owner = true

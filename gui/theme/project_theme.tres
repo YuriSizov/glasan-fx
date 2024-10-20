@@ -75,6 +75,13 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.517507, 0.537297, 0.568779, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_px4j7"]
+content_margin_left = 8.0
+content_margin_top = 1.0
+content_margin_right = 8.0
+content_margin_bottom = 1.0
+bg_color = Color(0.00351917, 0.00351917, 0.00351916, 1)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w3wix"]
 content_margin_left = 8.0
 content_margin_top = 2.0
@@ -192,13 +199,6 @@ content_margin_left = 8.0
 content_margin_top = 4.0
 content_margin_right = 8.0
 content_margin_bottom = 4.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_px4j7"]
-content_margin_left = 8.0
-content_margin_top = 1.0
-content_margin_right = 8.0
-content_margin_bottom = 1.0
-bg_color = Color(0.00351917, 0.00351917, 0.00351916, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtn45"]
 bg_color = Color(0.0348444, 0.034844, 0.0519441, 1)
@@ -336,6 +336,11 @@ Button/styles/pressed = SubResource("StyleBoxFlat_e3cfq")
 ContentPanel/base_type = &"PanelContainer"
 ContentPanel/constants/border_width = 3
 ContentPanel/constants/light_intensity = 160
+ElectronicLabel/base_type = &"PanelContainer"
+ElectronicLabel/colors/font_color = Color(0.874525, 0.881914, 0.855576, 1)
+ElectronicLabel/constants/full_intensity = 82
+ElectronicLabel/font_sizes/font_size = 12
+ElectronicLabel/styles/normal = SubResource("StyleBoxFlat_px4j7")
 FallbackVoiceDeck/base_type = &"BaseVoiceDeck"
 GlowButton/base_type = &"Button"
 GlowButton/colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
@@ -377,10 +382,6 @@ OperatorIndicator/colors/font_active_color = Color(0.910244, 0.403015, 0.264407,
 OperatorIndicator/colors/font_inactive_color = Color(0.265174, 0.143202, 0.136196, 1)
 OperatorIndicator/constants/label_intensity = 85
 OperatorIndicator/font_sizes/font_size = 16
-PianoOctaveLabel/base_type = &"Label"
-PianoOctaveLabel/colors/font_color = Color(0.874525, 0.881914, 0.855576, 1)
-PianoOctaveLabel/font_sizes/font_size = 12
-PianoOctaveLabel/styles/normal = SubResource("StyleBoxFlat_px4j7")
 PreviewArea/base_type = &"PanelContainer"
 PreviewArea/styles/panel = SubResource("StyleBoxFlat_qtn45")
 PreviewPanel/base_type = &"ContentPanel"

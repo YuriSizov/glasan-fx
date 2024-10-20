@@ -33,8 +33,8 @@ var _toggle_tweener: Tween = null
 
 
 func _ready() -> void:
-	_update_text()
-	_update_icon()
+	_update_text(text)
+	_update_icon(icon)
 	_update_label_color()
 	_update_icon_color()
 	_setup_animated_properties()
@@ -57,10 +57,14 @@ func _notification(what: int) -> void:
 		_update_icon_color()
 
 
-func _process(_delta: float) -> void:
-	if Engine.is_editor_hint():
-		_update_text()
-		_update_icon()
+# Hook into the setter to propagate properties rendered with extra nodes.
+func _set(property_name: StringName, value: Variant) -> bool:
+	if property_name == "text":
+		_update_text(value)
+	elif property_name == "icon":
+		_update_icon(value)
+
+	return false
 
 
 func _toggled(_toggled_on: bool) -> void:
@@ -252,11 +256,11 @@ func _clear_label_color() -> void:
 	_label.remove_theme_font_size_override("font_size")
 
 
-func _update_text() -> void:
+func _update_text(value: String) -> void:
 	if not is_node_ready():
 		return
 
-	_label.text = text
+	_label.text = value
 
 
 # Icon properties.
@@ -285,13 +289,13 @@ func _clear_icon_color() -> void:
 	_icon.self_modulate = Color.WHITE
 
 
-func _update_icon() -> void:
+func _update_icon(value: Texture2D) -> void:
 	if not is_node_ready():
 		return
 
 	var style := get_theme_stylebox("normal")
 
-	_icon.texture = icon
+	_icon.texture = value
 	_icon.offset_left = style.content_margin_left
 	_icon.offset_top = style.content_margin_top
 	_icon.offset_right = -style.content_margin_right

@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://chq8boo5j014r"]
+
+[ext_resource type="Shader" path="res://gui/components/GlowLabel.gdshader" id="1_sbimf"]
+[ext_resource type="Shader" path="res://gui/components/RollerValueBar.gdshader" id="2_8els3"]
+[ext_resource type="Script" path="res://gui/components/ElectronicLabel.gd" id="2_mhaau"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vresl"]
+resource_local_to_scene = true
+shader = ExtResource("1_sbimf")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/intensity = 0.82
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f6fma"]
+resource_local_to_scene = true
+shader = ExtResource("2_8els3")
+shader_parameter/glass_shine_offset = -0.251
+shader_parameter/glass_shine_sharpness = 0.094
+shader_parameter/glass_shine_opaqueness = 0.313
+shader_parameter/vignette_center = 18.002
+shader_parameter/vignette_rim = 0.455
+shader_parameter/vignette_intensity = 1.0
+
+[node name="ElectronicLabel" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_type_variation = &"ElectronicLabel"
+script = ExtResource("2_mhaau")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_vresl")
+layout_mode = 2
+size_flags_horizontal = 4
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Overlay" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_f6fma")
+layout_mode = 2

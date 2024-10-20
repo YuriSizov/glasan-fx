@@ -17,7 +17,7 @@ var _octave_value: int = 1
 
 @onready var _octave_up_button: GlowButton = %UpOctaveButton
 @onready var _octave_down_button: GlowButton = %DownOctaveButton
-@onready var _octave_label: Label = %OctaveLabel
+@onready var _octave_label: ElectronicLabel = %OctaveLabel
 
 
 func _ready() -> void:
