@@ -9,6 +9,8 @@ class_name SiOPMOperatorDeck extends MarginContainer
 var operator_data: Array[VoiceKnob] = []:
 	set = set_operator_data
 
+@onready var _wave_shape_flipper: WaveShapeFlipper = %WaveShapeFlipper
+
 @onready var _attack_rate: RollerKnob = %AttackKnob
 @onready var _decay_rate: RollerKnob = %DecayKnob
 @onready var _sustain_rate: RollerKnob = %SustainKnob
@@ -28,7 +30,7 @@ func _update_knobs() -> void:
 	if not is_node_ready() || operator_data.is_empty():
 		return
 
-	#BaseVoiceDeck.setup_knob_control(_wave_shape_knob, operator_data[SiOPMVoice.OperatorParam.WS])
+	_wave_shape_flipper.wave_shape = operator_data[SiOPMVoice.OperatorParam.WS].value
 
 	BaseVoiceDeck.setup_roller_knob(_attack_rate, operator_data[SiOPMVoice.OperatorParam.AR])
 	BaseVoiceDeck.setup_roller_knob(_decay_rate, operator_data[SiOPMVoice.OperatorParam.DR])

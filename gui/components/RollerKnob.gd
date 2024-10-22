@@ -188,28 +188,18 @@ func _update_scrollables() -> void:
 
 
 func _update_value_on_scroll() -> void:
-	var old_value := knob_value
-
 	var values_passed := -1 * roundi(_value_scroll / _value_scroll_step)
 	_update_value(knob_value + values_passed)
 
-	var actually_passed := knob_value - old_value
-	_drag_accumulator.x += actually_passed * _value_scroll_step
-	_animate_scroll_to_zero()
-
 
 func _update_value_on_click() -> void:
-	var old_value := knob_value
+
 
 	var mouse_position := _roller_control.get_local_mouse_position()
 	if mouse_position.x > (_roller_control.size.x / 2.0):
 		_update_value(knob_value + 1)
 	else:
 		_update_value(knob_value - 1)
-
-	var actually_passed := knob_value - old_value
-	_drag_accumulator.x = actually_passed * _value_scroll_step
-	_animate_scroll_to_zero()
 
 
 func _update_value(value: int) -> void:
@@ -244,13 +234,20 @@ func _update_name_label() -> void:
 
 func set_knob_value(value: int) -> void:
 	if knob_value == value:
+		if is_node_ready():
+			_animate_scroll_to_zero()
 		return
 
+	var old_value := knob_value
 	knob_value = value
 
 	if is_node_ready():
 		_value_back.queue_redraw()
 		_value_bar.queue_redraw()
+
+		var actually_passed := knob_value - old_value
+		_drag_accumulator.x += actually_passed * _value_scroll_step
+		_animate_scroll_to_zero()
 
 
 func set_min_value(value: int) -> void:

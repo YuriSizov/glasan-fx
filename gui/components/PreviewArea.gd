@@ -48,7 +48,6 @@ func _ready() -> void:
 	_wave_data.fill(0.5)
 	_wave_freshness.resize(WAVE_MAX_SAMPLES)
 
-
 	if not Engine.is_editor_hint():
 		Controller.voice_manager.sample_started.connect(_clear_wave)
 		Controller.voice_manager.sample_stopped.connect(_reveal_wave)

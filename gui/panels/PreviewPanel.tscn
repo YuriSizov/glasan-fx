@@ -53,6 +53,7 @@ layout_mode = 2
 
 [node name="Layout" type="HBoxContainer" parent="Content"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="PreviewBox" type="VBoxContainer" parent="Content/Layout"]
 layout_mode = 2

@@ -89,6 +89,11 @@ func _randomize_channel() -> void:
 	var ch_data := get_channel_data()
 	ch_data[ChannelParam.FB].randomize_value()
 
+	if get_operator_count() > 1: # Algorithm doesn't make a difference if there are no operators to mix.
+		ch_data[ChannelParam.AL].randomize_value()
+	else:
+		ch_data[ChannelParam.AL].value = 0
+
 
 func _randomize_operator(index: int) -> void:
 	var op_data := get_operator_data(index)

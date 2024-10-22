@@ -48,6 +48,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "FBACK"
 
+[node name="AlgorithmKnob" parent="Layout/GeneralKnobs" instance=ExtResource("2_e6f5v")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_3vtae")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ALGO"
+
 [node name="SubLayout" type="HBoxContainer" parent="Layout/GeneralKnobs"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -67,6 +74,7 @@ text = "RAND"
 off_color = Color(0.0784314, 0.0862745, 0.113725, 1)
 
 [node name="AdvancedChannel" type="VBoxContainer" parent="Layout"]
+visible = false
 layout_mode = 2
 
 [node name="ChannelSeparator" type="HSeparator" parent="Layout/AdvancedChannel"]
@@ -81,12 +89,6 @@ text = "CHANNEL"
 layout_mode = 2
 
 [node name="ConnectionsKnob" parent="Layout/AdvancedChannel/ChannelKnobs" instance=ExtResource("4_sx30e")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-
-[node name="AlgorithmKnob" parent="Layout/AdvancedChannel/ChannelKnobs" instance=ExtResource("4_sx30e")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

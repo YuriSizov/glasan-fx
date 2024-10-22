@@ -16,8 +16,8 @@ const OPERATOR_SCENE := preload("res://gui/voices/operators/SiOPMOperatorDeck.ts
 
 @onready var _volume_knob: RollerKnob = %VolumeKnob
 @onready var _feedback_knob: RollerKnob = %FeedbackKnob
+@onready var _algorithm_knob: RollerKnob = %AlgorithmKnob
 @onready var _connections_knob: KnobControl = %ConnectionsKnob
-@onready var _algorithm_knob: KnobControl = %AlgorithmKnob
 
 @onready var _operator_container: TabContainer = %Operators
 
@@ -54,8 +54,8 @@ func _update_knobs() -> void:
 
 	var channel_data := voice.get_channel_data()
 	BaseVoiceDeck.setup_roller_knob(_feedback_knob, channel_data[SiOPMVoice.ChannelParam.FB])
+	BaseVoiceDeck.setup_roller_knob(_algorithm_knob, channel_data[SiOPMVoice.ChannelParam.AL])
 	BaseVoiceDeck.setup_knob_control(_connections_knob, channel_data[SiOPMVoice.ChannelParam.FC])
-	BaseVoiceDeck.setup_knob_control(_algorithm_knob, channel_data[SiOPMVoice.ChannelParam.AL])
 
 	# Operator knobs.
 

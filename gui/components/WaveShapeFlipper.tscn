@@ -1,125 +1,146 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhp4lawy57tyu"]
+[gd_scene load_steps=4 format=3 uid="uid://bhp4lawy57tyu"]
 
+[ext_resource type="Script" path="res://gui/components/WaveShapeFlipper.gd" id="1_bmdos"]
 [ext_resource type="PackedScene" uid="uid://xob01bdx0r2f" path="res://gui/components/OptionFlipper.tscn" id="1_qv262"]
 [ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="2_vobk5"]
 
 [node name="WaveShapeFlipper" type="MarginContainer"]
-offset_right = 570.0
+anchors_preset = 10
+anchor_right = 1.0
 offset_bottom = 32.0
+grow_horizontal = 2
+script = ExtResource("1_bmdos")
 
 [node name="Layout" type="HBoxContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 24
-alignment = 1
 
 [node name="ShapeFlipper" parent="Layout" instance=ExtResource("1_qv262")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(190, 32)
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_horizontal = 0
+size_flags_vertical = 0
 options = Array[String](["BASIC WAVE", "NOISE", "PULSE", "PULSE SPIKE", "RAMP", "MA-3 WAVE"])
 option_colors = Array[Color]([Color(0.568395, 0.339248, 0.627417, 1), Color(0.752918, 0.317176, 0.290403, 1), Color(0.192105, 0.41115, 0.2929, 1), Color(0.247642, 0.496885, 0.761571, 1), Color(0.618955, 0.223453, 0.346477, 1), Color(0.665389, 0.47658, 0.168722, 1)])
 
 [node name="Shapes" type="MarginContainer" parent="Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BasicWaves" type="VBoxContainer" parent="Layout/Shapes"]
 layout_mode = 2
 
-[node name="Basic" type="HBoxContainer" parent="Layout/Shapes"]
-visible = false
+[node name="Row1" type="HBoxContainer" parent="Layout/Shapes/BasicWaves"]
 layout_mode = 2
-theme_override_constants/separation = 4
 
-[node name="BasicButton0" parent="Layout/Shapes/Basic" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="BasicButton0" parent="Layout/Shapes/BasicWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "0"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="BasicButton1" parent="Layout/Shapes/Basic" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="BasicButton1" parent="Layout/Shapes/BasicWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "1"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="BasicButton2" parent="Layout/Shapes/Basic" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="BasicButton2" parent="Layout/Shapes/BasicWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "2"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="BasicButton3" parent="Layout/Shapes/Basic" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="BasicButton3" parent="Layout/Shapes/BasicWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "3"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="BasicButton4" parent="Layout/Shapes/Basic" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="BasicButton4" parent="Layout/Shapes/BasicWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "4"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="BasicButton5" parent="Layout/Shapes/Basic" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="BasicButton5" parent="Layout/Shapes/BasicWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "5"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="BasicButton6" parent="Layout/Shapes/Basic" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="Row2" type="HBoxContainer" parent="Layout/Shapes/BasicWaves"]
+layout_mode = 2
+
+[node name="BasicButton6" parent="Layout/Shapes/BasicWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "6"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="BasicButton7" parent="Layout/Shapes/Basic" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="BasicButton7" parent="Layout/Shapes/BasicWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "7"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="BasicButton8" parent="Layout/Shapes/Basic" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="BasicButton8" parent="Layout/Shapes/BasicWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "8"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="BasicButton9" parent="Layout/Shapes/Basic" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="BasicButton9" parent="Layout/Shapes/BasicWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "9"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="BasicButton10" parent="Layout/Shapes/Basic" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="BasicButton10" parent="Layout/Shapes/BasicWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "10"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="BasicButton11" parent="Layout/Shapes/Basic" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="BasicButton11" parent="Layout/Shapes/BasicWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "11
@@ -127,90 +148,724 @@ text = "11
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="Noise" type="HBoxContainer" parent="Layout/Shapes"]
+[node name="NoiseWaves" type="VBoxContainer" parent="Layout/Shapes"]
+visible = false
 layout_mode = 2
-theme_override_constants/separation = 4
 
-[node name="NoiseButton0" parent="Layout/Shapes/Noise" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="Row1" type="HBoxContainer" parent="Layout/Shapes/NoiseWaves"]
+layout_mode = 2
+
+[node name="NoiseButton0" parent="Layout/Shapes/NoiseWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "0"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="NoiseButton1" parent="Layout/Shapes/Noise" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="NoiseButton1" parent="Layout/Shapes/NoiseWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "1"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="NoiseButton2" parent="Layout/Shapes/Noise" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="NoiseButton2" parent="Layout/Shapes/NoiseWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "2"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="NoiseButton3" parent="Layout/Shapes/Noise" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="NoiseButton3" parent="Layout/Shapes/NoiseWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "3"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="NoiseButton4" parent="Layout/Shapes/Noise" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="NoiseButton4" parent="Layout/Shapes/NoiseWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "4"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="NoiseButton5" parent="Layout/Shapes/Noise" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="NoiseButton5" parent="Layout/Shapes/NoiseWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "5"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="Spacer" type="Control" parent="Layout/Shapes/Noise"]
-custom_minimum_size = Vector2(16, 0)
+[node name="Row2" type="HBoxContainer" parent="Layout/Shapes/NoiseWaves"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Layout/Shapes/Noise"]
+[node name="Spacer" type="Control" parent="Layout/Shapes/NoiseWaves/Row2"]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Layout/Shapes/NoiseWaves/Row2"]
 layout_mode = 2
 text = "PC"
 
-[node name="Spacer2" type="Control" parent="Layout/Shapes/Noise"]
-custom_minimum_size = Vector2(8, 0)
+[node name="Spacer2" type="Control" parent="Layout/Shapes/NoiseWaves/Row2"]
+custom_minimum_size = Vector2(3, 0)
 layout_mode = 2
 
-[node name="PCNoiseButton0" parent="Layout/Shapes/Noise" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="PCNoiseButton0" parent="Layout/Shapes/NoiseWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "0"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="PCNoiseButton1" parent="Layout/Shapes/Noise" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="PCNoiseButton1" parent="Layout/Shapes/NoiseWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "1"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
 
-[node name="PCNoiseButton2" parent="Layout/Shapes/Noise" instance=ExtResource("2_vobk5")]
-custom_minimum_size = Vector2(32, 28)
+[node name="PCNoiseButton2" parent="Layout/Shapes/NoiseWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 size_flags_vertical = 4
 text = "2"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseWaves" type="VBoxContainer" parent="Layout/Shapes"]
+visible = false
+layout_mode = 2
+
+[node name="Row1" type="HBoxContainer" parent="Layout/Shapes/PulseWaves"]
+layout_mode = 2
+
+[node name="PulseButton0" parent="Layout/Shapes/PulseWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "0"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseButton1" parent="Layout/Shapes/PulseWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "1"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseButton2" parent="Layout/Shapes/PulseWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "2"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseButton3" parent="Layout/Shapes/PulseWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "3"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseButton4" parent="Layout/Shapes/PulseWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "4"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseButton5" parent="Layout/Shapes/PulseWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "5"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseButton6" parent="Layout/Shapes/PulseWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "6"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseButton7" parent="Layout/Shapes/PulseWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "7"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="Row2" type="HBoxContainer" parent="Layout/Shapes/PulseWaves"]
+layout_mode = 2
+
+[node name="PulseButton8" parent="Layout/Shapes/PulseWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "8"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseButton9" parent="Layout/Shapes/PulseWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "9"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseButton10" parent="Layout/Shapes/PulseWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "10"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseButton11" parent="Layout/Shapes/PulseWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "11"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseButton12" parent="Layout/Shapes/PulseWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "12"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseButton13" parent="Layout/Shapes/PulseWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "13"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseButton14" parent="Layout/Shapes/PulseWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "14"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseButton15" parent="Layout/Shapes/PulseWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "15"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseSpikeWaves" type="VBoxContainer" parent="Layout/Shapes"]
+visible = false
+layout_mode = 2
+
+[node name="Row1" type="HBoxContainer" parent="Layout/Shapes/PulseSpikeWaves"]
+layout_mode = 2
+
+[node name="PulseSpikeButton0" parent="Layout/Shapes/PulseSpikeWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "0"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseSpikeButton1" parent="Layout/Shapes/PulseSpikeWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "1"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseSpikeButton2" parent="Layout/Shapes/PulseSpikeWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "2"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseSpikeButton3" parent="Layout/Shapes/PulseSpikeWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "3"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseSpikeButton4" parent="Layout/Shapes/PulseSpikeWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "4"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseSpikeButton5" parent="Layout/Shapes/PulseSpikeWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "5"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseSpikeButton6" parent="Layout/Shapes/PulseSpikeWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "6"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseSpikeButton7" parent="Layout/Shapes/PulseSpikeWaves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "7"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="Row2" type="HBoxContainer" parent="Layout/Shapes/PulseSpikeWaves"]
+layout_mode = 2
+
+[node name="PulseSpikeButton8" parent="Layout/Shapes/PulseSpikeWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "8"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseSpikeButton9" parent="Layout/Shapes/PulseSpikeWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "9"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseSpikeButton10" parent="Layout/Shapes/PulseSpikeWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "10"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseSpikeButton11" parent="Layout/Shapes/PulseSpikeWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "11"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseSpikeButton12" parent="Layout/Shapes/PulseSpikeWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "12"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseSpikeButton13" parent="Layout/Shapes/PulseSpikeWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "13"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseSpikeButton14" parent="Layout/Shapes/PulseSpikeWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "14"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="PulseSpikeButton15" parent="Layout/Shapes/PulseSpikeWaves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "15"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="RampWaves" type="HBoxContainer" parent="Layout/Shapes"]
+visible = false
+layout_mode = 2
+
+[node name="MA3Waves" type="VBoxContainer" parent="Layout/Shapes"]
+visible = false
+layout_mode = 2
+
+[node name="Row1" type="HBoxContainer" parent="Layout/Shapes/MA3Waves"]
+layout_mode = 2
+
+[node name="MA3Button0" parent="Layout/Shapes/MA3Waves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "0"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button1" parent="Layout/Shapes/MA3Waves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "1"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button2" parent="Layout/Shapes/MA3Waves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "2"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button3" parent="Layout/Shapes/MA3Waves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "3"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button4" parent="Layout/Shapes/MA3Waves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "4"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button5" parent="Layout/Shapes/MA3Waves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "5"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button6" parent="Layout/Shapes/MA3Waves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "6"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button7" parent="Layout/Shapes/MA3Waves/Row1" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "7"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="Row2" type="HBoxContainer" parent="Layout/Shapes/MA3Waves"]
+layout_mode = 2
+
+[node name="MA3Button8" parent="Layout/Shapes/MA3Waves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "8"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button9" parent="Layout/Shapes/MA3Waves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "9"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button10" parent="Layout/Shapes/MA3Waves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "10"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button11" parent="Layout/Shapes/MA3Waves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "11"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button12" parent="Layout/Shapes/MA3Waves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "12"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button13" parent="Layout/Shapes/MA3Waves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "13"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button14" parent="Layout/Shapes/MA3Waves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "14"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button15" parent="Layout/Shapes/MA3Waves/Row2" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "15"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="Row3" type="HBoxContainer" parent="Layout/Shapes/MA3Waves"]
+layout_mode = 2
+
+[node name="MA3Button16" parent="Layout/Shapes/MA3Waves/Row3" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "16"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button17" parent="Layout/Shapes/MA3Waves/Row3" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "17"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button18" parent="Layout/Shapes/MA3Waves/Row3" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "18"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button19" parent="Layout/Shapes/MA3Waves/Row3" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "19"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button20" parent="Layout/Shapes/MA3Waves/Row3" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "20"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button21" parent="Layout/Shapes/MA3Waves/Row3" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "21"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button22" parent="Layout/Shapes/MA3Waves/Row3" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "22"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button23" parent="Layout/Shapes/MA3Waves/Row3" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "23"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="Row4" type="HBoxContainer" parent="Layout/Shapes/MA3Waves"]
+layout_mode = 2
+
+[node name="MA3Button24" parent="Layout/Shapes/MA3Waves/Row4" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "24"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button25" parent="Layout/Shapes/MA3Waves/Row4" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "25"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button26" parent="Layout/Shapes/MA3Waves/Row4" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "26"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button27" parent="Layout/Shapes/MA3Waves/Row4" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "27"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button28" parent="Layout/Shapes/MA3Waves/Row4" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "28"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button29" parent="Layout/Shapes/MA3Waves/Row4" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "29"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button30" parent="Layout/Shapes/MA3Waves/Row4" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "30"
+off_color = Color(0.165059, 0.206903, 0.234298, 1)
+on_color = Color(0.551876, 0.606018, 0.676183, 1)
+
+[node name="MA3Button31" parent="Layout/Shapes/MA3Waves/Row4" instance=ExtResource("2_vobk5")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+size_flags_vertical = 4
+text = "31"
 off_color = Color(0.165059, 0.206903, 0.234298, 1)
 on_color = Color(0.551876, 0.606018, 0.676183, 1)
