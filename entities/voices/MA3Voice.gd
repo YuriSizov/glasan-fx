@@ -9,10 +9,10 @@ class_name MA3Voice extends Voice
 const MA3_CH_PARAMS := 2
 const MA3_OP_PARAMS := 12
 
-enum ChannelParams {
+enum ChannelParam {
 	AL, FB
 }
-enum OperatorParams {
+enum OperatorParam {
 
 }
 

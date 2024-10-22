@@ -9,10 +9,10 @@ class_name OPXVoice extends Voice
 const OPX_CH_PARAMS := 2
 const OPX_OP_PARAMS := 12
 
-enum ChannelParams {
+enum ChannelParam {
 	AL, FB
 }
-enum OperatorParams {
+enum OperatorParam {
 
 }
 
@@ -49,7 +49,7 @@ func _add_operator() -> void:
 	var data_index := OPX_CH_PARAMS + OPX_OP_PARAMS * operator_index
 	data.resize(OPX_CH_PARAMS + OPX_OP_PARAMS * (operator_index + 1))
 
-	data[data_index + 0]  = VoiceKnob.new("WS", 0, 135) # 0-7 for MA3, 8-135 for custom.
+	data[data_index + 0]  = VoiceKnob.new("WS", 0, 135) # 0-7 for MA-3, 8-135 for custom.
 	data[data_index + 0].set_safe_range(0, 7)
 
 	data[data_index + 1]  = VoiceKnob.new("AR", 0, 31)

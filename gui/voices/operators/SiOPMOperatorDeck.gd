@@ -9,8 +9,6 @@ class_name SiOPMOperatorDeck extends MarginContainer
 var operator_data: Array[VoiceKnob] = []:
 	set = set_operator_data
 
-@onready var _wave_shape_knob: KnobControl = %ShapeKnob
-
 @onready var _attack_rate: RollerKnob = %AttackKnob
 @onready var _decay_rate: RollerKnob = %DecayKnob
 @onready var _sustain_rate: RollerKnob = %SustainKnob
@@ -30,9 +28,9 @@ func _update_knobs() -> void:
 	if not is_node_ready() || operator_data.is_empty():
 		return
 
-	BaseVoiceDeck.setup_knob_control(_wave_shape_knob, operator_data[SiOPMVoice.OperatorParams.WS])
+	#BaseVoiceDeck.setup_knob_control(_wave_shape_knob, operator_data[SiOPMVoice.OperatorParam.WS])
 
-	BaseVoiceDeck.setup_roller_knob(_attack_rate, operator_data[SiOPMVoice.OperatorParams.AR])
-	BaseVoiceDeck.setup_roller_knob(_decay_rate, operator_data[SiOPMVoice.OperatorParams.DR])
-	BaseVoiceDeck.setup_roller_knob(_sustain_rate, operator_data[SiOPMVoice.OperatorParams.SR])
-	BaseVoiceDeck.setup_roller_knob(_release_rate, operator_data[SiOPMVoice.OperatorParams.RR])
+	BaseVoiceDeck.setup_roller_knob(_attack_rate, operator_data[SiOPMVoice.OperatorParam.AR])
+	BaseVoiceDeck.setup_roller_knob(_decay_rate, operator_data[SiOPMVoice.OperatorParam.DR])
+	BaseVoiceDeck.setup_roller_knob(_sustain_rate, operator_data[SiOPMVoice.OperatorParam.SR])
+	BaseVoiceDeck.setup_roller_knob(_release_rate, operator_data[SiOPMVoice.OperatorParam.RR])

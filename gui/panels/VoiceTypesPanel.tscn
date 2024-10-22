@@ -91,6 +91,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(86, 28)
 layout_mode = 2
 button_group = ExtResource("2_e366j")
-text = "MA3"
+text = "MA-3"
 off_color = Color(0.231373, 0.00784314, 0.00392157, 1)
 on_color = Color(0.72549, 0.188235, 0.14902, 1)

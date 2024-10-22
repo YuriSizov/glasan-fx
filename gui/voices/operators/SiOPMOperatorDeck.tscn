@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://y6raidijduyh"]
+[gd_scene load_steps=9 format=3 uid="uid://y6raidijduyh"]
 
 [ext_resource type="Script" path="res://gui/voices/operators/SiOPMOperatorDeck.gd" id="1_t5m5s"]
-[ext_resource type="PackedScene" uid="uid://kvxy6miofpxj" path="res://gui/components/KnobControl.tscn" id="2_b8kmf"]
-[ext_resource type="PackedScene" uid="uid://xob01bdx0r2f" path="res://gui/components/OptionFlipper.tscn" id="2_cosrf"]
+[ext_resource type="PackedScene" uid="uid://bhp4lawy57tyu" path="res://gui/components/WaveShapeFlipper.tscn" id="2_fuvac"]
 [ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/RollerKnob.tscn" id="3_fp7fs"]
-[ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="3_la6qn"]
 [ext_resource type="Shader" path="res://gui/components/RollerPanel.gdshader" id="4_ao5p7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7wdfr"]
@@ -35,107 +33,8 @@ script = ExtResource("1_t5m5s")
 [node name="Layout" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="ShapeBox" type="HBoxContainer" parent="Layout"]
-layout_mode = 2
-theme_override_constants/separation = 24
-alignment = 1
-
-[node name="ShapeFlipper" parent="Layout/ShapeBox" instance=ExtResource("2_cosrf")]
+[node name="WaveShapeFlipper" parent="Layout" instance=ExtResource("2_fuvac")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(190, 32)
-layout_mode = 2
-size_flags_vertical = 4
-options = Array[String](["BASIC WAVE", "NOISE", "MA3 WAVE", "PULSE", "PULSE SPIKE", "RAMP"])
-option_colors = Array[Color]([Color(0.568395, 0.339248, 0.627417, 1), Color(0.752918, 0.317176, 0.290403, 1), Color(0.665389, 0.47658, 0.168722, 1), Color(0.192105, 0.41115, 0.2929, 1), Color(0.247642, 0.496885, 0.761571, 1), Color(0.618955, 0.223453, 0.346477, 1)])
-
-[node name="Shapes" type="HBoxContainer" parent="Layout/ShapeBox"]
-layout_mode = 2
-theme_override_constants/separation = 4
-
-[node name="GlowButton0" parent="Layout/ShapeBox/Shapes" instance=ExtResource("3_la6qn")]
-custom_minimum_size = Vector2(32, 28)
-layout_mode = 2
-size_flags_vertical = 4
-text = "0"
-off_color = Color(0.165059, 0.206903, 0.234298, 1)
-on_color = Color(0.551876, 0.606018, 0.676183, 1)
-
-[node name="GlowButton1" parent="Layout/ShapeBox/Shapes" instance=ExtResource("3_la6qn")]
-custom_minimum_size = Vector2(32, 28)
-layout_mode = 2
-size_flags_vertical = 4
-text = "1"
-off_color = Color(0.165059, 0.206903, 0.234298, 1)
-on_color = Color(0.551876, 0.606018, 0.676183, 1)
-
-[node name="GlowButton2" parent="Layout/ShapeBox/Shapes" instance=ExtResource("3_la6qn")]
-custom_minimum_size = Vector2(32, 28)
-layout_mode = 2
-size_flags_vertical = 4
-text = "2"
-off_color = Color(0.165059, 0.206903, 0.234298, 1)
-on_color = Color(0.551876, 0.606018, 0.676183, 1)
-
-[node name="GlowButton3" parent="Layout/ShapeBox/Shapes" instance=ExtResource("3_la6qn")]
-custom_minimum_size = Vector2(32, 28)
-layout_mode = 2
-size_flags_vertical = 4
-text = "3"
-off_color = Color(0.165059, 0.206903, 0.234298, 1)
-on_color = Color(0.551876, 0.606018, 0.676183, 1)
-
-[node name="GlowButton4" parent="Layout/ShapeBox/Shapes" instance=ExtResource("3_la6qn")]
-custom_minimum_size = Vector2(32, 28)
-layout_mode = 2
-size_flags_vertical = 4
-text = "4"
-off_color = Color(0.165059, 0.206903, 0.234298, 1)
-on_color = Color(0.551876, 0.606018, 0.676183, 1)
-
-[node name="GlowButton5" parent="Layout/ShapeBox/Shapes" instance=ExtResource("3_la6qn")]
-custom_minimum_size = Vector2(32, 28)
-layout_mode = 2
-size_flags_vertical = 4
-text = "5"
-off_color = Color(0.165059, 0.206903, 0.234298, 1)
-on_color = Color(0.551876, 0.606018, 0.676183, 1)
-
-[node name="GlowButton6" parent="Layout/ShapeBox/Shapes" instance=ExtResource("3_la6qn")]
-custom_minimum_size = Vector2(32, 28)
-layout_mode = 2
-size_flags_vertical = 4
-text = "6"
-off_color = Color(0.165059, 0.206903, 0.234298, 1)
-on_color = Color(0.551876, 0.606018, 0.676183, 1)
-
-[node name="GlowButton7" parent="Layout/ShapeBox/Shapes" instance=ExtResource("3_la6qn")]
-custom_minimum_size = Vector2(32, 28)
-layout_mode = 2
-size_flags_vertical = 4
-text = "7"
-off_color = Color(0.165059, 0.206903, 0.234298, 1)
-on_color = Color(0.551876, 0.606018, 0.676183, 1)
-
-[node name="GlowButton8" parent="Layout/ShapeBox/Shapes" instance=ExtResource("3_la6qn")]
-custom_minimum_size = Vector2(32, 28)
-layout_mode = 2
-size_flags_vertical = 4
-text = "8"
-off_color = Color(0.165059, 0.206903, 0.234298, 1)
-on_color = Color(0.551876, 0.606018, 0.676183, 1)
-
-[node name="GlowButton9" parent="Layout/ShapeBox/Shapes" instance=ExtResource("3_la6qn")]
-custom_minimum_size = Vector2(32, 28)
-layout_mode = 2
-size_flags_vertical = 4
-text = "9"
-off_color = Color(0.165059, 0.206903, 0.234298, 1)
-on_color = Color(0.551876, 0.606018, 0.676183, 1)
-
-[node name="ShapeKnob" parent="Layout/ShapeBox" instance=ExtResource("2_b8kmf")]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
 [node name="RatesBox" type="HBoxContainer" parent="Layout"]

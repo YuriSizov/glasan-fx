@@ -53,9 +53,9 @@ func _update_knobs() -> void:
 	# Channel knobs.
 
 	var channel_data := voice.get_channel_data()
-	BaseVoiceDeck.setup_roller_knob(_feedback_knob, channel_data[SiOPMVoice.ChannelParams.FB])
-	BaseVoiceDeck.setup_knob_control(_connections_knob, channel_data[SiOPMVoice.ChannelParams.FC])
-	BaseVoiceDeck.setup_knob_control(_algorithm_knob, channel_data[SiOPMVoice.ChannelParams.AL])
+	BaseVoiceDeck.setup_roller_knob(_feedback_knob, channel_data[SiOPMVoice.ChannelParam.FB])
+	BaseVoiceDeck.setup_knob_control(_connections_knob, channel_data[SiOPMVoice.ChannelParam.FC])
+	BaseVoiceDeck.setup_knob_control(_algorithm_knob, channel_data[SiOPMVoice.ChannelParam.AL])
 
 	# Operator knobs.
 

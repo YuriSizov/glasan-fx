@@ -9,10 +9,10 @@ class_name SiOPMVoice extends Voice
 const SIOPM_CH_PARAMS := 3
 const SIOPM_OP_PARAMS := 15
 
-enum ChannelParams {
+enum ChannelParam {
 	AL, FB, FC
 }
-enum OperatorParams {
+enum OperatorParam {
 	WS, AR, DR, SR, RR, SL, TL, KR, KL, ML, D1, D2, AM, PH, FN
 }
 
@@ -29,7 +29,7 @@ func _init(op_count: int = 1) -> void:
 
 	# Channel params.
 
-	# Subindices follow the ChannelParams enum.
+	# Subindices follow the ChannelParam enum.
 	data[0] = VoiceKnob.new("AL", 0, 15)
 	data[1] = VoiceKnob.new("FB", 0, 7)
 	data[2] = VoiceKnob.new("FC", 0, 3)
@@ -51,9 +51,8 @@ func _add_operator() -> void:
 	var data_index := SIOPM_CH_PARAMS + SIOPM_OP_PARAMS * operator_index
 	data.resize(SIOPM_CH_PARAMS + SIOPM_OP_PARAMS * (operator_index + 1))
 
-	# Subindices follow the OperatorParams enum.
+	# Subindices follow the OperatorParam enum.
 	data[data_index + 0]  = VoiceKnob.new("WS", 0, 255) # Out of 511 valid total.
-	data[data_index + 0].set_safe_range(0, 31) # There are some gaps which don't have wave shapes.
 
 	data[data_index + 1]  = VoiceKnob.new("AR", 0, 63)
 	data[data_index + 1].value = 63
@@ -88,14 +87,30 @@ func _remove_operator() -> void:
 
 func _randomize_channel() -> void:
 	var ch_data := get_channel_data()
-	ch_data[ChannelParams.FB].randomize_value()
+	ch_data[ChannelParam.FB].randomize_value()
 
 
 func _randomize_operator(index: int) -> void:
 	var op_data := get_operator_data(index)
 
-	op_data[OperatorParams.WS].randomize_value()
-	op_data[OperatorParams.KR].randomize_value()
-	op_data[OperatorParams.ML].randomize_value()
-	op_data[OperatorParams.D1].randomize_value()
-	op_data[OperatorParams.D2].randomize_value()
+	op_data[OperatorParam.WS].value = _randomize_wave_shape()
+	op_data[OperatorParam.KR].randomize_value()
+	op_data[OperatorParam.ML].randomize_value()
+	op_data[OperatorParam.D1].randomize_value()
+	op_data[OperatorParam.D2].randomize_value()
+
+
+func _randomize_wave_shape() -> int:
+	# First decide on the wave shape group.
+	var wave_group := randi_range(0, WaveShape.MAX - 1)
+	var wave_range: Array = WaveShape.RANGES[wave_group]
+
+	# Then pick a value from the range for this wave shape group.
+	var wave_shape := randi_range(wave_range[0], wave_range[0] + wave_range[1] - 1)
+
+	# Special case, since MA-3 waves have a few blanks in between.
+	if wave_group == WaveShape.SHAPE_MA3 && wave_shape in [ SiONDriver.PULSE_MA3_USER1, SiONDriver.PULSE_MA3_USER2, SiONDriver.PULSE_MA3_USER3 ]:
+		wave_shape -= 1
+
+	return wave_shape
+

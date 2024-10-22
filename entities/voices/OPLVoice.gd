@@ -9,10 +9,10 @@ class_name OPLVoice extends Voice
 const OPL_CH_PARAMS := 2
 const OPL_OP_PARAMS := 11
 
-enum ChannelParams {
+enum ChannelParam {
 	AL, FB
 }
-enum OperatorParams {
+enum OperatorParam {
 
 }
 

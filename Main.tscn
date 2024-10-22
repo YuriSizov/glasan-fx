@@ -13,35 +13,42 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lckxc")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.28211, 0.285592, 0.287083, 1)
+
+[node name="Content" type="MarginContainer" parent="."]
+layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
-script = ExtResource("1_lckxc")
 
-[node name="Layout" type="VBoxContainer" parent="."]
+[node name="Layout" type="VBoxContainer" parent="Content"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="BrandingPanel" parent="Layout" instance=ExtResource("1_c3g5b")]
+[node name="BrandingPanel" parent="Content/Layout" instance=ExtResource("1_c3g5b")]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="MenuPanel" parent="Layout" instance=ExtResource("1_vjtat")]
+[node name="MenuPanel" parent="Content/Layout" instance=ExtResource("1_vjtat")]
 layout_mode = 2
 
-[node name="PreviewPanel" parent="Layout" instance=ExtResource("1_rm57h")]
+[node name="PreviewPanel" parent="Content/Layout" instance=ExtResource("1_rm57h")]
 layout_mode = 2
 
-[node name="VoiceContainer" type="HBoxContainer" parent="Layout"]
+[node name="VoiceContainer" type="HBoxContainer" parent="Content/Layout"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="VoicePanel" parent="Layout/VoiceContainer" instance=ExtResource("2_tet0f")]
+[node name="VoicePanel" parent="Content/Layout/VoiceContainer" instance=ExtResource("2_tet0f")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TypesContainer" parent="Layout/VoiceContainer" instance=ExtResource("6_ft6g3")]
+[node name="TypesContainer" parent="Content/Layout/VoiceContainer" instance=ExtResource("6_ft6g3")]
 layout_mode = 2

@@ -9,10 +9,10 @@ class_name OPNVoice extends Voice
 const OPN_CH_PARAMS := 2
 const OPN_OP_PARAMS := 10
 
-enum ChannelParams {
+enum ChannelParam {
 	AL, FB
 }
-enum OperatorParams {
+enum OperatorParam {
 
 }
 

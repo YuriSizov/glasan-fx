@@ -23,8 +23,6 @@ const SPECTRUM_VU_COUNT := 24
 const SPECTRUM_FREQ_MAX := 11050.0
 const SPECTRUM_MIN_DB := 60.0
 const SPECTRUM_BAR_SPACING := 4
-const SPECTRUM_LOW_COLOR := Color.SEA_GREEN
-const SPECTRUM_HIGH_COLOR := Color.ORANGE_RED
 const SPECTRUM_LERP := 0.2
 
 var _spectrum_heights: PackedFloat32Array = PackedFloat32Array()
@@ -33,12 +31,13 @@ var _spectrum_colors: PackedColorArray = PackedColorArray()
 # Wave previews.
 
 const WAVE_MAX_SAMPLES := 240
-const WAVE_COLOR := Color.ORANGE_RED
-const WAVE_REVEAL_STEP := 4.0
+const WAVE_REVEAL_STEP := 480.0
+const WAVE_STALE_STEP := 4.0
 
-var _wave_revealed: float = 0.0
 var _wave_data: PackedFloat64Array = PackedFloat64Array()
-var _wave_next_data: PackedFloat64Array = PackedFloat64Array()
+var _wave_freshness: Array[float] = []
+var _wave_next_stack: Array[PackedFloat64Array] = []
+var _wave_revealed_stack: Array[float] = []
 
 
 func _ready() -> void:
@@ -47,8 +46,8 @@ func _ready() -> void:
 
 	_wave_data.resize(WAVE_MAX_SAMPLES)
 	_wave_data.fill(0.5)
-	_wave_next_data.resize(WAVE_MAX_SAMPLES)
-	_wave_next_data.fill(0.5)
+	_wave_freshness.resize(WAVE_MAX_SAMPLES)
+
 
 	if not Engine.is_editor_hint():
 		Controller.voice_manager.sample_started.connect(_clear_wave)
@@ -61,9 +60,8 @@ func _process(delta: float) -> void:
 			queue_redraw()
 
 		PreviewStyle.PREVIEW_WAVE:
-			if _wave_revealed < 1.0:
-				_wave_revealed = clampf(_wave_revealed + WAVE_REVEAL_STEP * delta, 0.0, 1.0)
-				queue_redraw()
+			if not _wave_revealed_stack.is_empty():
+				_process_wave(delta)
 
 
 func _draw() -> void:
@@ -137,9 +135,12 @@ func _get_spectrum_height(index: int, magnitude: float) -> float:
 
 
 func _get_spectrum_color(index: int, value: float) -> Color:
+	var low_color := get_theme_color("spectrum_low_color")
+	var high_color := get_theme_color("spectrum_high_color")
+
 	var low_value := 0
 	var high_value := _render_size.y / 2.0
-	var base_value := SPECTRUM_LOW_COLOR.lerp(SPECTRUM_HIGH_COLOR, (value - low_value) / (high_value - low_value))
+	var base_value := low_color.lerp(high_color, (value - low_value) / (high_value - low_value))
 
 	if _spectrum_colors.is_empty():
 		return base_value
@@ -149,28 +150,60 @@ func _get_spectrum_color(index: int, value: float) -> Color:
 
 # Wave previews.
 
+func _process_wave(delta: float) -> void:
+	var indices_to_remove := 0
+
+	for i in _wave_freshness.size():
+		_wave_freshness[i] = clampf(_wave_freshness[i] - WAVE_STALE_STEP * delta, 0.0, 1.0)
+
+	for i in _wave_revealed_stack.size():
+		var wave_next := _wave_next_stack[i]
+		var wave_revealed := _wave_revealed_stack[i]
+		var next_revealed := clampf(wave_revealed + WAVE_REVEAL_STEP * delta, 0.0, WAVE_MAX_SAMPLES)
+
+		var data_idx := roundi(wave_revealed)
+		while data_idx < next_revealed:
+			_wave_data[data_idx] = wave_next[data_idx]
+			_wave_freshness[data_idx] = 1.0
+			data_idx += 1
+
+		if next_revealed == (WAVE_MAX_SAMPLES - 1):
+			indices_to_remove += 1
+
+		_wave_revealed_stack[i] = next_revealed
+
+	for i in indices_to_remove:
+		_wave_next_stack.pop_front()
+		_wave_revealed_stack.pop_front()
+
+	queue_redraw()
+
+
 func _draw_wave() -> void:
+	var active_color := get_theme_color("wave_active_color")
+	var stale_color := get_theme_color("wave_stale_color")
+
 	var offset := (size - _render_size) / 2
 	var step := _render_size.x / _wave_data.size()
-
-	var revealed_idx := floori(_wave_data.size() * _wave_revealed)
-	for i in revealed_idx:
-		_wave_data[i] = _wave_next_data[i]
 
 	for i in _wave_data.size() - 1:
 		var from_point := offset + Vector2(step * i,       _render_size.y * _wave_data[i])
 		var to_point   := offset + Vector2(step * (i + 1), _render_size.y * _wave_data[i + 1])
+		var point_color := stale_color.lerp(active_color, _wave_freshness[i + 1])
 
-		draw_line(from_point, to_point, WAVE_COLOR, 1.0, true)
+		draw_line(from_point, to_point, point_color, 1.0, true)
 
 
 func _clear_wave() -> void:
 	if _preview_style != PreviewStyle.PREVIEW_WAVE:
 		return
 
-	_wave_revealed = 0.0
-	_wave_next_data.fill(0.5)
+	var clear_pass := PackedFloat64Array()
+	clear_pass.resize(WAVE_MAX_SAMPLES)
+	clear_pass.fill(0.5)
 
+	_wave_next_stack.push_back(clear_pass)
+	_wave_revealed_stack.push_back(0.0)
 	queue_redraw()
 
 
@@ -178,14 +211,17 @@ func _reveal_wave() -> void:
 	if _preview_style != PreviewStyle.PREVIEW_WAVE:
 		return
 
-	_wave_revealed = 0.0
-	_wave_data = _wave_next_data.duplicate()
+	var next_pass := PackedFloat64Array()
+	next_pass.resize(WAVE_MAX_SAMPLES)
+	next_pass.fill(0.5)
 
 	var sample_data := Controller.voice_manager.get_sample_data()
-	for i in _wave_next_data.size():
+	for i in next_pass.size():
 		if i < sample_data.size():
-			_wave_next_data[i] = sample_data[i] + 0.5
+			next_pass[i] = 0.5 - sample_data[i] # Invert so negatives go below the baseline.
 		else:
-			_wave_next_data[i] = 0.5
+			next_pass[i] = 0.5
 
+	_wave_next_stack.push_back(next_pass)
+	_wave_revealed_stack.push_back(0.0)
 	queue_redraw()
