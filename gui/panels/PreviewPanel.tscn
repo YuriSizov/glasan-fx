@@ -2,19 +2,19 @@
 
 [ext_resource type="Script" path="res://gui/panels/PreviewPanel.gd" id="1_iu5lk"]
 [ext_resource type="Shader" path="res://gui/panels/PlasticPanel.gdshader" id="2_mypj1"]
-[ext_resource type="PackedScene" uid="uid://kvxy6miofpxj" path="res://gui/components/KnobControl.tscn" id="3_1mn17"]
 [ext_resource type="PackedScene" uid="uid://diuy5hd43hen1" path="res://gui/components/PreviewArea.tscn" id="3_80051"]
 [ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="4_6wcbg"]
 [ext_resource type="ButtonGroup" uid="uid://d0pkexvqrisnr" path="res://gui/panels/preview_mode_buttons.tres" id="5_esah6"]
 [ext_resource type="PackedScene" uid="uid://c8ld4mgspflab" path="res://gui/components/PianoRoll.tscn" id="6_n0eq7"]
 [ext_resource type="Texture2D" uid="uid://b2hw84cycw44p" path="res://assets/icons/preview_spectrum.png" id="6_v5jen"]
 [ext_resource type="Texture2D" uid="uid://pgrn4gxrbv6f" path="res://assets/icons/preview_wave.png" id="7_3qq8q"]
+[ext_resource type="PackedScene" uid="uid://dikcn6vh82w0j" path="res://gui/components/TunerSlider.tscn" id="9_oxqnu"]
 [ext_resource type="FontFile" uid="uid://cjwuh3bvsqt57" path="res://assets/fonts/fff-aquarius-bold-condensed.msdf.ttf" id="9_vlyin"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i1p27"]
 resource_local_to_scene = true
 shader = ExtResource("2_mypj1")
-shader_parameter/size = Vector2(768, 250)
+shader_parameter/size = Vector2(768, 232)
 shader_parameter/light_intensity = 0.0
 shader_parameter/light_smoothness = 0.003
 shader_parameter/light_inverted = 0
@@ -96,15 +96,19 @@ on_color = Color(0.157781, 0.297129, 0.510406, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LengthKnob" parent="Content/Layout/PreviewBox/PreviewModes" instance=ExtResource("3_1mn17")]
+[node name="Label" type="Label" parent="Content/Layout/PreviewBox/PreviewModes"]
+layout_mode = 2
+text = "LEN"
+
+[node name="LengthSlider" parent="Content/Layout/PreviewBox/PreviewModes" instance=ExtResource("9_oxqnu")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 
 [node name="Controls" type="VBoxContainer" parent="Content/Layout"]
 layout_mode = 2
-size_flags_vertical = 4
-alignment = 1
+size_flags_vertical = 0
+theme_override_constants/separation = 16
 
 [node name="PreviewButton" parent="Content/Layout/Controls" instance=ExtResource("4_6wcbg")]
 unique_name_in_owner = true

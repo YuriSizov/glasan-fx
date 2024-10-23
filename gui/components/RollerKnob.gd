@@ -148,7 +148,7 @@ func _gui_input_roller(event: InputEvent) -> void:
 			_pressed = true
 		elif mb.button_index == MOUSE_BUTTON_LEFT && not mb.pressed:
 			if _dragged:
-				_update_value_on_scroll()
+				_update_value_after_scroll()
 			elif _pressed:
 				_update_value_on_click()
 			else:
@@ -187,14 +187,12 @@ func _update_scrollables() -> void:
 	_value_bar.queue_redraw()
 
 
-func _update_value_on_scroll() -> void:
+func _update_value_after_scroll() -> void:
 	var values_passed := -1 * roundi(_value_scroll / _value_scroll_step)
 	_update_value(knob_value + values_passed)
 
 
 func _update_value_on_click() -> void:
-
-
 	var mouse_position := _roller_control.get_local_mouse_position()
 	if mouse_position.x > (_roller_control.size.x / 2.0):
 		_update_value(knob_value + 1)

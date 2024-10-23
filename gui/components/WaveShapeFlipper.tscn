@@ -1,14 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhp4lawy57tyu"]
+[gd_scene load_steps=5 format=3 uid="uid://bhp4lawy57tyu"]
 
 [ext_resource type="Script" path="res://gui/components/WaveShapeFlipper.gd" id="1_bmdos"]
 [ext_resource type="PackedScene" uid="uid://xob01bdx0r2f" path="res://gui/components/OptionFlipper.tscn" id="1_qv262"]
 [ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="2_vobk5"]
-[ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/RollerKnob.tscn" id="4_ukwp0"]
-[ext_resource type="Shader" path="res://gui/components/RollerPanel.gdshader" id="5_e3er3"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_t4m8h"]
-resource_local_to_scene = true
-shader = ExtResource("5_e3er3")
+[ext_resource type="PackedScene" uid="uid://dikcn6vh82w0j" path="res://gui/components/TunerSlider.tscn" id="4_j3nlv"]
 
 [node name="WaveShapeFlipper" type="MarginContainer"]
 anchors_preset = 10
@@ -19,7 +14,7 @@ script = ExtResource("1_bmdos")
 
 [node name="Content" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-self_modulate = Color(0.216618, 0.180696, 0.22587, 1)
+self_modulate = Color(0.261803, 0.218378, 0.272973, 1)
 layout_mode = 2
 theme_type_variation = &"WaveShapePanel"
 
@@ -39,6 +34,7 @@ option_colors = Array[Color]([Color(0.536313, 0.314308, 0.593419, 1), Color(0.72
 
 [node name="Shapes" type="MarginContainer" parent="Content/Layout"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -575,16 +571,12 @@ on_color = Color(0.551876, 0.606018, 0.676183, 1)
 [node name="RampWaves" type="HBoxContainer" parent="Content/Layout/Shapes"]
 visible = false
 layout_mode = 2
+size_flags_vertical = 0
 
-[node name="RampKnob" parent="Content/Layout/Shapes/RampWaves" instance=ExtResource("4_ukwp0")]
+[node name="RampSlider" parent="Content/Layout/Shapes/RampWaves" instance=ExtResource("4_j3nlv")]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_t4m8h")
+custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
-text = "SHAPE"
-knob_value = -1
-min_value = -1
-max_value = 127
-safe_max_value = 127
 
 [node name="MA3Waves1" type="VBoxContainer" parent="Content/Layout/Shapes"]
 visible = false

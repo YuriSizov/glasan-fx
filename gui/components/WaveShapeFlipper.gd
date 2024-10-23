@@ -27,7 +27,7 @@ var _noise_wave_buttons: Array[GlowButton] = []
 var _pc_noise_wave_buttons: Array[GlowButton] = []
 var _pulse_wave_buttons: Array[GlowButton] = []
 var _pulse_spike_wave_buttons: Array[GlowButton] = []
-var _ramp_wave_knob: RollerKnob = null
+var _ramp_wave_slider: TunerSlider = null
 var _ma3_wave_buttons: Array[GlowButton] = []
 
 @onready var _content_panel: PanelContainer = %Content
@@ -37,7 +37,7 @@ var _ma3_wave_buttons: Array[GlowButton] = []
 
 
 func _ready() -> void:
-	_collect_buttons_and_knobs()
+	_collect_buttons_and_sliders()
 	_update_shape_selection()
 	_switch_shape_list()
 	_shape_flipper.selected.connect(_switch_shape_list)
@@ -85,7 +85,7 @@ func _update_shape_selection() -> void:
 	_update_shape_buttons(WaveShape.SHAPE_PULSE_SPIKE, _pulse_spike_wave_buttons)
 	_update_shape_buttons(WaveShape.SHAPE_MA3,         _ma3_wave_buttons)
 
-	_update_shape_knob(WaveShape.SHAPE_RAMP, _ramp_wave_knob)
+	_update_shape_slider(WaveShape.SHAPE_RAMP, _ramp_wave_slider)
 
 
 func _switch_shape_list() -> void:
@@ -99,9 +99,9 @@ func _switch_shape_list() -> void:
 	_content_panel.self_modulate.s = 0.2
 
 
-# Buttons and knobs.
+# Buttons and sliders.
 
-func _collect_buttons_and_knobs() -> void:
+func _collect_buttons_and_sliders() -> void:
 	_basic_wave_buttons       = _collect_shape_buttons(WaveShape.SHAPE_BASIC,       "BasicButton")
 	_noise_wave_buttons       = _collect_shape_buttons(WaveShape.SHAPE_NOISE,       "NoiseButton")
 	_pc_noise_wave_buttons    = _collect_shape_buttons(WaveShape.SHAPE_PC_NOISE,    "PCNoiseButton")
@@ -109,7 +109,7 @@ func _collect_buttons_and_knobs() -> void:
 	_pulse_spike_wave_buttons = _collect_shape_buttons(WaveShape.SHAPE_PULSE_SPIKE, "PulseSpikeButton")
 	_ma3_wave_buttons         = _collect_shape_buttons(WaveShape.SHAPE_MA3,         "MA3Button")
 
-	_ramp_wave_knob = _collect_shape_knob(WaveShape.SHAPE_RAMP, "RampKnob")
+	_ramp_wave_slider = _collect_shape_slider(WaveShape.SHAPE_RAMP, "RampSlider")
 
 
 func _collect_shape_buttons(shape_id: int, button_name: String) -> Array[GlowButton]:
@@ -131,21 +131,16 @@ func _collect_shape_buttons(shape_id: int, button_name: String) -> Array[GlowBut
 	return wave_buttons
 
 
-func _collect_shape_knob(shape_id: int, knob_name: String) -> RollerKnob:
-	var node_path := NodePath("%%%s" % [ knob_name ])
-	var node: RollerKnob = get_node(node_path)
+func _collect_shape_slider(shape_id: int, slider_name: String) -> TunerSlider:
+	var node_path := NodePath("%%%s" % [ slider_name ])
+	var node: TunerSlider = get_node(node_path)
 	if not node:
-		printerr("WaveShapeFlipper: Missing knob for wave shape %d (expected '%s')." % [ shape_id, node_path ])
+		printerr("WaveShapeFlipper: Missing slider for wave shape %d (expected '%s')." % [ shape_id, node_path ])
 		return null
 
 	var wave_range: Array = WaveShape.RANGES[shape_id]
-	node.min_value = -1
-	node.max_value = wave_range[1] - 1
-	node.safe_min_value = 0
-	node.safe_max_value = wave_range[1] - 1
-	node.knob_value = -1
-
-	node.value_changed.connect(_handle_knob_changed.bind(node, wave_range[0]))
+	node.slider_value = 0.0
+	node.value_changed.connect(_handle_slider_changed.bind(node, wave_range))
 
 	return node
 
@@ -159,13 +154,13 @@ func _update_shape_buttons(shape_id: int, buttons: Array[GlowButton]) -> void:
 		button.button_pressed = (wave_shape == button_id)
 
 
-func _update_shape_knob(shape_id: int, knob: RollerKnob) -> void:
+func _update_shape_slider(shape_id: int, slider: TunerSlider) -> void:
 	var wave_range: Array = WaveShape.RANGES[shape_id]
 
 	if wave_shape >= wave_range[0] && wave_shape < (wave_range[0] + wave_range[1]):
-		knob.knob_value = wave_shape - wave_range[0]
+		slider.set_value_normalized(wave_shape, wave_range[0], wave_range[0] + wave_range[1] - 1)
 	else:
-		knob.knob_value = -1
+		slider.slider_value = 0.0
 
 
 func _handle_button_toggled(toggled: bool, _button: GlowButton, shape_id: int) -> void:
@@ -173,11 +168,9 @@ func _handle_button_toggled(toggled: bool, _button: GlowButton, shape_id: int) -
 		_change_shape(shape_id)
 
 
-func _handle_knob_changed(knob: RollerKnob, shape_base: int) -> void:
-	if knob.knob_value == -1:
-		knob.knob_value = 0
-
-	_change_shape(shape_base + knob.knob_value)
+func _handle_slider_changed(slider: TunerSlider, wave_range: Array) -> void:
+	var value := slider.get_normalized_value(wave_range[0], wave_range[0] + wave_range[1] - 1)
+	_change_shape(value)
 
 
 func _change_shape(shape_id: int) -> void:

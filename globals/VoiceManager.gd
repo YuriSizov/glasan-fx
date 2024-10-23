@@ -12,14 +12,6 @@ signal sample_changed()
 signal sample_started()
 signal sample_stopped()
 
-const MIN_NOTE_LENGTH := 1
-const MAX_NOTE_LENGTH := 20
-const DEFAULT_NOTE_LENGTH := 4
-
-const MIN_NOTE_VALUE := 0
-const MAX_NOTE_VALUE := 127
-const DEFAULT_NOTE_VALUE := 42
-
 ## SiON tool with a bunch of pre-configured voices.
 var _preset_util: SiONVoicePresetUtil = null
 

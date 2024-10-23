@@ -14,7 +14,7 @@ var _current_sample: Sample = null
 @onready var _spectrum_mode_button: GlowButton = %SpectrumButton
 @onready var _wave_mode_button: GlowButton = %WaveButton
 
-@onready var _length_knob_control: KnobControl = %LengthKnob
+@onready var _length_slider: TunerSlider = %LengthSlider
 @onready var _piano_roll: PianoRoll = %PianoRoll
 
 
@@ -26,7 +26,9 @@ func _ready() -> void:
 		_preview_button.pressed.connect(_play_sample)
 		_spectrum_mode_button.pressed.connect(_preview_area.change_preview_style.bind(PreviewArea.PreviewStyle.PREVIEW_SPECTRUM))
 		_wave_mode_button.pressed.connect(_preview_area.change_preview_style.bind(PreviewArea.PreviewStyle.PREVIEW_WAVE))
+
 		_piano_roll.note_changed.connect(_change_note)
+		_length_slider.value_changed.connect(_change_length)
 
 		Controller.voice_manager.sample_changed.connect(_edit_current_sample)
 
@@ -39,8 +41,8 @@ func _edit_current_sample() -> void:
 
 	_current_sample = Controller.voice_manager.get_sample_params()
 
-	_length_knob_control.knob_data = _current_sample.length
 	_piano_roll.note_value = _current_sample.note.value
+	_length_slider.set_value_normalized(_current_sample.length.value, Sample.MIN_NOTE_LENGTH, Sample.MAX_NOTE_LENGTH)
 
 
 func _play_sample() -> void:
@@ -48,5 +50,15 @@ func _play_sample() -> void:
 
 
 func _change_note() -> void:
+	if not _current_sample:
+		return
+
 	_current_sample.note.value = _piano_roll.note_value
 	_play_sample()
+
+
+func _change_length() -> void:
+	if not _current_sample:
+		return
+
+	_current_sample.length.value = _length_slider.get_normalized_value(Sample.MIN_NOTE_LENGTH, Sample.MAX_NOTE_LENGTH)
