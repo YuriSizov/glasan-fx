@@ -37,7 +37,7 @@ void fragment() {
 	float position_top = 1.0 - smoothstep(0.0, position_normalized, UV.y);
 	float position_bottom = smoothstep(position_normalized, 1.0, UV.y);
 	switch_uv.y = clamp(position_top + position_bottom, 0.0, 0.5);
-	switch_uv.y += step(0.5, switch_uv.y) * 0.03;
+	switch_uv.y += step(0.1, switch_uv.y) * 0.07;
 	
 	// Create the switch mask.
 	float switch_mask = 1.0 - polygon_distance(4, switch_uv) * length(switch_uv);

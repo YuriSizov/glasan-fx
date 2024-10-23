@@ -113,7 +113,13 @@ func _randomize_wave_shape() -> int:
 	# Then pick a value from the range for this wave shape group.
 	var wave_shape := randi_range(wave_range[0], wave_range[0] + wave_range[1] - 1)
 
-	# Special case, since MA-3 waves have a few blanks in between.
+	# Special cases.
+
+	# Basic waves have an "offset" wave, which is not a wave at all.
+	if wave_group == WaveShape.SHAPE_BASIC && wave_shape == SiONDriver.PULSE_OFFSET:
+		wave_shape -= 1
+
+	# MA-3 waves support user defined shapes, which we must exclude here.
 	if wave_group == WaveShape.SHAPE_MA3 && wave_shape in [ SiONDriver.PULSE_MA3_USER1, SiONDriver.PULSE_MA3_USER2, SiONDriver.PULSE_MA3_USER3 ]:
 		wave_shape -= 1
 

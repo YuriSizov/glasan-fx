@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://y6raidijduyh"]
+[gd_scene load_steps=13 format=3 uid="uid://y6raidijduyh"]
 
 [ext_resource type="Script" path="res://gui/voices/operators/SiOPMOperatorDeck.gd" id="1_t5m5s"]
 [ext_resource type="PackedScene" uid="uid://bhp4lawy57tyu" path="res://gui/components/WaveShapeFlipper.tscn" id="2_fuvac"]
@@ -21,6 +21,22 @@ shader = ExtResource("4_ao5p7")
 resource_local_to_scene = true
 shader = ExtResource("4_ao5p7")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mc21m"]
+resource_local_to_scene = true
+shader = ExtResource("4_ao5p7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o0lq4"]
+resource_local_to_scene = true
+shader = ExtResource("4_ao5p7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rjgve"]
+resource_local_to_scene = true
+shader = ExtResource("4_ao5p7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ihcr5"]
+resource_local_to_scene = true
+shader = ExtResource("4_ao5p7")
+
 [node name="SiOPMOperatorDeck" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,6 +48,7 @@ script = ExtResource("1_t5m5s")
 
 [node name="Layout" type="VBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 24
 
 [node name="WaveShapeFlipper" parent="Layout" instance=ExtResource("2_fuvac")]
 unique_name_in_owner = true
@@ -45,7 +62,7 @@ unique_name_in_owner = true
 material = SubResource("ShaderMaterial_7wdfr")
 layout_mode = 2
 size_flags_horizontal = 3
-text = "AR"
+text = "ATT"
 knob_value = 32
 max_value = 63
 safe_max_value = 63
@@ -55,7 +72,7 @@ unique_name_in_owner = true
 material = SubResource("ShaderMaterial_lnbte")
 layout_mode = 2
 size_flags_horizontal = 3
-text = "DR"
+text = "DEC"
 knob_value = 32
 max_value = 63
 safe_max_value = 63
@@ -65,7 +82,7 @@ unique_name_in_owner = true
 material = SubResource("ShaderMaterial_qqnui")
 layout_mode = 2
 size_flags_horizontal = 3
-text = "SR"
+text = "SUS"
 knob_value = 32
 max_value = 63
 safe_max_value = 63
@@ -75,7 +92,50 @@ unique_name_in_owner = true
 material = SubResource("ShaderMaterial_66uhm")
 layout_mode = 2
 size_flags_horizontal = 3
-text = "RR"
+text = "REL"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="TuningBox" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="KeyRateKnob" parent="Layout/TuningBox" instance=ExtResource("3_fp7fs")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_mc21m")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KSR"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="MultipleKnob" parent="Layout/TuningBox" instance=ExtResource("3_fp7fs")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_o0lq4")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MUL"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="Detune1Knob" parent="Layout/TuningBox" instance=ExtResource("3_fp7fs")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_rjgve")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DT1"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="Detune2Knob" parent="Layout/TuningBox" instance=ExtResource("3_fp7fs")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_ihcr5")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DT2"
 knob_value = 32
 max_value = 63
 safe_max_value = 63

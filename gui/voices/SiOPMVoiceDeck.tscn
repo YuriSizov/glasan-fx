@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0l6ei5ndoyaa"]
+[gd_scene load_steps=11 format=3 uid="uid://b0l6ei5ndoyaa"]
 
 [ext_resource type="Script" path="res://gui/voices/SiOPMVoiceDeck.gd" id="1_wt3dc"]
 [ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/RollerKnob.tscn" id="2_e6f5v"]
@@ -13,6 +13,10 @@ resource_local_to_scene = true
 shader = ExtResource("3_lcelt")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3vtae"]
+resource_local_to_scene = true
+shader = ExtResource("3_lcelt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kysg8"]
 resource_local_to_scene = true
 shader = ExtResource("3_lcelt")
 
@@ -50,7 +54,7 @@ text = "FBACK"
 
 [node name="AlgorithmKnob" parent="Layout/GeneralKnobs" instance=ExtResource("2_e6f5v")]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_3vtae")
+material = SubResource("ShaderMaterial_kysg8")
 layout_mode = 2
 size_flags_horizontal = 3
 text = "ALGO"

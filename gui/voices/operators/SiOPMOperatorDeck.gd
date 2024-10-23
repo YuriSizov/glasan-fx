@@ -16,6 +16,11 @@ var operator_data: Array[VoiceKnob] = []:
 @onready var _sustain_rate: RollerKnob = %SustainKnob
 @onready var _release_rate: RollerKnob = %ReleaseKnob
 
+@onready var _key_scaling_rate: RollerKnob = %KeyRateKnob
+@onready var _multiple: RollerKnob = %MultipleKnob
+@onready var _detune1: RollerKnob = %Detune1Knob
+@onready var _detune2: RollerKnob = %Detune2Knob
+
 
 func _ready() -> void:
 	_update_knobs()
@@ -30,9 +35,28 @@ func _update_knobs() -> void:
 	if not is_node_ready() || operator_data.is_empty():
 		return
 
-	_wave_shape_flipper.wave_shape = operator_data[SiOPMVoice.OperatorParam.WS].value
+	_setup_shape_flipper(_wave_shape_flipper, operator_data[SiOPMVoice.OperatorParam.WS])
 
-	BaseVoiceDeck.setup_roller_knob(_attack_rate, operator_data[SiOPMVoice.OperatorParam.AR])
-	BaseVoiceDeck.setup_roller_knob(_decay_rate, operator_data[SiOPMVoice.OperatorParam.DR])
+	BaseVoiceDeck.setup_roller_knob(_attack_rate,  operator_data[SiOPMVoice.OperatorParam.AR])
+	BaseVoiceDeck.setup_roller_knob(_decay_rate,   operator_data[SiOPMVoice.OperatorParam.DR])
 	BaseVoiceDeck.setup_roller_knob(_sustain_rate, operator_data[SiOPMVoice.OperatorParam.SR])
 	BaseVoiceDeck.setup_roller_knob(_release_rate, operator_data[SiOPMVoice.OperatorParam.RR])
+
+	BaseVoiceDeck.setup_roller_knob(_key_scaling_rate, operator_data[SiOPMVoice.OperatorParam.KR])
+	BaseVoiceDeck.setup_roller_knob(_multiple,         operator_data[SiOPMVoice.OperatorParam.ML])
+	BaseVoiceDeck.setup_roller_knob(_detune1,          operator_data[SiOPMVoice.OperatorParam.D1])
+	BaseVoiceDeck.setup_roller_knob(_detune2,          operator_data[SiOPMVoice.OperatorParam.D2])
+
+
+func _setup_shape_flipper(flipper: WaveShapeFlipper, data: VoiceKnob) -> void:
+	# Clear previous connections, if any.
+	var connections := flipper.shape_changed.get_connections()
+	for connection : Dictionary in connections:
+		flipper.shape_changed.disconnect(connection["callable"])
+
+	flipper.wave_shape = data.value
+
+	# Connect to changes.
+	flipper.shape_changed.connect(func() -> void:
+		data.value = flipper.wave_shape
+	)

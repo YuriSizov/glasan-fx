@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=51 format=3 uid="uid://bpwfhtd227bkw"]
+[gd_resource type="Theme" load_steps=52 format=3 uid="uid://bpwfhtd227bkw"]
 
 [ext_resource type="FontFile" uid="uid://cjwuh3bvsqt57" path="res://assets/fonts/fff-aquarius-bold-condensed.msdf.ttf" id="1_67pkc"]
 [ext_resource type="Script" path="res://gui/theme/StyleTexture.gd" id="1_fj6h5"]
@@ -309,6 +309,17 @@ content_margin_right = 12.0
 content_margin_bottom = 22.0
 bg_color = Color(0.0658186, 0.0700564, 0.0586766, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gniu8"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(1, 1, 1, 0.56)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
 [sub_resource type="FontVariation" id="FontVariation_btycs"]
 base_font = ExtResource("1_67pkc")
 spacing_glyph = 1
@@ -373,10 +384,10 @@ MenuPanel/styles/panel = SubResource("StyleBoxEmpty_djm75")
 MenuPanel/styles/panel_background = SubResource("StyleBoxEmpty_rvmxa")
 MenuPanelButton/base_type = &"Button"
 OperatorDeck/base_type = &"MarginContainer"
-OperatorDeck/constants/margin_bottom = 12
-OperatorDeck/constants/margin_left = 8
-OperatorDeck/constants/margin_right = 8
-OperatorDeck/constants/margin_top = 12
+OperatorDeck/constants/margin_bottom = 16
+OperatorDeck/constants/margin_left = 16
+OperatorDeck/constants/margin_right = 16
+OperatorDeck/constants/margin_top = 16
 OperatorIndicator/base_type = &"HBoxContainer"
 OperatorIndicator/colors/font_active_color = Color(0.910244, 0.403015, 0.264407, 1)
 OperatorIndicator/colors/font_inactive_color = Color(0.265174, 0.143202, 0.136196, 1)
@@ -432,3 +443,5 @@ VoicePanel/styles/panel_background = SubResource("StyleBoxFlat_wwe1w")
 VoiceTypesPanel/base_type = &"ContentPanel"
 VoiceTypesPanel/styles/panel = SubResource("StyleBoxEmpty_v1lpm")
 VoiceTypesPanel/styles/panel_background = SubResource("StyleBoxFlat_lfclo")
+WaveShapePanel/base_type = &"PanelContainer"
+WaveShapePanel/styles/panel = SubResource("StyleBoxFlat_gniu8")
