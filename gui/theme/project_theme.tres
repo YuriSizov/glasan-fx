@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=52 format=3 uid="uid://bpwfhtd227bkw"]
+[gd_resource type="Theme" load_steps=53 format=3 uid="uid://bpwfhtd227bkw"]
 
 [ext_resource type="FontFile" uid="uid://cjwuh3bvsqt57" path="res://assets/fonts/fff-aquarius-bold-condensed.msdf.ttf" id="1_67pkc"]
 [ext_resource type="Script" path="res://gui/theme/StyleTexture.gd" id="1_fj6h5"]
@@ -11,19 +11,19 @@ variation_transform = Transform2D(1, 0.28, 0, 1, 0, 0)
 spacing_glyph = 6
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5m7pm"]
-content_margin_left = 8.0
+content_margin_left = 4.0
 content_margin_top = 4.0
-content_margin_right = 8.0
+content_margin_right = 4.0
 content_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_37eta"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp102"]
 content_margin_left = 16.0
-content_margin_top = 2.0
+content_margin_top = 6.0
 content_margin_right = 24.0
-content_margin_bottom = 2.0
-bg_color = Color(0.565872, 0.595897, 0.611168, 1)
+content_margin_bottom = 8.0
+bg_color = Color(0.43342, 0.458479, 0.473885, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixie7"]
 content_margin_left = 16.0
@@ -195,10 +195,26 @@ border_color = Color(0.345766, 0.30243, 0.178509, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_djm75"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rvmxa"]
-content_margin_left = 8.0
-content_margin_top = 4.0
-content_margin_right = 8.0
-content_margin_bottom = 4.0
+content_margin_left = 1.0
+content_margin_top = 0.0
+content_margin_right = 1.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frq7n"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.846, 0.927, 0.87, 0.142)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtn45"]
 bg_color = Color(0.0348444, 0.034844, 0.0519441, 1)
@@ -330,7 +346,7 @@ default_font_size = 14
 BaseVoiceDeck/base_type = &"PanelContainer"
 BaseVoiceDeck/styles/panel = SubResource("StyleBoxEmpty_llkav")
 BrandingLabel/base_type = &"Label"
-BrandingLabel/colors/font_shadow_color = Color(0.0941176, 0.0941176, 0.0941176, 0.243137)
+BrandingLabel/colors/font_shadow_color = Color(0.150051, 0.176691, 0.194453, 0.781)
 BrandingLabel/constants/shadow_offset_x = 2
 BrandingLabel/constants/shadow_offset_y = 2
 BrandingLabel/font_sizes/font_size = 22
@@ -383,6 +399,8 @@ MenuPanel/base_type = &"ContentPanel"
 MenuPanel/styles/panel = SubResource("StyleBoxEmpty_djm75")
 MenuPanel/styles/panel_background = SubResource("StyleBoxEmpty_rvmxa")
 MenuPanelButton/base_type = &"Button"
+MenuPanelHighlight/base_type = &"PanelContainer"
+MenuPanelHighlight/styles/panel = SubResource("StyleBoxFlat_frq7n")
 OperatorDeck/base_type = &"MarginContainer"
 OperatorDeck/constants/margin_bottom = 16
 OperatorDeck/constants/margin_left = 16

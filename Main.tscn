@@ -17,7 +17,7 @@ script = ExtResource("1_lckxc")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 2
-color = Color(0.28211, 0.285592, 0.287083, 1)
+color = Color(0.109095, 0.11527, 0.119755, 1)
 
 [node name="Content" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -30,11 +30,20 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="BrandingPanel" parent="Content/Layout" instance=ExtResource("1_c3g5b")]
+[node name="TopContainer" type="HBoxContainer" parent="Content/Layout"]
+layout_mode = 2
+
+[node name="BrandingPanel" parent="Content/Layout/TopContainer" instance=ExtResource("1_c3g5b")]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="MenuPanel" parent="Content/Layout" instance=ExtResource("1_vjtat")]
+[node name="MenuPanel" parent="Content/Layout/TopContainer" instance=ExtResource("1_vjtat")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="Spacer" type="Control" parent="Content/Layout"]
+custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
 [node name="PreviewPanel" parent="Content/Layout" instance=ExtResource("1_rm57h")]
