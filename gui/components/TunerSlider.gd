@@ -15,6 +15,15 @@ signal value_changed()
 @export var slider_value: float = 0.0:
 	set = set_slider_value
 
+@export var left_icon: Texture2D = null:
+	set = set_left_icon
+@export var right_icon: Texture2D = null:
+	set = set_right_icon
+@export var left_text: String = "L":
+	set = set_left_text
+@export var right_text: String = "R":
+	set = set_right_text
+
 var _pressed: bool = false
 var _dragged: bool = false
 var _drag_accumulator: Vector2 = Vector2.ZERO
@@ -23,9 +32,15 @@ var _knob_value: float = 0.0
 var _slider_tweener: Tween = null
 
 @onready var _slider: Control = %Slider
+@onready var _left_icon_rect: TextureRect = %LeftIcon
+@onready var _right_icon_rect: TextureRect = %RightIcon
+@onready var _left_label: Label = %LeftLabel
+@onready var _right_label: Label = %RightLabel
 
 
 func _ready() -> void:
+	_update_icons()
+	_update_labels()
 	_update_shader_size()
 	_update_slider_knob(slider_value)
 
@@ -115,7 +130,7 @@ func _update_slider_knob(value: float) -> void:
 	(_slider.material as ShaderMaterial).set_shader_parameter("knob_position", knob_position)
 
 
-# Value property.
+# Properties.
 
 func set_slider_value(value: float) -> void:
 	var normalized_value := clampf(value, 0.0, 1.0)
@@ -136,7 +151,59 @@ func get_normalized_value(min_value: int, max_value: int) -> int:
 	return int(slider_value * (max_value - min_value)) + min_value
 
 
-# Shader properties.
+func set_left_icon(value: Texture2D) -> void:
+	if left_icon == value:
+		return
+
+	left_icon = value
+	_update_icons()
+
+
+func set_right_icon(value: Texture2D) -> void:
+	if right_icon == value:
+		return
+
+	right_icon = value
+	_update_icons()
+
+
+func set_left_text(value: String) -> void:
+	if left_text == value:
+		return
+
+	left_text = value
+	_update_labels()
+
+
+func set_right_text(value: String) -> void:
+	if right_text == value:
+		return
+
+	right_text = value
+	_update_labels()
+
+
+# Visuals management.
+
+func _update_icons() -> void:
+	if not is_node_ready():
+		return
+
+	_left_icon_rect.texture = left_icon
+	_left_icon_rect.visible = is_instance_valid(left_icon)
+	_right_icon_rect.texture = right_icon
+	_right_icon_rect.visible = is_instance_valid(right_icon)
+
+
+func _update_labels() -> void:
+	if not is_node_ready():
+		return
+
+	_left_label.text = left_text
+	_left_label.visible = not left_text.is_empty()
+	_right_label.text = right_text
+	_right_label.visible = not right_text.is_empty()
+
 
 func _update_shader_size() -> void:
 	if not is_node_ready():

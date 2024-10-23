@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://8xc2djp24y40"]
+[gd_scene load_steps=15 format=3 uid="uid://8xc2djp24y40"]
 
 [ext_resource type="Script" path="res://gui/panels/PreviewPanel.gd" id="1_iu5lk"]
 [ext_resource type="Shader" path="res://gui/panels/PlasticPanel.gdshader" id="2_mypj1"]
@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://c8ld4mgspflab" path="res://gui/components/PianoRoll.tscn" id="6_n0eq7"]
 [ext_resource type="Texture2D" uid="uid://b2hw84cycw44p" path="res://assets/icons/preview_spectrum.png" id="6_v5jen"]
 [ext_resource type="Texture2D" uid="uid://pgrn4gxrbv6f" path="res://assets/icons/preview_wave.png" id="7_3qq8q"]
+[ext_resource type="Texture2D" uid="uid://bq8vnmnxffpd8" path="res://assets/icons/note_short.png" id="9_42j20"]
 [ext_resource type="PackedScene" uid="uid://dikcn6vh82w0j" path="res://gui/components/TunerSlider.tscn" id="9_oxqnu"]
 [ext_resource type="FontFile" uid="uid://cjwuh3bvsqt57" path="res://assets/fonts/fff-aquarius-bold-condensed.msdf.ttf" id="9_vlyin"]
+[ext_resource type="Texture2D" uid="uid://p81ts0mx0n86" path="res://assets/icons/note_long.png" id="10_ddmd4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i1p27"]
 resource_local_to_scene = true
@@ -102,8 +104,12 @@ text = "LEN"
 
 [node name="LengthSlider" parent="Content/Layout/PreviewBox/PreviewModes" instance=ExtResource("9_oxqnu")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(160, 0)
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
+left_icon = ExtResource("9_42j20")
+right_icon = ExtResource("10_ddmd4")
+left_text = ""
+right_text = ""
 
 [node name="Controls" type="VBoxContainer" parent="Content/Layout"]
 layout_mode = 2

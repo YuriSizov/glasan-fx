@@ -14,6 +14,9 @@ uniform float knob_width: hint_range(0.01, 5.0) = 0.75;
 uniform vec3 knob_color: source_color = vec3(1.0);
 uniform vec3 knob_dark_color: source_color = vec3(0.0);
 
+uniform vec4 knob_light_color: source_color = vec4(1.0);
+uniform float knob_light_smoothness: hint_range(0.0, 1.0) = 0.1;
+
 
 void fragment() {
 	float aspect_ratio = slider_size.x / slider_size.y;
@@ -53,6 +56,15 @@ void fragment() {
 	// Add the slider knob to the output.
 	output_color = overlay(output_color, knob_output, knob_mask, knob_mask);
 	output_alpha += knob_mask;
+	
+	// Prepare the light/shade mask.
+	float light_mask = 1.0 - smoothstep(0.0, knob_light_smoothness, knob_uv.y + knob_uv.x + knob_light_smoothness / 2.0);
+	light_mask *= knob_mask;
+	float light_mask_submask = pow(knob_output_mask, 4.0) * 3.0;
+	light_mask = colorize_mask(light_mask_submask, 0.0, light_mask);
+	light_mask = clamp(light_mask, 0.0, 1.0);
+	// Apply the light/shade mask to the final color.
+	output_color = overlay(output_color, knob_light_color.rgb, knob_light_color.a, light_mask);
 	
 	// Output.
 	COLOR = vec4(output_color, output_alpha);
