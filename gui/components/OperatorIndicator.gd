@@ -34,6 +34,7 @@ func _ready() -> void:
 	_intensity_values[_b2c_label] = 0.0
 	_intensity_values[_c2d_label] = 0.0
 
+	_setup_labels()
 	_update_labels()
 
 
@@ -52,6 +53,23 @@ func set_operator_count(value: int) -> void:
 
 	operator_count = value
 	_update_label_state()
+
+
+func _setup_labels() -> void:
+	if not is_node_ready():
+		return
+
+	# Give it proper initial color before transitioning to the actual state.
+	# This removes flickering that would appear otherwise.
+	var inactive_color := get_theme_color("font_inactive_color")
+
+	_a_label.self_modulate   = inactive_color
+	_b_label.self_modulate   = inactive_color
+	_c_label.self_modulate   = inactive_color
+	_d_label.self_modulate   = inactive_color
+	_a2b_label.self_modulate = inactive_color
+	_b2c_label.self_modulate = inactive_color
+	_c2d_label.self_modulate = inactive_color
 
 
 func _update_labels() -> void:
