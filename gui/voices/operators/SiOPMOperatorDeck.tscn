@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://y6raidijduyh"]
+[gd_scene load_steps=18 format=3 uid="uid://y6raidijduyh"]
 
 [ext_resource type="Script" path="res://gui/voices/operators/SiOPMOperatorDeck.gd" id="1_t5m5s"]
 [ext_resource type="PackedScene" uid="uid://bhp4lawy57tyu" path="res://gui/components/WaveShapeFlipper.tscn" id="2_fuvac"]
@@ -44,6 +44,10 @@ resource_local_to_scene = true
 shader = ExtResource("4_ao5p7")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rjgve"]
+resource_local_to_scene = true
+shader = ExtResource("4_ao5p7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ug16"]
 resource_local_to_scene = true
 shader = ExtResource("4_ao5p7")
 
@@ -205,3 +209,43 @@ size_flags_vertical = 0
 size_flags_stretch_ratio = 3.0
 left_text = "0"
 right_text = "999"
+
+[node name="AdvancedPanelContainer" type="PanelContainer" parent="Layout"]
+layout_mode = 2
+theme_type_variation = &"AdvancedPanelContainer"
+script = ExtResource("5_va7lc")
+
+[node name="Layout" type="HBoxContainer" parent="Layout/AdvancedPanelContainer"]
+layout_mode = 2
+
+[node name="AmplitudeKnob" parent="Layout/AdvancedPanelContainer/Layout" instance=ExtResource("3_fp7fs")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_2ug16")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AMP
+SHF"
+
+[node name="PhaseKnob" parent="Layout/AdvancedPanelContainer/Layout" instance=ExtResource("3_fp7fs")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_2ug16")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "PHS"
+min_value = -1
+max_value = 255
+safe_max_value = 255
+
+[node name="FixedPitchKnob" parent="Layout/AdvancedPanelContainer/Layout" instance=ExtResource("3_fp7fs")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_2ug16")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FIX
+PIT"
+max_value = 127
+safe_max_value = 127
+
+[node name="Spacer" type="Control" parent="Layout/AdvancedPanelContainer/Layout"]
+layout_mode = 2
+size_flags_horizontal = 3

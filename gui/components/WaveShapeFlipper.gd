@@ -95,8 +95,8 @@ func _switch_shape_list() -> void:
 		child_node.visible = (child_node.get_index() == _shape_flipper.selected_index)
 
 	var active_color := _shape_flipper.option_colors[_shape_flipper.selected_index]
-	_content_panel.self_modulate = active_color.darkened(0.8)
-	_content_panel.self_modulate.s = 0.4
+	_content_panel.self_modulate = active_color.darkened(0.4)
+	_content_panel.self_modulate.s = 0.5
 
 
 # Buttons and sliders.

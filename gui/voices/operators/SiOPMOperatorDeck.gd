@@ -25,6 +25,10 @@ var operator_data: Array[VoiceKnob] = []:
 @onready var _detune1: RollerKnob = %Detune1Knob
 @onready var _detune2: TunerSlider = %Detune2Slider
 
+@onready var _amplitude_shift: RollerKnob = %AmplitudeKnob
+@onready var _initial_phase: RollerKnob = %PhaseKnob
+@onready var _fixed_pitch: RollerKnob = %FixedPitchKnob
+
 
 func _ready() -> void:
 	_update_knobs()
@@ -54,6 +58,10 @@ func _update_knobs() -> void:
 	BaseVoiceDeck.setup_roller_knob(_multiple, operator_data[SiOPMVoice.OperatorParam.ML])
 	BaseVoiceDeck.setup_roller_knob(_detune1,  operator_data[SiOPMVoice.OperatorParam.D1])
 	BaseVoiceDeck.setup_tuner_slider(_detune2, operator_data[SiOPMVoice.OperatorParam.D2])
+
+	BaseVoiceDeck.setup_roller_knob(_amplitude_shift, operator_data[SiOPMVoice.OperatorParam.AM])
+	BaseVoiceDeck.setup_roller_knob(_initial_phase,   operator_data[SiOPMVoice.OperatorParam.PH])
+	BaseVoiceDeck.setup_roller_knob(_fixed_pitch,     operator_data[SiOPMVoice.OperatorParam.FN])
 
 
 func _setup_shape_flipper(flipper: WaveShapeFlipper, data: VoiceKnob) -> void:
