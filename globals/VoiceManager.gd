@@ -92,6 +92,8 @@ func replace_voice_params(voice: Voice) -> void:
 func change_voice_type(type: int) -> void:
 	if type < 0 || type >= _voices.size():
 		return
+	if _current_voice == _voices[type]:
+		return
 
 	_current_voice = _voices[type]
 	voice_changed.emit()
