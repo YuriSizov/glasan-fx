@@ -11,12 +11,25 @@ const VIGNETTE_OFF_INTENSITY := 0.4
 const VIGNETTE_FADE_DURATION := 0.05
 const TOGGLE_FADE_DURATION := 0.15
 
+enum ButtonStyle {
+	NORMAL,
+	SHALLOW,
+}
+
+const STYLE_PRESETS := {
+	ButtonStyle.NORMAL: [ 2.05 ],
+	ButtonStyle.SHALLOW: [ 1.05 ],
+}
+
 @export var off_color: Color = Color(0.2, 0.2, 0.2):
 	set = set_off_color
 @export var on_color: Color = Color(0.6, 0.6, 0.6):
 	set = set_on_color
 @export var force_glow: bool = false:
 	set = set_force_glow
+
+@export var style_preset: ButtonStyle = ButtonStyle.NORMAL:
+	set = set_style_preset
 
 # Animated properties.
 
@@ -108,6 +121,14 @@ func set_force_glow(value: bool) -> void:
 	_setup_panel_colors()
 	_update_panel_main_color(_panel_main_color)
 	_update_panel_back_color(_panel_back_color)
+
+
+func set_style_preset(value: ButtonStyle) -> void:
+	if style_preset == value:
+		return
+
+	style_preset = value
+	_update_shader_style()
 
 
 # Animation.
@@ -208,6 +229,14 @@ func _update_label_intensity(value: float) -> void:
 	(_icon.material as ShaderMaterial).set_shader_parameter("intensity", _label_intensity)
 
 
+func _update_shader_style() -> void:
+	if not is_node_ready():
+		return
+
+	var active_style: Array = STYLE_PRESETS[style_preset]
+	(_panel.material as ShaderMaterial).set_shader_parameter("horizontal_incline", active_style[0])
+
+
 func _update_shader_size() -> void:
 	if not is_node_ready():
 		return
@@ -224,6 +253,7 @@ func _update_all_shaders() -> void:
 	_update_panel_back_color(_panel_back_color)
 	_update_label_intensity(_label_intensity)
 
+	_update_shader_style()
 	_update_shader_size()
 
 

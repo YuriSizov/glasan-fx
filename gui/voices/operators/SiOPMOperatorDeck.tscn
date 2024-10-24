@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://y6raidijduyh"]
+[gd_scene load_steps=20 format=3 uid="uid://y6raidijduyh"]
 
 [ext_resource type="Script" path="res://gui/voices/operators/SiOPMOperatorDeck.gd" id="1_t5m5s"]
 [ext_resource type="PackedScene" uid="uid://bhp4lawy57tyu" path="res://gui/components/WaveShapeFlipper.tscn" id="2_fuvac"]
@@ -48,6 +48,14 @@ resource_local_to_scene = true
 shader = ExtResource("4_ao5p7")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2ug16"]
+resource_local_to_scene = true
+shader = ExtResource("4_ao5p7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_12yuj"]
+resource_local_to_scene = true
+shader = ExtResource("4_ao5p7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b44xu"]
 resource_local_to_scene = true
 shader = ExtResource("4_ao5p7")
 
@@ -228,7 +236,7 @@ SHF"
 
 [node name="PhaseKnob" parent="Layout/AdvancedPanelContainer/Layout" instance=ExtResource("3_fp7fs")]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_2ug16")
+material = SubResource("ShaderMaterial_12yuj")
 layout_mode = 2
 size_flags_horizontal = 3
 text = "PHS"
@@ -238,7 +246,7 @@ safe_max_value = 255
 
 [node name="FixedPitchKnob" parent="Layout/AdvancedPanelContainer/Layout" instance=ExtResource("3_fp7fs")]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_2ug16")
+material = SubResource("ShaderMaterial_b44xu")
 layout_mode = 2
 size_flags_horizontal = 3
 text = "FIX

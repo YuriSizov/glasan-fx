@@ -21,7 +21,7 @@ shader_parameter/side_edge_smoothness = 0.048
 shader_parameter/side_edge_shadow = 3.918
 shader_parameter/vignette_center = 40.554
 shader_parameter/vignette_rim = 0.667
-shader_parameter/vignette_intensity = 0.24
+shader_parameter/vignette_intensity = 0.4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30d8b"]
 

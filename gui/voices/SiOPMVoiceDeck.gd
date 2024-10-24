@@ -8,6 +8,8 @@ class_name SiOPMVoiceDeck extends BaseVoiceDeck
 
 const OPERATOR_SCENE := preload("res://gui/voices/operators/SiOPMOperatorDeck.tscn")
 
+var _instantiated_operators: Array[Control] = []
+
 @onready var _randomize_button: Button = %RandomizeButton
 
 @onready var _add_operator_button: Button = %AddOperatorButton
@@ -20,6 +22,13 @@ const OPERATOR_SCENE := preload("res://gui/voices/operators/SiOPMOperatorDeck.ts
 @onready var _connections_knob: RollerKnob = %ConnectionsKnob
 
 @onready var _operator_container: TabContainer = %Operators
+
+
+func _init() -> void:
+	for i in 4:
+		var operator_deck = OPERATOR_SCENE.instantiate()
+		operator_deck.name = [ "A", "B", "C", "D" ][i]
+		_instantiated_operators.push_back(operator_deck)
 
 
 func _ready() -> void:
@@ -38,6 +47,13 @@ func _ready() -> void:
 		if voice:
 			voice.randomize_voice()
 	)
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_PREDELETE:
+		for operator_deck in _instantiated_operators:
+			if is_instance_valid(operator_deck) && not operator_deck.is_inside_tree():
+				operator_deck.queue_free()
 
 
 # Knob management.
@@ -65,14 +81,12 @@ func _update_knobs() -> void:
 	while extra_index < _operator_container.get_child_count():
 		var child_node := _operator_container.get_child(extra_index)
 		_operator_container.remove_child(child_node)
-		child_node.queue_free()
 
 	for i in voice.get_operator_count():
 		var operator_deck: SiOPMOperatorDeck = null
 
 		if i >= _operator_container.get_child_count():
-			operator_deck = OPERATOR_SCENE.instantiate()
-			operator_deck.name = [ "A", "B", "C", "D" ][i]
+			operator_deck = _instantiated_operators[i]
 			_operator_container.add_child(operator_deck)
 		else:
 			operator_deck = _operator_container.get_child(i)

@@ -81,6 +81,7 @@ text = ""
 icon = ExtResource("6_v5jen")
 off_color = Color(0.131212, 0.119953, 0.173963, 1)
 on_color = Color(0.157781, 0.297129, 0.510406, 1)
+style_preset = 1
 
 [node name="WaveButton" parent="Content/Layout/PreviewBox/PreviewModes" instance=ExtResource("4_6wcbg")]
 unique_name_in_owner = true
@@ -93,6 +94,7 @@ text = ""
 icon = ExtResource("7_3qq8q")
 off_color = Color(0.131212, 0.119953, 0.173963, 1)
 on_color = Color(0.157781, 0.297129, 0.510406, 1)
+style_preset = 1
 
 [node name="Filler" type="Control" parent="Content/Layout/PreviewBox/PreviewModes"]
 layout_mode = 2
