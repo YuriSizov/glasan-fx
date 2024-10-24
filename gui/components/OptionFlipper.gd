@@ -18,6 +18,8 @@ const BUTTON_HOLD := 0.2
 	set = set_options
 @export var option_colors: Array[Color] = []:
 	set = set_option_colors
+@export var option_text_colors: Array[Color] = []:
+	set = set_option_text_colors
 @export var selected_index: int = 0:
 	set = select_option
 
@@ -74,14 +76,17 @@ func _draw_option_display() -> void:
 		# Draw the background for the buffer, if applicable.
 		if option_colors.size() > i:
 			var color := option_colors[i]
-
 			_option_display.draw_rect(Rect2(option_offset, option_size), color)
+
+		var option_font_color := font_color
+		if option_text_colors.size() > i:
+			option_font_color = option_text_colors[i]
 
 		# Draw the text buffer.
 		var buffer := _option_buffers[i]
 		var label_position := (option_size - buffer.get_size()) / 2.0 + option_offset
 
-		buffer.draw(_option_display.get_canvas_item(), label_position, font_color)
+		buffer.draw(_option_display.get_canvas_item(), label_position, option_font_color)
 
 
 func _handle_flip_pressed() -> void:
@@ -113,6 +118,13 @@ func set_options(value: Array[String]) -> void:
 
 func set_option_colors(value: Array[Color]) -> void:
 	option_colors = value
+
+	if is_node_ready():
+		_option_display.queue_redraw()
+
+
+func set_option_text_colors(value: Array[Color]) -> void:
+	option_text_colors = value
 
 	if is_node_ready():
 		_option_display.queue_redraw()

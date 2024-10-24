@@ -16,7 +16,7 @@ script = ExtResource("1_bmdos")
 
 [node name="Content" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-self_modulate = Color(0.261803, 0.218378, 0.272973, 1)
+self_modulate = Color(0.108971, 0.0712103, 0.118684, 1)
 layout_mode = 2
 theme_type_variation = &"WaveShapePanel"
 
@@ -32,7 +32,8 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 options = Array[String](["BASIC WAVE", "NOISE", "PULSE", "PULSE SPIKE", "RAMP", "MA-3 WAVE1", "MA-3 WAVE2"])
-option_colors = Array[Color]([Color(0.536313, 0.314308, 0.593419, 1), Color(0.727336, 0.301201, 0.275648, 1), Color(0.25575, 0.56211, 0.359642, 1), Color(0.211261, 0.448888, 0.699265, 1), Color(0.618955, 0.223453, 0.346477, 1), Color(0.743113, 0.490279, 0.131838, 1), Color(0.55486, 0.545353, 0.152956, 1)])
+option_colors = Array[Color]([Color(0.536313, 0.314308, 0.593419, 1), Color(0.678441, 0.221211, 0.208143, 1), Color(0.231802, 0.516226, 0.328402, 1), Color(0.190269, 0.417366, 0.655745, 1), Color(0.618955, 0.223453, 0.346477, 1), Color(0.658986, 0.412988, 0.0555206, 1), Color(0.641115, 0.533201, 0.0758678, 1)])
+option_text_colors = Array[Color]([Color(0.854902, 0.854902, 0.87451, 1), Color(0.854902, 0.854902, 0.87451, 1), Color(0.854902, 0.854902, 0.87451, 1), Color(0.854902, 0.854902, 0.87451, 1), Color(0.854902, 0.854902, 0.87451, 1), Color(0.163502, 0.163502, 0.163502, 1), Color(0.164706, 0.164706, 0.164706, 1)])
 
 [node name="Shapes" type="MarginContainer" parent="Content/Layout"]
 unique_name_in_owner = true
@@ -570,15 +571,20 @@ text = "15"
 off_color = Color(0.25664, 0.0927352, 0.0898428, 1)
 on_color = Color(0.823715, 0.279999, 0.283853, 1)
 
-[node name="RampWaves" type="HBoxContainer" parent="Content/Layout/Shapes"]
+[node name="RampWaves" type="VBoxContainer" parent="Content/Layout/Shapes"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 0
 
+[node name="Label" type="Label" parent="Content/Layout/Shapes/RampWaves"]
+layout_mode = 2
+text = "INCLINE / DECLINE"
+
 [node name="RampSlider" parent="Content/Layout/Shapes/RampWaves" instance=ExtResource("4_j3nlv")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(280, 0)
+custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 left_icon = ExtResource("5_0jpeo")
 right_icon = ExtResource("6_5jg4m")
 left_text = ""

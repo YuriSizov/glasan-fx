@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0l6ei5ndoyaa"]
+[gd_scene load_steps=13 format=3 uid="uid://b0l6ei5ndoyaa"]
 
 [ext_resource type="Script" path="res://gui/voices/SiOPMVoiceDeck.gd" id="1_wt3dc"]
 [ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/RollerKnob.tscn" id="2_e6f5v"]
+[ext_resource type="Texture2D" uid="uid://5xx0foji2sxq" path="res://assets/icons/random.png" id="3_4ta64"]
 [ext_resource type="Shader" path="res://gui/components/RollerPanel.gdshader" id="3_lcelt"]
-[ext_resource type="PackedScene" uid="uid://kvxy6miofpxj" path="res://gui/components/KnobControl.tscn" id="4_sx30e"]
+[ext_resource type="Script" path="res://gui/components/AdvancedPanelContainer.gd" id="5_1q57h"]
 [ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="5_cpycw"]
 [ext_resource type="PackedScene" uid="uid://61k8mkj3i0d3" path="res://gui/components/OperatorIndicator.tscn" id="6_vjoiq"]
 [ext_resource type="PackedScene" uid="uid://y6raidijduyh" path="res://gui/voices/operators/SiOPMOperatorDeck.tscn" id="7_frxll"]
@@ -20,6 +21,10 @@ shader = ExtResource("3_lcelt")
 resource_local_to_scene = true
 shader = ExtResource("3_lcelt")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mgqde"]
+resource_local_to_scene = true
+shader = ExtResource("3_lcelt")
+
 [node name="SiOPMVoiceDeck" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,6 +35,34 @@ theme_type_variation = &"SiOPMVoiceDeck"
 script = ExtResource("1_wt3dc")
 
 [node name="Layout" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VoiceControls" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="VoiceLabel" type="Label" parent="Layout/VoiceControls"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "SiOPM VOICE"
+
+[node name="Filler" type="Control" parent="Layout/VoiceControls"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RandomizeButton" parent="Layout/VoiceControls" instance=ExtResource("5_cpycw")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 36)
+layout_mode = 2
+size_flags_vertical = 0
+toggle_mode = false
+text = ""
+icon = ExtResource("3_4ta64")
+off_color = Color(0.0201567, 0.0580001, 0.0982109, 1)
+on_color = Color(0.168063, 0.284057, 0.515991, 1)
+force_glow = true
+
+[node name="Spacer" type="Control" parent="Layout"]
+custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
 [node name="GeneralKnobs" type="HBoxContainer" parent="Layout"]
@@ -59,44 +92,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "ALGO"
 
-[node name="SubLayout" type="HBoxContainer" parent="Layout/GeneralKnobs"]
+[node name="AdvancedPanelContainer" type="PanelContainer" parent="Layout/GeneralKnobs"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
+theme_type_variation = &"AdvancedPanelContainer"
+script = ExtResource("5_1q57h")
 
-[node name="Filler" type="Control" parent="Layout/GeneralKnobs/SubLayout"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="RandomizeButton" parent="Layout/GeneralKnobs/SubLayout" instance=ExtResource("5_cpycw")]
+[node name="ConnectionsKnob" parent="Layout/GeneralKnobs/AdvancedPanelContainer" instance=ExtResource("2_e6f5v")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 36)
+material = SubResource("ShaderMaterial_mgqde")
 layout_mode = 2
-size_flags_vertical = 0
-toggle_mode = false
-text = "RAND"
-off_color = Color(0.0784314, 0.0862745, 0.113725, 1)
-
-[node name="AdvancedChannel" type="VBoxContainer" parent="Layout"]
-visible = false
-layout_mode = 2
-
-[node name="ChannelSeparator" type="HSeparator" parent="Layout/AdvancedChannel"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Layout/AdvancedChannel"]
-layout_mode = 2
-text = "CHANNEL"
-
-[node name="ChannelKnobs" type="HBoxContainer" parent="Layout/AdvancedChannel"]
-layout_mode = 2
-
-[node name="ConnectionsKnob" parent="Layout/AdvancedChannel/ChannelKnobs" instance=ExtResource("4_sx30e")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
+text = "FCONN"
 
 [node name="OperatorSeparator" type="HSeparator" parent="Layout"]
 custom_minimum_size = Vector2(0, 20)

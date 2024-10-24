@@ -14,7 +14,7 @@ const VALUE_SCROLL_FACTOR := 1.0
 
 const SCROLL_RESET_DURATION := 0.12
 
-@export var text: String = "XX":
+@export_multiline var text: String = "XX":
 	set = set_text
 
 @export var knob_value: int = 0:

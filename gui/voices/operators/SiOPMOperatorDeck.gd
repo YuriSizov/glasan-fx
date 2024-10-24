@@ -17,9 +17,13 @@ var operator_data: Array[VoiceKnob] = []:
 @onready var _release_rate: RollerKnob = %ReleaseKnob
 
 @onready var _key_scaling_rate: RollerKnob = %KeyRateKnob
+@onready var _key_scaling_level: RollerKnob = %KeyLevelKnob
+@onready var _sustain_level: RollerKnob = %SustainLevelKnob
+@onready var _total_level: RollerKnob = %TotalLevelKnob
+
 @onready var _multiple: RollerKnob = %MultipleKnob
 @onready var _detune1: RollerKnob = %Detune1Knob
-@onready var _detune2: RollerKnob = %Detune2Knob
+@onready var _detune2: TunerSlider = %Detune2Slider
 
 
 func _ready() -> void:
@@ -42,10 +46,14 @@ func _update_knobs() -> void:
 	BaseVoiceDeck.setup_roller_knob(_sustain_rate, operator_data[SiOPMVoice.OperatorParam.SR])
 	BaseVoiceDeck.setup_roller_knob(_release_rate, operator_data[SiOPMVoice.OperatorParam.RR])
 
-	BaseVoiceDeck.setup_roller_knob(_key_scaling_rate, operator_data[SiOPMVoice.OperatorParam.KR])
-	BaseVoiceDeck.setup_roller_knob(_multiple,         operator_data[SiOPMVoice.OperatorParam.ML])
-	BaseVoiceDeck.setup_roller_knob(_detune1,          operator_data[SiOPMVoice.OperatorParam.D1])
-	BaseVoiceDeck.setup_roller_knob(_detune2,          operator_data[SiOPMVoice.OperatorParam.D2])
+	BaseVoiceDeck.setup_roller_knob(_key_scaling_rate,  operator_data[SiOPMVoice.OperatorParam.KR])
+	BaseVoiceDeck.setup_roller_knob(_key_scaling_level, operator_data[SiOPMVoice.OperatorParam.KL])
+	BaseVoiceDeck.setup_roller_knob(_sustain_level,     operator_data[SiOPMVoice.OperatorParam.SL])
+	BaseVoiceDeck.setup_roller_knob(_total_level,       operator_data[SiOPMVoice.OperatorParam.TL])
+
+	BaseVoiceDeck.setup_roller_knob(_multiple, operator_data[SiOPMVoice.OperatorParam.ML])
+	BaseVoiceDeck.setup_roller_knob(_detune1,  operator_data[SiOPMVoice.OperatorParam.D1])
+	BaseVoiceDeck.setup_tuner_slider(_detune2, operator_data[SiOPMVoice.OperatorParam.D2])
 
 
 func _setup_shape_flipper(flipper: WaveShapeFlipper, data: VoiceKnob) -> void:

@@ -1,7 +1,22 @@
-[gd_resource type="Theme" load_steps=53 format=3 uid="uid://bpwfhtd227bkw"]
+[gd_resource type="Theme" load_steps=54 format=3 uid="uid://bpwfhtd227bkw"]
 
 [ext_resource type="FontFile" uid="uid://cjwuh3bvsqt57" path="res://assets/fonts/fff-aquarius-bold-condensed.msdf.ttf" id="1_67pkc"]
 [ext_resource type="Script" path="res://gui/theme/StyleTexture.gd" id="1_fj6h5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkpyt"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.283, 0.124, 0.101, 0.57)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 6.0
+expand_margin_top = 4.0
+expand_margin_right = 6.0
+expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_llkav"]
 
@@ -210,7 +225,7 @@ border_width_left = 6
 border_width_top = 6
 border_width_right = 6
 border_width_bottom = 6
-border_color = Color(0.846, 0.927, 0.87, 0.142)
+border_color = Color(0.875, 0.917, 0.87, 0.279)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -331,10 +346,10 @@ content_margin_top = 16.0
 content_margin_right = 16.0
 content_margin_bottom = 16.0
 bg_color = Color(1, 1, 1, 0.56)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="FontVariation" id="FontVariation_btycs"]
 base_font = ExtResource("1_67pkc")
@@ -343,6 +358,12 @@ spacing_glyph = 1
 [resource]
 default_font = SubResource("FontVariation_btycs")
 default_font_size = 14
+AdvancedPanelContainer/base_type = &"PanelContainer"
+AdvancedPanelContainer/colors/font_color = Color(0.756863, 0.756863, 0.756863, 0.788235)
+AdvancedPanelContainer/constants/label_offset_x = 8
+AdvancedPanelContainer/constants/label_offset_y = 2
+AdvancedPanelContainer/font_sizes/font_size = 8
+AdvancedPanelContainer/styles/panel = SubResource("StyleBoxFlat_wkpyt")
 BaseVoiceDeck/base_type = &"PanelContainer"
 BaseVoiceDeck/styles/panel = SubResource("StyleBoxEmpty_llkav")
 BrandingLabel/base_type = &"Label"
@@ -395,6 +416,7 @@ KnobHBox/base_type = &"HBoxContainer"
 KnobHBox/constants/separation = 24
 KnobsContainer/base_type = &"VBoxContainer"
 KnobsContainer/constants/separation = 12
+Label/colors/font_color = Color(0.803922, 0.807843, 0.819608, 1)
 MenuPanel/base_type = &"ContentPanel"
 MenuPanel/styles/panel = SubResource("StyleBoxEmpty_djm75")
 MenuPanel/styles/panel_background = SubResource("StyleBoxEmpty_rvmxa")

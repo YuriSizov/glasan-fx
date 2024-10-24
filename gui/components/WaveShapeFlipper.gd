@@ -95,8 +95,8 @@ func _switch_shape_list() -> void:
 		child_node.visible = (child_node.get_index() == _shape_flipper.selected_index)
 
 	var active_color := _shape_flipper.option_colors[_shape_flipper.selected_index]
-	_content_panel.self_modulate = active_color.darkened(0.54)
-	_content_panel.self_modulate.s = 0.2
+	_content_panel.self_modulate = active_color.darkened(0.8)
+	_content_panel.self_modulate.s = 0.4
 
 
 # Buttons and sliders.
@@ -125,7 +125,20 @@ func _collect_shape_buttons(shape_id: int, button_name: String) -> Array[GlowBut
 			continue
 
 		wave_buttons[i] = node
+
+		# We want the button to be in toggle mode and users should be able to press it,
+		# but never unpress it. We still want it to be unpressable through code.
+		# So, uhhm... this works.
 		node.toggle_mode = true
+		node.button_down.connect(func() -> void:
+			if node.button_pressed:
+				var bg := ButtonGroup.new()
+				bg.allow_unpress = false
+				node.button_group = bg
+		)
+		node.button_up.connect(func() -> void:
+			node.button_group = null
+		)
 		node.toggled.connect(_handle_button_toggled.bind(node, wave_range[0] + i))
 
 	return wave_buttons

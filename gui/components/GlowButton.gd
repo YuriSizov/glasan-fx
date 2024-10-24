@@ -7,6 +7,7 @@
 @tool
 class_name GlowButton extends Button
 
+const VIGNETTE_OFF_INTENSITY := 0.4
 const VIGNETTE_FADE_DURATION := 0.05
 const TOGGLE_FADE_DURATION := 0.15
 
@@ -19,7 +20,7 @@ const TOGGLE_FADE_DURATION := 0.15
 
 # Animated properties.
 
-var _vignette_intensity: float = 0.0
+var _vignette_intensity: float = VIGNETTE_OFF_INTENSITY
 var _label_intensity: float = 0.0
 var _panel_main_color: Color = Color()
 var _panel_back_color: Color = Color()
@@ -112,7 +113,7 @@ func set_force_glow(value: bool) -> void:
 # Animation.
 
 func _setup_animated_properties() -> void:
-	_vignette_intensity = 0.0 # Always 0 by default because it's only visible when the button is held down.
+	_vignette_intensity = VIGNETTE_OFF_INTENSITY
 
 	_setup_label_intensity()
 	_setup_panel_colors()
@@ -143,7 +144,7 @@ func _animate_button_held(is_down: bool) -> void:
 
 	_vignette_tweener = create_tween()
 
-	var target_value := 1.0 if is_down else 0.0
+	var target_value := 1.0 if is_down else VIGNETTE_OFF_INTENSITY
 	_vignette_tweener.tween_method(_update_vignette_intensity, _vignette_intensity, target_value, VIGNETTE_FADE_DURATION)
 
 

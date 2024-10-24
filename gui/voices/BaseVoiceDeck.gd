@@ -50,6 +50,21 @@ static func setup_roller_knob(knob: RollerKnob, data: VoiceKnob) -> void:
 	)
 
 
+static func setup_tuner_slider(slider: TunerSlider, data: VoiceKnob) -> void:
+	# Clear previous connections, if any.
+	var connections := slider.value_changed.get_connections()
+	for connection : Dictionary in connections:
+		slider.value_changed.disconnect(connection["callable"])
+
+	# Set up properties.
+	slider.set_value_normalized(data.value, data.min_value, data.max_value)
+
+	# Connect to changes.
+	slider.value_changed.connect(func() -> void:
+		data.value = slider.get_normalized_value(data.min_value, data.max_value)
+	)
+
+
 static func setup_knob_control(knob: KnobControl, data: VoiceKnob) -> void:
 	knob.knob_data = data
 	knob.force_update()

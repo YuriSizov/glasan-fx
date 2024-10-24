@@ -76,7 +76,7 @@ void fragment() {
 	output_color = overlay(output_color, light_color.rgb, light_color.a / 4.0, top_mask);
 
 	// Apply a vignette effect on top.
-	output_color = vignette(output_color, vec3(0.075), vignette_center, vignette_rim, vignette_intensity, UV);
+	output_color = vignette(output_color, vec3(0.035), vignette_center, vignette_rim, vignette_intensity, UV);
 
 	// Add a tiny bit of rounding for corners using vignetting. Values are hand-picked.
 	vec3 output_mask = vignette(vec3(1.0), vec3(0.0), 10000.0, 0.02, 50.0, UV);
