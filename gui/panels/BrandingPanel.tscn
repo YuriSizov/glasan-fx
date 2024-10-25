@@ -70,9 +70,33 @@ theme_override_colors/font_color = Color(0.226663, 0.225386, 0.235805, 1)
 theme_override_colors/font_shadow_color = Color(0.313847, 0.353852, 0.382545, 1)
 text = "FX"
 
-[node name="AuthorLabel" type="Label" parent="Content/Layout"]
+[node name="Remarks" type="HBoxContainer" parent="Content/Layout"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Filler" type="Control" parent="Content/Layout/Remarks"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="VersionLabel" type="Label" parent="Content/Layout/Remarks"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.656212, 0.701289, 0.713706, 1)
-theme_override_colors/font_shadow_color = Color(0.145797, 0.173764, 0.194713, 1)
+theme_override_colors/font_shadow_color = Color(0.203922, 0.239216, 0.266667, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+text = "v1.0"
+
+[node name="Spacer" type="Control" parent="Content/Layout/Remarks"]
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AuthorLabel" type="Label" parent="Content/Layout/Remarks"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.656212, 0.701289, 0.713706, 1)
+theme_override_colors/font_shadow_color = Color(0.202802, 0.238211, 0.264744, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
 text = "by Yuri Sizov"

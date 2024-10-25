@@ -1,0 +1,226 @@
+[gd_scene load_steps=16 format=3 uid="uid://nqrgyy3w02dg"]
+
+[ext_resource type="Script" path="res://gui/panels/AboutPanel.gd" id="1_p3hff"]
+[ext_resource type="Shader" path="res://gui/panels/PlasticPanel.gdshader" id="2_vcfsm"]
+[ext_resource type="Script" path="res://gui/components/text_effects/AccentedContentEffect.gd" id="3_2ul7g"]
+[ext_resource type="Script" path="res://gui/components/text_effects/HighlightedContentEffect.gd" id="4_wmgcp"]
+[ext_resource type="Script" path="res://gui/components/text_effects/MetaContentEffect.gd" id="5_ie0ok"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3jmxr"]
+resource_local_to_scene = true
+shader = ExtResource("2_vcfsm")
+shader_parameter/size = Vector2(768, 1024)
+shader_parameter/light_intensity = 0.0
+shader_parameter/light_smoothness = 0.003
+shader_parameter/light_inverted = 0
+shader_parameter/border_width = 0
+shader_parameter/border_smoothness = 0.05
+shader_parameter/bolt_offset = Vector2(11, 11)
+shader_parameter/bolt_scale = 10.0
+shader_parameter/bolt_size = 0.45
+shader_parameter/bolt_smoothness = 0.07
+shader_parameter/bolt_thickness = 0.25
+shader_parameter/bolt_visibility = 0.25
+shader_parameter/bolt_shine_offset = 21.0
+shader_parameter/bolt_shine_strength = 7.0
+shader_parameter/bolt_shine_reduction = 2.5
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_rlffm"]
+script = ExtResource("3_2ul7g")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_w4c3v"]
+script = ExtResource("4_wmgcp")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_gx3ca"]
+script = ExtResource("5_ie0ok")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_hrnor"]
+script = ExtResource("3_2ul7g")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_fj5ck"]
+script = ExtResource("4_wmgcp")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_yf5u4"]
+script = ExtResource("5_ie0ok")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_juw7i"]
+script = ExtResource("3_2ul7g")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_or26f"]
+script = ExtResource("4_wmgcp")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_dw3nm"]
+script = ExtResource("5_ie0ok")
+
+[node name="AboutPanel" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"AboutPanel"
+script = ExtResource("1_p3hff")
+
+[node name="Background" type="Panel" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_3jmxr")
+layout_mode = 2
+
+[node name="Content" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Layout" type="VBoxContainer" parent="Content"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="AboutTitle" type="Label" parent="Content/Layout"]
+layout_mode = 2
+text = "ABOUT"
+
+[node name="AboutContent" type="RichTextLabel" parent="Content/Layout"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[highlight]GLASAN-FX[/highlight] is a tiny sound effects tool.
+Let the luck take the wheel, or play around with a bunch of knobs and sliders yourself to find just the tune that you need!"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_rlffm"), SubResource("RichTextEffect_w4c3v"), SubResource("RichTextEffect_gx3ca")]
+
+[node name="Separator" type="HSeparator" parent="Content/Layout"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="TipsTitle" type="Label" parent="Content/Layout"]
+layout_mode = 2
+text = "HELP & TIPS"
+
+[node name="TipsTabs" type="TabContainer" parent="Content/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="1" type="MarginContainer" parent="Content/Layout/TipsTabs"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+metadata/_tab_index = 0
+
+[node name="TipsContent" type="RichTextLabel" parent="Content/Layout/TipsTabs/1"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "Voice types listed on the right define the general nature of the played sound.
+
+[accent]SiOPM is a jack of all trades and a good starting point.[/accent]"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_hrnor"), SubResource("RichTextEffect_fj5ck"), SubResource("RichTextEffect_yf5u4")]
+
+[node name="2" type="MarginContainer" parent="Content/Layout/TipsTabs"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+metadata/_tab_index = 1
+
+[node name="TipsContent" type="RichTextLabel" parent="Content/Layout/TipsTabs/2"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "Operators are kind of like processing steps. More steps means more layers are added on top of each other that make the sound unique.
+
+[accent]Play with the ALGO knob when you have more than one operator for different mixing effects![/accent]"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_hrnor"), SubResource("RichTextEffect_fj5ck"), SubResource("RichTextEffect_yf5u4")]
+
+[node name="3" type="MarginContainer" parent="Content/Layout/TipsTabs"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+metadata/_tab_index = 2
+
+[node name="TipsContent" type="RichTextLabel" parent="Content/Layout/TipsTabs/3"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "Synthesized sounds generally have 4 stages: ATTack, DECay, SUStain, and RELease, known together as an ENVelope:
+
+  - [accent]ATT rate[/accent] is how fast the sound reaches the top point.
+  - [accent]DEC rate[/accent] is how fast the sound drops to the middle, sustain point. 
+  - [accent]SUS level[/accent] defines that sustain point, and [accent]SUS rate[/accent] affects how it changes over time.
+  - [accent]REL rate[/accent] is how fast the sound goes to complete silence at the end."
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_hrnor"), SubResource("RichTextEffect_fj5ck"), SubResource("RichTextEffect_yf5u4")]
+
+[node name="4" type="MarginContainer" parent="Content/Layout/TipsTabs"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+metadata/_tab_index = 3
+
+[node name="TipsContent" type="RichTextLabel" parent="Content/Layout/TipsTabs/4"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "The LEN slider controls the hard cutoff point for the produced sound.
+
+[accent]If you want to make the sound itself longer or shorter, play around with SUS and REL knobs.[/accent]"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_hrnor"), SubResource("RichTextEffect_fj5ck"), SubResource("RichTextEffect_yf5u4")]
+
+[node name="5" type="MarginContainer" parent="Content/Layout/TipsTabs"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+metadata/_tab_index = 4
+
+[node name="TipsContent" type="RichTextLabel" parent="Content/Layout/TipsTabs/5"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "The randomize button will never fail to produce something interesting! It even changes the number of operators for more variety.
+
+[accent]It also hints which knobs have the most obvious impact. Try adjusting them further![/accent]
+
+Advanced knobs are not randomized or reset by it."
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_hrnor"), SubResource("RichTextEffect_fj5ck"), SubResource("RichTextEffect_yf5u4")]
+
+[node name="Separator2" type="HSeparator" parent="Content/Layout"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="CreditsTitle" type="Label" parent="Content/Layout"]
+layout_mode = 2
+text = "CREDITS"
+
+[node name="CreditsContent" type="RichTextLabel" parent="Content/Layout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "Made by [highlight]Yuri Sizov[/highlight] with the Godot engine and the GDSiON synthesizer.
+[meta]- [url]https://godotengine.org/[/url][/meta]
+[meta]- [url]https://github.com/YuriSizov/gdsion[/url][/meta]
+
+The FFF Aquarius font by FontsForFlash & Randy Caldwell.
+
+[accent]The project is open and free under an MIT license.[/accent]
+
+Please consider supporting the development of open tools:
+[meta]- [url]https://www.patreon.com/YuriSizov[/url][/meta]"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_juw7i"), SubResource("RichTextEffect_or26f"), SubResource("RichTextEffect_dw3nm")]

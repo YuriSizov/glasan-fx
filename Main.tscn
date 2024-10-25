@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://csvlj30uivol0"]
+[gd_scene load_steps=8 format=3 uid="uid://csvlj30uivol0"]
 
 [ext_resource type="PackedScene" uid="uid://dytaho2ekhxdh" path="res://gui/panels/BrandingPanel.tscn" id="1_c3g5b"]
 [ext_resource type="Script" path="res://Main.gd" id="1_lckxc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dw6imoh8k58m1" path="res://gui/panels/MenuPanel.tscn" id="1_vjtat"]
 [ext_resource type="PackedScene" uid="uid://byabb6ha5p7xn" path="res://gui/panels/VoicePanel.tscn" id="2_tet0f"]
 [ext_resource type="PackedScene" uid="uid://coofo7rkc326b" path="res://gui/panels/VoiceTypesPanel.tscn" id="6_ft6g3"]
+[ext_resource type="PackedScene" uid="uid://nqrgyy3w02dg" path="res://gui/panels/AboutPanel.tscn" id="7_h1p6w"]
 
 [node name="Main" type="MarginContainer"]
 anchors_preset = 15
@@ -34,10 +35,12 @@ theme_override_constants/separation = 0
 layout_mode = 2
 
 [node name="BrandingPanel" parent="Content/Layout/TopContainer" instance=ExtResource("1_c3g5b")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 
 [node name="MenuPanel" parent="Content/Layout/TopContainer" instance=ExtResource("1_vjtat")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
@@ -46,18 +49,38 @@ size_flags_vertical = 8
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
-[node name="PreviewPanel" parent="Content/Layout" instance=ExtResource("1_rm57h")]
-layout_mode = 2
-
-[node name="VoiceContainer" type="HBoxContainer" parent="Content/Layout"]
+[node name="MainView" type="VBoxContainer" parent="Content/Layout"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="VoicePanel" parent="Content/Layout/VoiceContainer" instance=ExtResource("2_tet0f")]
+[node name="PreviewPanel" parent="Content/Layout/MainView" instance=ExtResource("1_rm57h")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VoiceContainer" type="HBoxContainer" parent="Content/Layout/MainView"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="VoicePanel" parent="Content/Layout/MainView/VoiceContainer" instance=ExtResource("2_tet0f")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TypesContainer" parent="Content/Layout/VoiceContainer" instance=ExtResource("6_ft6g3")]
+[node name="TypesContainer" parent="Content/Layout/MainView/VoiceContainer" instance=ExtResource("6_ft6g3")]
+unique_name_in_owner = true
 layout_mode = 2
+
+[node name="AboutView" type="VBoxContainer" parent="Content/Layout"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AboutPanel" parent="Content/Layout/AboutView" instance=ExtResource("7_h1p6w")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
