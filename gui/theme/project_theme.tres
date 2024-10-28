@@ -480,7 +480,6 @@ RollerKnob/colors/unsafe_margin_color = Color(0.410206, 0.109915, 0.0680521, 1)
 RollerKnob/colors/value_color = Color(0.831535, 0.772145, 0.613004, 1)
 RollerKnob/font_sizes/value_size = 12
 RollerKnob/styles/panel = SubResource("StyleBoxFlat_5jo2q")
-SiOPMVoiceDeck/base_type = &"BaseVoiceDeck"
 TabContainer/colors/font_hovered_color = Color(0.847059, 0.847059, 0.847059, 1)
 TabContainer/colors/font_selected_color = Color(0.95, 0.95, 0.95, 1)
 TabContainer/colors/font_unselected_color = Color(0.846616, 0.846616, 0.846616, 1)

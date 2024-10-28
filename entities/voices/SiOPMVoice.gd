@@ -55,11 +55,15 @@ func _add_operator() -> void:
 	data[data_index + 0]  = VoiceKnob.new("WS", 0, 255) # Out of 511 valid total.
 
 	data[data_index + 1]  = VoiceKnob.new("AR", 0, 63)
+	data[data_index + 1].set_safe_range(16, 63)
 	data[data_index + 1].value = 63
 	data[data_index + 2]  = VoiceKnob.new("DR", 0, 63)
+	data[data_index + 2].set_safe_range(0, 47)
 	data[data_index + 3]  = VoiceKnob.new("SR", 0, 63)
+	data[data_index + 3].set_safe_range(16, 47)
 	data[data_index + 3].value = 32
 	data[data_index + 4]  = VoiceKnob.new("RR", 0, 63)
+	data[data_index + 4].set_safe_range(16, 47)
 	data[data_index + 4].value = 32
 
 	data[data_index + 5]  = VoiceKnob.new("SL", 0, 15)

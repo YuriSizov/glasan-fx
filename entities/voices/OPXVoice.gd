@@ -8,12 +8,13 @@ class_name OPXVoice extends Voice
 
 const OPX_CH_PARAMS := 2
 const OPX_OP_PARAMS := 12
+const OPX_MA3_RANGE := 8
 
 enum ChannelParam {
 	AL, FB
 }
 enum OperatorParam {
-
+	WS, AR, DR, SR, RR, SL, TL, KR, ML, D1, D2, AM
 }
 
 
@@ -29,6 +30,7 @@ func _init(op_count: int = 1) -> void:
 
 	# Channel params.
 
+	# Subindices follow the ChannelParam enum.
 	data[0] = VoiceKnob.new("AL", 0, 15)
 	data[1] = VoiceKnob.new("FB", 0, 7)
 
@@ -49,15 +51,20 @@ func _add_operator() -> void:
 	var data_index := OPX_CH_PARAMS + OPX_OP_PARAMS * operator_index
 	data.resize(OPX_CH_PARAMS + OPX_OP_PARAMS * (operator_index + 1))
 
+	# Subindices follow the OperatorParam enum.
 	data[data_index + 0]  = VoiceKnob.new("WS", 0, 135) # 0-7 for MA-3, 8-135 for custom.
 	data[data_index + 0].set_safe_range(0, 7)
 
 	data[data_index + 1]  = VoiceKnob.new("AR", 0, 31)
+	data[data_index + 1].set_safe_range(8, 31)
 	data[data_index + 1].value = 31
 	data[data_index + 2]  = VoiceKnob.new("DR", 0, 31)
+	data[data_index + 2].set_safe_range(0, 23)
 	data[data_index + 3]  = VoiceKnob.new("SR", 0, 31)
+	data[data_index + 3].set_safe_range(8, 23)
 	data[data_index + 3].value = 16
 	data[data_index + 4]  = VoiceKnob.new("RR", 0, 15)
+	data[data_index + 4].set_safe_range(4, 11)
 	data[data_index + 4].value = 8
 
 	data[data_index + 5]  = VoiceKnob.new("SL", 0, 15)
@@ -81,14 +88,30 @@ func _remove_operator() -> void:
 
 func _randomize_channel() -> void:
 	var ch_data := get_channel_data()
-	ch_data[1].randomize_value() # FB
+	ch_data[ChannelParam.FB].randomize_value()
+
+	if get_operator_count() > 1: # Algorithm doesn't make a difference if there are no operators to mix.
+		ch_data[ChannelParam.AL].randomize_value()
+	else:
+		ch_data[ChannelParam.AL].value = 0
 
 
 func _randomize_operator(index: int) -> void:
 	var op_data := get_operator_data(index)
 
-	op_data[0].randomize_value() # WS
-	op_data[7].randomize_value() # KR
-	op_data[8].randomize_value() # ML
-	op_data[9].randomize_value() # D1
-	op_data[10].randomize_value() # D2
+	op_data[OperatorParam.WS].value = _randomize_wave_shape()
+	op_data[OperatorParam.KR].randomize_value()
+	op_data[OperatorParam.ML].randomize_value()
+	op_data[OperatorParam.D1].randomize_value()
+	op_data[OperatorParam.D2].randomize_value()
+
+
+func _randomize_wave_shape() -> int:
+	# OPX supports the first 8 shapes of MA-3, and the rest are custom, which we don't allow here.
+
+	# First pick a random value using the main enum values.
+	var wave_range: Array = WaveShape.RANGES[WaveShape.SHAPE_MA3]
+	var wave_shape := randi_range(wave_range[0], wave_range[0] + OPX_MA3_RANGE - 1)
+
+	# Remove the offset so the value is in the MA-3 range.
+	return wave_shape - wave_range[0]

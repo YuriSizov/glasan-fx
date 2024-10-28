@@ -13,7 +13,7 @@ enum ChannelParam {
 	AL, FB
 }
 enum OperatorParam {
-
+	AR, DR, SR, RR, SL, TL, KR, ML, D1, AM
 }
 
 
@@ -29,6 +29,7 @@ func _init(op_count: int = 1) -> void:
 
 	# Channel params.
 
+	# Subindices follow the ChannelParam enum.
 	data[0] = VoiceKnob.new("AL", 0, 7)
 	data[1] = VoiceKnob.new("FB", 0, 7)
 
@@ -49,12 +50,17 @@ func _add_operator() -> void:
 	var data_index := OPN_CH_PARAMS + OPN_OP_PARAMS * operator_index
 	data.resize(OPN_CH_PARAMS + OPN_OP_PARAMS * (operator_index + 1))
 
+	# Subindices follow the OperatorParam enum.
 	data[data_index + 0] = VoiceKnob.new("AR", 0, 31)
+	data[data_index + 0].set_safe_range(8, 31)
 	data[data_index + 0].value = 31
 	data[data_index + 1] = VoiceKnob.new("DR", 0, 31)
+	data[data_index + 1].set_safe_range(0, 23)
 	data[data_index + 2] = VoiceKnob.new("SR", 0, 31)
+	data[data_index + 2].set_safe_range(8, 23)
 	data[data_index + 2].value = 16
 	data[data_index + 3] = VoiceKnob.new("RR", 0, 15)
+	data[data_index + 3].set_safe_range(4, 11)
 	data[data_index + 3].value = 8
 
 	data[data_index + 4] = VoiceKnob.new("SL", 0, 15)
@@ -77,12 +83,17 @@ func _remove_operator() -> void:
 
 func _randomize_channel() -> void:
 	var ch_data := get_channel_data()
-	ch_data[1].randomize_value() # FB
+	ch_data[ChannelParam.FB].randomize_value()
+
+	if get_operator_count() > 1: # Algorithm doesn't make a difference if there are no operators to mix.
+		ch_data[ChannelParam.AL].randomize_value()
+	else:
+		ch_data[ChannelParam.AL].value = 0
 
 
 func _randomize_operator(index: int) -> void:
 	var op_data := get_operator_data(index)
 
-	op_data[6].randomize_value() # KR
-	op_data[7].randomize_value() # ML
-	op_data[8].randomize_value() # D1
+	op_data[OperatorParam.KR].randomize_value()
+	op_data[OperatorParam.ML].randomize_value()
+	op_data[OperatorParam.D1].randomize_value()

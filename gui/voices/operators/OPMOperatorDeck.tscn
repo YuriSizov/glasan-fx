@@ -1,0 +1,199 @@
+[gd_scene load_steps=15 format=3 uid="uid://b7yhrc8mk6pxd"]
+
+[ext_resource type="Script" path="res://gui/voices/operators/OPMOperatorDeck.gd" id="1_n5ehm"]
+[ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/RollerKnob.tscn" id="2_ufwvu"]
+[ext_resource type="Shader" path="res://gui/components/RollerPanel.gdshader" id="3_mpokn"]
+[ext_resource type="Script" path="res://gui/components/AdvancedPanelContainer.gd" id="4_g0ehk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wwjw1"]
+resource_local_to_scene = true
+shader = ExtResource("3_mpokn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_03lxu"]
+resource_local_to_scene = true
+shader = ExtResource("3_mpokn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o8g61"]
+resource_local_to_scene = true
+shader = ExtResource("3_mpokn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xctf0"]
+resource_local_to_scene = true
+shader = ExtResource("3_mpokn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nyjlx"]
+resource_local_to_scene = true
+shader = ExtResource("3_mpokn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_atmto"]
+resource_local_to_scene = true
+shader = ExtResource("3_mpokn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1100o"]
+resource_local_to_scene = true
+shader = ExtResource("3_mpokn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8j06l"]
+resource_local_to_scene = true
+shader = ExtResource("3_mpokn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pnjq1"]
+resource_local_to_scene = true
+shader = ExtResource("3_mpokn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c2m4x"]
+resource_local_to_scene = true
+shader = ExtResource("3_mpokn")
+
+[node name="OPMOperatorDeck" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"OperatorDeck"
+script = ExtResource("1_n5ehm")
+
+[node name="Layout" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="RatesBox" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="AttackKnob" parent="Layout/RatesBox" instance=ExtResource("2_ufwvu")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_wwjw1")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ATT"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="DecayKnob" parent="Layout/RatesBox" instance=ExtResource("2_ufwvu")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_03lxu")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DEC"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="SustainKnob" parent="Layout/RatesBox" instance=ExtResource("2_ufwvu")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_o8g61")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SUS"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="ReleaseKnob" parent="Layout/RatesBox" instance=ExtResource("2_ufwvu")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_xctf0")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "REL"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="LevelBox" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="KeyRateKnob" parent="Layout/LevelBox" instance=ExtResource("2_ufwvu")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_nyjlx")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KSC
+RT"
+max_value = 3
+safe_max_value = 3
+
+[node name="Filler" type="Control" parent="Layout/LevelBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AdvancedPanelContainer" type="PanelContainer" parent="Layout/LevelBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"AdvancedPanelContainer"
+script = ExtResource("4_g0ehk")
+
+[node name="Layout" type="HBoxContainer" parent="Layout/LevelBox/AdvancedPanelContainer"]
+layout_mode = 2
+
+[node name="SustainLevelKnob" parent="Layout/LevelBox/AdvancedPanelContainer/Layout" instance=ExtResource("2_ufwvu")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_atmto")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SUS
+LVL"
+max_value = 15
+safe_max_value = 15
+
+[node name="TotalLevelKnob" parent="Layout/LevelBox/AdvancedPanelContainer/Layout" instance=ExtResource("2_ufwvu")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_1100o")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "TOT
+LVL"
+max_value = 127
+safe_max_value = 127
+
+[node name="TuningBox" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="MultipleKnob" parent="Layout/TuningBox" instance=ExtResource("2_ufwvu")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_8j06l")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MUL"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="Detune1Knob" parent="Layout/TuningBox" instance=ExtResource("2_ufwvu")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_pnjq1")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DT1"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="Detune2Knob" parent="Layout/TuningBox" instance=ExtResource("2_ufwvu")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_pnjq1")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DT2"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="AdvancedPanelContainer" type="PanelContainer" parent="Layout/TuningBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"AdvancedPanelContainer"
+script = ExtResource("4_g0ehk")
+
+[node name="Layout" type="HBoxContainer" parent="Layout/TuningBox/AdvancedPanelContainer"]
+layout_mode = 2
+
+[node name="AmplitudeKnob" parent="Layout/TuningBox/AdvancedPanelContainer/Layout" instance=ExtResource("2_ufwvu")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_c2m4x")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AMP
+SHF"

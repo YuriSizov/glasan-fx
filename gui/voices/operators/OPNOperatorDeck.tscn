@@ -1,0 +1,193 @@
+[gd_scene load_steps=15 format=3 uid="uid://bchlniqv0d5c0"]
+
+[ext_resource type="Script" path="res://gui/voices/operators/OPNOperatorDeck.gd" id="1_t3mue"]
+[ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/RollerKnob.tscn" id="2_74v4e"]
+[ext_resource type="Shader" path="res://gui/components/RollerPanel.gdshader" id="3_ynue4"]
+[ext_resource type="Script" path="res://gui/components/AdvancedPanelContainer.gd" id="4_jt7ad"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tufvv"]
+resource_local_to_scene = true
+shader = ExtResource("3_ynue4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wmo85"]
+resource_local_to_scene = true
+shader = ExtResource("3_ynue4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lqqbw"]
+resource_local_to_scene = true
+shader = ExtResource("3_ynue4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bsi0j"]
+resource_local_to_scene = true
+shader = ExtResource("3_ynue4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_twh57"]
+resource_local_to_scene = true
+shader = ExtResource("3_ynue4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ax5w"]
+resource_local_to_scene = true
+shader = ExtResource("3_ynue4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_op4la"]
+resource_local_to_scene = true
+shader = ExtResource("3_ynue4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mb40l"]
+resource_local_to_scene = true
+shader = ExtResource("3_ynue4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ome13"]
+resource_local_to_scene = true
+shader = ExtResource("3_ynue4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f7pre"]
+resource_local_to_scene = true
+shader = ExtResource("3_ynue4")
+
+[node name="OPNOperatorDeck" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"OperatorDeck"
+script = ExtResource("1_t3mue")
+
+[node name="Layout" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="RatesBox" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="AttackKnob" parent="Layout/RatesBox" instance=ExtResource("2_74v4e")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_tufvv")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ATT"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="DecayKnob" parent="Layout/RatesBox" instance=ExtResource("2_74v4e")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_wmo85")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DEC"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="SustainKnob" parent="Layout/RatesBox" instance=ExtResource("2_74v4e")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_lqqbw")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SUS"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="ReleaseKnob" parent="Layout/RatesBox" instance=ExtResource("2_74v4e")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_bsi0j")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "REL"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="LevelBox" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="KeyRateKnob" parent="Layout/LevelBox" instance=ExtResource("2_74v4e")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_twh57")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KSC
+RT"
+max_value = 3
+safe_max_value = 3
+
+[node name="Filler" type="Control" parent="Layout/LevelBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AdvancedPanelContainer" type="PanelContainer" parent="Layout/LevelBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"AdvancedPanelContainer"
+script = ExtResource("4_jt7ad")
+
+[node name="Layout" type="HBoxContainer" parent="Layout/LevelBox/AdvancedPanelContainer"]
+layout_mode = 2
+
+[node name="SustainLevelKnob" parent="Layout/LevelBox/AdvancedPanelContainer/Layout" instance=ExtResource("2_74v4e")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_7ax5w")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SUS
+LVL"
+max_value = 15
+safe_max_value = 15
+
+[node name="TotalLevelKnob" parent="Layout/LevelBox/AdvancedPanelContainer/Layout" instance=ExtResource("2_74v4e")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_op4la")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "TOT
+LVL"
+max_value = 127
+safe_max_value = 127
+
+[node name="TuningBox" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="MultipleKnob" parent="Layout/TuningBox" instance=ExtResource("2_74v4e")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_mb40l")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MUL"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="Detune1Knob" parent="Layout/TuningBox" instance=ExtResource("2_74v4e")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_ome13")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DT1"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="AdvancedPanelContainer" type="PanelContainer" parent="Layout/TuningBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"AdvancedPanelContainer"
+script = ExtResource("4_jt7ad")
+
+[node name="Layout" type="HBoxContainer" parent="Layout/TuningBox/AdvancedPanelContainer"]
+layout_mode = 2
+
+[node name="AmplitudeKnob" parent="Layout/TuningBox/AdvancedPanelContainer/Layout" instance=ExtResource("2_74v4e")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_f7pre")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AMP
+SHF"
+
+[node name="Spacer" type="Control" parent="Layout/TuningBox"]
+layout_mode = 2
+size_flags_horizontal = 3

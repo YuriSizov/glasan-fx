@@ -1,0 +1,135 @@
+[gd_scene load_steps=10 format=3 uid="uid://88vom6tun1y3"]
+
+[ext_resource type="Script" path="res://gui/voices/OPXVoiceDeck.gd" id="1_kruak"]
+[ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="2_mksl3"]
+[ext_resource type="Texture2D" uid="uid://5xx0foji2sxq" path="res://assets/icons/random.png" id="3_j3ctn"]
+[ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/RollerKnob.tscn" id="4_lqntb"]
+[ext_resource type="Shader" path="res://gui/components/RollerPanel.gdshader" id="5_77v1d"]
+[ext_resource type="PackedScene" uid="uid://61k8mkj3i0d3" path="res://gui/components/OperatorIndicator.tscn" id="6_ibw55"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2k3xx"]
+resource_local_to_scene = true
+shader = ExtResource("5_77v1d")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kechj"]
+resource_local_to_scene = true
+shader = ExtResource("5_77v1d")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dmim0"]
+resource_local_to_scene = true
+shader = ExtResource("5_77v1d")
+
+[node name="OPXVoiceDeck" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"BaseVoiceDeck"
+script = ExtResource("1_kruak")
+
+[node name="Layout" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VoiceControls" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="VoiceLabel" type="Label" parent="Layout/VoiceControls"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "OPX VOICE"
+
+[node name="Filler" type="Control" parent="Layout/VoiceControls"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RandomizeButton" parent="Layout/VoiceControls" instance=ExtResource("2_mksl3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 36)
+layout_mode = 2
+size_flags_vertical = 0
+toggle_mode = false
+text = ""
+icon = ExtResource("3_j3ctn")
+off_color = Color(0.0201567, 0.0580001, 0.0982109, 1)
+on_color = Color(0.168063, 0.284057, 0.515991, 1)
+force_glow = true
+
+[node name="Spacer" type="Control" parent="Layout"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="GeneralKnobs" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="VolumeKnob" parent="Layout/GeneralKnobs" instance=ExtResource("4_lqntb")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_2k3xx")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "VOL"
+knob_value = 75
+max_value = 100
+safe_max_value = 100
+
+[node name="FeedbackKnob" parent="Layout/GeneralKnobs" instance=ExtResource("4_lqntb")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_kechj")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FBACK"
+
+[node name="AlgorithmKnob" parent="Layout/GeneralKnobs" instance=ExtResource("4_lqntb")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_dmim0")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ALGO"
+
+[node name="Filler" type="Control" parent="Layout/GeneralKnobs"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OperatorSeparator" type="HSeparator" parent="Layout"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="OperatorControls" type="MarginContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="Layout" type="HBoxContainer" parent="Layout/OperatorControls"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Layout/OperatorControls/Layout"]
+layout_mode = 2
+text = "OPERATORS"
+
+[node name="Filler" type="Control" parent="Layout/OperatorControls/Layout"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OperatorIndicator" parent="Layout/OperatorControls/Layout" instance=ExtResource("6_ibw55")]
+unique_name_in_owner = true
+layout_mode = 2
+operator_count = 1
+
+[node name="AddOperatorButton" parent="Layout/OperatorControls/Layout" instance=ExtResource("2_mksl3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(68, 30)
+layout_mode = 2
+toggle_mode = false
+text = "ADD"
+off_color = Color(0.0784314, 0.0862745, 0.113725, 1)
+
+[node name="RemOperatorButton" parent="Layout/OperatorControls/Layout" instance=ExtResource("2_mksl3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(68, 30)
+layout_mode = 2
+toggle_mode = false
+text = "REM"
+off_color = Color(0.0784314, 0.0862745, 0.113725, 1)
+
+[node name="Operators" type="TabContainer" parent="Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3

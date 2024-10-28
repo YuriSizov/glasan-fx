@@ -31,7 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_type_variation = &"SiOPMVoiceDeck"
+theme_type_variation = &"BaseVoiceDeck"
 script = ExtResource("1_wt3dc")
 
 [node name="Layout" type="VBoxContainer" parent="."]

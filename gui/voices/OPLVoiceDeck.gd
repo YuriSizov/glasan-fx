@@ -4,11 +4,11 @@
 # Provided under MIT                              #
 ###################################################
 
-class_name SiOPMVoiceDeck extends BaseVoiceDeck
+class_name OPLVoiceDeck extends BaseVoiceDeck
 
-const OPERATOR_SCENE := preload("res://gui/voices/operators/SiOPMOperatorDeck.tscn")
+const OPERATOR_SCENE := preload("res://gui/voices/operators/OPLOperatorDeck.tscn")
 
-var _instantiated_operators: Array[SiOPMOperatorDeck] = []
+var _instantiated_operators: Array[OPLOperatorDeck] = []
 
 @onready var _randomize_button: Button = %RandomizeButton
 
@@ -19,7 +19,6 @@ var _instantiated_operators: Array[SiOPMOperatorDeck] = []
 @onready var _volume_knob: RollerKnob = %VolumeKnob
 @onready var _feedback_knob: RollerKnob = %FeedbackKnob
 @onready var _algorithm_knob: RollerKnob = %AlgorithmKnob
-@onready var _connections_knob: RollerKnob = %ConnectionsKnob
 
 @onready var _operator_container: TabContainer = %Operators
 
@@ -69,9 +68,8 @@ func _update_knobs() -> void:
 	# Channel knobs.
 
 	var channel_data := voice.get_channel_data()
-	BaseVoiceDeck.setup_roller_knob(_feedback_knob, channel_data[SiOPMVoice.ChannelParam.FB])
-	BaseVoiceDeck.setup_roller_knob(_algorithm_knob, channel_data[SiOPMVoice.ChannelParam.AL])
-	BaseVoiceDeck.setup_roller_knob(_connections_knob, channel_data[SiOPMVoice.ChannelParam.FC])
+	BaseVoiceDeck.setup_roller_knob(_feedback_knob, channel_data[OPLVoice.ChannelParam.FB])
+	BaseVoiceDeck.setup_roller_knob(_algorithm_knob, channel_data[OPLVoice.ChannelParam.AL])
 
 	# Operator knobs.
 
@@ -83,7 +81,7 @@ func _update_knobs() -> void:
 		_operator_container.remove_child(child_node)
 
 	for i in voice.get_operator_count():
-		var operator_deck: SiOPMOperatorDeck = null
+		var operator_deck: OPLOperatorDeck = null
 
 		if i >= _operator_container.get_child_count():
 			operator_deck = _instantiated_operators[i]

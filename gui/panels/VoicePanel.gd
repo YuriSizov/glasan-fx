@@ -10,11 +10,11 @@ class_name VoicePanel extends ContentPanel
 const FALLBACK_DECK_SCENE := preload("res://gui/voices/FallbackVoiceDeck.tscn")
 const DECK_SCENES: Array[PackedScene] = [
 	preload("res://gui/voices/SiOPMVoiceDeck.tscn"),
-	null,
-	null,
-	null,
-	null,
-	null,
+	preload("res://gui/voices/OPLVoiceDeck.tscn"),
+	preload("res://gui/voices/OPMVoiceDeck.tscn"),
+	preload("res://gui/voices/OPNVoiceDeck.tscn"),
+	preload("res://gui/voices/OPXVoiceDeck.tscn"),
+	preload("res://gui/voices/MA3VoiceDeck.tscn"),
 ]
 
 var _current_deck: BaseVoiceDeck = null
