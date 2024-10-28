@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7yhrc8mk6pxd"]
+[gd_scene load_steps=16 format=3 uid="uid://b7yhrc8mk6pxd"]
 
 [ext_resource type="Script" path="res://gui/voices/operators/OPMOperatorDeck.gd" id="1_n5ehm"]
 [ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/RollerKnob.tscn" id="2_ufwvu"]
@@ -41,6 +41,10 @@ shader = ExtResource("3_mpokn")
 resource_local_to_scene = true
 shader = ExtResource("3_mpokn")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6tq5v"]
+resource_local_to_scene = true
+shader = ExtResource("3_mpokn")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c2m4x"]
 resource_local_to_scene = true
 shader = ExtResource("3_mpokn")
@@ -58,10 +62,17 @@ script = ExtResource("1_n5ehm")
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="RatesBox" type="HBoxContainer" parent="Layout"]
+[node name="EnvelopeBox" type="PanelContainer" parent="Layout"]
+layout_mode = 2
+theme_type_variation = &"AdvancedPanelContainer"
+script = ExtResource("4_g0ehk")
+label = "envelope"
+accent_color = Color(0.13598, 0.204844, 0.314082, 0.57)
+
+[node name="Layout" type="HBoxContainer" parent="Layout/EnvelopeBox"]
 layout_mode = 2
 
-[node name="AttackKnob" parent="Layout/RatesBox" instance=ExtResource("2_ufwvu")]
+[node name="AttackKnob" parent="Layout/EnvelopeBox/Layout" instance=ExtResource("2_ufwvu")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_wwjw1")
 layout_mode = 2
@@ -71,7 +82,7 @@ knob_value = 32
 max_value = 63
 safe_max_value = 63
 
-[node name="DecayKnob" parent="Layout/RatesBox" instance=ExtResource("2_ufwvu")]
+[node name="DecayKnob" parent="Layout/EnvelopeBox/Layout" instance=ExtResource("2_ufwvu")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_03lxu")
 layout_mode = 2
@@ -81,7 +92,7 @@ knob_value = 32
 max_value = 63
 safe_max_value = 63
 
-[node name="SustainKnob" parent="Layout/RatesBox" instance=ExtResource("2_ufwvu")]
+[node name="SustainKnob" parent="Layout/EnvelopeBox/Layout" instance=ExtResource("2_ufwvu")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_o8g61")
 layout_mode = 2
@@ -91,7 +102,7 @@ knob_value = 32
 max_value = 63
 safe_max_value = 63
 
-[node name="ReleaseKnob" parent="Layout/RatesBox" instance=ExtResource("2_ufwvu")]
+[node name="ReleaseKnob" parent="Layout/EnvelopeBox/Layout" instance=ExtResource("2_ufwvu")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_xctf0")
 layout_mode = 2
@@ -173,7 +184,7 @@ safe_max_value = 63
 
 [node name="Detune2Knob" parent="Layout/TuningBox" instance=ExtResource("2_ufwvu")]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_pnjq1")
+material = SubResource("ShaderMaterial_6tq5v")
 layout_mode = 2
 size_flags_horizontal = 3
 text = "DT2"

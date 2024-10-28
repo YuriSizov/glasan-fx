@@ -8,7 +8,7 @@ class_name Sample extends RefCounted
 
 const MIN_NOTE_LENGTH := 1
 const MAX_NOTE_LENGTH := 20
-const DEFAULT_NOTE_LENGTH := 4
+const DEFAULT_NOTE_LENGTH := 8
 
 const MIN_NOTE_VALUE := 0
 const MAX_NOTE_VALUE := 127

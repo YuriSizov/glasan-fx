@@ -61,8 +61,8 @@ func _add_operator() -> void:
 	data[data_index + 3]  = VoiceKnob.new("RR", 0, 15)
 	data[data_index + 3].set_safe_range(4, 11)
 	data[data_index + 3].value = 8
-
 	data[data_index + 4]  = VoiceKnob.new("ET", 0, 1)
+
 	data[data_index + 5]  = VoiceKnob.new("SL", 0, 15)
 	data[data_index + 6]  = VoiceKnob.new("TL", 0, 63)
 	data[data_index + 7]  = VoiceKnob.new("KR", 0, 1)
@@ -95,6 +95,11 @@ func _randomize_operator(index: int) -> void:
 	var op_data := get_operator_data(index)
 
 	op_data[OperatorParam.WS].value = _randomize_wave_shape()
+
+	op_data[OperatorParam.AR].randomize_value()
+	op_data[OperatorParam.DR].randomize_value()
+	op_data[OperatorParam.RR].randomize_value()
+
 	op_data[OperatorParam.KR].randomize_value()
 	op_data[OperatorParam.ML].randomize_value()
 

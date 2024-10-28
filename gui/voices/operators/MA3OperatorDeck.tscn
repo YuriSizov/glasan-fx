@@ -62,10 +62,17 @@ script = ExtResource("1_hok1a")
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="RatesBox" type="HBoxContainer" parent="Layout"]
+[node name="EnvelopeBox" type="PanelContainer" parent="Layout"]
+layout_mode = 2
+theme_type_variation = &"AdvancedPanelContainer"
+script = ExtResource("4_tcuy6")
+label = "envelope"
+accent_color = Color(0.13598, 0.204844, 0.314082, 0.57)
+
+[node name="Layout" type="HBoxContainer" parent="Layout/EnvelopeBox"]
 layout_mode = 2
 
-[node name="AttackKnob" parent="Layout/RatesBox" instance=ExtResource("2_cptdl")]
+[node name="AttackKnob" parent="Layout/EnvelopeBox/Layout" instance=ExtResource("2_cptdl")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_44kfa")
 layout_mode = 2
@@ -75,7 +82,7 @@ knob_value = 32
 max_value = 63
 safe_max_value = 63
 
-[node name="DecayKnob" parent="Layout/RatesBox" instance=ExtResource("2_cptdl")]
+[node name="DecayKnob" parent="Layout/EnvelopeBox/Layout" instance=ExtResource("2_cptdl")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_7g85s")
 layout_mode = 2
@@ -85,7 +92,7 @@ knob_value = 32
 max_value = 63
 safe_max_value = 63
 
-[node name="SustainKnob" parent="Layout/RatesBox" instance=ExtResource("2_cptdl")]
+[node name="SustainKnob" parent="Layout/EnvelopeBox/Layout" instance=ExtResource("2_cptdl")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_x2ilu")
 layout_mode = 2
@@ -95,7 +102,7 @@ knob_value = 32
 max_value = 63
 safe_max_value = 63
 
-[node name="ReleaseKnob" parent="Layout/RatesBox" instance=ExtResource("2_cptdl")]
+[node name="ReleaseKnob" parent="Layout/EnvelopeBox/Layout" instance=ExtResource("2_cptdl")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_14c21")
 layout_mode = 2

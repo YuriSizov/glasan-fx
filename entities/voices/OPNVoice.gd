@@ -94,6 +94,11 @@ func _randomize_channel() -> void:
 func _randomize_operator(index: int) -> void:
 	var op_data := get_operator_data(index)
 
+	op_data[OperatorParam.AR].randomize_value()
+	op_data[OperatorParam.DR].randomize_value()
+	op_data[OperatorParam.SR].randomize_value()
+	op_data[OperatorParam.RR].randomize_value()
+
 	op_data[OperatorParam.KR].randomize_value()
 	op_data[OperatorParam.ML].randomize_value()
 	op_data[OperatorParam.D1].randomize_value()
