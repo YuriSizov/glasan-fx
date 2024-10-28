@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2ftqe7vwv1kj"]
+[gd_scene load_steps=11 format=3 uid="uid://d2ftqe7vwv1kj"]
 
 [ext_resource type="Script" path="res://gui/voices/MA3VoiceDeck.gd" id="1_qo6qv"]
 [ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="2_v4tuo"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/RollerKnob.tscn" id="4_jvfop"]
 [ext_resource type="Shader" path="res://gui/components/RollerPanel.gdshader" id="5_are8h"]
 [ext_resource type="PackedScene" uid="uid://61k8mkj3i0d3" path="res://gui/components/OperatorIndicator.tscn" id="6_8ikw3"]
+[ext_resource type="PackedScene" uid="uid://bh0blnc4tvqx8" path="res://gui/voices/operators/MA3OperatorDeck.tscn" id="7_ftqai"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4epi1"]
 resource_local_to_scene = true
@@ -133,3 +134,23 @@ off_color = Color(0.0784314, 0.0862745, 0.113725, 1)
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+current_tab = 0
+
+[node name="A" parent="Layout/Operators" instance=ExtResource("7_ftqai")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="B" parent="Layout/Operators" instance=ExtResource("7_ftqai")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="C" parent="Layout/Operators" instance=ExtResource("7_ftqai")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="D" parent="Layout/Operators" instance=ExtResource("7_ftqai")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3

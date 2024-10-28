@@ -9,6 +9,8 @@ class_name OPLOperatorDeck extends MarginContainer
 var operator_data: Array[VoiceKnob] = []:
 	set = set_operator_data
 
+@onready var _wave_shape_flipper: MA3WaveShapeFlipper = %WaveShapeFlipper
+
 @onready var _attack_rate: RollerKnob = %AttackKnob
 @onready var _decay_rate: RollerKnob = %DecayKnob
 @onready var _release_rate: RollerKnob = %ReleaseKnob
@@ -37,6 +39,8 @@ func _update_knobs() -> void:
 	if not is_node_ready() || operator_data.is_empty():
 		return
 
+	_setup_shape_flipper(_wave_shape_flipper, operator_data[OPLVoice.OperatorParam.WS])
+
 	BaseVoiceDeck.setup_roller_knob(_attack_rate,  operator_data[OPLVoice.OperatorParam.AR])
 	BaseVoiceDeck.setup_roller_knob(_decay_rate,   operator_data[OPLVoice.OperatorParam.DR])
 	BaseVoiceDeck.setup_roller_knob(_release_rate, operator_data[OPLVoice.OperatorParam.RR])
@@ -50,3 +54,17 @@ func _update_knobs() -> void:
 	BaseVoiceDeck.setup_roller_knob(_multiple, operator_data[OPLVoice.OperatorParam.ML])
 
 	BaseVoiceDeck.setup_roller_knob(_amplitude_shift, operator_data[OPLVoice.OperatorParam.AM])
+
+
+func _setup_shape_flipper(flipper: MA3WaveShapeFlipper, data: VoiceKnob) -> void:
+	# Clear previous connections, if any.
+	var connections := flipper.shape_changed.get_connections()
+	for connection : Dictionary in connections:
+		flipper.shape_changed.disconnect(connection["callable"])
+
+	flipper.wave_shape = data.value
+
+	# Connect to changes.
+	flipper.shape_changed.connect(func() -> void:
+		data.value = flipper.wave_shape
+	)

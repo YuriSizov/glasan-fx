@@ -1,0 +1,247 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv27s8atrraj0"]
+
+[ext_resource type="Script" path="res://gui/components/MA3WaveShapeFlipper.gd" id="1_4afun"]
+[ext_resource type="PackedScene" uid="uid://ce7ysl70seujv" path="res://gui/components/WaveShapeButton.tscn" id="2_j8y72"]
+
+[node name="MA3WaveShapeFlipper" type="MarginContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_4afun")
+short_form = null
+accent_color = Color(0.658824, 0.411765, 0.054902, 1)
+
+[node name="Content" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+self_modulate = Color(0.395294, 0.314439, 0.197647, 1)
+layout_mode = 2
+theme_type_variation = &"WaveShapePanel"
+
+[node name="Layout" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 24
+
+[node name="LabelBox" type="MarginContainer" parent="Content/Layout"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_top = 4
+
+[node name="Label" type="Label" parent="Content/Layout/LabelBox"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "MA-3 WAVE"
+
+[node name="MA3Waves" type="VBoxContainer" parent="Content/Layout"]
+layout_mode = 2
+
+[node name="Row1" type="HBoxContainer" parent="Content/Layout/MA3Waves"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MA3Button0" parent="Content/Layout/MA3Waves/Row1" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "0"
+
+[node name="MA3Button1" parent="Content/Layout/MA3Waves/Row1" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "1"
+
+[node name="MA3Button2" parent="Content/Layout/MA3Waves/Row1" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "2"
+
+[node name="MA3Button3" parent="Content/Layout/MA3Waves/Row1" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "3"
+
+[node name="MA3Button4" parent="Content/Layout/MA3Waves/Row1" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "4"
+
+[node name="MA3Button5" parent="Content/Layout/MA3Waves/Row1" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "5"
+
+[node name="MA3Button6" parent="Content/Layout/MA3Waves/Row1" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "6"
+
+[node name="MA3Button7" parent="Content/Layout/MA3Waves/Row1" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "7"
+
+[node name="Row2" type="HBoxContainer" parent="Content/Layout/MA3Waves"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MA3Button8" parent="Content/Layout/MA3Waves/Row2" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "8"
+
+[node name="MA3Button9" parent="Content/Layout/MA3Waves/Row2" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "9"
+
+[node name="MA3Button10" parent="Content/Layout/MA3Waves/Row2" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "10"
+
+[node name="MA3Button11" parent="Content/Layout/MA3Waves/Row2" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "11"
+
+[node name="MA3Button12" parent="Content/Layout/MA3Waves/Row2" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "12"
+
+[node name="MA3Button13" parent="Content/Layout/MA3Waves/Row2" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "13"
+
+[node name="MA3Button14" parent="Content/Layout/MA3Waves/Row2" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "14"
+
+[node name="MA3Button15" parent="Content/Layout/MA3Waves/Row2" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+text = "15"
+
+[node name="Row3" type="HBoxContainer" parent="Content/Layout/MA3Waves"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MA3Button16" parent="Content/Layout/MA3Waves/Row3" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "16"
+
+[node name="MA3Button17" parent="Content/Layout/MA3Waves/Row3" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "17"
+
+[node name="MA3Button18" parent="Content/Layout/MA3Waves/Row3" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "18"
+
+[node name="MA3Button19" parent="Content/Layout/MA3Waves/Row3" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "19"
+
+[node name="MA3Button20" parent="Content/Layout/MA3Waves/Row3" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "20"
+
+[node name="MA3Button21" parent="Content/Layout/MA3Waves/Row3" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "21"
+
+[node name="MA3Button22" parent="Content/Layout/MA3Waves/Row3" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "22"
+
+[node name="MA3Button23" parent="Content/Layout/MA3Waves/Row3" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+text = "23"
+
+[node name="Row4" type="HBoxContainer" parent="Content/Layout/MA3Waves"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MA3Button24" parent="Content/Layout/MA3Waves/Row4" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "24"
+
+[node name="MA3Button25" parent="Content/Layout/MA3Waves/Row4" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "25"
+
+[node name="MA3Button26" parent="Content/Layout/MA3Waves/Row4" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "26"
+
+[node name="MA3Button27" parent="Content/Layout/MA3Waves/Row4" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "27"
+
+[node name="MA3Button28" parent="Content/Layout/MA3Waves/Row4" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "28"
+
+[node name="MA3Button29" parent="Content/Layout/MA3Waves/Row4" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "29"
+
+[node name="MA3Button30" parent="Content/Layout/MA3Waves/Row4" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "30"
+
+[node name="MA3Button31" parent="Content/Layout/MA3Waves/Row4" instance=ExtResource("2_j8y72")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+text = "31"

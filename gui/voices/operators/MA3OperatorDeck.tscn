@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bh0blnc4tvqx8"]
+[gd_scene load_steps=17 format=3 uid="uid://bh0blnc4tvqx8"]
 
 [ext_resource type="Script" path="res://gui/voices/operators/MA3OperatorDeck.gd" id="1_hok1a"]
+[ext_resource type="PackedScene" uid="uid://bv27s8atrraj0" path="res://gui/components/MA3WaveShapeFlipper.tscn" id="2_04a3h"]
 [ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/RollerKnob.tscn" id="2_cptdl"]
 [ext_resource type="Shader" path="res://gui/components/RollerPanel.gdshader" id="3_w6i77"]
 [ext_resource type="Script" path="res://gui/components/AdvancedPanelContainer.gd" id="4_tcuy6"]
@@ -61,6 +62,11 @@ script = ExtResource("1_hok1a")
 [node name="Layout" type="VBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 24
+
+[node name="WaveShapeFlipper" parent="Layout" instance=ExtResource("2_04a3h")]
+unique_name_in_owner = true
+layout_mode = 2
+short_form = false
 
 [node name="EnvelopeBox" type="PanelContainer" parent="Layout"]
 layout_mode = 2

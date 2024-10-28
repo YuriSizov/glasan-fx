@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://kkmgkqq2to3g"]
+[gd_scene load_steps=16 format=3 uid="uid://kkmgkqq2to3g"]
 
 [ext_resource type="Script" path="res://gui/voices/operators/OPLOperatorDeck.gd" id="1_1mb7s"]
+[ext_resource type="PackedScene" uid="uid://bv27s8atrraj0" path="res://gui/components/MA3WaveShapeFlipper.tscn" id="2_iavvd"]
 [ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/RollerKnob.tscn" id="2_tbv3p"]
 [ext_resource type="Shader" path="res://gui/components/RollerPanel.gdshader" id="3_dquok"]
 [ext_resource type="Script" path="res://gui/components/AdvancedPanelContainer.gd" id="4_w7r1b"]
@@ -37,6 +38,10 @@ shader = ExtResource("3_dquok")
 resource_local_to_scene = true
 shader = ExtResource("3_dquok")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wt0ge"]
+resource_local_to_scene = true
+shader = ExtResource("3_dquok")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fvx5o"]
 resource_local_to_scene = true
 shader = ExtResource("3_dquok")
@@ -53,6 +58,11 @@ script = ExtResource("1_1mb7s")
 [node name="Layout" type="VBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 24
+
+[node name="WaveShapeFlipper" parent="Layout" instance=ExtResource("2_iavvd")]
+unique_name_in_owner = true
+layout_mode = 2
+short_form = false
 
 [node name="EnvelopeBox" type="PanelContainer" parent="Layout"]
 layout_mode = 2
@@ -159,7 +169,7 @@ layout_mode = 2
 
 [node name="MultipleKnob" parent="Layout/TuningBox" instance=ExtResource("2_tbv3p")]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_30sih")
+material = SubResource("ShaderMaterial_wt0ge")
 layout_mode = 2
 size_flags_horizontal = 3
 text = "MUL"

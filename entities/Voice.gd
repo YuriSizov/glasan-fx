@@ -25,7 +25,7 @@ var _update_suspended: bool = false
 
 func _init(_op_count: int = 1) -> void:
 	volume = VoiceKnob.new("VOL", 0, 100)
-	volume.value = 75
+	volume.value = 50
 	volume.value_changed.connect(_update_voice_volume)
 	_update_voice_volume()
 
