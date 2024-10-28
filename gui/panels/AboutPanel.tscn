@@ -112,9 +112,10 @@ metadata/_tab_index = 0
 custom_minimum_size = Vector2(640, 0)
 layout_mode = 2
 bbcode_enabled = true
-text = "Voice types listed on the right define the general nature of the played sound.
+text = "Voice types listed on the right define the general nature of the played sound. They are modeled after various real-world synthesizers.
 
-[accent]SiOPM is a jack of all trades and a good starting point.[/accent]"
+If you can't immediately spot the difference, don't worry:
+[accent]SiOPM is a jack of all trades and a good starting point.[/accent] You can stick to it."
 fit_content = true
 custom_effects = [SubResource("RichTextEffect_hrnor"), SubResource("RichTextEffect_fj5ck"), SubResource("RichTextEffect_yf5u4")]
 
@@ -196,6 +197,25 @@ text = "The randomize button will never fail to produce something interesting! I
 [accent]It also hints which knobs have the most obvious impact. Try adjusting them further![/accent]
 
 Advanced knobs are not randomized or reset by it."
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_hrnor"), SubResource("RichTextEffect_fj5ck"), SubResource("RichTextEffect_yf5u4")]
+
+[node name="6" type="MarginContainer" parent="Content/Layout/TipsTabs"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+metadata/_tab_index = 5
+
+[node name="TipsContent" type="RichTextLabel" parent="Content/Layout/TipsTabs/6"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "You can achieve vastly different results by changing the played note, a.k.a. the pitch. If the randomized voice does not immediately spark joy, don't rush to throw it out!
+
+[accent]Try playing a note from a different octave with the keyboard widget, and you might actually find what you need.[/accent]"
 fit_content = true
 custom_effects = [SubResource("RichTextEffect_hrnor"), SubResource("RichTextEffect_fj5ck"), SubResource("RichTextEffect_yf5u4")]
 

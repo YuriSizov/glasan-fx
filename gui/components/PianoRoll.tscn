@@ -250,7 +250,7 @@ shader_parameter/selection_size = 0.066
 shader_parameter/selection_smoothness = 0.006
 shader_parameter/selection_color = Color(0.710837, 0.283876, 0.25255, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qqjxx"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_33us8"]
 resource_local_to_scene = true
 shader = ExtResource("6_l44rt")
 shader_parameter/direction = Vector2(1, 0)
@@ -266,106 +266,136 @@ visible = false
 layout_mode = 2
 color = Color(0.116668, 0.109648, 0.106619, 1)
 
-[node name="Keys" type="MarginContainer" parent="."]
+[node name="Layout" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Labels" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Padding" type="Control" parent="Layout/Labels"]
+custom_minimum_size = Vector2(6, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Layout/Labels"]
+layout_mode = 2
+text = "NOTE"
+
+[node name="Spacer" type="Control" parent="Layout/Labels"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="Layout/Labels"]
+layout_mode = 2
+text = "OCT"
+
+[node name="Padding2" type="Control" parent="Layout/Labels"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="Widgets" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="Keys" type="MarginContainer" parent="Layout/Widgets"]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 60
+theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="Background" type="ColorRect" parent="Keys"]
+[node name="Background" type="ColorRect" parent="Layout/Widgets/Keys"]
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="Keys"]
+[node name="MarginContainer" type="MarginContainer" parent="Layout/Widgets/Keys"]
 layout_mode = 2
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 0
 
-[node name="PianoContainer" type="Container" parent="Keys/MarginContainer"]
+[node name="PianoContainer" type="Container" parent="Layout/Widgets/Keys/MarginContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 mouse_filter = 0
 script = ExtResource("2_kmleb")
 
-[node name="Key0" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+[node name="Key0" parent="Layout/Widgets/Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
 material = SubResource("ShaderMaterial_36g26")
 layout_mode = 2
 inset_right = true
 
-[node name="Key1" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+[node name="Key1" parent="Layout/Widgets/Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
 show_behind_parent = false
 material = SubResource("ShaderMaterial_k8tkt")
 layout_mode = 2
 color = Color(0.35, 0.36, 0.38, 1)
 
-[node name="Key2" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+[node name="Key2" parent="Layout/Widgets/Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
 material = SubResource("ShaderMaterial_vfrc8")
 layout_mode = 2
 inset_left = true
 inset_right = true
 
-[node name="Key3" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+[node name="Key3" parent="Layout/Widgets/Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
 show_behind_parent = false
 material = SubResource("ShaderMaterial_311y6")
 layout_mode = 2
 color = Color(0.35, 0.36, 0.38, 1)
 
-[node name="Key4" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+[node name="Key4" parent="Layout/Widgets/Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
 material = SubResource("ShaderMaterial_wdfbl")
 layout_mode = 2
 inset_left = true
 
-[node name="Key5" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+[node name="Key5" parent="Layout/Widgets/Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
 material = SubResource("ShaderMaterial_cddi8")
 layout_mode = 2
 inset_right = true
 
-[node name="Key6" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+[node name="Key6" parent="Layout/Widgets/Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
 show_behind_parent = false
 material = SubResource("ShaderMaterial_hyj56")
 layout_mode = 2
 color = Color(0.35, 0.36, 0.38, 1)
 
-[node name="Key7" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+[node name="Key7" parent="Layout/Widgets/Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
 material = SubResource("ShaderMaterial_0hgrt")
 layout_mode = 2
 inset_left = true
 inset_right = true
 
-[node name="Key8" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+[node name="Key8" parent="Layout/Widgets/Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
 show_behind_parent = false
 material = SubResource("ShaderMaterial_y3j7m")
 layout_mode = 2
 color = Color(0.35, 0.36, 0.38, 1)
 
-[node name="Key9" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+[node name="Key9" parent="Layout/Widgets/Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
 material = SubResource("ShaderMaterial_qftt6")
 layout_mode = 2
 inset_left = true
 inset_right = true
 
-[node name="Key10" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+[node name="Key10" parent="Layout/Widgets/Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
 show_behind_parent = false
 material = SubResource("ShaderMaterial_ltvl0")
 layout_mode = 2
 color = Color(0.35, 0.36, 0.38, 1)
 
-[node name="Key11" parent="Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
+[node name="Key11" parent="Layout/Widgets/Keys/MarginContainer/PianoContainer" instance=ExtResource("3_5hvlp")]
 material = SubResource("ShaderMaterial_uegwx")
 layout_mode = 2
 inset_left = true
 
-[node name="Octave" type="VBoxContainer" parent="."]
+[node name="Octave" type="VBoxContainer" parent="Layout/Widgets"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/separation = 4
 alignment = 1
 
-[node name="UpOctaveButton" parent="Octave" instance=ExtResource("5_cudr8")]
+[node name="UpOctaveButton" parent="Layout/Widgets/Octave" instance=ExtResource("5_cudr8")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(34, 28)
 layout_mode = 2
@@ -377,14 +407,14 @@ icon = ExtResource("6_r4x0v")
 off_color = Color(0.150309, 0.13979, 0.175719, 1)
 on_color = Color(0.161746, 0.144835, 0.197189, 1)
 
-[node name="OctaveLabel" parent="Octave" instance=ExtResource("7_g2f1f")]
+[node name="OctaveLabel" parent="Layout/Widgets/Octave" instance=ExtResource("7_g2f1f")]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_qqjxx")
+material = SubResource("ShaderMaterial_33us8")
 custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 text = "01"
 
-[node name="DownOctaveButton" parent="Octave" instance=ExtResource("5_cudr8")]
+[node name="DownOctaveButton" parent="Layout/Widgets/Octave" instance=ExtResource("5_cudr8")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(34, 28)
 layout_mode = 2
