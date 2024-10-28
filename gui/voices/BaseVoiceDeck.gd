@@ -65,6 +65,20 @@ static func setup_tuner_slider(slider: TunerSlider, data: VoiceKnob) -> void:
 	)
 
 
+static func setup_flicker_knob(flicker: FlickerKnob, data: VoiceKnob) -> void:
+	# Clear previous connections, if any.
+	var connections := flicker.value_changed.get_connections()
+	for connection : Dictionary in connections:
+		flicker.value_changed.disconnect(connection["callable"])
+
+	flicker.flicker_value = bool(data.value)
+
+	# Connect to changes.
+	flicker.value_changed.connect(func() -> void:
+		data.value = int(flicker.flicker_value)
+	)
+
+
 static func setup_knob_control(knob: KnobControl, data: VoiceKnob) -> void:
 	knob.knob_data = data
 	knob.force_update()

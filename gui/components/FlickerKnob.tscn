@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=3 uid="uid://b84cvvupfiqo8"]
+
+[ext_resource type="Script" path="res://gui/components/FlickerKnob.gd" id="1_5v0dj"]
+[ext_resource type="Shader" path="res://gui/components/FlickerKnob.gdshader" id="1_b5b22"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fideq"]
+resource_local_to_scene = true
+shader = ExtResource("1_b5b22")
+shader_parameter/control_size = Vector2(60, 100)
+shader_parameter/position = 1.0
+shader_parameter/deadzone = 0.2
+shader_parameter/knob_size = 0.58
+shader_parameter/knob_smoothness = 0.04
+shader_parameter/knob_color = Color(0.798279, 0.767049, 0.899203, 1)
+shader_parameter/knob_shade_size = 0.133
+shader_parameter/knob_shade_offset = 0.101
+shader_parameter/knob_shade_smoothness = 0.462
+shader_parameter/knob_shade_intensity = 0.876
+shader_parameter/knob_shade_color = Color(0.0170207, 0.0170207, 0.0170207, 1)
+shader_parameter/stem_size = 0.218
+shader_parameter/stem_smoothness = 0.04
+shader_parameter/stem_color = Color(0.166636, 0.152509, 0.195079, 1)
+shader_parameter/stem_shade_size = 0.17
+shader_parameter/stem_shade_smoothness = 0.276
+shader_parameter/stem_shade_intensity = 1.0
+shader_parameter/stem_shade_color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+shader_parameter/rim_size = 0.449
+shader_parameter/rim_thickness = 0.2
+shader_parameter/rim_smoothness = 0.04
+shader_parameter/rim_color = Color(0.750822, 0.315975, 0.255892, 1)
+shader_parameter/rim_shade_size = 0.18
+shader_parameter/rim_shade_offset = 0.0
+shader_parameter/rim_shade_thickness = 0.12
+shader_parameter/rim_shade_smoothness = 0.139
+shader_parameter/rim_shade_intensity = 0.788
+shader_parameter/rim_knob_shade_intensity = 0.589
+shader_parameter/rim_shade_color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+shader_parameter/rim_glow_intensity = 0.472
+
+[node name="FlickerKnob" type="MarginContainer"]
+offset_right = 94.0
+offset_bottom = 100.0
+script = ExtResource("1_5v0dj")
+on_color = Color(0.324853, 0.737057, 0.328221, 1)
+off_color = Color(0.750822, 0.315975, 0.255892, 1)
+
+[node name="Layout" type="HBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Flicker" type="Control" parent="Layout"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_fideq")
+custom_minimum_size = Vector2(60, 100)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Labels" type="MarginContainer" parent="Layout"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Layout" type="VBoxContainer" parent="Layout/Labels"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Spacer" type="Control" parent="Layout/Labels/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="OnLabel" type="Label" parent="Layout/Labels/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+text = "ON"
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="Layout/Labels/Layout"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="OffLabel" type="Label" parent="Layout/Labels/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+text = "OFF"
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="Layout/Labels/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2

@@ -73,9 +73,8 @@ func _gui_input(event: InputEvent) -> void:
 				_update_value_after_scroll()
 			elif _pressed:
 				_update_value_on_click()
-			else:
-				_drag_accumulator = Vector2.ZERO
 
+			_drag_accumulator = Vector2.ZERO
 			_pressed = false
 			_dragged = false
 

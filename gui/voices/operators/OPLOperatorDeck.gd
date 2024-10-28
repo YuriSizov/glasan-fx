@@ -14,7 +14,7 @@ var operator_data: Array[VoiceKnob] = []:
 @onready var _attack_rate: RollerKnob = %AttackKnob
 @onready var _decay_rate: RollerKnob = %DecayKnob
 @onready var _release_rate: RollerKnob = %ReleaseKnob
-@onready var _envelope_type: RollerKnob = %EnvelopeKnob
+@onready var _envelope_type: FlickerKnob = %EnvelopeKnob
 
 @onready var _key_scaling_rate: RollerKnob = %KeyRateKnob
 @onready var _key_scaling_level: RollerKnob = %KeyLevelKnob
@@ -44,7 +44,7 @@ func _update_knobs() -> void:
 	BaseVoiceDeck.setup_roller_knob(_attack_rate,  operator_data[OPLVoice.OperatorParam.AR])
 	BaseVoiceDeck.setup_roller_knob(_decay_rate,   operator_data[OPLVoice.OperatorParam.DR])
 	BaseVoiceDeck.setup_roller_knob(_release_rate, operator_data[OPLVoice.OperatorParam.RR])
-	BaseVoiceDeck.setup_roller_knob(_envelope_type, operator_data[OPLVoice.OperatorParam.ET])
+	BaseVoiceDeck.setup_flicker_knob(_envelope_type, operator_data[OPLVoice.OperatorParam.ET])
 
 	BaseVoiceDeck.setup_roller_knob(_key_scaling_rate,  operator_data[OPLVoice.OperatorParam.KR])
 	BaseVoiceDeck.setup_roller_knob(_key_scaling_level, operator_data[OPLVoice.OperatorParam.KL])

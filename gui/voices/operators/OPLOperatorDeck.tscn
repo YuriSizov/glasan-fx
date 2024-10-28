@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/RollerKnob.tscn" id="2_tbv3p"]
 [ext_resource type="Shader" path="res://gui/components/RollerPanel.gdshader" id="3_dquok"]
 [ext_resource type="Script" path="res://gui/components/AdvancedPanelContainer.gd" id="4_w7r1b"]
+[ext_resource type="PackedScene" uid="uid://b84cvvupfiqo8" path="res://gui/components/FlickerKnob.tscn" id="6_h4hnc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bl13i"]
 resource_local_to_scene = true
@@ -15,10 +16,6 @@ resource_local_to_scene = true
 shader = ExtResource("3_dquok")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w4nbl"]
-resource_local_to_scene = true
-shader = ExtResource("3_dquok")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_30sih"]
 resource_local_to_scene = true
 shader = ExtResource("3_dquok")
 
@@ -104,12 +101,24 @@ knob_value = 32
 max_value = 63
 safe_max_value = 63
 
-[node name="EnvelopeKnob" parent="Layout/EnvelopeBox/Layout" instance=ExtResource("2_tbv3p")]
-unique_name_in_owner = true
-material = SubResource("ShaderMaterial_30sih")
+[node name="EnvelopeBox" type="HBoxContainer" parent="Layout/EnvelopeBox/Layout"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Label" type="MarginContainer" parent="Layout/EnvelopeBox/Layout/EnvelopeBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_top = 8
+
+[node name="Label" type="Label" parent="Layout/EnvelopeBox/Layout/EnvelopeBox/Label"]
+layout_mode = 2
+size_flags_vertical = 0
 text = "EGT"
+
+[node name="EnvelopeKnob" parent="Layout/EnvelopeBox/Layout/EnvelopeBox" instance=ExtResource("6_h4hnc")]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="LevelBox" type="HBoxContainer" parent="Layout"]
 layout_mode = 2
