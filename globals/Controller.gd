@@ -6,6 +6,8 @@
 
 extends Node
 
+var settings_manager: SettingsManager = null
+var window_manager: WindowManager = null
 var voice_manager: VoiceManager = null
 
 # Global settings.
@@ -17,7 +19,11 @@ var _file_dialog_finalize_callable: Callable = Callable()
 
 
 func _init() -> void:
+	settings_manager = SettingsManager.new()
+	window_manager = WindowManager.new()
 	voice_manager = VoiceManager.new(self)
+
+	settings_manager.load_settings()
 
 
 func _notification(what: int) -> void:
@@ -43,6 +49,7 @@ func get_file_dialog() -> FileDialog:
 		_file_dialog.canceled.connect(_finalize_file_dialog)
 
 	_file_dialog.clear_filters()
+	_file_dialog.current_dir = settings_manager.get_last_opened_folder()
 	return _file_dialog
 
 
@@ -60,6 +67,8 @@ func _clear_file_dialog_connections() -> void:
 
 func _finalize_file_dialog() -> void:
 	_file_dialog.get_parent().remove_child(_file_dialog)
+
+	settings_manager.set_last_opened_folder(_file_dialog.current_dir)
 
 
 # IO management.

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=56 format=3 uid="uid://bpwfhtd227bkw"]
+[gd_resource type="Theme" load_steps=57 format=3 uid="uid://bpwfhtd227bkw"]
 
 [ext_resource type="FontFile" uid="uid://cjwuh3bvsqt57" path="res://assets/fonts/fff-aquarius-bold-condensed.msdf.ttf" id="1_67pkc"]
 [ext_resource type="Script" path="res://gui/theme/StyleTexture.gd" id="1_fj6h5"]
@@ -28,6 +28,10 @@ expand_margin_right = 6.0
 expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_llkav"]
+
+[sub_resource type="FontVariation" id="FontVariation_po6ik"]
+base_font = ExtResource("1_67pkc")
+spacing_glyph = 4
 
 [sub_resource type="FontVariation" id="FontVariation_k7evk"]
 base_font = ExtResource("1_67pkc")
@@ -387,6 +391,9 @@ AdvancedPanelContainer/font_sizes/font_size = 8
 AdvancedPanelContainer/styles/panel = SubResource("StyleBoxFlat_wkpyt")
 BaseVoiceDeck/base_type = &"PanelContainer"
 BaseVoiceDeck/styles/panel = SubResource("StyleBoxEmpty_llkav")
+BlamButton/base_type = &"GlowButton"
+BlamButton/font_sizes/font_size = 22
+BlamButton/fonts/font = SubResource("FontVariation_po6ik")
 BrandingLabel/base_type = &"Label"
 BrandingLabel/colors/font_shadow_color = Color(0.150051, 0.176691, 0.194453, 0.781)
 BrandingLabel/constants/shadow_offset_x = 2
