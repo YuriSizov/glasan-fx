@@ -9,6 +9,7 @@ class_name RollerKnob extends PanelContainer
 
 signal value_changed()
 
+const ROLLER_SHIFTED_FACTOR := 4.0
 const ROLLER_SCROLL_FACTOR := 0.01
 const VALUE_SCROLL_FACTOR := 1.0
 
@@ -162,18 +163,17 @@ func _gui_input_roller(event: InputEvent) -> void:
 		var mm := event as InputEventMouseMotion
 
 		if _pressed:
-			_drag_accumulator += mm.relative
+			var drag_relative := mm.relative
+			if Input.is_key_pressed(KEY_SHIFT):
+				drag_relative *= ROLLER_SHIFTED_FACTOR
 
-			if _drag_accumulator.length_squared() > 48.0:
+			_drag_accumulator += drag_relative
+
+			if not _dragged && _drag_accumulator.length_squared() > 48.0:
 				_dragged = true
 
 			if _dragged:
 				_update_scrollables()
-
-
-func _set_drag_accumulator(value: Vector2) -> void:
-	_drag_accumulator = value
-	_update_scrollables()
 
 
 func _update_scrollables() -> void:
@@ -210,7 +210,12 @@ func _animate_scroll_to_zero() -> void:
 		_scroll_tweener.kill()
 
 	_scroll_tweener = create_tween()
-	_scroll_tweener.tween_method(_set_drag_accumulator, _drag_accumulator, Vector2.ZERO, SCROLL_RESET_DURATION)
+	_scroll_tweener.tween_method(_update_drag_accumulator, _drag_accumulator, Vector2.ZERO, SCROLL_RESET_DURATION)
+
+
+func _update_drag_accumulator(value: Vector2) -> void:
+	_drag_accumulator = value
+	_update_scrollables()
 
 
 # Properties.

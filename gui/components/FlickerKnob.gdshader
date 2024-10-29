@@ -6,30 +6,41 @@ uniform vec2 control_size;
 uniform float position: hint_range(-1.0, 1.0) = 0.0;
 uniform float deadzone: hint_range(0.0, 1.0) = 0.0;
 
+group_uniforms knob;
 uniform float knob_size: hint_range(0.0, 4.0) = 1.0;
 uniform float knob_smoothness: hint_range(0.0, 1.0) = 0.2;
 uniform vec3 knob_color: source_color = vec3(1.0);
 
+group_uniforms knob_blob;
+uniform float knob_blob_intensity: hint_range(0.0, 1.0) = 1.0;
+uniform float knob_blob_intensity_range: hint_range(0.0, 1.0) = 0.1;
+uniform vec3 knob_blob_color: source_color = vec3(1.0);
+
+group_uniforms knob_shade;
 uniform float knob_shade_size: hint_range(0.0, 4.0) = 0.5;
 uniform float knob_shade_offset: hint_range(0.0, 2.0) = 0.1;
 uniform float knob_shade_smoothness: hint_range(0.0, 1.0) = 0.2;
 uniform float knob_shade_intensity: hint_range(0.0, 1.0) = 1.0;
 uniform vec3 knob_shade_color: source_color = vec3(0.0);
 
+group_uniforms stem;
 uniform float stem_size: hint_range(0.0, 4.0) = 1.0;
 uniform float stem_smoothness: hint_range(0.0, 1.0) = 0.2;
 uniform vec3 stem_color: source_color = vec3(1.0);
 
+group_uniforms stem_shade;
 uniform float stem_shade_size: hint_range(0.0, 4.0) = 0.5;
 uniform float stem_shade_smoothness: hint_range(0.0, 1.0) = 0.2;
 uniform float stem_shade_intensity: hint_range(0.0, 1.0) = 1.0;
 uniform vec3 stem_shade_color: source_color = vec3(0.0);
 
+group_uniforms rim;
 uniform float rim_size: hint_range(0.0, 4.0) = 1.0;
 uniform float rim_thickness: hint_range(0.0, 1.0) = 0.2;
 uniform float rim_smoothness: hint_range(0.0, 1.0) = 0.2;
 uniform vec3 rim_color: source_color = vec3(1.0);
 
+group_uniforms rim_shade;
 uniform float rim_shade_size: hint_range(0.0, 4.0) = 0.5;
 uniform float rim_shade_offset: hint_range(0.0, 2.0) = 0.1;
 uniform float rim_shade_thickness: hint_range(0.0, 1.0) = 0.2;
@@ -38,6 +49,7 @@ uniform float rim_shade_intensity: hint_range(0.0, 1.0) = 1.0;
 uniform float rim_knob_shade_intensity: hint_range(0.0, 1.0) = 1.0;
 uniform vec3 rim_shade_color: source_color = vec3(0.0);
 
+group_uniforms rim_glow;
 uniform float rim_glow_intensity: hint_range(0.0, 1.0) = 1.0;
 
 
@@ -64,8 +76,9 @@ void fragment() {
 	knob_shadow_blob = 0.0 - knob_shadow_blob + knob_size - 0.04;
 	knob_shadow_blob = smoothstep(0.0, knob_smoothness + 0.07, knob_shadow_blob);
 	// Add the shadow blob to the output.
-	output_color = overlay(output_color, vec3(0.0), 1.0, knob_shadow_blob);
-	output_alpha += knob_shadow_blob;
+	float knob_shadow_blob_factor = knob_blob_intensity + knob_blob_intensity_range * abs(position);
+	output_color = overlay(output_color, knob_blob_color, knob_shadow_blob_factor, knob_shadow_blob);
+	output_alpha += knob_shadow_blob * knob_shadow_blob_factor;
 	
 	// Create shading for the knob.
 	vec2 knob_shade_uv = knob_uv;
