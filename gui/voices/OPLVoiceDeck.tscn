@@ -44,6 +44,12 @@ text = "OPL VOICE"
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="LoudWarningLabel" type="Label" parent="Layout/VoiceControls"]
+layout_mode = 2
+theme_type_variation = &"LoudWarningLabel"
+text = "Warning: Random sounds can be startling
+or unpleasant in some cases."
+
 [node name="RandomizeButton" parent="Layout/VoiceControls" instance=ExtResource("2_vx4gs")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(44, 36)
