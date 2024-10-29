@@ -1,0 +1,127 @@
+name: Export Project
+
+on:
+  workflow_call:
+    inputs:
+      with-codesign:
+        type: boolean
+        default: false
+
+# Make sure jobs cannot overlap.
+concurrency:
+  group: export-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  GODOT_VERSION: "4.3.0-stable"
+  GDSION_VERSION: "0.7-beta4"
+
+jobs:
+  export-publish:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: linux
+            arch: x86_64
+            preset: "Linux - x86_64"
+            output: "glasan-fx.x86_64"
+            app-name: "glasan-fx.x86_64"
+            runs-on: ubuntu-latest
+
+          - platform: macos
+            arch: universal
+            preset: "macOS - Universal"
+            output: "glasan-fx.zip"
+            app-name: "Glasan FX.app"
+            runs-on: macos-latest
+
+          - platform: windows
+            arch: x86_64
+            preset: "Windows - x86_64"
+            output: "glasan-fx.exe"
+            app-name: "glasan-fx.exe"
+            runs-on: windows-latest
+
+          - platform: windows
+            arch: x86_32
+            preset: "Windows - x86_32"
+            output: "glasan-fx.exe"
+            app-name: "glasan-fx.exe"
+            runs-on: windows-latest
+
+    name: Export the project (${{ matrix.preset }})
+    runs-on: ${{ matrix.runs-on }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # Set up prerequisites.
+
+      - name: Install Godot ${{ env.GODOT_VERSION }}
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: ${{ env.GODOT_VERSION }}
+          use-dotnet: false
+          include-templates: true
+
+      - name: Verify Godot
+        shell: bash
+        run: |
+          godot --version
+
+      - name: Set up project dependencies
+        uses: ./.github/actions/setup-deps
+        with:
+          platform: ${{ matrix.platform }}
+          gdsion-version: ${{ env.GDSION_VERSION }}
+
+      # Export the project.
+
+      - name: Export the project
+        id: export-project-step
+        uses: ./.github/actions/export-godot-project
+        with:
+          platform: ${{ matrix.platform }}
+          arch: ${{ matrix.arch }}
+          preset: ${{ matrix.preset }}
+          output: ${{ matrix.output }}
+
+      # Codesign if necessary.
+
+      - name: Set up codesign environment
+        if: ${{ inputs.with-codesign }}
+        uses: ./.github/actions/sign-godot-project
+        with:
+          platform: ${{ matrix.platform }}
+          setup-env: true
+          apple-cert-base64:   ${{ secrets.APPLE_CERT_BASE64 }}
+          apple-cert-password: ${{ secrets.APPLE_CERT_PASSWORD }}
+
+      - name: Sign the exported project
+        if: ${{ inputs.with-codesign }}
+        uses: ./.github/actions/sign-godot-project
+        with:
+          platform: ${{ matrix.platform }}
+          codesign: true
+          directory: ${{ steps.export-project-step.outputs.export-path }}
+          target-name: ${{ matrix.app-name }}
+          apple-dev-id:        ${{ secrets.APPLE_DEV_ID }}
+          apple-dev-app-id:    ${{ secrets.APPLE_DEV_APP_ID }}
+          apple-dev-team-id:   ${{ secrets.APPLE_DEV_TEAM_ID }}
+          apple-dev-password:  ${{ secrets.APPLE_DEV_PASSWORD }}
+
+      # Upload the results.
+
+      # This step helps to preserve file permissions.
+      - name: Tar up the example project
+        shell: bash
+        working-directory: "${{ steps.export-project-step.outputs.export-path }}"
+        run: |
+          tar -cvf glasan-fx.tar .
+
+      - name: Upload the project
+        uses: actions/upload-artifact@v4
+        with:
+          name: glasan-fx-${{ matrix.platform }}-${{ matrix.arch }}
+          path: "${{ steps.export-project-step.outputs.export-path }}/glasan-fx.tar"
+          retention-days: 14
