@@ -11,9 +11,16 @@ config_version=5
 [application]
 
 config/name="Glasan FX"
+config/description="A simple sound effects tool made with GDSiON."
+config/version="1.0.0"
 run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+run/max_fps=200
+boot_splash/bg_color=Color(0.321569, 0.478431, 0.556863, 1)
+boot_splash/image="res://dist/app-splash.png"
+config/icon="res://icon.png"
+config/windows_native_icon="res://dist/app-icon.ico"
+config/version_flair="stable"
 
 [autoload]
 

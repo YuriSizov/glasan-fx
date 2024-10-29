@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=3 uid="uid://djhb2wcmbh21i"]
+
+[ext_resource type="FontFile" uid="uid://cjwuh3bvsqt57" path="res://assets/fonts/fff-aquarius-bold-condensed.msdf.ttf" id="1_0a0ls"]
+[ext_resource type="PackedScene" uid="uid://dikcn6vh82w0j" path="res://gui/components/TunerSlider.tscn" id="2_w42p0"]
+[ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="3_ot386"]
+[ext_resource type="PackedScene" uid="uid://xob01bdx0r2f" path="res://gui/components/OptionFlipper.tscn" id="4_qlmlf"]
+[ext_resource type="Shader" path="res://gui/components/RollerValueBar.gdshader" id="5_cpidm"]
+
+[sub_resource type="FontVariation" id="FontVariation_p2f2u"]
+base_font = ExtResource("1_0a0ls")
+spacing_glyph = 1
+
+[sub_resource type="FontVariation" id="FontVariation_cg7oa"]
+base_font = ExtResource("1_0a0ls")
+spacing_glyph = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ucmcm"]
+bg_color = Color(0.0545738, 0.0545738, 0.0545737, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7grdx"]
+resource_local_to_scene = true
+shader = ExtResource("5_cpidm")
+shader_parameter/glass_shine_offset = -0.251
+shader_parameter/glass_shine_sharpness = 0.094
+shader_parameter/glass_shine_opaqueness = 0.313
+shader_parameter/vignette_center = 18.002
+shader_parameter/vignette_rim = 0.455
+shader_parameter/vignette_intensity = 1.0
+
+[node name="Splash" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.322693, 0.47974, 0.556532, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 268.0
+offset_top = 259.0
+offset_right = 390.0
+offset_bottom = 284.0
+theme_type_variation = &"BrandingLabel"
+theme_override_colors/font_color = Color(0.847609, 0.814749, 0.807906, 1)
+theme_override_fonts/font = SubResource("FontVariation_p2f2u")
+theme_override_font_sizes/font_size = 12
+text = "make it LOUD!"
+
+[node name="LengthSlider" parent="." instance=ExtResource("2_w42p0")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+offset_left = 134.0
+offset_top = 256.0
+offset_right = 243.0
+offset_bottom = 288.0
+slider_value = 1.0
+left_text = ""
+right_text = ""
+
+[node name="PreviewButton" parent="." instance=ExtResource("3_ot386")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+offset_left = 138.0
+offset_top = 199.0
+offset_right = 311.0
+offset_bottom = 245.0
+theme_override_fonts/font = SubResource("FontVariation_cg7oa")
+theme_override_font_sizes/font_size = 22
+toggle_mode = false
+text = "GLASAN"
+off_color = Color(0.16773, 0.0422966, 0.0934806, 1)
+on_color = Color(0.94733, 0.379137, 0.240869, 1)
+force_glow = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 200.0
+offset_right = 389.0
+offset_bottom = 244.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ucmcm")
+
+[node name="OptionFlipper" parent="." instance=ExtResource("4_qlmlf")]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 206.0
+offset_right = 382.0
+offset_bottom = 238.0
+options = Array[String](["FX"])
+option_colors = Array[Color]([Color(0.860361, 0.828067, 0.748094, 1)])
+option_text_colors = Array[Color]([Color(0.134649, 0.134649, 0.134649, 1)])
+
+[node name="FlipButton" parent="OptionFlipper/Layout" index="0"]
+visible = false
+
+[node name="Overlay" parent="OptionFlipper/Layout/Display" index="0"]
+material = SubResource("ShaderMaterial_7grdx")
+
+[editable path="OptionFlipper"]
