@@ -8,7 +8,6 @@ anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 script = ExtResource("1_4afun")
-short_form = null
 accent_color = Color(0.658824, 0.411765, 0.054902, 1)
 
 [node name="Content" type="PanelContainer" parent="."]
@@ -20,7 +19,7 @@ theme_type_variation = &"WaveShapePanel"
 [node name="Layout" type="HBoxContainer" parent="Content"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_constants/separation = 24
+theme_type_variation = &"HLayoutContainer"
 
 [node name="LabelBox" type="MarginContainer" parent="Content/Layout"]
 layout_mode = 2

@@ -250,7 +250,7 @@ shader_parameter/selection_size = 0.066
 shader_parameter/selection_smoothness = 0.006
 shader_parameter/selection_color = Color(0.710837, 0.283876, 0.25255, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_33us8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mjkw2"]
 resource_local_to_scene = true
 shader = ExtResource("6_l44rt")
 shader_parameter/direction = Vector2(1, 0)
@@ -400,7 +400,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(34, 28)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 7
 toggle_mode = false
 text = ""
 icon = ExtResource("6_r4x0v")
@@ -409,7 +408,7 @@ on_color = Color(0.161746, 0.144835, 0.197189, 1)
 
 [node name="OctaveLabel" parent="Layout/Widgets/Octave" instance=ExtResource("7_g2f1f")]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_33us8")
+material = SubResource("ShaderMaterial_mjkw2")
 custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 text = "01"
@@ -419,7 +418,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(34, 28)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 8
 toggle_mode = false
 text = ""
 icon = ExtResource("9_50rvi")

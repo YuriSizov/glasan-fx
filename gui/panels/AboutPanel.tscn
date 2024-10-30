@@ -72,7 +72,7 @@ layout_mode = 2
 
 [node name="Layout" type="VBoxContainer" parent="Content"]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_type_variation = &"AboutLayoutContainer"
 
 [node name="AboutTitle" type="Label" parent="Content/Layout"]
 layout_mode = 2
@@ -102,10 +102,7 @@ current_tab = 0
 
 [node name="1" type="MarginContainer" parent="Content/Layout/TipsTabs"]
 layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 12
+theme_type_variation = &"TipContainer"
 metadata/_tab_index = 0
 
 [node name="TipsContent" type="RichTextLabel" parent="Content/Layout/TipsTabs/1"]
@@ -122,10 +119,7 @@ custom_effects = [SubResource("RichTextEffect_hrnor"), SubResource("RichTextEffe
 [node name="2" type="MarginContainer" parent="Content/Layout/TipsTabs"]
 visible = false
 layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 12
+theme_type_variation = &"TipContainer"
 metadata/_tab_index = 1
 
 [node name="TipsContent" type="RichTextLabel" parent="Content/Layout/TipsTabs/2"]
@@ -141,10 +135,7 @@ custom_effects = [SubResource("RichTextEffect_hrnor"), SubResource("RichTextEffe
 [node name="3" type="MarginContainer" parent="Content/Layout/TipsTabs"]
 visible = false
 layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 12
+theme_type_variation = &"TipContainer"
 metadata/_tab_index = 2
 
 [node name="TipsContent" type="RichTextLabel" parent="Content/Layout/TipsTabs/3"]
@@ -163,10 +154,7 @@ custom_effects = [SubResource("RichTextEffect_hrnor"), SubResource("RichTextEffe
 [node name="4" type="MarginContainer" parent="Content/Layout/TipsTabs"]
 visible = false
 layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 12
+theme_type_variation = &"TipContainer"
 metadata/_tab_index = 3
 
 [node name="TipsContent" type="RichTextLabel" parent="Content/Layout/TipsTabs/4"]
@@ -182,10 +170,7 @@ custom_effects = [SubResource("RichTextEffect_hrnor"), SubResource("RichTextEffe
 [node name="5" type="MarginContainer" parent="Content/Layout/TipsTabs"]
 visible = false
 layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 12
+theme_type_variation = &"TipContainer"
 metadata/_tab_index = 4
 
 [node name="TipsContent" type="RichTextLabel" parent="Content/Layout/TipsTabs/5"]
@@ -203,10 +188,7 @@ custom_effects = [SubResource("RichTextEffect_hrnor"), SubResource("RichTextEffe
 [node name="6" type="MarginContainer" parent="Content/Layout/TipsTabs"]
 visible = false
 layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 12
+theme_type_variation = &"TipContainer"
 metadata/_tab_index = 5
 
 [node name="TipsContent" type="RichTextLabel" parent="Content/Layout/TipsTabs/6"]

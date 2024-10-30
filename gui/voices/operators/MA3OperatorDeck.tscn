@@ -61,7 +61,7 @@ script = ExtResource("1_hok1a")
 
 [node name="Layout" type="VBoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 24
+theme_type_variation = &"VLayoutContainer"
 
 [node name="WaveShapeFlipper" parent="Layout" instance=ExtResource("2_04a3h")]
 unique_name_in_owner = true

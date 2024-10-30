@@ -23,7 +23,7 @@ theme_type_variation = &"WaveShapePanel"
 [node name="Layout" type="HBoxContainer" parent="Content"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_constants/separation = 24
+theme_type_variation = &"HLayoutContainer"
 
 [node name="ShapeFlipper" parent="Content/Layout" instance=ExtResource("1_qv262")]
 unique_name_in_owner = true

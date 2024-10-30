@@ -50,7 +50,7 @@ layout_mode = 2
 
 [node name="Layout" type="HBoxContainer" parent="Content"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_type_variation = &"HLayoutContainer"
 
 [node name="PreviewBox" type="VBoxContainer" parent="Content/Layout"]
 layout_mode = 2
@@ -69,7 +69,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(36, 28)
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 10
 button_pressed = true
 button_group = ExtResource("5_esah6")
 text = ""
@@ -83,7 +82,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(36, 28)
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 10
 button_group = ExtResource("5_esah6")
 text = ""
 icon = ExtResource("7_3qq8q")
