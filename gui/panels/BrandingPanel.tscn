@@ -6,7 +6,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t4i82"]
 resource_local_to_scene = true
 shader = ExtResource("1_xepf3")
-shader_parameter/size = Vector2(253, 63)
+shader_parameter/size = Vector2(265, 66)
 shader_parameter/light_intensity = 0.0
 shader_parameter/light_smoothness = 0.003
 shader_parameter/light_inverted = 0
@@ -85,7 +85,7 @@ theme_override_colors/font_color = Color(0.656212, 0.701289, 0.713706, 1)
 theme_override_colors/font_shadow_color = Color(0.203922, 0.239216, 0.266667, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
-text = "v1.0"
+text = "v1.1"
 
 [node name="Spacer" type="Control" parent="Content/Layout/Remarks"]
 custom_minimum_size = Vector2(12, 0)
