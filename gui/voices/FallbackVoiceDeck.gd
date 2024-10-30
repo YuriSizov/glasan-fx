@@ -8,11 +8,8 @@ class_name FallbackVoiceDeck extends BaseVoiceDeck
 
 const KNOB_SCENE := preload("res://gui/components/knobs/KnobControl.tscn")
 
-@onready var _randomize_button: Button = %RandomizeButton
-
-@onready var _add_operator_button: Button = %AddOperatorButton
-@onready var _remove_operator_button: Button = %RemOperatorButton
-@onready var _operator_indicator: OperatorIndicator = %OperatorIndicator
+@onready var _voice_header: VoiceDeckHeader = %VoiceHeader
+@onready var _operators_header: VoiceOperatorsHeader = %OperatorsHeader
 
 @onready var _volume_knob_control: KnobControl = %VolumeKnob
 @onready var _channel_knobs_container: VBoxContainer = %ChannelKnobs
@@ -23,15 +20,15 @@ func _ready() -> void:
 	_update_knobs()
 	voice_changed.connect(_update_knobs)
 
-	_add_operator_button.pressed.connect(func() -> void:
+	_operators_header.add_operator_pressed.connect(func() -> void:
 		if voice:
 			voice.add_operator()
 	)
-	_remove_operator_button.pressed.connect(func() -> void:
+	_operators_header.remove_operator_pressed.connect(func() -> void:
 		if voice:
 			voice.remove_operator()
 	)
-	_randomize_button.pressed.connect(func() -> void:
+	_voice_header.randomize_pressed.connect(func() -> void:
 		if voice:
 			voice.randomize_voice()
 	)
@@ -71,7 +68,7 @@ func _update_knobs() -> void:
 
 	# Create operator knobs for each operator.
 
-	_operator_indicator.operator_count = voice.get_operator_count()
+	_operators_header.operator_count = voice.get_operator_count()
 
 	for i in voice.get_operator_count():
 		var operator_data := voice.get_operator_data(i)

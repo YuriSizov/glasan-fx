@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://duig5v2saqys2"]
+
+[ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="1_msi6i"]
+[ext_resource type="Script" path="res://gui/components/deck/VoiceDeckHeader.gd" id="1_x0dr6"]
+[ext_resource type="Texture2D" uid="uid://5xx0foji2sxq" path="res://assets/icons/random.png" id="2_mw2re"]
+
+[node name="VoiceDeckHeader" type="MarginContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 37.0
+grow_horizontal = 2
+script = ExtResource("1_x0dr6")
+
+[node name="Layout" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VoiceName" type="Label" parent="Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+text = "UNKNOWN VOICE"
+
+[node name="Filler" type="Control" parent="Layout"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LoudWarningLabel" type="Label" parent="Layout"]
+layout_mode = 2
+theme_type_variation = &"LoudWarningLabel"
+text = "Warning: Random sounds can be startling
+or unpleasant in some cases."
+
+[node name="RandomizeButton" parent="Layout" instance=ExtResource("1_msi6i")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 36)
+layout_mode = 2
+size_flags_vertical = 0
+toggle_mode = false
+text = ""
+icon = ExtResource("2_mw2re")
+off_color = Color(0.0201567, 0.0580001, 0.0982109, 1)
+on_color = Color(0.168063, 0.284057, 0.515991, 1)
+force_glow = true

@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://dunu7j0jh1pne"]
+
+[ext_resource type="PackedScene" uid="uid://61k8mkj3i0d3" path="res://gui/components/deck/OperatorIndicator.tscn" id="1_7ymjd"]
+[ext_resource type="Script" path="res://gui/components/deck/VoiceOperatorsHeader.gd" id="1_pe1qc"]
+[ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="2_jl812"]
+
+[node name="VoiceOperatorsHeader" type="MarginContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 30.0
+grow_horizontal = 2
+script = ExtResource("1_pe1qc")
+
+[node name="Layout" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Layout"]
+layout_mode = 2
+text = "OPERATORS"
+
+[node name="Filler" type="Control" parent="Layout"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OperatorIndicator" parent="Layout" instance=ExtResource("1_7ymjd")]
+unique_name_in_owner = true
+layout_mode = 2
+operator_count = 1
+
+[node name="AddOperatorButton" parent="Layout" instance=ExtResource("2_jl812")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(68, 30)
+layout_mode = 2
+toggle_mode = false
+text = "ADD"
+off_color = Color(0.0784314, 0.0862745, 0.113725, 1)
+
+[node name="RemOperatorButton" parent="Layout" instance=ExtResource("2_jl812")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(68, 30)
+layout_mode = 2
+toggle_mode = false
+text = "REM"
+off_color = Color(0.0784314, 0.0862745, 0.113725, 1)

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dv608rynpxip0"]
 
 [ext_resource type="Script" path="res://gui/voices/FallbackVoiceDeck.gd" id="1_jbit7"]
+[ext_resource type="PackedScene" uid="uid://duig5v2saqys2" path="res://gui/components/deck/VoiceDeckHeader.tscn" id="2_r3ag6"]
 [ext_resource type="PackedScene" uid="uid://kvxy6miofpxj" path="res://gui/components/knobs/KnobControl.tscn" id="2_tnnyd"]
-[ext_resource type="PackedScene" uid="uid://61k8mkj3i0d3" path="res://gui/components/deck/OperatorIndicator.tscn" id="3_c3eu8"]
-[ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="4_yhjep"]
+[ext_resource type="PackedScene" uid="uid://dunu7j0jh1pne" path="res://gui/components/deck/VoiceOperatorsHeader.tscn" id="4_sntxt"]
 
 [node name="FallbackVoiceDeck" type="PanelContainer"]
 anchors_preset = 15
@@ -17,27 +17,17 @@ script = ExtResource("1_jbit7")
 [node name="Layout" type="VBoxContainer" parent="."]
 layout_mode = 2
 
+[node name="VoiceHeader" parent="Layout" instance=ExtResource("2_r3ag6")]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="VoiceControls" type="HBoxContainer" parent="Layout"]
 layout_mode = 2
-alignment = 1
 
 [node name="VolumeKnob" parent="Layout/VoiceControls" instance=ExtResource("2_tnnyd")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
-
-[node name="Filler" type="Control" parent="Layout/VoiceControls"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="RandomizeButton" parent="Layout/VoiceControls" instance=ExtResource("4_yhjep")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 36)
-layout_mode = 2
-size_flags_vertical = 0
-toggle_mode = false
-text = "RAND"
-off_color = Color(0.0784314, 0.0862745, 0.113725, 1)
 
 [node name="ChannelSeparator" type="HSeparator" parent="Layout"]
 custom_minimum_size = Vector2(0, 20)
@@ -56,39 +46,10 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="OperatorControls" type="MarginContainer" parent="Layout"]
-layout_mode = 2
-
-[node name="Layout" type="HBoxContainer" parent="Layout/OperatorControls"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Layout/OperatorControls/Layout"]
-layout_mode = 2
-text = "OPERATORS"
-
-[node name="Filler" type="Control" parent="Layout/OperatorControls/Layout"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="OperatorIndicator" parent="Layout/OperatorControls/Layout" instance=ExtResource("3_c3eu8")]
+[node name="OperatorsHeader" parent="Layout" instance=ExtResource("4_sntxt")]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="AddOperatorButton" parent="Layout/OperatorControls/Layout" instance=ExtResource("4_yhjep")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(68, 30)
-layout_mode = 2
-toggle_mode = false
-text = "ADD"
-off_color = Color(0.0784314, 0.0862745, 0.113725, 1)
-
-[node name="RemOperatorButton" parent="Layout/OperatorControls/Layout" instance=ExtResource("4_yhjep")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(68, 30)
-layout_mode = 2
-toggle_mode = false
-text = "REM"
-off_color = Color(0.0784314, 0.0862745, 0.113725, 1)
+operator_count = 1
 
 [node name="OperatorKnobs" type="TabContainer" parent="Layout"]
 unique_name_in_owner = true

@@ -10,17 +10,14 @@ const OPERATOR_SCENE := preload("res://gui/voices/operators/SiOPMOperatorDeck.ts
 
 var _instantiated_operators: Array[SiOPMOperatorDeck] = []
 
-@onready var _randomize_button: Button = %RandomizeButton
-
-@onready var _add_operator_button: Button = %AddOperatorButton
-@onready var _remove_operator_button: Button = %RemOperatorButton
-@onready var _operator_indicator: OperatorIndicator = %OperatorIndicator
+@onready var _voice_header: VoiceDeckHeader = %VoiceHeader
 
 @onready var _volume_knob: RollerKnob = %VolumeKnob
 @onready var _feedback_knob: RollerKnob = %FeedbackKnob
 @onready var _algorithm_knob: RollerKnob = %AlgorithmKnob
 @onready var _connections_knob: RollerKnob = %ConnectionsKnob
 
+@onready var _operators_header: VoiceOperatorsHeader = %OperatorsHeader
 @onready var _operator_container: TabContainer = %Operators
 
 
@@ -35,15 +32,15 @@ func _ready() -> void:
 	_update_knobs()
 	voice_changed.connect(_update_knobs)
 
-	_add_operator_button.pressed.connect(func() -> void:
+	_operators_header.add_operator_pressed.connect(func() -> void:
 		if voice:
 			voice.add_operator()
 	)
-	_remove_operator_button.pressed.connect(func() -> void:
+	_operators_header.remove_operator_pressed.connect(func() -> void:
 		if voice:
 			voice.remove_operator()
 	)
-	_randomize_button.pressed.connect(func() -> void:
+	_voice_header.randomize_pressed.connect(func() -> void:
 		if voice:
 			voice.randomize_voice()
 	)
@@ -75,7 +72,7 @@ func _update_knobs() -> void:
 
 	# Operator knobs.
 
-	_operator_indicator.operator_count = voice.get_operator_count()
+	_operators_header.operator_count = voice.get_operator_count()
 
 	var extra_index := voice.get_operator_count()
 	while extra_index < _operator_container.get_child_count():
