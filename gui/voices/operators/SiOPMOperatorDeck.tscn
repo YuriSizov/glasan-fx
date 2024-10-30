@@ -1,10 +1,10 @@
 [gd_scene load_steps=20 format=3 uid="uid://y6raidijduyh"]
 
 [ext_resource type="Script" path="res://gui/voices/operators/SiOPMOperatorDeck.gd" id="1_t5m5s"]
-[ext_resource type="PackedScene" uid="uid://bhp4lawy57tyu" path="res://gui/components/WaveShapeFlipper.tscn" id="2_fuvac"]
-[ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/RollerKnob.tscn" id="3_fp7fs"]
-[ext_resource type="Shader" path="res://gui/components/RollerPanel.gdshader" id="4_ao5p7"]
-[ext_resource type="PackedScene" uid="uid://dikcn6vh82w0j" path="res://gui/components/TunerSlider.tscn" id="5_bhbgb"]
+[ext_resource type="PackedScene" uid="uid://bhp4lawy57tyu" path="res://gui/components/deck/WaveShapeFlipper.tscn" id="2_fuvac"]
+[ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/knobs/RollerKnob.tscn" id="3_fp7fs"]
+[ext_resource type="Shader" path="res://gui/components/knobs/RollerPanel.gdshader" id="4_ao5p7"]
+[ext_resource type="PackedScene" uid="uid://dikcn6vh82w0j" path="res://gui/components/knobs/TunerSlider.tscn" id="5_bhbgb"]
 [ext_resource type="Script" path="res://gui/components/AdvancedPanelContainer.gd" id="5_va7lc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7wdfr"]

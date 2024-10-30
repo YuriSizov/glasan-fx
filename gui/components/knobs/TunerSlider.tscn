@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dikcn6vh82w0j"]
 
-[ext_resource type="Script" path="res://gui/components/TunerSlider.gd" id="1_7j2t2"]
-[ext_resource type="Shader" path="res://gui/components/TunerSlider.gdshader" id="2_go0hr"]
+[ext_resource type="Script" path="res://gui/components/knobs/TunerSlider.gd" id="1_7j2t2"]
+[ext_resource type="Shader" path="res://gui/components/knobs/TunerSlider.gdshader" id="2_go0hr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8md04"]
 content_margin_left = 8.0

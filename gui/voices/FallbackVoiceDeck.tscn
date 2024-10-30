@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dv608rynpxip0"]
 
 [ext_resource type="Script" path="res://gui/voices/FallbackVoiceDeck.gd" id="1_jbit7"]
-[ext_resource type="PackedScene" uid="uid://kvxy6miofpxj" path="res://gui/components/KnobControl.tscn" id="2_tnnyd"]
-[ext_resource type="PackedScene" uid="uid://61k8mkj3i0d3" path="res://gui/components/OperatorIndicator.tscn" id="3_c3eu8"]
+[ext_resource type="PackedScene" uid="uid://kvxy6miofpxj" path="res://gui/components/knobs/KnobControl.tscn" id="2_tnnyd"]
+[ext_resource type="PackedScene" uid="uid://61k8mkj3i0d3" path="res://gui/components/deck/OperatorIndicator.tscn" id="3_c3eu8"]
 [ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="4_yhjep"]
 
 [node name="FallbackVoiceDeck" type="PanelContainer"]

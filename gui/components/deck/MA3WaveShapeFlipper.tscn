@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bv27s8atrraj0"]
 
-[ext_resource type="Script" path="res://gui/components/MA3WaveShapeFlipper.gd" id="1_4afun"]
-[ext_resource type="PackedScene" uid="uid://ce7ysl70seujv" path="res://gui/components/WaveShapeButton.tscn" id="2_j8y72"]
+[ext_resource type="Script" path="res://gui/components/deck/MA3WaveShapeFlipper.gd" id="1_4afun"]
+[ext_resource type="PackedScene" uid="uid://ce7ysl70seujv" path="res://gui/components/deck/WaveShapeButton.tscn" id="2_j8y72"]
 
 [node name="MA3WaveShapeFlipper" type="MarginContainer"]
 anchors_preset = 10

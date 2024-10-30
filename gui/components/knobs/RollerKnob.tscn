@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://dgr0kta03k8ic"]
 
-[ext_resource type="Script" path="res://gui/components/RollerKnob.gd" id="1_0fm8q"]
-[ext_resource type="Shader" path="res://gui/components/RollerPanel.gdshader" id="1_5488n"]
-[ext_resource type="Shader" path="res://gui/components/RollerKnob.gdshader" id="1_ud2w6"]
-[ext_resource type="Shader" path="res://gui/components/RollerValueBar.gdshader" id="2_g5ifw"]
+[ext_resource type="Script" path="res://gui/components/knobs/RollerKnob.gd" id="1_0fm8q"]
+[ext_resource type="Shader" path="res://gui/components/knobs/RollerPanel.gdshader" id="1_5488n"]
+[ext_resource type="Shader" path="res://gui/components/knobs/RollerKnob.gdshader" id="1_ud2w6"]
+[ext_resource type="Shader" path="res://gui/components/knobs/RollerValueBar.gdshader" id="2_g5ifw"]
 [ext_resource type="Shader" path="res://gui/components/GlowLabel.gdshader" id="2_qp70s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8a7lm"]

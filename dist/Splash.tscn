@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://djhb2wcmbh21i"]
 
 [ext_resource type="FontFile" uid="uid://cjwuh3bvsqt57" path="res://assets/fonts/fff-aquarius-bold-condensed.msdf.ttf" id="1_0a0ls"]
-[ext_resource type="PackedScene" uid="uid://dikcn6vh82w0j" path="res://gui/components/TunerSlider.tscn" id="2_w42p0"]
+[ext_resource type="PackedScene" uid="uid://dikcn6vh82w0j" path="res://gui/components/knobs/TunerSlider.tscn" id="2_w42p0"]
 [ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="3_ot386"]
-[ext_resource type="PackedScene" uid="uid://xob01bdx0r2f" path="res://gui/components/OptionFlipper.tscn" id="4_qlmlf"]
-[ext_resource type="Shader" path="res://gui/components/RollerValueBar.gdshader" id="5_cpidm"]
+[ext_resource type="PackedScene" uid="uid://xob01bdx0r2f" path="res://gui/components/knobs/OptionFlipper.tscn" id="4_qlmlf"]
+[ext_resource type="Shader" path="res://gui/components/knobs/RollerValueBar.gdshader" id="5_cpidm"]
 
 [sub_resource type="FontVariation" id="FontVariation_p2f2u"]
 base_font = ExtResource("1_0a0ls")

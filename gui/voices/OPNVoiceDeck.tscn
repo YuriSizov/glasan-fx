@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://gui/voices/OPNVoiceDeck.gd" id="1_kq4rb"]
 [ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="2_nounr"]
 [ext_resource type="Texture2D" uid="uid://5xx0foji2sxq" path="res://assets/icons/random.png" id="3_b2684"]
-[ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/RollerKnob.tscn" id="4_apn78"]
-[ext_resource type="Shader" path="res://gui/components/RollerPanel.gdshader" id="5_cvp6c"]
-[ext_resource type="PackedScene" uid="uid://61k8mkj3i0d3" path="res://gui/components/OperatorIndicator.tscn" id="6_jehgt"]
+[ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/knobs/RollerKnob.tscn" id="4_apn78"]
+[ext_resource type="Shader" path="res://gui/components/knobs/RollerPanel.gdshader" id="5_cvp6c"]
+[ext_resource type="PackedScene" uid="uid://61k8mkj3i0d3" path="res://gui/components/deck/OperatorIndicator.tscn" id="6_jehgt"]
 [ext_resource type="PackedScene" uid="uid://bchlniqv0d5c0" path="res://gui/voices/operators/OPNOperatorDeck.tscn" id="7_7fn0p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gqo1d"]

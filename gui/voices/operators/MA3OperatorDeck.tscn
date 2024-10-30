@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://bh0blnc4tvqx8"]
 
 [ext_resource type="Script" path="res://gui/voices/operators/MA3OperatorDeck.gd" id="1_hok1a"]
-[ext_resource type="PackedScene" uid="uid://bv27s8atrraj0" path="res://gui/components/MA3WaveShapeFlipper.tscn" id="2_04a3h"]
-[ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/RollerKnob.tscn" id="2_cptdl"]
-[ext_resource type="Shader" path="res://gui/components/RollerPanel.gdshader" id="3_w6i77"]
+[ext_resource type="PackedScene" uid="uid://bv27s8atrraj0" path="res://gui/components/deck/MA3WaveShapeFlipper.tscn" id="2_04a3h"]
+[ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/knobs/RollerKnob.tscn" id="2_cptdl"]
+[ext_resource type="Shader" path="res://gui/components/knobs/RollerPanel.gdshader" id="3_w6i77"]
 [ext_resource type="Script" path="res://gui/components/AdvancedPanelContainer.gd" id="4_tcuy6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_44kfa"]

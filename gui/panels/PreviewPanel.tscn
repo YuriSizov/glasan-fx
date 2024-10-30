@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://gui/panels/PreviewPanel.gd" id="1_iu5lk"]
 [ext_resource type="Shader" path="res://gui/panels/PlasticPanel.gdshader" id="2_mypj1"]
-[ext_resource type="PackedScene" uid="uid://diuy5hd43hen1" path="res://gui/components/PreviewArea.tscn" id="3_80051"]
+[ext_resource type="PackedScene" uid="uid://diuy5hd43hen1" path="res://gui/components/preview/PreviewArea.tscn" id="3_80051"]
 [ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="4_6wcbg"]
 [ext_resource type="ButtonGroup" uid="uid://d0pkexvqrisnr" path="res://gui/panels/preview_mode_buttons.tres" id="5_esah6"]
-[ext_resource type="PackedScene" uid="uid://c8ld4mgspflab" path="res://gui/components/PianoRoll.tscn" id="6_n0eq7"]
+[ext_resource type="PackedScene" uid="uid://c8ld4mgspflab" path="res://gui/components/preview/PianoRoll.tscn" id="6_n0eq7"]
 [ext_resource type="Texture2D" uid="uid://b2hw84cycw44p" path="res://assets/icons/preview_spectrum.png" id="6_v5jen"]
 [ext_resource type="Texture2D" uid="uid://pgrn4gxrbv6f" path="res://assets/icons/preview_wave.png" id="7_3qq8q"]
 [ext_resource type="Texture2D" uid="uid://bq8vnmnxffpd8" path="res://assets/icons/note_short.png" id="9_42j20"]
-[ext_resource type="PackedScene" uid="uid://dikcn6vh82w0j" path="res://gui/components/TunerSlider.tscn" id="9_oxqnu"]
+[ext_resource type="PackedScene" uid="uid://dikcn6vh82w0j" path="res://gui/components/knobs/TunerSlider.tscn" id="9_oxqnu"]
 [ext_resource type="Texture2D" uid="uid://p81ts0mx0n86" path="res://assets/icons/note_long.png" id="10_ddmd4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i1p27"]

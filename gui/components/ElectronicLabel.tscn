@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://chq8boo5j014r"]
 
 [ext_resource type="Shader" path="res://gui/components/GlowLabel.gdshader" id="1_sbimf"]
-[ext_resource type="Shader" path="res://gui/components/RollerValueBar.gdshader" id="2_8els3"]
+[ext_resource type="Shader" path="res://gui/components/knobs/RollerValueBar.gdshader" id="2_8els3"]
 [ext_resource type="Script" path="res://gui/components/ElectronicLabel.gd" id="2_mhaau"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vresl"]

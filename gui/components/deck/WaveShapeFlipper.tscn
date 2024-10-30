@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bhp4lawy57tyu"]
 
-[ext_resource type="Script" path="res://gui/components/WaveShapeFlipper.gd" id="1_bmdos"]
-[ext_resource type="PackedScene" uid="uid://xob01bdx0r2f" path="res://gui/components/OptionFlipper.tscn" id="1_qv262"]
-[ext_resource type="PackedScene" uid="uid://ce7ysl70seujv" path="res://gui/components/WaveShapeButton.tscn" id="3_qqkmf"]
-[ext_resource type="PackedScene" uid="uid://dikcn6vh82w0j" path="res://gui/components/TunerSlider.tscn" id="4_j3nlv"]
+[ext_resource type="Script" path="res://gui/components/deck/WaveShapeFlipper.gd" id="1_bmdos"]
+[ext_resource type="PackedScene" uid="uid://xob01bdx0r2f" path="res://gui/components/knobs/OptionFlipper.tscn" id="1_qv262"]
+[ext_resource type="PackedScene" uid="uid://ce7ysl70seujv" path="res://gui/components/deck/WaveShapeButton.tscn" id="3_qqkmf"]
+[ext_resource type="PackedScene" uid="uid://dikcn6vh82w0j" path="res://gui/components/knobs/TunerSlider.tscn" id="4_j3nlv"]
 [ext_resource type="Texture2D" uid="uid://ber36dnp6skmi" path="res://assets/icons/ramp_up.png" id="5_0jpeo"]
 [ext_resource type="Texture2D" uid="uid://dtbjps1isknbg" path="res://assets/icons/ramp_down.png" id="6_5jg4m"]
 

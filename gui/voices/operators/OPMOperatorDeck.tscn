@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://b7yhrc8mk6pxd"]
 
 [ext_resource type="Script" path="res://gui/voices/operators/OPMOperatorDeck.gd" id="1_n5ehm"]
-[ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/RollerKnob.tscn" id="2_ufwvu"]
-[ext_resource type="Shader" path="res://gui/components/RollerPanel.gdshader" id="3_mpokn"]
+[ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/knobs/RollerKnob.tscn" id="2_ufwvu"]
+[ext_resource type="Shader" path="res://gui/components/knobs/RollerPanel.gdshader" id="3_mpokn"]
 [ext_resource type="Script" path="res://gui/components/AdvancedPanelContainer.gd" id="4_g0ehk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wwjw1"]

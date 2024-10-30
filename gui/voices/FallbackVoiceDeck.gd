@@ -6,7 +6,7 @@
 
 class_name FallbackVoiceDeck extends BaseVoiceDeck
 
-const KNOB_SCENE := preload("res://gui/components/KnobControl.tscn")
+const KNOB_SCENE := preload("res://gui/components/knobs/KnobControl.tscn")
 
 @onready var _randomize_button: Button = %RandomizeButton
 

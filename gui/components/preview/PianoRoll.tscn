@@ -1,9 +1,9 @@
 [gd_scene load_steps=23 format=3 uid="uid://c8ld4mgspflab"]
 
-[ext_resource type="Script" path="res://gui/components/PianoRoll.gd" id="1_nfgs2"]
-[ext_resource type="Script" path="res://gui/components/PianoContainer.gd" id="2_kmleb"]
-[ext_resource type="PackedScene" uid="uid://dt8h6osxvf3im" path="res://gui/components/PianoKey.tscn" id="3_5hvlp"]
-[ext_resource type="Shader" path="res://gui/components/PianoKey.gdshader" id="4_6grup"]
+[ext_resource type="Script" path="res://gui/components/preview/PianoRoll.gd" id="1_nfgs2"]
+[ext_resource type="Script" path="res://gui/components/preview/PianoContainer.gd" id="2_kmleb"]
+[ext_resource type="PackedScene" uid="uid://dt8h6osxvf3im" path="res://gui/components/preview/PianoKey.tscn" id="3_5hvlp"]
+[ext_resource type="Shader" path="res://gui/components/preview/PianoKey.gdshader" id="4_6grup"]
 [ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="5_cudr8"]
 [ext_resource type="Shader" path="res://gui/components/GlowLabel.gdshader" id="6_l44rt"]
 [ext_resource type="Texture2D" uid="uid://dpqpjg2tljk2q" path="res://assets/icons/arrow_up.png" id="6_r4x0v"]

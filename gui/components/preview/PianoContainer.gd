@@ -9,7 +9,7 @@ class_name PianoContainer extends Container
 
 signal key_pressed(key_index: int)
 
-const KEY_SCENE := preload("res://gui/components/PianoKey.tscn")
+const KEY_SCENE := preload("res://gui/components/preview/PianoKey.tscn")
 
 @export_range(0, 12, 1, "or_greater") var number_of_keys: int = 12:
 	set = set_number_of_keys

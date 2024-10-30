@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://61k8mkj3i0d3"]
 
 [ext_resource type="Shader" path="res://gui/components/GlowLabel.gdshader" id="1_kt6il"]
-[ext_resource type="Script" path="res://gui/components/OperatorIndicator.gd" id="1_mbdna"]
+[ext_resource type="Script" path="res://gui/components/deck/OperatorIndicator.gd" id="1_mbdna"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4wj0h"]
 shader = ExtResource("1_kt6il")
