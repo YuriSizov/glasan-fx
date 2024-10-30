@@ -18,7 +18,7 @@ const KEY_SCENE := preload("res://gui/components/preview/PianoKey.tscn")
 @export var reset_keys: bool:
 	set = set_reset_keys
 
-var _valid_children: int = 0
+var _valid_children: Array[Control] = []
 var _light_children: Array[Control] = []
 var _dark_children: Array[Control] = []
 
@@ -86,6 +86,7 @@ func _get_minimum_size() -> Vector2:
 	var min_size := Vector2.ZERO
 	var child_index := 0
 
+	_valid_children.clear()
 	_light_children.clear()
 	_dark_children.clear()
 
@@ -107,9 +108,9 @@ func _get_minimum_size() -> Vector2:
 		else:
 			_dark_children.push_back(child_control)
 
+		_valid_children.push_back(child_control)
 		child_index += 1
 
-	_valid_children = child_index
 	return min_size
 
 
@@ -141,7 +142,7 @@ func _sort_children() -> void:
 			child_rect.position.x -= child_rect.size.x / 2.0
 
 		# Give the last child the remainder.
-		if child_index == (_valid_children - 1):
+		if child_index == (_valid_children.size() - 1):
 			child_rect.size.x = size.x - child_offset.x
 
 		fit_child_in_rect(key, child_rect)
@@ -156,6 +157,8 @@ func _sort_children() -> void:
 			child_offset.x += floorf(child_rect.size.x)
 		child_index += 1
 
+
+# Key management.
 
 func set_number_of_keys(value: int) -> void:
 	if number_of_keys == value:

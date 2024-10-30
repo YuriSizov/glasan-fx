@@ -32,6 +32,13 @@ func _notification(what: int) -> void:
 			_file_dialog.queue_free()
 
 
+func _shortcut_input(event: InputEvent) -> void:
+	if event.is_action_pressed("glasan_randomize_voice", false, true):
+		voice_manager.randomize_current_voice()
+	elif event.is_action_pressed("glasan_play_note", false, true):
+		voice_manager.play_sample()
+
+
 # Dialog management.
 
 func get_file_dialog() -> FileDialog:

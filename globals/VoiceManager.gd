@@ -99,6 +99,13 @@ func change_voice_type(type: int) -> void:
 	voice_changed.emit()
 
 
+func randomize_current_voice() -> void:
+	if not _current_voice:
+		return
+
+	_current_voice.randomize_voice()
+
+
 # Sample management.
 
 func get_sample_params() -> Sample:

@@ -28,6 +28,21 @@ func _ready() -> void:
 	_octave_down_button.pressed.connect(_shift_octave.bind(-1))
 
 
+func _shortcut_input(event: InputEvent) -> void:
+	if event.is_action_pressed("glasan_octave_up", false, true):
+		_shift_octave(1)
+	elif event.is_action_pressed("glasan_octave_down", false, true):
+		_shift_octave(-1)
+
+	for i in Note.MAX:
+		var action_name := &"glasan_play_key%d" % [ i ]
+		if event.is_action_pressed(action_name, false, true):
+			_change_note(i)
+			break
+
+
+# Property management.
+
 func set_note_value(value: int) -> void:
 	if note_value == value:
 		return
