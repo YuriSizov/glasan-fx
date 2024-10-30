@@ -1,0 +1,146 @@
+[gd_scene load_steps=12 format=3 uid="uid://hqtpm3a6ykn4"]
+
+[ext_resource type="Script" path="res://gui/panels/SettingsPanel.gd" id="1_6126i"]
+[ext_resource type="Shader" path="res://gui/panels/PlasticPanel.gdshader" id="2_rxkyi"]
+[ext_resource type="Script" path="res://gui/components/text_effects/AccentedContentEffect.gd" id="3_3ixdy"]
+[ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="3_4ikp2"]
+[ext_resource type="Script" path="res://gui/components/text_effects/HighlightedContentEffect.gd" id="4_2gy8u"]
+[ext_resource type="Script" path="res://gui/components/text_effects/MetaContentEffect.gd" id="5_ceu84"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3jmxr"]
+resource_local_to_scene = true
+shader = ExtResource("2_rxkyi")
+shader_parameter/size = Vector2(800, 1024)
+shader_parameter/light_intensity = 0.0
+shader_parameter/light_smoothness = 0.003
+shader_parameter/light_inverted = 0
+shader_parameter/border_width = 0
+shader_parameter/border_smoothness = 0.05
+shader_parameter/bolt_offset = Vector2(11, 11)
+shader_parameter/bolt_scale = 10.0
+shader_parameter/bolt_size = 0.45
+shader_parameter/bolt_smoothness = 0.07
+shader_parameter/bolt_thickness = 0.25
+shader_parameter/bolt_visibility = 0.25
+shader_parameter/bolt_shine_offset = 21.0
+shader_parameter/bolt_shine_strength = 7.0
+shader_parameter/bolt_shine_reduction = 2.5
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_84yqr"]
+resource_local_to_scene = false
+resource_name = "ScaleButtons"
+allow_unpress = true
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_rlffm"]
+script = ExtResource("3_3ixdy")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_w4c3v"]
+script = ExtResource("4_2gy8u")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_gx3ca"]
+script = ExtResource("5_ceu84")
+
+[node name="SettingsPanel" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"AboutPanel"
+script = ExtResource("1_6126i")
+
+[node name="Background" type="Panel" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_3jmxr")
+layout_mode = 2
+
+[node name="Content" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Layout" type="VBoxContainer" parent="Content"]
+layout_mode = 2
+theme_type_variation = &"AboutLayoutContainer"
+
+[node name="SettingsSection" type="VBoxContainer" parent="Content/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SettingsTitle" type="Label" parent="Content/Layout/SettingsSection"]
+layout_mode = 2
+text = "APPLICATION SETTINGS"
+
+[node name="SettingsBox" type="VBoxContainer" parent="Content/Layout/SettingsSection"]
+layout_mode = 2
+
+[node name="ScaleSetting" type="HBoxContainer" parent="Content/Layout/SettingsSection/SettingsBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Content/Layout/SettingsSection/SettingsBox/ScaleSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "GUI SCALE"
+
+[node name="PanelContainer" type="PanelContainer" parent="Content/Layout/SettingsSection/SettingsBox/ScaleSetting"]
+layout_mode = 2
+theme_type_variation = &"MenuPanelHighlight"
+
+[node name="ScaleButtons" type="HBoxContainer" parent="Content/Layout/SettingsSection/SettingsBox/ScaleSetting/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Scale100Button" parent="Content/Layout/SettingsSection/SettingsBox/ScaleSetting/PanelContainer/ScaleButtons" instance=ExtResource("3_4ikp2")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(76, 26)
+layout_mode = 2
+button_pressed = true
+button_group = SubResource("ButtonGroup_84yqr")
+text = "100%"
+off_color = Color(0.117647, 0.0862745, 0.0470588, 1)
+on_color = Color(0.778885, 0.509897, 0.126694, 1)
+
+[node name="Scale125Button" parent="Content/Layout/SettingsSection/SettingsBox/ScaleSetting/PanelContainer/ScaleButtons" instance=ExtResource("3_4ikp2")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(76, 26)
+layout_mode = 2
+button_group = SubResource("ButtonGroup_84yqr")
+text = "125%"
+off_color = Color(0.117647, 0.0862745, 0.0470588, 1)
+on_color = Color(0.778885, 0.509897, 0.126694, 1)
+
+[node name="Scale150Button" parent="Content/Layout/SettingsSection/SettingsBox/ScaleSetting/PanelContainer/ScaleButtons" instance=ExtResource("3_4ikp2")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(76, 26)
+layout_mode = 2
+button_group = SubResource("ButtonGroup_84yqr")
+text = "150%"
+off_color = Color(0.117647, 0.0862745, 0.0470588, 1)
+on_color = Color(0.778885, 0.509897, 0.126694, 1)
+
+[node name="Scale200Button" parent="Content/Layout/SettingsSection/SettingsBox/ScaleSetting/PanelContainer/ScaleButtons" instance=ExtResource("3_4ikp2")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(76, 26)
+layout_mode = 2
+button_group = SubResource("ButtonGroup_84yqr")
+text = "200%"
+off_color = Color(0.117647, 0.0862745, 0.0470588, 1)
+on_color = Color(0.778885, 0.509897, 0.126694, 1)
+
+[node name="Separator" type="HSeparator" parent="Content/Layout"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ShortcutsSection" type="VBoxContainer" parent="Content/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShortcutsTitle" type="Label" parent="Content/Layout/ShortcutsSection"]
+layout_mode = 2
+text = "HOTKEYS"
+
+[node name="ShortcutsContent" type="RichTextLabel" parent="Content/Layout/ShortcutsSection"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_rlffm"), SubResource("RichTextEffect_w4c3v"), SubResource("RichTextEffect_gx3ca")]

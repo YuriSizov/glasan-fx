@@ -118,8 +118,8 @@ layout_mode = 2
 theme_type_variation = &"BlamButton"
 toggle_mode = false
 text = "BLAM!"
-off_color = Color(0.136711, 0.0804561, 0.00542678, 1)
-on_color = Color(0.760784, 0.521569, 0.121569, 1)
+off_color = Color(0.118164, 0.0873984, 0.0467426, 1)
+on_color = Color(0.778885, 0.509897, 0.126694, 1)
 force_glow = true
 
 [node name="PianoRoll" parent="Content/Layout/Controls" instance=ExtResource("6_n0eq7")]

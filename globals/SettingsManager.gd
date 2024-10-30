@@ -13,14 +13,6 @@ signal settings_loaded()
 signal gui_scale_changed()
 signal fullscreen_changed()
 
-enum GUIScale {
-	GUI_SCALE_75  = 75,
-	GUI_SCALE_100 = 100,
-	GUI_SCALE_125 = 125,
-	GUI_SCALE_150 = 150,
-	GUI_SCALE_175 = 175,
-	GUI_SCALE_200 = 200,
-}
 # Custom values are allowed, but must be reasonably restricted.
 const GUI_SCALE_MIN := 50
 const GUI_SCALE_MAX := 300
@@ -31,7 +23,7 @@ var _stored_file: ConfigFile = null
 var _stored_timer: SceneTreeTimer = null
 
 # Settings: GUI.
-var _gui_scale: int = GUIScale.GUI_SCALE_100
+var _gui_scale: int = 100
 var _fullscreen: bool = false
 var _windowed_size: Vector2 = Vector2.ZERO
 var _windowed_maximized: bool = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://csvlj30uivol0"]
+[gd_scene load_steps=9 format=3 uid="uid://csvlj30uivol0"]
 
 [ext_resource type="PackedScene" uid="uid://dytaho2ekhxdh" path="res://gui/panels/BrandingPanel.tscn" id="1_c3g5b"]
 [ext_resource type="Script" path="res://Main.gd" id="1_lckxc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://byabb6ha5p7xn" path="res://gui/panels/VoicePanel.tscn" id="2_tet0f"]
 [ext_resource type="PackedScene" uid="uid://coofo7rkc326b" path="res://gui/panels/VoiceTypesPanel.tscn" id="6_ft6g3"]
 [ext_resource type="PackedScene" uid="uid://nqrgyy3w02dg" path="res://gui/panels/AboutPanel.tscn" id="7_h1p6w"]
+[ext_resource type="PackedScene" uid="uid://hqtpm3a6ykn4" path="res://gui/panels/SettingsPanel.tscn" id="8_odrn6"]
 
 [node name="Main" type="MarginContainer"]
 anchors_preset = 15
@@ -82,5 +83,15 @@ size_flags_vertical = 3
 
 [node name="AboutPanel" parent="Content/Layout/AboutView" instance=ExtResource("7_h1p6w")]
 unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SettingsView" type="VBoxContainer" parent="Content/Layout"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SettingsPanel" parent="Content/Layout/SettingsView" instance=ExtResource("8_odrn6")]
 layout_mode = 2
 size_flags_vertical = 3

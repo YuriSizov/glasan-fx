@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dw6imoh8k58m1"]
+[gd_scene load_steps=6 format=3 uid="uid://dw6imoh8k58m1"]
 
 [ext_resource type="Script" path="res://gui/panels/MenuPanel.gd" id="1_tuea8"]
 [ext_resource type="Shader" path="res://gui/panels/PlasticPanel.gdshader" id="2_xtruc"]
 [ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="3_mvq1g"]
+[ext_resource type="Texture2D" uid="uid://1ih7hihafejc" path="res://assets/icons/gear.png" id="4_re7qy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h57gu"]
 resource_local_to_scene = true
 shader = ExtResource("2_xtruc")
-shader_parameter/size = Vector2(768, 44)
+shader_parameter/size = Vector2(800, 44)
 shader_parameter/light_intensity = 0.0
 shader_parameter/light_smoothness = 0.003
 shader_parameter/light_inverted = 1
@@ -71,6 +72,15 @@ custom_minimum_size = Vector2(100, 28)
 layout_mode = 2
 toggle_mode = false
 text = "EXPORT"
+off_color = Color(0.0800239, 0.0854298, 0.112988, 1)
+
+[node name="SettingsButton" parent="Content/ContentPanel/Layout" instance=ExtResource("3_mvq1g")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 28)
+layout_mode = 2
+toggle_mode = false
+text = ""
+icon = ExtResource("4_re7qy")
 off_color = Color(0.0800239, 0.0854298, 0.112988, 1)
 
 [node name="AboutButton" parent="Content/ContentPanel/Layout" instance=ExtResource("3_mvq1g")]
