@@ -45,17 +45,19 @@ shader_parameter/notches_frequency = 3.211
 shader_parameter/notches_scale = 0.281
 shader_parameter/notches_shine = 0.348
 shader_parameter/notches_brightness = 1.867
-shader_parameter/notches_band = 1.84
+shader_parameter/notches_band = 1.6
 shader_parameter/notches_band_sharpness = Vector2(0.03, 0.045)
 shader_parameter/notches_limits_sharpness = Vector2(0.06, 0.26)
 shader_parameter/notches_shadow_sharpness = Vector2(0.01, 0.14)
 shader_parameter/notches_color = Color(0.596801, 0.60802, 0.650343, 1)
-shader_parameter/wheel_height = 1.9e-07
-shader_parameter/wheel_depth = 0.045
-shader_parameter/wheel_depth_sharpness = Vector2(-0.21, 0.54)
+shader_parameter/wheel_height = -0.0299998
+shader_parameter/wheel_back_offset = 0.13
+shader_parameter/wheel_back_extension = 0.4
+shader_parameter/wheel_depth = 0.085
+shader_parameter/wheel_depth_sharpness = Vector2(-0.21, 0.57)
 shader_parameter/wheel_limits_sharpness = Vector2(0.06, 0.07)
-shader_parameter/wheel_warp_power = 2.0
-shader_parameter/wheel_warp_factor = 0.3
+shader_parameter/wheel_warp_power = 2.578
+shader_parameter/wheel_warp_factor = 1.011
 shader_parameter/wheel_color = Color(0.0182191, 0.0194593, 0.0278257, 1)
 
 [node name="RollerKnob" type="PanelContainer"]

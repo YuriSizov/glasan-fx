@@ -30,6 +30,8 @@ uniform vec3 notches_color: source_color = vec3(1.0);
 
 group_uniforms wheel;
 uniform float wheel_height: hint_range(-4.0, 4.0) = 0.0;
+uniform float wheel_back_offset: hint_range(0.0, 1.0) = 0.04;
+uniform float wheel_back_extension: hint_range(-2.0, 2.0) = 0.4;
 uniform float wheel_depth: hint_range(0.0, 1.0) = 0.1;
 uniform vec2 wheel_depth_sharpness = vec2(0.2, 0.22);
 uniform vec2 wheel_limits_sharpness = vec2(0.1, 0.12);
@@ -91,7 +93,7 @@ void fragment() {
 	// Draw the wheel with notches.
 	
 	// Create the back side of the wheel.
-	float wheel_back_mask = band(uv + 0.05 + wheel_height, 1, notches_band - 1.0, notches_band_sharpness);
+	float wheel_back_mask = band(uv + wheel_back_offset + wheel_height, 1, notches_band - wheel_back_extension, notches_band_sharpness);
 	float wheel_back_limits = smoothstep(wheel_limits_sharpness.x, wheel_limits_sharpness.y, 1.0 - abs(uv.x) * 2.0);
 	wheel_back_mask = clamp(wheel_back_limits * wheel_back_mask, 0.0, 1.0);
 	// Add the back side to the output color.
