@@ -1,0 +1,319 @@
+[gd_scene load_steps=24 format=3 uid="uid://b2beoj17tkgqt"]
+
+[ext_resource type="Script" path="res://gui/voices/EditorOnlyDeck.gd" id="1_pl6jq"]
+[ext_resource type="PackedScene" uid="uid://duig5v2saqys2" path="res://gui/components/deck/VoiceDeckHeader.tscn" id="1_ybnar"]
+[ext_resource type="PackedScene" uid="uid://dgr0kta03k8ic" path="res://gui/components/knobs/RollerKnob.tscn" id="2_qcb3q"]
+[ext_resource type="Shader" path="res://gui/components/knobs/RollerPanel.gdshader" id="3_d5apq"]
+[ext_resource type="Script" path="res://gui/components/AdvancedPanelContainer.gd" id="4_2f8u3"]
+[ext_resource type="PackedScene" uid="uid://dunu7j0jh1pne" path="res://gui/components/deck/VoiceOperatorsHeader.tscn" id="5_uqf1y"]
+[ext_resource type="PackedScene" uid="uid://bhp4lawy57tyu" path="res://gui/components/deck/WaveShapeFlipper.tscn" id="6_dyj5y"]
+[ext_resource type="PackedScene" uid="uid://dikcn6vh82w0j" path="res://gui/components/knobs/TunerSlider.tscn" id="7_f465a"]
+[ext_resource type="PackedScene" uid="uid://b84cvvupfiqo8" path="res://gui/components/knobs/FlickerKnob.tscn" id="7_irg1b"]
+[ext_resource type="PackedScene" uid="uid://bv27s8atrraj0" path="res://gui/components/deck/MA3WaveShapeFlipper.tscn" id="9_b25fb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tdsfs"]
+resource_local_to_scene = true
+shader = ExtResource("3_d5apq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6bfss"]
+resource_local_to_scene = true
+shader = ExtResource("3_d5apq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1betm"]
+resource_local_to_scene = true
+shader = ExtResource("3_d5apq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ms4ba"]
+resource_local_to_scene = true
+shader = ExtResource("3_d5apq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eyuuy"]
+resource_local_to_scene = true
+shader = ExtResource("3_d5apq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b3bcx"]
+resource_local_to_scene = true
+shader = ExtResource("3_d5apq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xveru"]
+resource_local_to_scene = true
+shader = ExtResource("3_d5apq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvxlv"]
+resource_local_to_scene = true
+shader = ExtResource("3_d5apq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y2xko"]
+resource_local_to_scene = true
+shader = ExtResource("3_d5apq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oauxd"]
+resource_local_to_scene = true
+shader = ExtResource("3_d5apq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_etps1"]
+resource_local_to_scene = true
+shader = ExtResource("3_d5apq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ivbs2"]
+resource_local_to_scene = true
+shader = ExtResource("3_d5apq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5nb3r"]
+resource_local_to_scene = true
+shader = ExtResource("3_d5apq")
+
+[node name="EditorOnlyDeck" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"BaseVoiceDeck"
+script = ExtResource("1_pl6jq")
+
+[node name="Layout" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VoiceHeader" parent="Layout" instance=ExtResource("1_ybnar")]
+unique_name_in_owner = true
+layout_mode = 2
+voice_name = "EDITOR"
+
+[node name="Spacer" type="Control" parent="Layout"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="GeneralKnobs" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="VolumeKnob" parent="Layout/GeneralKnobs" instance=ExtResource("2_qcb3q")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_tdsfs")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "VOL"
+knob_value = 75
+max_value = 100
+safe_max_value = 100
+
+[node name="FeedbackKnob" parent="Layout/GeneralKnobs" instance=ExtResource("2_qcb3q")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_6bfss")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FBACK"
+
+[node name="AlgorithmKnob" parent="Layout/GeneralKnobs" instance=ExtResource("2_qcb3q")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_1betm")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ALGO"
+
+[node name="AdvancedPanelContainer" type="PanelContainer" parent="Layout/GeneralKnobs"]
+layout_mode = 2
+theme_type_variation = &"AdvancedPanelContainer"
+script = ExtResource("4_2f8u3")
+
+[node name="ConnectionsKnob" parent="Layout/GeneralKnobs/AdvancedPanelContainer" instance=ExtResource("2_qcb3q")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_ms4ba")
+layout_mode = 2
+text = "FCONN"
+
+[node name="OperatorSeparator" type="HSeparator" parent="Layout"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="OperatorsHeader" parent="Layout" instance=ExtResource("5_uqf1y")]
+unique_name_in_owner = true
+layout_mode = 2
+operator_count = 1
+
+[node name="Operators" type="TabContainer" parent="Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="A" type="MarginContainer" parent="Layout/Operators"]
+layout_mode = 2
+theme_type_variation = &"OperatorDeck"
+metadata/_tab_index = 0
+
+[node name="Layout" type="VBoxContainer" parent="Layout/Operators/A"]
+layout_mode = 2
+theme_type_variation = &"VLayoutContainer"
+
+[node name="WaveShapeFlipper" parent="Layout/Operators/A/Layout" instance=ExtResource("6_dyj5y")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="WaveShapeFlipper2" parent="Layout/Operators/A/Layout" instance=ExtResource("6_dyj5y")]
+unique_name_in_owner = true
+layout_mode = 2
+wave_shape = 146
+
+[node name="EnvelopeBox" type="PanelContainer" parent="Layout/Operators/A/Layout"]
+layout_mode = 2
+theme_type_variation = &"AdvancedPanelContainer"
+script = ExtResource("4_2f8u3")
+label = "envelope"
+accent_color = Color(0.13598, 0.204844, 0.314082, 0.57)
+
+[node name="Layout" type="HBoxContainer" parent="Layout/Operators/A/Layout/EnvelopeBox"]
+layout_mode = 2
+
+[node name="AttackKnob" parent="Layout/Operators/A/Layout/EnvelopeBox/Layout" instance=ExtResource("2_qcb3q")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_eyuuy")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ATT"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="DecayKnob" parent="Layout/Operators/A/Layout/EnvelopeBox/Layout" instance=ExtResource("2_qcb3q")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_b3bcx")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DEC"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="ReleaseKnob" parent="Layout/Operators/A/Layout/EnvelopeBox/Layout" instance=ExtResource("2_qcb3q")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_xveru")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "REL"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="EnvelopeBox" type="HBoxContainer" parent="Layout/Operators/A/Layout/EnvelopeBox/Layout"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Label" type="MarginContainer" parent="Layout/Operators/A/Layout/EnvelopeBox/Layout/EnvelopeBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_top = 8
+
+[node name="Label" type="Label" parent="Layout/Operators/A/Layout/EnvelopeBox/Layout/EnvelopeBox/Label"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "EGT"
+
+[node name="EnvelopeKnob" parent="Layout/Operators/A/Layout/EnvelopeBox/Layout/EnvelopeBox" instance=ExtResource("7_irg1b")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LevelBox" type="HBoxContainer" parent="Layout/Operators/A/Layout"]
+layout_mode = 2
+
+[node name="KeyRateKnob" parent="Layout/Operators/A/Layout/LevelBox" instance=ExtResource("2_qcb3q")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_hvxlv")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KSC
+RT"
+max_value = 3
+safe_max_value = 3
+
+[node name="AdvancedPanelContainer" type="PanelContainer" parent="Layout/Operators/A/Layout/LevelBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_type_variation = &"AdvancedPanelContainer"
+script = ExtResource("4_2f8u3")
+
+[node name="Layout" type="HBoxContainer" parent="Layout/Operators/A/Layout/LevelBox/AdvancedPanelContainer"]
+layout_mode = 2
+
+[node name="KeyLevelKnob" parent="Layout/Operators/A/Layout/LevelBox/AdvancedPanelContainer/Layout" instance=ExtResource("2_qcb3q")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_y2xko")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KSC
+LVL"
+max_value = 3
+safe_max_value = 3
+
+[node name="SustainLevelKnob" parent="Layout/Operators/A/Layout/LevelBox/AdvancedPanelContainer/Layout" instance=ExtResource("2_qcb3q")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_oauxd")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SUS
+LVL"
+max_value = 15
+safe_max_value = 15
+
+[node name="TotalLevelKnob" parent="Layout/Operators/A/Layout/LevelBox/AdvancedPanelContainer/Layout" instance=ExtResource("2_qcb3q")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_etps1")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "TOT
+LVL"
+max_value = 127
+safe_max_value = 127
+
+[node name="TuningBox" type="HBoxContainer" parent="Layout/Operators/A/Layout"]
+layout_mode = 2
+
+[node name="MultipleKnob" parent="Layout/Operators/A/Layout/TuningBox" instance=ExtResource("2_qcb3q")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_ivbs2")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MUL"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="Detune1Knob" parent="Layout/Operators/A/Layout/TuningBox" instance=ExtResource("2_qcb3q")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_5nb3r")
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DT1"
+knob_value = 32
+max_value = 63
+safe_max_value = 63
+
+[node name="Detune2Box" type="VBoxContainer" parent="Layout/Operators/A/Layout/TuningBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Spacer" type="Control" parent="Layout/Operators/A/Layout/TuningBox/Detune2Box"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Layout/Operators/A/Layout/TuningBox/Detune2Box"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "DT2"
+
+[node name="Detune2Slider" parent="Layout/Operators/A/Layout/TuningBox/Detune2Box" instance=ExtResource("7_f465a")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 3.0
+left_text = "0"
+right_text = "999"
+
+[node name="WaveShapeFlipper3" parent="Layout/Operators/A/Layout" instance=ExtResource("9_b25fb")]
+unique_name_in_owner = true
+layout_mode = 2
+short_form = true

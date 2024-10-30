@@ -38,6 +38,7 @@ var _ma3_wave_buttons: Array[GlowButton] = []
 
 func _ready() -> void:
 	_collect_buttons_and_sliders()
+	_update_shape_filter()
 	_update_shape_selection()
 	_switch_shape_list()
 	_shape_flipper.selected.connect(_switch_shape_list)
@@ -55,6 +56,8 @@ func set_wave_shape(value: int) -> void:
 
 
 func _update_shape_filter() -> void:
+	if not is_node_ready():
+		return
 	if wave_shape < 0:
 		return
 
@@ -78,6 +81,9 @@ func _update_shape_filter() -> void:
 
 
 func _update_shape_selection() -> void:
+	if not is_node_ready():
+		return
+
 	_update_shape_buttons(WaveShape.SHAPE_BASIC,       _basic_wave_buttons)
 	_update_shape_buttons(WaveShape.SHAPE_NOISE,       _noise_wave_buttons)
 	_update_shape_buttons(WaveShape.SHAPE_PC_NOISE,    _pc_noise_wave_buttons)

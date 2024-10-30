@@ -8,6 +8,7 @@
 class_name VoicePanel extends ContentPanel
 
 const FALLBACK_DECK_SCENE := preload("res://gui/voices/FallbackVoiceDeck.tscn")
+const EDITOR_DECK_SCENE := preload("res://gui/voices/EditorOnlyDeck.tscn")
 const DECK_SCENES: Array[PackedScene] = [
 	preload("res://gui/voices/SiOPMVoiceDeck.tscn"),
 	preload("res://gui/voices/OPLVoiceDeck.tscn"),
@@ -23,6 +24,7 @@ var _initialized_decks: Dictionary = {}
 
 func _ready() -> void:
 	super()
+	_setup_editor_only_deck()
 	_edit_current_voice()
 
 	if not Engine.is_editor_hint():
@@ -60,4 +62,16 @@ func _edit_current_voice() -> void:
 		_initialized_decks[voice_type] = _current_deck
 
 	_current_deck.voice = voice
+	_content.add_child(_current_deck)
+
+
+func _setup_editor_only_deck() -> void:
+	if not Engine.is_editor_hint():
+		return
+
+	if is_instance_valid(_current_deck):
+		_content.remove_child(_current_deck)
+		_current_deck = null
+
+	_current_deck = EDITOR_DECK_SCENE.instantiate()
 	_content.add_child(_current_deck)
