@@ -161,8 +161,7 @@ func _update_project_theme() -> void:
 		return
 
 	var scale_factor := Controller.settings_manager.get_gui_scale_factor()
-
-	if scale_factor <= 1.0:
+	if scale_factor < 1.0:
 		_project_theme.default_font.base_font = THEME_FONT_NORMAL
 	else:
 		_project_theme.default_font.base_font = THEME_FONT_MSDF
