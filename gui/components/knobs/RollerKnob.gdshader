@@ -103,12 +103,12 @@ void fragment() {
 	wheel_uv.y += pow(abs(uv.x), wheel_warp_power) * wheel_warp_factor + wheel_height;
 
 	// Create the top side of the wheel.
-	float wheel_top_mask = clamp(2.0 * uv.y, 0.0, 1.0);
-	wheel_top_mask = smoothstep(wheel_depth, wheel_depth + 0.16, wheel_top_mask);
+	float wheel_top_mask = band(uv + wheel_depth + wheel_height, 1, notches_band - 1.0, wheel_depth_sharpness);
 	float wheel_bottom_mask = band_oneside(wheel_uv + 0.04, 1, notches_band, notches_band_sharpness);
 	float wheel_bottom_limits = smoothstep(wheel_depth_sharpness.x, wheel_depth_sharpness.y, 1.0 - abs(wheel_uv.x) * 2.0);
 	wheel_bottom_mask = clamp(wheel_bottom_limits * wheel_bottom_mask, 0.0, 1.0);
-	float wheel_mask = min(wheel_top_mask, wheel_bottom_mask);
+	float wheel_mask = min(wheel_top_mask, wheel_bottom_mask) * wheel_back_mask;
+	wheel_mask = clamp(wheel_mask, 0.0, 1.0);
 	
 	// Add the top part of the wheel to the output color.
 	vec3 wheel_top_color = mix(wheel_color, vec3(1.0), 0.15);

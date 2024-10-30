@@ -261,10 +261,10 @@ content_margin_bottom = 12.0
 bg_color = Color(0.161078, 0.19102, 0.216014, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jo2q"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
+content_margin_left = 8.0
+content_margin_top = 6.0
+content_margin_right = 8.0
+content_margin_bottom = 6.0
 bg_color = Color(0.13965, 0.112365, 0.114531, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rc1oq"]
@@ -338,10 +338,10 @@ bg_color = Color(0.125626, 0.127832, 0.143547, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xn5gi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwe1w"]
-content_margin_left = 16.0
-content_margin_top = 22.0
-content_margin_right = 16.0
-content_margin_bottom = 22.0
+content_margin_left = 20.0
+content_margin_top = 16.0
+content_margin_right = 20.0
+content_margin_bottom = 16.0
 bg_color = Color(0.159848, 0.178305, 0.159854, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v1lpm"]
@@ -459,10 +459,10 @@ MenuPanelButton/base_type = &"Button"
 MenuPanelHighlight/base_type = &"PanelContainer"
 MenuPanelHighlight/styles/panel = SubResource("StyleBoxFlat_frq7n")
 OperatorDeck/base_type = &"MarginContainer"
-OperatorDeck/constants/margin_bottom = 16
-OperatorDeck/constants/margin_left = 16
-OperatorDeck/constants/margin_right = 16
-OperatorDeck/constants/margin_top = 16
+OperatorDeck/constants/margin_bottom = 14
+OperatorDeck/constants/margin_left = 14
+OperatorDeck/constants/margin_right = 14
+OperatorDeck/constants/margin_top = 14
 OperatorIndicator/base_type = &"HBoxContainer"
 OperatorIndicator/colors/font_active_color = Color(0.910244, 0.403015, 0.264407, 1)
 OperatorIndicator/colors/font_inactive_color = Color(0.265174, 0.143202, 0.136196, 1)
@@ -500,8 +500,14 @@ RollerKnob/font_sizes/value_size = 11
 RollerKnob/styles/panel = SubResource("StyleBoxFlat_5jo2q")
 ShortcutLabel/base_type = &"Label"
 ShortcutLabel/colors/font_color = Color(0.703915, 0.742978, 0.757542, 1)
+ShortcutLabel/colors/font_shadow_color = Color(0, 0, 0, 0.231373)
+ShortcutLabel/constants/shadow_offset_x = 2
+ShortcutLabel/constants/shadow_offset_y = 2
 ShortcutLabelAccented/base_type = &"Label"
 ShortcutLabelAccented/colors/font_color = Color(0.929412, 0.831373, 0.470588, 1)
+ShortcutLabelAccented/colors/font_shadow_color = Color(0, 0, 0, 0.231373)
+ShortcutLabelAccented/constants/shadow_offset_x = 2
+ShortcutLabelAccented/constants/shadow_offset_y = 2
 TabContainer/colors/font_hovered_color = Color(0.847059, 0.847059, 0.847059, 1)
 TabContainer/colors/font_selected_color = Color(0.95, 0.95, 0.95, 1)
 TabContainer/colors/font_unselected_color = Color(0.846616, 0.846616, 0.846616, 1)

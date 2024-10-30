@@ -34,10 +34,10 @@ shader_parameter/base_color = Color(0.149114, 0.149114, 0.149114, 1)
 shader_parameter/markings_frequency = 46.0
 shader_parameter/markings_spread = 0.8
 shader_parameter/markings_offset = 0.0
-shader_parameter/markings_band = 23.266
-shader_parameter/markings_band_offset = -0.102
-shader_parameter/markings_main_band = 2.678
-shader_parameter/markings_main_band_offset = 0.00500005
+shader_parameter/markings_band = 11.266
+shader_parameter/markings_band_offset = -0.031
+shader_parameter/markings_main_band = 2.677
+shader_parameter/markings_main_band_offset = 0.0580001
 shader_parameter/markings_band_sharpness = Vector2(0.01, 0.035)
 shader_parameter/markings_color = Color(0.843184, 0.843184, 0.843184, 1)
 shader_parameter/markings_main_color = Color(0.923899, 0.653429, 0.516652, 1)
@@ -45,14 +45,14 @@ shader_parameter/notches_frequency = 3.211
 shader_parameter/notches_scale = 0.281
 shader_parameter/notches_shine = 0.348
 shader_parameter/notches_brightness = 1.867
-shader_parameter/notches_band = 3.225
+shader_parameter/notches_band = 1.84
 shader_parameter/notches_band_sharpness = Vector2(0.03, 0.045)
 shader_parameter/notches_limits_sharpness = Vector2(0.06, 0.26)
 shader_parameter/notches_shadow_sharpness = Vector2(0.01, 0.14)
 shader_parameter/notches_color = Color(0.596801, 0.60802, 0.650343, 1)
-shader_parameter/wheel_height = 0.0
-shader_parameter/wheel_depth = 0.0
-shader_parameter/wheel_depth_sharpness = Vector2(0.08, 0.33)
+shader_parameter/wheel_height = 1.9e-07
+shader_parameter/wheel_depth = 0.045
+shader_parameter/wheel_depth_sharpness = Vector2(-0.21, 0.54)
 shader_parameter/wheel_limits_sharpness = Vector2(0.06, 0.07)
 shader_parameter/wheel_warp_power = 2.0
 shader_parameter/wheel_warp_factor = 0.3
@@ -60,8 +60,8 @@ shader_parameter/wheel_color = Color(0.0182191, 0.0194593, 0.0278257, 1)
 
 [node name="RollerKnob" type="PanelContainer"]
 material = SubResource("ShaderMaterial_8a7lm")
-offset_right = 180.0
-offset_bottom = 78.0
+offset_right = 130.0
+offset_bottom = 58.0
 theme_type_variation = &"RollerKnob"
 script = ExtResource("1_0fm8q")
 
@@ -80,7 +80,7 @@ vertical_alignment = 1
 
 [node name="ValueBox" type="VBoxContainer" parent="Layout"]
 layout_mode = 2
-theme_override_constants/separation = 0
+theme_override_constants/separation = 2
 
 [node name="Value" type="Control" parent="Layout/ValueBox"]
 unique_name_in_owner = true
@@ -114,6 +114,6 @@ grow_vertical = 2
 [node name="Roller" type="Control" parent="Layout/ValueBox"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_ure2p")
-custom_minimum_size = Vector2(90, 34)
+custom_minimum_size = Vector2(90, 24)
 layout_mode = 2
 size_flags_horizontal = 4

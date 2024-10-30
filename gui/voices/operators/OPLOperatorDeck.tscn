@@ -59,7 +59,6 @@ theme_type_variation = &"VLayoutContainer"
 [node name="WaveShapeFlipper" parent="Layout" instance=ExtResource("2_iavvd")]
 unique_name_in_owner = true
 layout_mode = 2
-short_form = false
 
 [node name="EnvelopeBox" type="PanelContainer" parent="Layout"]
 layout_mode = 2
@@ -109,7 +108,7 @@ theme_override_constants/separation = 0
 [node name="Label" type="MarginContainer" parent="Layout/EnvelopeBox/Layout/EnvelopeBox"]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/margin_top = 8
+theme_override_constants/margin_top = 11
 
 [node name="Label" type="Label" parent="Layout/EnvelopeBox/Layout/EnvelopeBox/Label"]
 layout_mode = 2

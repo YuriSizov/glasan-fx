@@ -6,7 +6,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_18dkq"]
 resource_local_to_scene = true
 shader = ExtResource("2_d4vur")
-shader_parameter/size = Vector2(768, 1024)
+shader_parameter/size = Vector2(800, 1024)
 shader_parameter/light_intensity = 0.0
 shader_parameter/light_smoothness = 0.003
 shader_parameter/light_inverted = 0

@@ -396,10 +396,16 @@ layout_mode = 2
 key_text = "glasan_octave_down"
 description_text = "Change the piano roll octave to be lower"
 
+[node name="Spacer2" type="Control" parent="Content/Layout/ShortcutsSection"]
+layout_mode = 2
+
 [node name="Label" type="Label" parent="Content/Layout/ShortcutsSection"]
 layout_mode = 2
 theme_type_variation = &"ShortcutLabel"
 text = "Change the current note and play it:"
+
+[node name="Spacer3" type="Control" parent="Content/Layout/ShortcutsSection"]
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Content/Layout/ShortcutsSection"]
 layout_mode = 2
