@@ -28,7 +28,7 @@ Controller="*res://globals/Controller.gd"
 
 [display]
 
-window/size/viewport_width=768
+window/size/viewport_width=800
 window/size/viewport_height=1024
 
 [editor]

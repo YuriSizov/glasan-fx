@@ -25,7 +25,7 @@ corner_radius_bottom_left = 8
 expand_margin_left = 6.0
 expand_margin_top = 4.0
 expand_margin_right = 6.0
-expand_margin_bottom = 4.0
+expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_llkav"]
 
@@ -254,10 +254,10 @@ corner_radius_bottom_left = 4
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k0nv5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tibav"]
-content_margin_left = 22.0
-content_margin_top = 16.0
-content_margin_right = 22.0
-content_margin_bottom = 16.0
+content_margin_left = 20.0
+content_margin_top = 14.0
+content_margin_right = 20.0
+content_margin_bottom = 12.0
 bg_color = Color(0.161078, 0.19102, 0.216014, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jo2q"]
@@ -280,38 +280,38 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ffw6q"]
-content_margin_left = 18.0
+content_margin_left = 16.0
 content_margin_top = 6.0
-content_margin_right = 18.0
+content_margin_right = 16.0
 content_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f3m6w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_akwfw"]
-content_margin_left = 18.0
-content_margin_top = 8.0
-content_margin_right = 18.0
-content_margin_bottom = 8.0
+content_margin_left = 16.0
+content_margin_top = 6.0
+content_margin_right = 16.0
+content_margin_bottom = 6.0
 bg_color = Color(0.88281, 0.833512, 0.79745, 0.287)
 border_width_left = 2
 border_width_right = 2
 border_color = Color(0.8, 0.8, 0.8, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iq38b"]
-content_margin_left = 18.0
-content_margin_top = 8.0
-content_margin_right = 18.0
-content_margin_bottom = 8.0
+content_margin_left = 16.0
+content_margin_top = 6.0
+content_margin_right = 16.0
+content_margin_bottom = 6.0
 bg_color = Color(0.462218, 0.305492, 0.21195, 0.75)
 border_width_left = 2
 border_width_right = 2
 border_color = Color(0.8, 0.8, 0.8, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rrtt"]
-content_margin_left = 18.0
-content_margin_top = 8.0
-content_margin_right = 18.0
-content_margin_bottom = 8.0
+content_margin_left = 16.0
+content_margin_top = 6.0
+content_margin_right = 16.0
+content_margin_bottom = 6.0
 bg_color = Color(0.877878, 0.853598, 0.821194, 0.287)
 border_width_left = 2
 border_width_right = 2
@@ -354,10 +354,10 @@ content_margin_bottom = 22.0
 bg_color = Color(0.0658186, 0.0700564, 0.0586766, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gniu8"]
-content_margin_left = 16.0
-content_margin_top = 16.0
-content_margin_right = 16.0
-content_margin_bottom = 16.0
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
 bg_color = Color(0.099, 0.099, 0.099, 0.24)
 border_width_left = 5
 border_width_top = 5
@@ -379,7 +379,7 @@ spacing_glyph = 1
 
 [resource]
 default_font = SubResource("FontVariation_btycs")
-default_font_size = 14
+default_font_size = 11
 AboutLayoutContainer/base_type = &"VBoxContainer"
 AboutLayoutContainer/constants/separation = 16
 AboutPanel/base_type = &"ContentPanel"
@@ -417,7 +417,7 @@ ContentPanel/constants/light_intensity = 160
 ElectronicLabel/base_type = &"PanelContainer"
 ElectronicLabel/colors/font_color = Color(0.874525, 0.881914, 0.855576, 1)
 ElectronicLabel/constants/full_intensity = 82
-ElectronicLabel/font_sizes/font_size = 12
+ElectronicLabel/font_sizes/font_size = 11
 ElectronicLabel/styles/normal = SubResource("StyleBoxFlat_px4j7")
 FallbackVoiceDeck/base_type = &"BaseVoiceDeck"
 GlowButton/base_type = &"Button"
@@ -433,7 +433,7 @@ GlowButton/styles/normal = SubResource("StyleBoxEmpty_eplmh")
 GlowButton/styles/pressed = SubResource("StyleBoxEmpty_3mafp")
 HBoxContainer/constants/separation = 8
 HLayoutContainer/base_type = &"HBoxContainer"
-HLayoutContainer/constants/separation = 24
+HLayoutContainer/constants/separation = 20
 HSeparator/styles/separator = SubResource("StyleBoxLine_ucorg")
 HSlider/icons/grabber = SubResource("Texture2D_dd775")
 HSlider/icons/grabber_disabled = SubResource("Texture2D_i7hji")
@@ -451,7 +451,7 @@ KnobsContainer/constants/separation = 12
 Label/colors/font_color = Color(0.803922, 0.807843, 0.819608, 1)
 LoudWarningLabel/base_type = &"Label"
 LoudWarningLabel/colors/font_color = Color(0.64347, 0.254936, 0.232909, 1)
-LoudWarningLabel/font_sizes/font_size = 12
+LoudWarningLabel/font_sizes/font_size = 10
 MenuPanel/base_type = &"ContentPanel"
 MenuPanel/styles/panel = SubResource("StyleBoxEmpty_djm75")
 MenuPanel/styles/panel_background = SubResource("StyleBoxEmpty_rvmxa")
@@ -467,7 +467,7 @@ OperatorIndicator/base_type = &"HBoxContainer"
 OperatorIndicator/colors/font_active_color = Color(0.910244, 0.403015, 0.264407, 1)
 OperatorIndicator/colors/font_inactive_color = Color(0.265174, 0.143202, 0.136196, 1)
 OperatorIndicator/constants/label_intensity = 85
-OperatorIndicator/font_sizes/font_size = 16
+OperatorIndicator/font_sizes/font_size = 14
 OptionFlipper/base_type = &"MarginContainer"
 OptionFlipper/colors/display_color = Color(0.731432, 0.73305, 0.718919, 1)
 OptionFlipper/colors/display_font_color = Color(0.854518, 0.85541, 0.873819, 1)
@@ -496,13 +496,13 @@ RollerKnob/base_type = &"PanelContainer"
 RollerKnob/colors/label_color = Color(0.804876, 0.808981, 0.820208, 1)
 RollerKnob/colors/unsafe_margin_color = Color(0.410206, 0.109915, 0.0680521, 1)
 RollerKnob/colors/value_color = Color(0.831535, 0.772145, 0.613004, 1)
-RollerKnob/font_sizes/value_size = 12
+RollerKnob/font_sizes/value_size = 11
 RollerKnob/styles/panel = SubResource("StyleBoxFlat_5jo2q")
 TabContainer/colors/font_hovered_color = Color(0.847059, 0.847059, 0.847059, 1)
 TabContainer/colors/font_selected_color = Color(0.95, 0.95, 0.95, 1)
 TabContainer/colors/font_unselected_color = Color(0.846616, 0.846616, 0.846616, 1)
 TabContainer/constants/side_margin = 16
-TabContainer/font_sizes/font_size = 16
+TabContainer/font_sizes/font_size = 14
 TabContainer/styles/panel = SubResource("StyleBoxFlat_rc1oq")
 TabContainer/styles/tab_disabled = SubResource("StyleBoxEmpty_ffw6q")
 TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_f3m6w")
@@ -516,7 +516,7 @@ TipContainer/constants/margin_right = 16
 TipContainer/constants/margin_top = 12
 VBoxContainer/constants/separation = 8
 VLayoutContainer/base_type = &"VBoxContainer"
-VLayoutContainer/constants/separation = 24
+VLayoutContainer/constants/separation = 20
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_xfoxt")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_sntoc")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_y8tbu")

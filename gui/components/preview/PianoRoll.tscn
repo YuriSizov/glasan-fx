@@ -250,15 +250,15 @@ shader_parameter/selection_size = 0.066
 shader_parameter/selection_smoothness = 0.006
 shader_parameter/selection_color = Color(0.710837, 0.283876, 0.25255, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mjkw2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i54aq"]
 resource_local_to_scene = true
 shader = ExtResource("6_l44rt")
 shader_parameter/direction = Vector2(1, 0)
 shader_parameter/intensity = 0.82
 
 [node name="PianoRoll" type="MarginContainer"]
-offset_right = 252.0
-offset_bottom = 100.0
+offset_right = 316.0
+offset_bottom = 127.0
 script = ExtResource("1_nfgs2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -268,13 +268,14 @@ color = Color(0.116668, 0.109648, 0.106619, 1)
 
 [node name="Layout" type="VBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 2
 
 [node name="Labels" type="HBoxContainer" parent="Layout"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="Padding" type="Control" parent="Layout/Labels"]
-custom_minimum_size = Vector2(6, 0)
+custom_minimum_size = Vector2(7, 0)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Layout/Labels"]
@@ -290,7 +291,7 @@ layout_mode = 2
 text = "OCT"
 
 [node name="Padding2" type="Control" parent="Layout/Labels"]
-custom_minimum_size = Vector2(4, 0)
+custom_minimum_size = Vector2(7, 0)
 layout_mode = 2
 
 [node name="Widgets" type="HBoxContainer" parent="Layout"]
@@ -408,7 +409,7 @@ on_color = Color(0.161746, 0.144835, 0.197189, 1)
 
 [node name="OctaveLabel" parent="Layout/Widgets/Octave" instance=ExtResource("7_g2f1f")]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_mjkw2")
+material = SubResource("ShaderMaterial_i54aq")
 custom_minimum_size = Vector2(44, 28)
 layout_mode = 2
 text = "01"

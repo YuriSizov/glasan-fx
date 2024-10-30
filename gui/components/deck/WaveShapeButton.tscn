@@ -7,7 +7,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ok7sm"]
 resource_local_to_scene = true
 shader = ExtResource("2_gms72")
-shader_parameter/button_size = Vector2(44, 28)
+shader_parameter/button_size = Vector2(38, 22)
 shader_parameter/base_incline = 0.18
 shader_parameter/horizontal_incline = 1.05
 shader_parameter/main_color = Color(0.229847, 0.113262, 0.115308, 1)
@@ -36,9 +36,9 @@ shader_parameter/direction = Vector2(1, 0)
 shader_parameter/intensity = 0.0
 
 [node name="WaveShapeButton" instance=ExtResource("1_4org0")]
-custom_minimum_size = Vector2(44, 28)
-offset_right = 44.0
-offset_bottom = 28.0
+custom_minimum_size = Vector2(38, 22)
+offset_right = 36.0
+offset_bottom = 22.0
 text = ""
 off_color = Color(0.229847, 0.113262, 0.115308, 1)
 on_color = Color(0.800404, 0.304697, 0.314692, 1)

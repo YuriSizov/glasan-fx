@@ -6,16 +6,16 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fideq"]
 resource_local_to_scene = true
 shader = ExtResource("1_b5b22")
-shader_parameter/control_size = Vector2(60, 100)
+shader_parameter/control_size = Vector2(60, 80)
 shader_parameter/position = 1.0
-shader_parameter/deadzone = 0.2
-shader_parameter/knob_size = 0.58
+shader_parameter/deadzone = 0.389
+shader_parameter/knob_size = 0.467
 shader_parameter/knob_smoothness = 0.04
 shader_parameter/knob_color = Color(0.798279, 0.767049, 0.899203, 1)
 shader_parameter/knob_blob_intensity = 0.4
 shader_parameter/knob_blob_intensity_range = 0.3
 shader_parameter/knob_blob_color = Color(0.0510961, 0.0510961, 0.0510961, 1)
-shader_parameter/knob_shade_size = 0.133
+shader_parameter/knob_shade_size = 0.076
 shader_parameter/knob_shade_offset = 0.101
 shader_parameter/knob_shade_smoothness = 0.462
 shader_parameter/knob_shade_intensity = 0.876
@@ -42,7 +42,7 @@ shader_parameter/rim_glow_intensity = 0.472
 
 [node name="FlickerKnob" type="MarginContainer"]
 offset_right = 94.0
-offset_bottom = 100.0
+offset_bottom = 60.0
 script = ExtResource("1_5v0dj")
 on_color = Color(0.324853, 0.737057, 0.328221, 1)
 off_color = Color(0.750822, 0.315975, 0.255892, 1)
@@ -55,45 +55,30 @@ theme_override_constants/separation = 0
 [node name="Flicker" type="Control" parent="Layout"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_fideq")
-custom_minimum_size = Vector2(60, 100)
+custom_minimum_size = Vector2(60, 80)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Labels" type="MarginContainer" parent="Layout"]
+[node name="Layout" type="VBoxContainer" parent="Layout"]
 layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="Layout" type="VBoxContainer" parent="Layout/Labels"]
-layout_mode = 2
+size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="Spacer" type="Control" parent="Layout/Labels/Layout"]
-layout_mode = 2
-size_flags_vertical = 3
-mouse_filter = 2
-
-[node name="OnLabel" type="Label" parent="Layout/Labels/Layout"]
+[node name="OnLabel" type="Label" parent="Layout/Layout"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 text = "ON"
 horizontal_alignment = 1
 
-[node name="Separator" type="HSeparator" parent="Layout/Labels/Layout"]
+[node name="Separator" type="HSeparator" parent="Layout/Layout"]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="OffLabel" type="Label" parent="Layout/Labels/Layout"]
+[node name="OffLabel" type="Label" parent="Layout/Layout"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 text = "OFF"
 horizontal_alignment = 1
-
-[node name="Spacer2" type="Control" parent="Layout/Labels/Layout"]
-layout_mode = 2
-size_flags_vertical = 3
-mouse_filter = 2

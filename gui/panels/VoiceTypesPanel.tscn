@@ -8,7 +8,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_spujn"]
 resource_local_to_scene = true
 shader = ExtResource("2_ygno6")
-shader_parameter/size = Vector2(110, 252)
+shader_parameter/size = Vector2(104, 252)
 shader_parameter/light_intensity = 0.0
 shader_parameter/light_smoothness = 0.003
 shader_parameter/light_inverted = 1
@@ -42,7 +42,7 @@ layout_mode = 2
 
 [node name="SiOPMButton" parent="Content/Layout" instance=ExtResource("1_ndnrx")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(86, 28)
+custom_minimum_size = Vector2(80, 28)
 layout_mode = 2
 button_pressed = true
 button_group = ExtResource("2_e366j")
@@ -52,7 +52,7 @@ on_color = Color(0.72549, 0.188235, 0.14902, 1)
 
 [node name="OPLButton" parent="Content/Layout" instance=ExtResource("1_ndnrx")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(86, 28)
+custom_minimum_size = Vector2(80, 28)
 layout_mode = 2
 button_group = ExtResource("2_e366j")
 text = "OPL"
@@ -61,7 +61,7 @@ on_color = Color(0.72549, 0.188235, 0.14902, 1)
 
 [node name="OPMButton" parent="Content/Layout" instance=ExtResource("1_ndnrx")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(86, 28)
+custom_minimum_size = Vector2(80, 28)
 layout_mode = 2
 button_group = ExtResource("2_e366j")
 text = "OPM"
@@ -70,7 +70,7 @@ on_color = Color(0.72549, 0.188235, 0.14902, 1)
 
 [node name="OPNButton" parent="Content/Layout" instance=ExtResource("1_ndnrx")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(86, 28)
+custom_minimum_size = Vector2(80, 28)
 layout_mode = 2
 button_group = ExtResource("2_e366j")
 text = "OPN"
@@ -79,7 +79,7 @@ on_color = Color(0.72549, 0.188235, 0.14902, 1)
 
 [node name="OPXButton" parent="Content/Layout" instance=ExtResource("1_ndnrx")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(86, 28)
+custom_minimum_size = Vector2(80, 28)
 layout_mode = 2
 button_group = ExtResource("2_e366j")
 text = "OPX"
@@ -88,7 +88,7 @@ on_color = Color(0.72549, 0.188235, 0.14902, 1)
 
 [node name="MA3Button" parent="Content/Layout" instance=ExtResource("1_ndnrx")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(86, 28)
+custom_minimum_size = Vector2(80, 28)
 layout_mode = 2
 button_group = ExtResource("2_e366j")
 text = "MA-3"

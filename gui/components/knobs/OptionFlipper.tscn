@@ -25,10 +25,12 @@ shader_parameter/glass_shine_offset = -0.251
 shader_parameter/glass_shine_sharpness = 0.094
 shader_parameter/glass_shine_opaqueness = 0.313
 shader_parameter/vignette_center = 18.002
-shader_parameter/vignette_rim = 0.455
+shader_parameter/vignette_rim = 0.549
 shader_parameter/vignette_intensity = 1.0
 
 [node name="OptionFlipper" type="MarginContainer"]
+offset_right = 100.0
+offset_bottom = 28.0
 theme_type_variation = &"OptionFlipper"
 script = ExtResource("1_ysxsp")
 
@@ -38,14 +40,14 @@ layout_mode = 2
 [node name="FlipButton" type="Button" parent="Layout"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_c63p2")
-custom_minimum_size = Vector2(28, 28)
+custom_minimum_size = Vector2(32, 28)
 layout_mode = 2
 flat = true
 
 [node name="Display" type="Control" parent="Layout"]
 unique_name_in_owner = true
 clip_contents = true
-custom_minimum_size = Vector2(60, 32)
+custom_minimum_size = Vector2(60, 26)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -53,9 +55,12 @@ size_flags_vertical = 4
 [node name="Overlay" type="ColorRect" parent="Layout/Display"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_k7wry")
+clip_contents = true
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2

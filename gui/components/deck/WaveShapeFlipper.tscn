@@ -27,7 +27,7 @@ theme_type_variation = &"HLayoutContainer"
 
 [node name="ShapeFlipper" parent="Content/Layout" instance=ExtResource("1_qv262")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(190, 42)
+custom_minimum_size = Vector2(180, 36)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -37,7 +37,7 @@ option_text_colors = Array[Color]([Color(0.854902, 0.854902, 0.87451, 1), Color(
 
 [node name="Shapes" type="MarginContainer" parent="Content/Layout"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 64)
+custom_minimum_size = Vector2(0, 54)
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -118,7 +118,7 @@ size_flags_vertical = 4
 text = "10"
 
 [node name="Control" type="Control" parent="Content/Layout/Shapes/BasicWaves/Row2"]
-custom_minimum_size = Vector2(44, 28)
+custom_minimum_size = Vector2(38, 22)
 layout_mode = 2
 
 [node name="BasicButton11" parent="Content/Layout/Shapes/BasicWaves/Row2" instance=ExtResource("3_qqkmf")]
@@ -175,7 +175,7 @@ text = "5"
 layout_mode = 2
 
 [node name="Spacer" type="Control" parent="Content/Layout/Shapes/NoiseWaves/Row2"]
-custom_minimum_size = Vector2(3, 0)
+custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Content/Layout/Shapes/NoiseWaves/Row2"]
@@ -183,7 +183,7 @@ layout_mode = 2
 text = "PC"
 
 [node name="Spacer2" type="Control" parent="Content/Layout/Shapes/NoiseWaves/Row2"]
-custom_minimum_size = Vector2(3, 0)
+custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 
 [node name="PCNoiseButton0" parent="Content/Layout/Shapes/NoiseWaves/Row2" instance=ExtResource("3_qqkmf")]
@@ -419,7 +419,6 @@ text = "15"
 [node name="RampWaves" type="VBoxContainer" parent="Content/Layout/Shapes"]
 visible = false
 layout_mode = 2
-size_flags_vertical = 0
 
 [node name="Label" type="Label" parent="Content/Layout/Shapes/RampWaves"]
 layout_mode = 2

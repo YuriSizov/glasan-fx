@@ -15,7 +15,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i1p27"]
 resource_local_to_scene = true
 shader = ExtResource("2_mypj1")
-shader_parameter/size = Vector2(768, 239)
+shader_parameter/size = Vector2(800, 222)
 shader_parameter/light_intensity = 0.0
 shader_parameter/light_smoothness = 0.003
 shader_parameter/light_inverted = 0
@@ -34,7 +34,7 @@ shader_parameter/bolt_shine_reduction = 2.5
 [node name="PreviewPanel" type="PanelContainer"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 192.0
+offset_bottom = 222.0
 grow_horizontal = 2
 theme_type_variation = &"PreviewPanel"
 script = ExtResource("1_iu5lk")
@@ -109,7 +109,7 @@ right_text = ""
 [node name="Controls" type="VBoxContainer" parent="Content/Layout"]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/separation = 16
+theme_override_constants/separation = 14
 
 [node name="PreviewButton" parent="Content/Layout/Controls" instance=ExtResource("4_6wcbg")]
 unique_name_in_owner = true

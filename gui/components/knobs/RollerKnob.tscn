@@ -22,8 +22,8 @@ shader = ExtResource("2_g5ifw")
 shader_parameter/glass_shine_offset = -0.164
 shader_parameter/glass_shine_sharpness = 0.074
 shader_parameter/glass_shine_opaqueness = 0.126
-shader_parameter/vignette_center = 18.197
-shader_parameter/vignette_rim = 0.71
+shader_parameter/vignette_center = 17.042
+shader_parameter/vignette_rim = 0.921
 shader_parameter/vignette_intensity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ure2p"]
@@ -41,7 +41,7 @@ shader_parameter/markings_main_band_offset = 0.00500005
 shader_parameter/markings_band_sharpness = Vector2(0.01, 0.035)
 shader_parameter/markings_color = Color(0.843184, 0.843184, 0.843184, 1)
 shader_parameter/markings_main_color = Color(0.923899, 0.653429, 0.516652, 1)
-shader_parameter/notches_frequency = 3.494
+shader_parameter/notches_frequency = 3.211
 shader_parameter/notches_scale = 0.281
 shader_parameter/notches_shine = 0.348
 shader_parameter/notches_brightness = 1.867
@@ -85,7 +85,7 @@ theme_override_constants/separation = 0
 [node name="Value" type="Control" parent="Layout/ValueBox"]
 unique_name_in_owner = true
 clip_contents = true
-custom_minimum_size = Vector2(0, 26)
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -106,12 +106,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Roller" type="Control" parent="Layout/ValueBox"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_ure2p")
-custom_minimum_size = Vector2(100, 42)
+custom_minimum_size = Vector2(90, 34)
 layout_mode = 2
 size_flags_horizontal = 4
