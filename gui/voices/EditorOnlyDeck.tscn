@@ -80,10 +80,6 @@ unique_name_in_owner = true
 layout_mode = 2
 voice_name = "EDITOR"
 
-[node name="Spacer" type="Control" parent="Layout"]
-custom_minimum_size = Vector2(0, 8)
-layout_mode = 2
-
 [node name="GeneralKnobs" type="HBoxContainer" parent="Layout"]
 layout_mode = 2
 

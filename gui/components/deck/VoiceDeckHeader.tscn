@@ -9,6 +9,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 37.0
 grow_horizontal = 2
+theme_override_constants/margin_bottom = 8
 script = ExtResource("1_x0dr6")
 
 [node name="Layout" type="HBoxContainer" parent="."]

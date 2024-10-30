@@ -33,7 +33,8 @@ void fragment() {
 	selection_uv.x *= 1.0 + 0.1 * state_pressed;
 	selection_uv.y += 0.02 * state_pressed;
 	float selection_mask = length(selection_uv);
-	selection_mask = 1.0 - smoothstep(selection_size - selection_smoothness, selection_size + selection_smoothness, selection_mask);
+	float selection_stateful_size = selection_size - 0.005 * state_pressed;
+	selection_mask = 1.0 - smoothstep(selection_stateful_size - selection_smoothness, selection_stateful_size + selection_smoothness, selection_mask);
 
 	output_color = overlay(output_color, selection_color, float(state_selected), selection_mask);
 
