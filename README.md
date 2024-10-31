@@ -14,12 +14,12 @@ Let the luck take the wheel, or play around with a bunch of knobs and sliders yo
 
 _If you find a usability issue or a bug, please [file a report](https://github.com/YuriSizov/glasan-fx/issues). If you don't have a GitHub account, you can also reach out on [Discord](https://discord.gg/S657Y9KPF9)._
 
-### Current release: 1.0-stable
+### Current release: 1.1-stable
 
-* **[Download for Linux (x86_64)](https://github.com/YuriSizov/glasan-fx/releases/download/1.0-stable/glasan-fx-linux-x86_64.zip)**
-* **[Download for macOS (Universal)](https://github.com/YuriSizov/glasan-fx/releases/download/1.0-stable/glasan-fx-macos-universal.zip)**
-* **[Download for Windows (x86_64)](https://github.com/YuriSizov/glasan-fx/releases/download/1.0-stable/glasan-fx-windows-x86_64.zip)**
-* **[Download for Windows (x86_32)](https://github.com/YuriSizov/glasan-fx/releases/download/1.0-stable/glasan-fx-windows-x86_32.zip)**
+* **[Download for Linux (x86_64)](https://github.com/YuriSizov/glasan-fx/releases/download/1.1-stable/glasan-fx-linux-x86_64.zip)**
+* **[Download for macOS (Universal)](https://github.com/YuriSizov/glasan-fx/releases/download/1.1-stable/glasan-fx-macos-universal.zip)**
+* **[Download for Windows (x86_64)](https://github.com/YuriSizov/glasan-fx/releases/download/1.1-stable/glasan-fx-windows-x86_64.zip)**
+* **[Download for Windows (x86_32)](https://github.com/YuriSizov/glasan-fx/releases/download/1.1-stable/glasan-fx-windows-x86_32.zip)**
 
 _You can also get the project from [itch.io](https://yurisizov.itch.io/glasan-fx)._
 
