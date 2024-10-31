@@ -1,14 +1,33 @@
-[gd_scene load_steps=10 format=3 uid="uid://djhb2wcmbh21i"]
+[gd_scene load_steps=15 format=3 uid="uid://djhb2wcmbh21i"]
 
 [ext_resource type="FontFile" uid="uid://cjwuh3bvsqt57" path="res://assets/fonts/fff-aquarius-bold-condensed.msdf.ttf" id="1_0a0ls"]
+[ext_resource type="Shader" path="res://gui/panels/PlasticPanel.gdshader" id="1_loh7i"]
 [ext_resource type="PackedScene" uid="uid://dikcn6vh82w0j" path="res://gui/components/knobs/TunerSlider.tscn" id="2_w42p0"]
 [ext_resource type="PackedScene" uid="uid://gprht0fu6hyh" path="res://gui/components/GlowButton.tscn" id="3_ot386"]
 [ext_resource type="PackedScene" uid="uid://xob01bdx0r2f" path="res://gui/components/knobs/OptionFlipper.tscn" id="4_qlmlf"]
 [ext_resource type="Shader" path="res://gui/components/knobs/RollerValueBar.gdshader" id="5_cpidm"]
+[ext_resource type="Shader" path="res://gui/components/knobs/TunerSlider.gdshader" id="7_bo0oa"]
 
-[sub_resource type="FontVariation" id="FontVariation_p2f2u"]
-base_font = ExtResource("1_0a0ls")
-spacing_glyph = 1
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gh615"]
+shader = ExtResource("1_loh7i")
+shader_parameter/size = Vector2(330, 262)
+shader_parameter/light_intensity = 0.376
+shader_parameter/light_smoothness = 0.003
+shader_parameter/light_inverted = 0
+shader_parameter/border_width = 3
+shader_parameter/border_smoothness = 0.01
+shader_parameter/bolt_offset = Vector2(11, 11)
+shader_parameter/bolt_scale = 9.075
+shader_parameter/bolt_size = 0.366
+shader_parameter/bolt_smoothness = 0.04
+shader_parameter/bolt_thickness = 0.151
+shader_parameter/bolt_visibility = 0.56
+shader_parameter/bolt_shine_offset = 21.0
+shader_parameter/bolt_shine_strength = 5.51
+shader_parameter/bolt_shine_reduction = 3.467
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfco7"]
+bg_color = Color(0.321569, 0.478431, 0.556863, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_cg7oa"]
 base_font = ExtResource("1_0a0ls")
@@ -31,6 +50,25 @@ shader_parameter/vignette_center = 18.002
 shader_parameter/vignette_rim = 0.455
 shader_parameter/vignette_intensity = 1.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8avko"]
+resource_local_to_scene = true
+shader = ExtResource("7_bo0oa")
+shader_parameter/slider_size = Vector2(124, 28)
+shader_parameter/knob_position = 1.0
+shader_parameter/rail_safezone = 0.6
+shader_parameter/rail_thickness = 0.25
+shader_parameter/rail_smoothness = 0.05
+shader_parameter/knob_scale = 1.2
+shader_parameter/knob_width = 1.3
+shader_parameter/knob_color = Color(0.91745, 0.665254, 0.494773, 1)
+shader_parameter/knob_dark_color = Color(0.0619213, 0.00916145, 0.00554108, 1)
+shader_parameter/knob_light_color = Color(1, 1, 1, 0.154)
+shader_parameter/knob_light_smoothness = 0.4
+
+[sub_resource type="FontVariation" id="FontVariation_p2f2u"]
+base_font = ExtResource("1_0a0ls")
+spacing_glyph = 1
+
 [node name="Splash" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -39,7 +77,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,36 +86,33 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.322693, 0.47974, 0.556532, 1)
 
-[node name="TitleLabel" type="Label" parent="."]
-layout_mode = 2
-offset_left = 268.0
-offset_top = 259.0
-offset_right = 390.0
-offset_bottom = 284.0
-theme_type_variation = &"BrandingLabel"
-theme_override_colors/font_color = Color(0.847609, 0.814749, 0.807906, 1)
-theme_override_fonts/font = SubResource("FontVariation_p2f2u")
-theme_override_font_sizes/font_size = 12
-text = "make it LOUD!"
+[node name="Elements" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 107.0
+offset_top = 348.0
+offset_right = 107.0
+offset_bottom = 348.0
+scale = Vector2(2, 2)
 
-[node name="LengthSlider" parent="." instance=ExtResource("2_w42p0")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 0)
-offset_left = 134.0
-offset_top = 256.0
-offset_right = 243.0
-offset_bottom = 288.0
-slider_value = 1.0
-left_text = ""
-right_text = ""
+[node name="ContentPanel" type="Panel" parent="Elements"]
+visible = false
+material = SubResource("ShaderMaterial_gh615")
+layout_mode = 0
+offset_left = -22.0
+offset_top = -69.5
+offset_right = 308.0
+offset_bottom = 192.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_pfco7")
 
-[node name="PreviewButton" parent="." instance=ExtResource("3_ot386")]
+[node name="PreviewButton" parent="Elements" instance=ExtResource("3_ot386")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 32)
-offset_left = 138.0
-offset_top = 199.0
-offset_right = 311.0
-offset_bottom = 245.0
+layout_mode = 0
+offset_left = 15.0
+offset_top = 17.0
+offset_right = 188.0
+offset_bottom = 63.0
 theme_override_fonts/font = SubResource("FontVariation_cg7oa")
 theme_override_font_sizes/font_size = 22
 toggle_mode = false
@@ -86,28 +121,68 @@ off_color = Color(0.16773, 0.0422966, 0.0934806, 1)
 on_color = Color(0.94733, 0.379137, 0.240869, 1)
 force_glow = true
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="Elements"]
 layout_mode = 0
-offset_left = 316.0
-offset_top = 200.0
-offset_right = 389.0
-offset_bottom = 244.0
+offset_left = 200.0
+offset_top = 20.0
+offset_right = 263.0
+offset_bottom = 61.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ucmcm")
 
-[node name="OptionFlipper" parent="." instance=ExtResource("4_qlmlf")]
+[node name="OptionFlipper" parent="Elements" instance=ExtResource("4_qlmlf")]
 layout_mode = 0
-offset_left = 322.0
-offset_top = 206.0
-offset_right = 382.0
-offset_bottom = 238.0
+offset_left = 205.0
+offset_top = 21.0
+offset_right = 249.0
+offset_bottom = 53.0
+scale = Vector2(1.2, 1.2)
 options = Array[String](["FX"])
 option_colors = Array[Color]([Color(0.860361, 0.828067, 0.748094, 1)])
 option_text_colors = Array[Color]([Color(0.134649, 0.134649, 0.134649, 1)])
 
-[node name="FlipButton" parent="OptionFlipper/Layout" index="0"]
+[node name="FlipButton" parent="Elements/OptionFlipper/Layout" index="0"]
 visible = false
 
-[node name="Overlay" parent="OptionFlipper/Layout/Display" index="0"]
+[node name="Display" parent="Elements/OptionFlipper/Layout" index="1"]
+custom_minimum_size = Vector2(40, 26)
+
+[node name="Overlay" parent="Elements/OptionFlipper/Layout/Display" index="0"]
 material = SubResource("ShaderMaterial_7grdx")
 
-[editable path="OptionFlipper"]
+[node name="LengthSlider" parent="Elements" instance=ExtResource("2_w42p0")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 0
+offset_left = 11.0
+offset_top = 77.0
+offset_right = 135.0
+offset_bottom = 105.0
+slider_value = 1.0
+left_text = ""
+right_text = ""
+
+[node name="LeftLabel" parent="Elements/LengthSlider/Layout" index="1"]
+visible = false
+text = ""
+
+[node name="Slider" parent="Elements/LengthSlider/Layout" index="2"]
+material = SubResource("ShaderMaterial_8avko")
+
+[node name="RightLabel" parent="Elements/LengthSlider/Layout" index="3"]
+visible = false
+text = ""
+
+[node name="TitleLabel" type="Label" parent="Elements"]
+layout_mode = 2
+offset_left = 145.0
+offset_top = 77.0
+offset_right = 267.0
+offset_bottom = 102.0
+theme_type_variation = &"BrandingLabel"
+theme_override_colors/font_color = Color(0.847609, 0.814749, 0.807906, 1)
+theme_override_fonts/font = SubResource("FontVariation_p2f2u")
+theme_override_font_sizes/font_size = 12
+text = "make it LOUD!"
+
+[editable path="Elements/OptionFlipper"]
+[editable path="Elements/LengthSlider"]
