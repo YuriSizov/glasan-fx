@@ -30,6 +30,7 @@ Controller="*res://globals/Controller.gd"
 
 window/size/viewport_width=800
 window/size/viewport_height=1024
+window/handheld/orientation=1
 
 [editor]
 
